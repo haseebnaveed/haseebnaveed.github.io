@@ -1,1 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study – Megascans Pricing · Haseeb Naveed</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#141414;
+  --text:#ede9e3;--muted:#666;--muted2:#2e2e2e;
+  --accent:#4d9fff;--accent-dim:rgba(77,159,255,0.08);
+  --border:#1a1a1a;--border2:#252525;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
 
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+nav::before{content:'';position:absolute;inset:0;background:rgba(8,8,8,0.9);backdrop-filter:blur(16px);z-index:-1}
+.logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--accent)}
+.nav-back{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--text)}
+.nav-back::before{content:'←';font-size:14px}
+
+canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.35}
+
+.hero{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:10rem 2.5rem 5rem}
+.cs-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.cs-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1.5rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
+.meta-pill{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em}
+.hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.8;font-weight:300;border-left:2px solid var(--accent);padding-left:1.25rem}
+
+.content{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0 2.5rem 8rem}
+
+.section{margin-bottom:4rem}
+.section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
+.section h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:1rem;line-height:1.2}
+.section p{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:1rem;font-weight:300}
+.section p:last-child{margin-bottom:0}
+
+.callout{background:var(--accent-dim);border:1px solid rgba(77,159,255,0.15);border-radius:10px;padding:1.5rem 1.75rem;margin:2rem 0}
+.callout p{font-size:14px;color:var(--text);line-height:1.75;margin:0;font-weight:300}
+.callout strong{font-weight:500;color:var(--accent)}
+
+.divider{height:1px;background:var(--border);margin:3.5rem 0}
+
+.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:2rem}
+.outcome{background:var(--bg2);padding:1.75rem 1.5rem}
+.outcome-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent);line-height:1}
+.outcome-label{font-size:12px;color:var(--muted);margin-top:0.4rem;font-weight:300}
+
+.clients{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
+.client-tag{font-size:12px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted)}
+
+.weight-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:13px}
+.weight-table th{text-align:left;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:400;padding:0.75rem 1rem;border-bottom:1px solid var(--border)}
+.weight-table td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);color:var(--muted);font-weight:300;vertical-align:top}
+.weight-table tr:last-child td{border-bottom:none}
+.weight-table td:first-child{color:var(--text);font-weight:400;white-space:nowrap}
+
+footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;position:relative;z-index:1}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+  <div class="logo">HN</div>
+  <a href="index.html" class="nav-back">Back to portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="cs-tag">Case Study</div>
+  <h1>Rethinking how the world's largest 3D asset library charges for its content</h1>
+  <div class="hero-meta">
+    <span class="meta-pill">Epic Games</span>
+    <span class="meta-pill">2022 – 2024</span>
+    <span class="meta-pill">Pricing Strategy</span>
+    <span class="meta-pill">Marketplace</span>
+  </div>
+  <p class="hero-sub">Megascans had been priced for adoption since the Quixel acquisition. As Epic prepared to launch FAB, a fully open UGC marketplace, that model became a liability. I led the transition from a subscription model to a tiered Pay-Per-Product system designed to be fair, scalable, and market-ready.</p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-label">The problem</div>
+    <h2>A pricing model built for a different era</h2>
+    <p>Megascans had been subscription-priced since before the Epic acquisition, optimised for broad adoption rather than revenue. The content — used in productions by Rockstar, Ubisoft, Disney, Netflix, and studios behind films like Love, Death & Robots — was world-class. The pricing didn't reflect that.</p>
+    <p>When Epic began building FAB as an open marketplace where independent creators could sell alongside Megascans, the problem became structural. A subscription-priced Megascans catalog sitting next to creator listings would make it impossible for smaller sellers to compete. The marketplace couldn't be open and equitable with Megascans effectively subsidised.</p>
+    <div class="callout">
+      <p><strong>The core tension:</strong> Megascans needed to be priced for its actual value, without pricing out the small creators FAB was being built to serve.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Stakeholder friction</div>
+    <h2>Sales and support weren't convinced</h2>
+    <p>The loudest pushback came from sales and support teams. The subscription price had been stable since the acquisition, customers had come to expect it, and a move to per-product pricing felt like a shock risk.</p>
+    <p>The argument I made was straightforward: we hadn't raised prices in years, and the content had only gotten better. No other library operated at this caliber. AAA studios and Hollywood productions were using Megascans because there was simply no comparable alternative, not at this quality, not at this scale, not with our proprietary processing pipeline. A pricing adjustment wasn't just justifiable, it was overdue.</p>
+    <p>The conversation shifted once we reframed it: this wasn't a price increase, it was a repricing for a new marketplace context. The goal wasn't to extract more from existing customers, it was to create a structure that could sustain a healthy ecosystem.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Research</div>
+    <h2>Talking to creators, studying competitors</h2>
+    <p>I started by going directly to the creators we were onboarding onto FAB — solo artists and small studios — to understand how they thought about asset pricing. What did they charge? What drove those decisions? How did they perceive Megascans relative to their own work?</p>
+    <p>In parallel, I broke down competing content libraries: their subscription tiers, their per-asset pricing where it existed, and what you actually got for the money. The picture that emerged was consistent: smaller creators priced higher than us because they didn't have our operational scale. Competitors were priced similarly or above — and the quality gap was significant.</p>
+    <div class="callout">
+      <p><strong>Key finding:</strong> Megascans was underpriced relative to both its quality and the market. Solo creators couldn't undercut us even at our new prices, their operational costs made it structurally impossible. The moat wasn't price, it was the proprietary scanning pipeline.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">The model</div>
+    <h2>Building a pricing system from scratch</h2>
+    <p>The company directive was clear: move away from subscription, price per product. What that meant in practice was building a repeatable, defensible system for pricing 18,000+ individual assets — consistently, at scale.</p>
+    <p>I designed a weighting framework that scored each asset across several dimensions to arrive at a price point. The goal was a model that felt fair to buyers, was defensible internally, and created meaningful price differentiation between asset types without going so high that small creators were priced out entirely.</p>
+
+    <table class="weight-table">
+      <thead>
+        <tr>
+          <th>Factor</th>
+          <th>What it captured</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Asset type</td><td>3D model vs surface vs decal — complexity of production</td></tr>
+        <tr><td>Size & scale</td><td>Larger, more detailed assets carry higher scanning and processing costs</td></tr>
+        <tr><td>Scan type</td><td>Photogrammetry at scale vs close-range studio scanning</td></tr>
+        <tr><td>Uniqueness</td><td>Generic surfaces priced lower; rare or one-of-a-kind scans priced higher</td></tr>
+        <tr><td>Texture resolution</td><td>8K assets cost more to produce and deliver more value</td></tr>
+        <tr><td>Quality tier</td><td>Hollywood-grade assets benchmarked against internal quality standards</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:1.5rem">The result: a tiered structure where smaller, more generic content stayed accessible, and large-scale, unique, high-resolution assets were priced to reflect the production value behind them. Small creators could still get world-class content. The marketplace could still be competitive.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Context</div>
+    <h2>Content trusted by the industry's biggest names</h2>
+    <p>Part of what made this pricing conversation possible was the client base. Megascans wasn't a niche tool — it was infrastructure for some of the most demanding productions in games and film.</p>
+    <div class="clients">
+      <span class="client-tag">Rockstar Games</span>
+      <span class="client-tag">Ubisoft</span>
+      <span class="client-tag">Disney</span>
+      <span class="client-tag">Netflix</span>
+      <span class="client-tag">Love, Death & Robots</span>
+      <span class="client-tag">AAA game studios</span>
+      <span class="client-tag">VFX houses</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Outcome</div>
+    <h2>A marketplace ready to launch</h2>
+    <p>The new pricing model shipped as part of the FAB launch. Beyond enabling a fair competitive environment for creators, the repricing drove measurable results in the first quarter.</p>
+    <div class="outcomes">
+      <div class="outcome">
+        <div class="outcome-num">+23%</div>
+        <div class="outcome-label">Customer acquisition in Q1</div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-num">−16%</div>
+        <div class="outcome-label">Support volume post-launch</div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-num">+21%</div>
+        <div class="outcome-label">5-star ratings</div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-num">18K+</div>
+        <div class="outcome-label">Assets repriced at launch</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Haseeb Naveed &nbsp;·&nbsp; 2026</footer>
+
+<script>
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let W,H,stars=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;init()}
+function init(){
+  stars=[];
+  const n=Math.floor((W*H)/9000);
+  for(let i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+0.2,twinkle:Math.random()*Math.PI*2,speed:0.015+Math.random()*0.025});
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  for(const s of stars){
+    s.twinkle+=s.speed;
+    const op=(Math.sin(s.twinkle)*0.5+0.5)*0.65+0.1;
+    ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(77,159,255,${op})`;ctx.fill();
+  }
+  ctx.lineWidth=0.4;
+  for(let i=0;i<stars.length;i++){
+    for(let j=i+1;j<stars.length;j++){
+      const dx=stars[i].x-stars[j].x,dy=stars[i].y-stars[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<100){
+        ctx.globalAlpha=(1-d/100)*0.15;
+        ctx.strokeStyle='rgba(77,159,255,1)';
+        ctx.beginPath();ctx.moveTo(stars[i].x,stars[i].y);ctx.lineTo(stars[j].x,stars[j].y);ctx.stroke();
+      }
+    }
+  }
+  ctx.globalAlpha=1;
+  requestAnimationFrame(draw);
+}
+window.addEventListener('resize',resize);
+resize();draw();
+</script>
+</body>
+</html>

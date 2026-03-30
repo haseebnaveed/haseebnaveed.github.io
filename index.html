@@ -1,1 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haseeb Naveed</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#141414;
+  --text:#ede9e3;--muted:#666;--muted2:#2e2e2e;
+  --accent:#4d9fff;--accent2:#2979d9;--accent-dim:rgba(77,159,255,0.1);
+  --border:#1a1a1a;--border2:#252525;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
 
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+nav::before{content:'';position:absolute;inset:0;background:rgba(8,8,8,0.9);backdrop-filter:blur(16px);z-index:-1}
+.logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--accent)}
+nav ul{list-style:none;display:flex;gap:2.5rem}
+nav ul a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s}
+nav ul a:hover{color:var(--text)}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin:0 auto}
+canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.5}
+.hero-inner{position:relative;z-index:1}
+.hero-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem}
+.hero-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.75rem}
+.hero h1 .dim{color:var(--muted)}
+.hero h1 .accent{color:var(--accent)}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:460px;line-height:1.75;margin-bottom:2.5rem;font-weight:300}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.5rem;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;border-radius:2rem;transition:all 0.25s;font-weight:500}
+.btn-outline{border:1px solid var(--border2);color:var(--muted)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-fill{background:var(--accent);color:#080808;border:1px solid var(--accent)}
+.btn-fill:hover{background:var(--accent2);border-color:var(--accent2)}
+.scroll-hint{position:absolute;bottom:2.5rem;left:2.5rem;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:0.75rem;z-index:1}
+.scroll-hint::after{content:'';display:inline-block;width:40px;height:1px;background:var(--muted2)}
+
+.section{padding:7rem 2.5rem;max-width:1000px;margin:0 auto}
+.section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem;display:flex;align-items:center;gap:0.75rem}
+.section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
+
+.roles{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.role{background:var(--bg2);cursor:pointer;transition:background 0.2s;position:relative;overflow:hidden}
+.role:hover{background:var(--bg3)}
+.role-header{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.25rem;position:relative;z-index:1}
+.role-company{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
+.role-title{font-size:0.95rem;font-weight:500;color:var(--text);line-height:1.4}
+.role-right{text-align:right;flex-shrink:0}
+.role-period{font-size:11px;color:var(--muted);letter-spacing:0.05em}
+.role-toggle{font-size:20px;color:var(--muted2);margin-top:0.4rem;transition:transform 0.25s;display:block;line-height:1}
+.role.open .role-toggle{transform:rotate(45deg);color:var(--accent)}
+.role-body{display:none;padding:0 2.25rem 2rem;position:relative;z-index:1}
+.role-body.open{display:block}
+.role-img{width:100%;max-height:280px;object-fit:cover;object-position:top;border-radius:8px;margin-bottom:1.5rem;border:1px solid var(--border2);display:block}
+.role-body p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:300}
+.role-metrics{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
+.metric-pill{font-size:11px;padding:0.3rem 0.85rem;border-radius:2rem;letter-spacing:0.03em}
+.metric-pill.default{border:1px solid var(--border2);color:var(--text)}
+.metric-pill.blue{border:1px solid rgba(77,159,255,0.3);color:var(--accent);background:var(--accent-dim)}
+.role-links{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
+.role-link{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.role-link:hover{border-color:var(--accent);color:var(--accent)}
+.role-link::after{content:'↗';font-size:10px}
+.role-divider{height:1px;background:var(--border);margin-bottom:1.5rem}
+.role-dots{position:absolute;top:0;right:0;bottom:0;width:180px;pointer-events:none;z-index:0;opacity:0.04}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2rem}
+.skill-group h3{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:400}
+.skill-group ul{list-style:none;display:flex;flex-wrap:wrap;gap:0.4rem}
+.skill-group li{font-size:12px;color:var(--muted);padding:0.25rem 0.7rem;border:1px solid var(--border);border-radius:2rem;transition:all 0.2s}
+.skill-group li:hover{border-color:var(--border2);color:var(--text)}
+
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.contact-item{background:var(--bg2);padding:1.75rem;transition:background 0.2s}
+.contact-item:hover{background:var(--bg3)}
+.contact-type{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
+.contact-val{font-size:14px;color:var(--muted);transition:color 0.2s}
+.contact-item:hover .contact-val{color:var(--text)}
+
+footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;line-height:2}
+.divider{height:1px;background:var(--border)}
+
+@media(max-width:700px){
+  nav ul{display:none}
+  .hero,.section{padding-left:1.5rem;padding-right:1.5rem}
+  nav{padding:1rem 1.5rem}
+  .role-header{flex-direction:column;gap:0.5rem;padding:1.5rem}
+  .role-right{text-align:left;display:flex;gap:1rem;align-items:center}
+  .role-body{padding:0 1.5rem 1.5rem}
+  .role-dots{display:none}
+  .scroll-hint{display:none}
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+  <div class="logo">HN</div>
+  <ul>
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#casestudies">Case Studies</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Product Management &amp; Operations · Iceland / Pakistan</div>
+    <h1>Haseeb<br><span class="dim">Naveed</span><span class="accent">.</span></h1>
+    <p class="hero-sub">Senior PM &amp; Product Ops with 7+ years scaling marketplaces, developer tools, and platform ecosystems.</p>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn btn-fill">View work</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+      <a href="haseeb-naveed-cv.pdf" download class="btn btn-outline">Download CV</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="experience">
+  <div class="section-label">Experience</div>
+  <div class="roles">
+
+    <div class="role" onclick="toggleRole(this)">
+      <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
+        <defs><pattern id="d1" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#4d9fff"/></pattern></defs>
+        <rect width="180" height="100" fill="url(#d1)"/>
+      </svg>
+      <div class="role-header">
+        <div>
+          <div class="role-company">CCP Games · Reykjavík</div>
+          <div class="role-title">Snr. Product Manager / Snr. Product Ops — Carbon Platform &amp; Internal Dev Tools</div>
+        </div>
+        <div class="role-right">
+          <div class="role-period">2025 — Present</div>
+          <span class="role-toggle">+</span>
+        </div>
+      </div>
+      <div class="role-body">
+        <div class="role-divider"></div>
+        <p>Leading product for a cross-functional team of 6 engineers, 1 QA, and 1 designer building internal dev tools and asset publishing pipelines. Proposed and led initiatives across tooling stability, developer experience, and a full UI/UX redesign of core tooling implemented via Claude Code.</p>
+        <p>Simultaneously leading the open source transformation of Carbon, CCP's in-house engine, working with engineering, legal, and production to establish governance, contribution pathways, community infrastructure, and documentation for external contributors.</p>
+        <div class="role-metrics">
+          <span class="metric-pill blue">Team of 8</span>
+          <span class="metric-pill default">Open source strategy</span>
+          <span class="metric-pill default">Dev tooling</span>
+          <span class="metric-pill default">Platform governance</span>
+          <span class="metric-pill default">Community infrastructure</span>
+        </div>
+        <div class="role-links">
+          <a href="https://github.com/ccpgames" target="_blank" class="role-link">Carbon on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="role" onclick="toggleRole(this)">
+      <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
+        <defs><pattern id="d2" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#4d9fff"/></pattern></defs>
+        <rect width="180" height="100" fill="url(#d2)"/>
+      </svg>
+      <div class="role-header">
+        <div>
+          <div class="role-company">Epic Games · Islamabad</div>
+          <div class="role-title">Product Manager — Content, Merchandising &amp; Strategy</div>
+        </div>
+        <div class="role-right">
+          <div class="role-period">2022 — 2024</div>
+          <span class="role-toggle">+</span>
+        </div>
+      </div>
+      <div class="role-body">
+        <div class="role-divider"></div>
+        <img class="role-img" id="fab-img" alt="FAB Marketplace" style="display:none"/>
+        <p>Led pricing strategy for Megascans on FAB, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
+        <div class="role-metrics">
+          <span class="metric-pill blue">+23% acquisition</span>
+          <span class="metric-pill blue">−16% support volume</span>
+          <span class="metric-pill blue">+21% ratings</span>
+          <span class="metric-pill blue">−20% time to publish</span>
+        </div>
+        <div class="role-links">
+          <a href="https://fab.com" target="_blank" class="role-link">FAB Marketplace</a>
+          <a href="https://quixel.com/megascans" target="_blank" class="role-link">Megascans</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="role" onclick="toggleRole(this)">
+      <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
+        <defs><pattern id="d3" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#4d9fff"/></pattern></defs>
+        <rect width="180" height="100" fill="url(#d3)"/>
+      </svg>
+      <div class="role-header">
+        <div>
+          <div class="role-company">Epic Games · Islamabad</div>
+          <div class="role-title">Associate Product Manager — Technical, Content &amp; Creator Tools</div>
+        </div>
+        <div class="role-right">
+          <div class="role-period">2021 — 2022</div>
+          <span class="role-toggle">+</span>
+        </div>
+      </div>
+      <div class="role-body">
+        <div class="role-divider"></div>
+        <img class="role-img" id="bridge-img" alt="Quixel Bridge" style="display:none"/>
+        <p>Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
+        <div class="role-metrics">
+          <span class="metric-pill blue">+46% subscriptions</span>
+          <span class="metric-pill blue">+33% MAU</span>
+          <span class="metric-pill blue">−40% manual reporting</span>
+        </div>
+        <div class="role-links">
+          <a href="https://bridge.quixel.com" target="_blank" class="role-link">Quixel Bridge</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="role" onclick="toggleRole(this)">
+      <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
+        <defs><pattern id="d4" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#4d9fff"/></pattern></defs>
+        <rect width="180" height="100" fill="url(#d4)"/>
+      </svg>
+      <div class="role-header">
+        <div>
+          <div class="role-company">Quixel (acq. Epic Games) · Islamabad</div>
+          <div class="role-title">Senior Marketplace Manager — Megascans</div>
+        </div>
+        <div class="role-right">
+          <div class="role-period">2019 — 2021</div>
+          <span class="role-toggle">+</span>
+        </div>
+      </div>
+      <div class="role-body">
+        <div class="role-divider"></div>
+        <img class="role-img" id="megascans-img" alt="Quixel Megascans" style="display:none"/>
+        <p>Sole operator managing a rapidly scaling catalog, publishing content and single-handedly rewriting the metadata architecture as the library grew from 7,000 to 18,000+ listings. Designed a 0→1 taxonomy and curation system, raised CSAT by 36 points to 83.5%.</p>
+        <div class="role-metrics">
+          <span class="metric-pill blue">7K → 18K listings</span>
+          <span class="metric-pill blue">+109% downloads</span>
+          <span class="metric-pill blue">83.5% CSAT</span>
+          <span class="metric-pill blue">110K users surveyed</span>
+        </div>
+        <div class="role-links">
+          <a href="https://quixel.com/megascans" target="_blank" class="role-link">Megascans</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="role" onclick="toggleRole(this)">
+      <div class="role-header">
+        <div>
+          <div class="role-company">Motive (ex KeepTruckin) · Islamabad</div>
+          <div class="role-title">Technical Support Specialist</div>
+        </div>
+        <div class="role-right">
+          <div class="role-period">2018 — 2019</div>
+          <span class="role-toggle">+</span>
+        </div>
+      </div>
+      <div class="role-body">
+        <div class="role-divider"></div>
+        <p>Technical support across email, chat, and voice for a fleet management SaaS. Triaged issues to product and engineering, and contributed to the customer knowledge base.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="casestudies">
+  <div class="section-label">Case Studies</div>
+  <div class="roles">
+
+    <div class="role" style="cursor:default">
+      <div class="role-header" style="cursor:pointer" onclick="window.location='case-study-pricing.html'">
+        <div>
+          <div class="role-company">Epic Games · Pricing Strategy</div>
+          <div class="role-title">Rethinking how the world's largest 3D asset library charges for its content</div>
+        </div>
+        <div class="role-right">
+          <div class="role-period">2022 – 2024</div>
+          <span style="font-size:11px;padding:0.25rem 0.7rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.05em">Read</span>
+        </div>
+      </div>
+      <div style="padding:0 2.25rem 1.5rem;display:flex;gap:0.4rem;flex-wrap:wrap">
+        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">+23% acquisition</span>
+        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">18K+ assets repriced</span>
+        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">Subscription to PPP</span>
+      </div>
+    </div>
+
+    <div class="role" style="cursor:default;opacity:0.4">
+      <div class="role-header">
+        <div>
+          <div class="role-company">Quixel · Catalog & Taxonomy</div>
+          <div class="role-title">Building a 0→1 curation system for an 18,000+ asset marketplace</div>
+        </div>
+        <div class="role-right">
+          <div class="role-period">2019 – 2021</div>
+          <span style="font-size:11px;padding:0.25rem 0.7rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em">Coming soon</span>
+        </div>
+      </div>
+      <div style="padding:0 2.25rem 1.5rem;display:flex;gap:0.4rem;flex-wrap:wrap">
+        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.03em">18K+ assets</span>
+        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.03em">+109% downloads</span>
+        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.03em">83.5% CSAT</span>
+      </div>
+    </div>
+
+    <div class="role" style="cursor:default;opacity:0.4">
+      <div class="role-header">
+        <div>
+          <div class="role-company">CCP Games · Open Source</div>
+          <div class="role-title">Taking an in-house game engine open source</div>
+        </div>
+        <div class="role-right">
+          <div class="role-period">2025 – Present</div>
+          <span style="font-size:11px;padding:0.25rem 0.7rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em">Coming soon</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="skills">
+  <div class="section-label">Skills</div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Product</h3>
+      <ul><li>Roadmapping</li><li>Pricing Strategy</li><li>Feature Prioritization</li><li>Release Planning</li><li>Backlog Management</li><li>Sprint Planning</li><li>A/B Testing</li><li>Agile</li></ul>
+    </div>
+    <div class="skill-group">
+      <h3>Research</h3>
+      <ul><li>Customer Interviews</li><li>Survey Design</li><li>Market Research</li><li>Competitive Analysis</li><li>Stakeholder Management</li></ul>
+    </div>
+    <div class="skill-group">
+      <h3>Analytics</h3>
+      <ul><li>SQL</li><li>Python</li><li>Tableau</li><li>Metabase</li><li>Excel</li></ul>
+    </div>
+    <div class="skill-group">
+      <h3>Tools</h3>
+      <ul><li>Figma</li><li>JIRA</li><li>Notion</li><li>Asana</li><li>GitHub</li><li>Miro</li><li>Slack</li></ul>
+    </div>
+    <div class="skill-group">
+      <h3>AI</h3>
+      <ul><li>Claude Code</li><li>LLM workflows</li></ul>
+    </div>
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <ul><li>English (C1)</li><li>Urdu</li><li>Punjabi</li><li>Hindi</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-grid">
+    <div class="contact-item"><a href="mailto:haseebnaveed@protonmail.com"><div class="contact-type">Email</div><div class="contact-val">haseebnaveed@protonmail.com</div></a></div>
+    <div class="contact-item"><a href="tel:+3547792348"><div class="contact-type">Phone</div><div class="contact-val">+354 779 2348</div></a></div>
+    <div class="contact-item"><a href="https://linkedin.com" target="_blank"><div class="contact-type">LinkedIn</div><div class="contact-val">linkedin.com/in/haseebnaveed</div></a></div>
+  </div>
+</div>
+
+<footer>
+  Haseeb Naveed &nbsp;·&nbsp; 2026<br>
+  <span style="font-size:10px;color:#111">All product names and trademarks are property of their respective owners.</span>
+</footer>
+
+<script>
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let W,H,stars=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;init()}
+function init(){
+  stars=[];
+  const n=Math.floor((W*H)/7000);
+  for(let i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+0.2,twinkle:Math.random()*Math.PI*2,speed:0.015+Math.random()*0.025});
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  for(const s of stars){
+    s.twinkle+=s.speed;
+    const op=(Math.sin(s.twinkle)*0.5+0.5)*0.7+0.1;
+    ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(77,159,255,${op})`;ctx.fill();
+  }
+  ctx.lineWidth=0.4;
+  for(let i=0;i<stars.length;i++){
+    for(let j=i+1;j<stars.length;j++){
+      const dx=stars[i].x-stars[j].x,dy=stars[i].y-stars[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<100){
+        ctx.globalAlpha=(1-d/100)*0.18;
+        ctx.strokeStyle='rgba(77,159,255,1)';
+        ctx.beginPath();ctx.moveTo(stars[i].x,stars[i].y);ctx.lineTo(stars[j].x,stars[j].y);ctx.stroke();
+      }
+    }
+  }
+  ctx.globalAlpha=1;
+  requestAnimationFrame(draw);
+}
+window.addEventListener('resize',resize);
+resize();draw();
+
+function toggleRole(el){
+  el.querySelector('.role-body').classList.toggle('open');
+  el.classList.toggle('open');
+}
+document.querySelectorAll('.role-img').forEach(img=>{
+  if(!img.src||img.src.includes('PLACEHOLDER'))img.style.display='none';
+});
+</script>
+</body>
+</html>

@@ -33,6 +33,9 @@ nav ul a:hover{color:var(--text)}
 
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin:0 auto}
 canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.7;display:block}
+@media(max-width:700px){
+  canvas#particles{position:absolute;height:100vh}
+}
 .hero-inner{position:relative;z-index:1}
 .hero-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem}
 .hero-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
@@ -112,8 +115,8 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 </head>
 <body>
 
-<div id="cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
 <canvas id="particles"></canvas>
+<div id="cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
 
 <nav>
   <div class="logo">HN</div>

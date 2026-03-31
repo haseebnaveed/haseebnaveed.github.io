@@ -423,9 +423,9 @@ function toggleRole(el){
   el.querySelector('.role-body').classList.toggle('open');
   el.classList.toggle('open');
 }
-document.querySelectorAll('.role-img').forEach(img=>{
-  if(!img.src||img.src.includes('PLACEHOLDER'))img.style.display='none';
-});
+document.getElementById('fab-img').src = 'fab.png';
+document.getElementById('bridge-img').src = 'bridge.png';
+document.getElementById('megascans-img').src = 'megascans.png';
 </script>
 </body>
 </html>

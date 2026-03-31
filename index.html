@@ -419,7 +419,14 @@ document.addEventListener('click',e=>{
 
 // Handle back/forward
 window.addEventListener('pageshow',e=>{
-  if(e.persisted)document.body.style.opacity='1';
+  document.body.style.opacity='0';
+  document.body.style.transition='none';
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      document.body.style.transition='opacity 0.4s ease';
+      document.body.style.opacity='1';
+    });
+  });
 });
 
 // Custom cursor

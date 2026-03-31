@@ -399,6 +399,8 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 // Fade in
 document.addEventListener('DOMContentLoaded',()=>{
   document.body.classList.add('loaded');
+  resize();
+  draw();
 });
 
 // Smooth navigation
@@ -479,9 +481,7 @@ function draw(){
   requestAnimationFrame(draw);
 }
 window.addEventListener('resize',resize);
-resize();
-window.addEventListener('load',()=>{resize();draw();});
-draw();
+window.addEventListener('load',resize);
 
 function toggleRole(el){
   el.querySelector('.role-body').classList.toggle('open');

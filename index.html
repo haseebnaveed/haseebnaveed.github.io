@@ -396,63 +396,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 </footer>
 
 <script>
-// Fade in
-document.addEventListener('DOMContentLoaded',()=>{
-  document.body.classList.add('loaded');
-  resize();
-  draw();
-});
-
-// Smooth navigation
-function navigate(href){
-  document.body.style.opacity='0';
-  document.body.style.transition='opacity 0.35s ease';
-  setTimeout(()=>window.location=href,350);
-}
-
-// Intercept internal page links
-document.addEventListener('click',e=>{
-  const a=e.target.closest('a[href]');
-  if(!a)return;
-  const href=a.getAttribute('href');
-  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')||a.hasAttribute('download'))return;
-  e.preventDefault();
-  navigate(href);
-});
-
-// Handle back/forward
-window.addEventListener('pageshow',e=>{
-  document.body.style.opacity='0';
-  document.body.style.transition='none';
-  requestAnimationFrame(()=>{
-    requestAnimationFrame(()=>{
-      document.body.style.transition='opacity 0.4s ease';
-      document.body.style.opacity='1';
-    });
-  });
-});
-
-// Custom cursor
-const cur=document.getElementById('cursor');
-const dot=document.getElementById('cursor-dot');
-const ring=document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  dot.style.left=mx+'px';dot.style.top=my+'px';
-});
-function animRing(){
-  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
-  ring.style.left=rx+'px';ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
-}
-animRing();
-document.querySelectorAll('a,button,.role,.btn').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
-});
-
-// Constellation
+// Canvas first
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d');
 let W,H,stars=[];
@@ -481,7 +425,61 @@ function draw(){
   requestAnimationFrame(draw);
 }
 window.addEventListener('resize',resize);
-window.addEventListener('load',resize);
+resize();draw();
+</script>
+
+<script>
+// Everything else
+document.addEventListener('DOMContentLoaded',()=>{
+  document.body.classList.add('loaded');
+  resize();
+  draw();
+});
+
+function navigate(href){
+  document.body.style.opacity='0';
+  document.body.style.transition='opacity 0.35s ease';
+  setTimeout(()=>window.location=href,350);
+}
+
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href]');
+  if(!a)return;
+  const href=a.getAttribute('href');
+  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')||a.hasAttribute('download'))return;
+  e.preventDefault();
+  navigate(href);
+});
+
+window.addEventListener('pageshow',e=>{
+  document.body.style.opacity='0';
+  document.body.style.transition='none';
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      document.body.style.transition='opacity 0.4s ease';
+      document.body.style.opacity='1';
+    });
+  });
+});
+
+const cur=document.getElementById('cursor');
+const dot=document.getElementById('cursor-dot');
+const ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+});
+function animRing(){
+  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('a,button,.role,.btn').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
+});
 
 function toggleRole(el){
   el.querySelector('.role-body').classList.toggle('open');

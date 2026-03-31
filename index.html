@@ -97,6 +97,9 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   .role-dots{display:none}
   .scroll-hint{display:none}
 }
+body{opacity:0;transition:opacity 0.4s ease}
+body.loaded{opacity:1}
+
 </style>
 </head>
 <body>
@@ -426,6 +429,22 @@ function toggleRole(el){
 document.getElementById('fab-img').src = 'fab.png';
 document.getElementById('bridge-img').src = 'bridge.png';
 document.getElementById('megascans-img').src = 'megascans.png';
+
+  document.addEventListener('DOMContentLoaded',()=>{
+  document.body.classList.add('loaded');
+});
+
+document.querySelectorAll('a[href]').forEach(a=>{
+  const href=a.getAttribute('href');
+  if(href&&!href.startsWith('#')&&!href.startsWith('http')&&!href.startsWith('mailto')&&!href.startsWith('tel')){
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      document.body.style.opacity='0';
+      setTimeout(()=>window.location=href,400);
+    });
+  }
+});
+
 </script>
 </body>
 </html>

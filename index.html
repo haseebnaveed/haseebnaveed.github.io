@@ -8,10 +8,10 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#080808;--bg2:rgba(15,15,15,0.75);--bg3:rgba(20,20,20,0.75);
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#141414;
   --text:#ede9e3;--muted:#666;--muted2:#2e2e2e;
   --accent:#4d9fff;--accent2:#2979d9;--accent-dim:rgba(77,159,255,0.1);
-  --border:rgba(26,26,26,0.8);--border2:rgba(37,37,37,0.8);
+  --border:#1a1a1a;--border2:#252525;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;opacity:0;transition:opacity 0.4s ease}
@@ -19,8 +19,8 @@ body.loaded{opacity:1}
 a{color:inherit;text-decoration:none}
 
 #cursor{position:fixed;pointer-events:none;z-index:9999}
-#cursor-dot{width:8px;height:8px;background:#fff;border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:transform 0.1s ease,width 0.2s ease,height 0.2s ease}
-#cursor-ring{width:36px;height:36px;border:1px solid rgba(77,159,255,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:transform 0.08s ease,width 0.25s ease,height 0.25s ease,border-color 0.25s ease;top:0;left:0}
+#cursor-dot{width:8px;height:8px;background:#fff;border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.2s ease,height 0.2s ease}
+#cursor-ring{width:36px;height:36px;border:1px solid rgba(77,159,255,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.25s ease,height 0.25s ease,border-color 0.25s ease;top:0;left:0}
 body.cursor-hover #cursor-dot{width:12px;height:12px}
 body.cursor-hover #cursor-ring{width:52px;height:52px;border-color:rgba(77,159,255,1)}
 
@@ -31,8 +31,9 @@ nav ul{list-style:none;display:flex;gap:2.5rem}
 nav ul a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s}
 nav ul a:hover{color:var(--text)}
 
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin:0 auto}
 canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.5}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin:0 auto}
 .hero-inner{position:relative;z-index:1}
 .hero-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem}
 .hero-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
@@ -54,7 +55,7 @@ canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;po
 .section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
 
 .roles{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.role{background:var(--bg2);cursor:none;transition:background 0.2s;position:relative;overflow:hidden}
+.role{background:var(--bg2);cursor:pointer;transition:background 0.2s;position:relative;overflow:hidden}
 .role:hover{background:var(--bg3)}
 .role-header{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.25rem;position:relative;z-index:1}
 .role-company{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
@@ -107,7 +108,6 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   .scroll-hint{display:none}
   body{cursor:auto}
   #cursor{display:none}
-  canvas#particles{display:none}
 }
 </style>
 </head>
@@ -235,8 +235,6 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
           <span class="metric-pill blue">+33% MAU</span>
           <span class="metric-pill blue">−40% manual reporting</span>
         </div>
-        <div class="role-links">
-        </div>
       </div>
     </div>
 
@@ -297,8 +295,8 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   <div class="section-label">Case Studies</div>
   <div class="roles">
 
-    <div class="role" style="cursor:none">
-      <div class="role-header" onclick="navigate('case-study-pricing.html')" style="cursor:none">
+    <div class="role" style="cursor:pointer">
+      <div class="role-header" onclick="navigate('case-study-pricing.html')">
         <div>
           <div class="role-company">Epic Games · Pricing Strategy</div>
           <div class="role-title">Rethinking how the world's largest 3D asset library charges for its content</div>
@@ -315,10 +313,10 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       </div>
     </div>
 
-    <div class="role" style="cursor:none;opacity:0.4">
+    <div class="role" style="opacity:0.4;cursor:default">
       <div class="role-header">
         <div>
-          <div class="role-company">Quixel · Catalog & Taxonomy</div>
+          <div class="role-company">Quixel · Catalog &amp; Taxonomy</div>
           <div class="role-title">Building a 0→1 curation system for an 18,000+ asset marketplace</div>
         </div>
         <div class="role-right">
@@ -333,7 +331,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       </div>
     </div>
 
-    <div class="role" style="cursor:none;opacity:0.4">
+    <div class="role" style="opacity:0.4;cursor:default">
       <div class="role-header">
         <div>
           <div class="role-company">CCP Games · Open Source</div>
@@ -397,7 +395,6 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 </footer>
 
 <script>
-// Canvas first
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d');
 let W,H,stars=[];
@@ -426,15 +423,11 @@ function draw(){
   requestAnimationFrame(draw);
 }
 window.addEventListener('resize',resize);
-resize();draw();
-</script>
+resize();
+draw();
 
-<script>
-// Everything else
 document.addEventListener('DOMContentLoaded',()=>{
   document.body.classList.add('loaded');
-  resize();
-  draw();
 });
 
 function navigate(href){
@@ -452,7 +445,7 @@ document.addEventListener('click',e=>{
   navigate(href);
 });
 
-window.addEventListener('pageshow',e=>{
+window.addEventListener('pageshow',()=>{
   document.body.style.opacity='0';
   document.body.style.transition='none';
   requestAnimationFrame(()=>{

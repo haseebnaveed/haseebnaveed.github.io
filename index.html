@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Haseeb Naveed</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23080808'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%234d9fff'>HN</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -30,6 +31,15 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(8,8,8,0.9);back
 nav ul{list-style:none;display:flex;gap:2.5rem}
 nav ul a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s}
 nav ul a:hover{color:var(--text)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.burger span{display:block;width:22px;height:1.5px;background:var(--muted);transition:all 0.25s}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,8,8,0.97);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--muted);letter-spacing:0.05em;transition:color 0.2s}
+.mobile-menu a:hover{color:var(--text)}
 
 canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.5}
 
@@ -66,7 +76,13 @@ canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;po
 .role.open .role-toggle{transform:rotate(45deg);color:var(--accent)}
 .role-body{display:none;padding:0 2.25rem 2rem;position:relative;z-index:1}
 .role-body.open{display:block}
-.role-img{width:100%;max-height:280px;object-fit:cover;object-position:top;border-radius:8px;margin-bottom:1.5rem;border:1px solid var(--border2);display:block}
+.role-img-wrap{margin-bottom:1.5rem}
+.role-img-toggle{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);border-radius:2rem;padding:0.25rem 0.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:0.75rem;transition:all 0.2s;background:none}
+.role-img-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.role-img-toggle .arr{transition:transform 0.25s;display:inline-block}
+.role-img-wrap.open .role-img-toggle .arr{transform:rotate(180s)}
+.role-img{width:100%;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--border2);display:none;max-height:none}
+.role-img-wrap.open .role-img{display:block}
 .role-body p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:300}
 .role-metrics{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
 .metric-pill{font-size:11px;padding:0.3rem 0.85rem;border-radius:2rem;letter-spacing:0.03em}
@@ -98,9 +114,10 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 @media(min-width:701px){body{cursor:none}}
 @media(max-width:700px){
   nav ul{display:none}
-  .hero,.section{padding-left:1.5rem;padding-right:1.5rem}
+  .burger{display:flex}
   nav{padding:1rem 1.5rem}
   nav::before{backdrop-filter:none;background:rgba(8,8,8,0.97)}
+  .hero,.section{padding-left:1.5rem;padding-right:1.5rem}
   .role-header{flex-direction:column;gap:0.5rem;padding:1.5rem}
   .role-right{text-align:left;display:flex;gap:1rem;align-items:center}
   .role-body{padding:0 1.5rem 1.5rem}
@@ -124,7 +141,17 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#experience" onclick="closeMenu()">Work</a>
+  <a href="#casestudies" onclick="closeMenu()">Case Studies</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
 <div class="hero">
   <div class="hero-inner">
@@ -196,7 +223,10 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       </div>
       <div class="role-body">
         <div class="role-divider"></div>
-        <img class="role-img" id="fab-img" alt="FAB Marketplace"/>
+        <div class="role-img-wrap" id="fab-wrap">
+          <button class="role-img-toggle" onclick="toggleImg('fab-wrap',event)">Show product image <span class="arr">▾</span></button>
+          <img class="role-img" id="fab-img" alt="FAB Marketplace"/>
+        </div>
         <p>Led pricing strategy for Megascans on FAB, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
         <div class="role-metrics">
           <span class="metric-pill blue">+23% acquisition</span>
@@ -228,7 +258,10 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       </div>
       <div class="role-body">
         <div class="role-divider"></div>
-        <img class="role-img" id="bridge-img" alt="Quixel Bridge"/>
+        <div class="role-img-wrap" id="bridge-wrap">
+          <button class="role-img-toggle" onclick="toggleImg('bridge-wrap',event)">Show product image <span class="arr">▾</span></button>
+          <img class="role-img" id="bridge-img" alt="Quixel Bridge"/>
+        </div>
         <p>Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
         <div class="role-metrics">
           <span class="metric-pill blue">+46% subscriptions</span>
@@ -255,7 +288,10 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       </div>
       <div class="role-body">
         <div class="role-divider"></div>
-        <img class="role-img" id="megascans-img" alt="Quixel Megascans"/>
+        <div class="role-img-wrap" id="megascans-wrap">
+          <button class="role-img-toggle" onclick="toggleImg('megascans-wrap',event)">Show product image <span class="arr">▾</span></button>
+          <img class="role-img" id="megascans-img" alt="Quixel Megascans"/>
+        </div>
         <p>Sole operator managing a rapidly scaling catalog, publishing content and single-handedly rewriting the metadata architecture as the library grew from 7,000 to 18,000+ listings. Designed a 0→1 taxonomy and curation system, raised CSAT by 36 points to 83.5%.</p>
         <div class="role-metrics">
           <span class="metric-pill blue">7K → 18K listings</span>
@@ -300,16 +336,16 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         <div>
           <div class="role-company">Epic Games · Pricing Strategy</div>
           <div class="role-title">Rethinking how the world's largest 3D asset library charges for its content</div>
-        </div>
-        <div class="role-right">
-          <div class="role-period">2022 – 2024</div>
-          <span style="font-size:11px;padding:0.25rem 0.7rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.05em">Read</span>
+          <div style="font-size:11px;color:#666;margin-top:0.4rem">2022 – 2024</div>
         </div>
       </div>
-      <div style="padding:0 2.25rem 1.5rem;display:flex;gap:0.4rem;flex-wrap:wrap">
-        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">+23% acquisition</span>
-        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">18K+ assets repriced</span>
-        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">Subscription to PPP</span>
+      <div style="padding:0 1.25rem 1.25rem;display:flex;flex-direction:column;gap:0.75rem">
+        <div onclick="navigate('case-study-pricing.html')" style="display:block;width:100%;padding:0.65rem;background:#4d9fff;color:#080808;border-radius:6px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-align:center;cursor:pointer">Read case study →</div>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap">
+          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">+23% acquisition</span>
+          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">18K+ assets repriced</span>
+          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(77,159,255,0.3);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">Subscription to PPP</span>
+        </div>
       </div>
     </div>
 
@@ -474,6 +510,25 @@ document.querySelectorAll('a,button,.role,.btn').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
 });
+
+function toggleImg(id,e){
+  e.stopPropagation();
+  const wrap=document.getElementById(id);
+  wrap.classList.toggle('open');
+  const btn=wrap.querySelector('.role-img-toggle');
+  btn.innerHTML=wrap.classList.contains('open')?'Hide product image <span class="arr" style="display:inline-block;transform:rotate(180deg)">▾</span>':'Show product image <span class="arr">▾</span>';
+}
+
+function toggleMenu(){
+  const b=document.getElementById('burger');
+  const m=document.getElementById('mobile-menu');
+  b.classList.toggle('open');
+  m.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('burger').classList.remove('open');
+  document.getElementById('mobile-menu').classList.remove('open');
+}
 
 function toggleRole(el){
   el.querySelector('.role-body').classList.toggle('open');

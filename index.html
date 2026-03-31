@@ -484,6 +484,7 @@ document.addEventListener('click',e=>{
 window.addEventListener('pageshow',()=>{
   document.body.style.opacity='0';
   document.body.style.transition='none';
+  closeMenu();
   requestAnimationFrame(()=>{
     requestAnimationFrame(()=>{
       document.body.style.transition='opacity 0.4s ease';

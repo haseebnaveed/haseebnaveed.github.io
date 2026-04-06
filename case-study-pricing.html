@@ -8,28 +8,40 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
+  --bg:#F5EFE4;--bg2:#E8DFCF;--bg3:#DDD3C0;
+  --text:#201B15;--muted:#7A6A58;--muted2:#C8BAA8;
+  --accent:#C9924A;--accent2:#A87038;--accent-dim:rgba(201,146,74,0.12);
+  --border:#DDD3C0;--border2:#C8B89A;
+  --nav-bg:rgba(245,239,228,0.92);
+}
+:root.dark{
   --bg:#1E1A14;--bg2:#262118;--bg3:#2E2820;
   --text:#E8DECE;--muted:#9A8E7E;--muted2:#3E3428;
   --accent:#C9924A;--accent2:#A87038;--accent-dim:rgba(201,146,74,0.12);
   --border:#2A2318;--border2:#3A3025;
+  --nav-bg:rgba(30,26,20,0.92);
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;opacity:0;transition:opacity 0.4s ease;cursor:none}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;opacity:0;transition:opacity 0.4s ease,background 0.35s,color 0.35s;cursor:none}
 body.loaded{opacity:1}
 a{color:inherit;text-decoration:none}
 
 #cursor{position:fixed;pointer-events:none;z-index:9999}
-#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.2s ease,height 0.2s ease}
-#cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.25s ease,height 0.25s ease,border-color 0.25s ease;top:0;left:0}
+#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s}
+#cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.25s,height 0.25s,border-color 0.25s;top:0;left:0}
 body.cursor-hover #cursor-dot{width:12px;height:12px}
 body.cursor-hover #cursor-ring{width:52px;height:52px;border-color:rgba(201,146,74,1)}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
-nav::before{content:'';position:absolute;inset:0;background:rgba(30,26,20,0.92);backdrop-filter:blur(16px);z-index:-1}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:border-color 0.35s}
+nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.35s}
 .logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--accent)}
-.nav-back{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;display:flex;align-items:center;gap:0.5rem;cursor:none}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-back{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
 .nav-back:hover{color:var(--text)}
 .nav-back::before{content:'←';font-size:14px}
+.theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.35s,border-color 0.35s;flex-shrink:0}
+.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.3s ease}
+:root.dark .theme-toggle::after{transform:translateX(20px)}
 
 .hero{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:10rem 2.5rem 5rem}
 .cs-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
@@ -51,10 +63,10 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(30,26,20,0.92);
 .callout p{font-size:14px;color:var(--text);line-height:1.75;margin:0;font-weight:300}
 .callout strong{font-weight:500;color:var(--accent)}
 
-.divider{height:1px;background:var(--border);margin:3.5rem 0}
+.divider{height:1px;background:var(--border);margin:3.5rem 0;transition:background 0.35s}
 
-.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:2rem}
-.outcome{background:var(--bg2);padding:1.75rem 1.5rem}
+.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:2rem;transition:background 0.35s,border-color 0.35s}
+.outcome{background:var(--bg2);padding:1.75rem 1.5rem;transition:background 0.35s}
 .outcome-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent);line-height:1}
 .outcome-label{font-size:12px;color:var(--muted);margin-top:0.4rem;font-weight:300}
 
@@ -63,15 +75,14 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(30,26,20,0.92);
 
 .weight-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:13px}
 .weight-table th{text-align:left;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:400;padding:0.75rem 1rem;border-bottom:1px solid var(--border)}
-.weight-table td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);color:var(--muted);font-weight:300;vertical-align:top}
+.weight-table td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);color:var(--muted);font-weight:300;vertical-align:top;transition:border-color 0.35s}
 .weight-table tr:last-child td{border-bottom:none}
 .weight-table td:first-child{color:var(--text);font-weight:400;white-space:nowrap}
 
-footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;position:relative;z-index:1}
+footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;position:relative;z-index:1;transition:border-color 0.35s,color 0.35s}
 
 @media(max-width:700px){
-  body{cursor:auto}
-  #cursor{display:none}
+  body{cursor:auto}#cursor{display:none}
   .hero,.content{padding-left:1.5rem;padding-right:1.5rem}
   nav{padding:1rem 1.5rem}
 }
@@ -83,7 +94,10 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
 <nav>
   <div class="logo">HN</div>
-  <a class="nav-back" onclick="navigate('index.html')">Back to portfolio</a>
+  <div class="nav-right">
+    <a class="nav-back" onclick="navigate('index.html')">Back to portfolio</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"></button>
+  </div>
 </nav>
 
 <div class="hero">
@@ -105,9 +119,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     <h2>A pricing model built for a different era</h2>
     <p>Megascans had been subscription-priced since before the Epic acquisition, optimised for broad adoption rather than revenue. The content, used in productions by Rockstar, Ubisoft, Disney, Netflix, and studios behind films like Love, Death &amp; Robots, was world-class. The pricing didn't reflect that.</p>
     <p>When Epic began building FAB as an open marketplace where independent creators could sell alongside Megascans, the problem became structural. A subscription-priced Megascans catalog sitting next to creator listings would make it impossible for smaller sellers to compete. The marketplace couldn't be open and equitable with Megascans effectively subsidised.</p>
-    <div class="callout">
-      <p><strong>The core tension:</strong> Megascans needed to be priced for its actual value, without pricing out the small creators FAB was being built to serve.</p>
-    </div>
+    <div class="callout"><p><strong>The core tension:</strong> Megascans needed to be priced for its actual value, without pricing out the small creators FAB was being built to serve.</p></div>
   </div>
 
   <div class="divider"></div>
@@ -127,9 +139,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     <h2>Talking to creators, studying competitors</h2>
     <p>I started by going directly to the creators we were onboarding onto FAB, solo artists and small studios, to understand how they thought about asset pricing. What did they charge? What drove those decisions? How did they perceive Megascans relative to their own work?</p>
     <p>In parallel, I broke down competing content libraries: their subscription tiers, their per-asset pricing where it existed, and what you actually got for the money. The picture that emerged was consistent: smaller creators priced higher than us because they didn't have our operational scale. Competitors were priced similarly or above, and the quality gap was significant.</p>
-    <div class="callout">
-      <p><strong>Key finding:</strong> Megascans was underpriced relative to both its quality and the market. Solo creators couldn't undercut us even at our new prices, their operational costs made it structurally impossible. The moat wasn't price, it was the proprietary scanning pipeline.</p>
-    </div>
+    <div class="callout"><p><strong>Key finding:</strong> Megascans was underpriced relative to both its quality and the market. Solo creators couldn't undercut us even at our new prices, their operational costs made it structurally impossible. The moat wasn't price, it was the proprietary scanning pipeline.</p></div>
   </div>
 
   <div class="divider"></div>
@@ -140,9 +150,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     <p>The company directive was clear: move away from subscription, price per product. What that meant in practice was building a repeatable, defensible system for pricing 18,000+ individual assets consistently, at scale.</p>
     <p>I designed a weighting framework that scored each asset across several dimensions to arrive at a price point. The goal was a model that felt fair to buyers, was defensible internally, and created meaningful price differentiation between asset types without going so high that small creators were priced out entirely.</p>
     <table class="weight-table">
-      <thead>
-        <tr><th>Factor</th><th>What it captured</th></tr>
-      </thead>
+      <thead><tr><th>Factor</th><th>What it captured</th></tr></thead>
       <tbody>
         <tr><td>Asset type</td><td>3D model vs surface vs decal — complexity of production</td></tr>
         <tr><td>Size &amp; scale</td><td>Larger, more detailed assets carry higher scanning and processing costs</td></tr>
@@ -152,7 +160,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         <tr><td>Quality tier</td><td>Hollywood-grade assets benchmarked against internal quality standards</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:1.5rem">The result: a tiered structure where smaller, more generic content stayed accessible, and large-scale, unique, high-resolution assets were priced to reflect the production value behind them. Small creators could still get world-class content. The marketplace could still be competitive.</p>
+    <p style="margin-top:1.5rem">The result: a tiered structure where smaller, more generic content stayed accessible, and large-scale, unique, high-resolution assets were priced to reflect the production value behind them.</p>
   </div>
 
   <div class="divider"></div>
@@ -162,13 +170,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     <h2>Content trusted by the industry's biggest names</h2>
     <p>Part of what made this pricing conversation possible was the client base. Megascans wasn't a niche tool, it was infrastructure for some of the most demanding productions in games and film.</p>
     <div class="clients">
-      <span class="client-tag">Rockstar Games</span>
-      <span class="client-tag">Ubisoft</span>
-      <span class="client-tag">Disney</span>
-      <span class="client-tag">Netflix</span>
-      <span class="client-tag">Love, Death &amp; Robots</span>
-      <span class="client-tag">AAA game studios</span>
-      <span class="client-tag">VFX houses</span>
+      <span class="client-tag">Rockstar Games</span><span class="client-tag">Ubisoft</span><span class="client-tag">Disney</span><span class="client-tag">Netflix</span><span class="client-tag">Love, Death &amp; Robots</span><span class="client-tag">AAA game studios</span><span class="client-tag">VFX houses</span>
     </div>
   </div>
 
@@ -191,34 +193,40 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 <footer>Haseeb Naveed &nbsp;·&nbsp; 2026</footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',()=>document.body.classList.add('loaded'));
+const root = document.documentElement;
 
-function navigate(href){
-  document.body.style.opacity='0';
-  document.body.style.transition='opacity 0.35s ease';
-  setTimeout(()=>window.location=href,350);
+function toggleTheme() {
+  root.classList.toggle('dark');
+  localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
 }
-document.addEventListener('click',e=>{
-  const a=e.target.closest('a[href]');
-  if(!a)return;
-  const href=a.getAttribute('href');
-  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')||a.hasAttribute('download'))return;
-  e.preventDefault();navigate(href);
+if (localStorage.getItem('theme') === 'dark') root.classList.add('dark');
+
+document.addEventListener('DOMContentLoaded', () => document.body.classList.add('loaded'));
+
+function navigate(href) {
+  document.body.style.opacity = '0';
+  document.body.style.transition = 'opacity 0.35s ease';
+  setTimeout(() => window.location = href, 350);
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || a.hasAttribute('download')) return;
+  e.preventDefault(); navigate(href);
 });
-window.addEventListener('pageshow',()=>{
-  document.body.style.opacity='0';document.body.style.transition='none';
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    document.body.style.transition='opacity 0.4s ease';document.body.style.opacity='1';
-  }));
+window.addEventListener('pageshow', () => {
+  document.body.style.opacity = '0'; document.body.style.transition = 'none';
+  requestAnimationFrame(() => requestAnimationFrame(() => { document.body.style.transition = 'opacity 0.4s ease'; document.body.style.opacity = '1'; }));
 });
 
-const cur=document.getElementById('cursor'),dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-(function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
+const cur = document.getElementById('cursor'), dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
+(function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
 </script>
 </body>

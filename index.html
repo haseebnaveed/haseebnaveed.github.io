@@ -4,46 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Haseeb Naveed</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231E1A14'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%23C9924A'>HN</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23F5EFE4'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%23C9924A'>HN</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
+  --bg:#F5EFE4;--bg2:#E8DFCF;--bg3:#DDD3C0;
+  --text:#201B15;--muted:#7A6A58;--muted2:#C8BAA8;
+  --accent:#C9924A;--accent2:#A87038;--accent-dim:rgba(201,146,74,0.12);
+  --border:#DDD3C0;--border2:#C8B89A;
+  --nav-bg:rgba(245,239,228,0.92);
+  --pulse-alpha:0.18;
+}
+:root.dark{
   --bg:#1E1A14;--bg2:#262118;--bg3:#2E2820;
   --text:#E8DECE;--muted:#9A8E7E;--muted2:#3E3428;
   --accent:#C9924A;--accent2:#A87038;--accent-dim:rgba(201,146,74,0.12);
   --border:#2A2318;--border2:#3A3025;
+  --nav-bg:rgba(30,26,20,0.92);
+  --pulse-alpha:0.07;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;opacity:0;transition:opacity 0.4s ease}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;opacity:0;transition:opacity 0.4s ease,background 0.35s,color 0.35s}
 body.loaded{opacity:1}
 a{color:inherit;text-decoration:none}
 
 #cursor{position:fixed;pointer-events:none;z-index:9999}
-#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.2s ease,height 0.2s ease}
-#cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.25s ease,height 0.25s ease,border-color 0.25s ease;top:0;left:0}
+#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s}
+#cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.25s,height 0.25s,border-color 0.25s;top:0;left:0}
 body.cursor-hover #cursor-dot{width:12px;height:12px}
 body.cursor-hover #cursor-ring{width:52px;height:52px;border-color:rgba(201,146,74,1)}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
-nav::before{content:'';position:absolute;inset:0;background:rgba(30,26,20,0.92);backdrop-filter:blur(16px);z-index:-1}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:background 0.35s,border-color 0.35s}
+nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.35s}
 .logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:2rem}
 nav ul{list-style:none;display:flex;gap:2.5rem}
 nav ul a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s}
 nav ul a:hover{color:var(--text)}
+.theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.35s,border-color 0.35s;flex-shrink:0}
+.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.3s ease}
+:root.dark .theme-toggle::after{transform:translateX(20px)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .burger span{display:block;width:22px;height:1.5px;background:var(--muted);transition:all 0.25s}
 .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(30,26,20,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transition:background 0.35s}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--muted);letter-spacing:0.05em;transition:color 0.2s}
+.mobile-menu a{font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--muted);transition:color 0.2s}
 .mobile-menu a:hover{color:var(--text)}
 
-.hero-wrap{position:relative;overflow:hidden}
-canvas#pulse{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin:0 auto}
+canvas#pulse{display:block;width:100%;height:100vh}
+.hero{margin-top:calc(-100vh + 64px);min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin-left:auto;margin-right:auto;margin-top:calc(-100vh + 64px);position:relative;z-index:1}
 .hero-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem}
 .hero-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.75rem}
@@ -56,14 +69,14 @@ canvas#pulse{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;poi
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
 .btn-fill{background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
 .btn-fill:hover{background:var(--accent2);border-color:var(--accent2)}
-.scroll-hint{position:absolute;bottom:2.5rem;left:2.5rem;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:0.75rem;z-index:1}
+.scroll-hint{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:0.75rem;margin-top:3rem}
 .scroll-hint::after{content:'';display:inline-block;width:40px;height:1px;background:var(--muted2)}
 
 .section{padding:7rem 2.5rem;max-width:1000px;margin:0 auto}
 .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem;display:flex;align-items:center;gap:0.75rem}
 .section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
 
-.roles{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.roles{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:background 0.35s,border-color 0.35s}
 .role{background:var(--bg2);cursor:pointer;transition:background 0.2s;position:relative;overflow:hidden}
 .role:hover{background:var(--bg3)}
 .role-header{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.25rem;position:relative;z-index:1}
@@ -78,14 +91,13 @@ canvas#pulse{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;poi
 .role-img-wrap{margin-bottom:1.5rem}
 .role-img-toggle{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);border-radius:2rem;padding:0.25rem 0.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:0.75rem;transition:all 0.2s;background:none}
 .role-img-toggle:hover{border-color:var(--accent);color:var(--accent)}
-.role-img-toggle .arr{transition:transform 0.25s;display:inline-block}
-.role-img{width:100%;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--border2);display:none;max-height:none}
+.role-img-toggle .arr{display:inline-block}
+.role-img{width:100%;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--border2);display:none}
 .role-img-wrap.open .role-img{display:block}
 .role-body p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:300}
 .role-metrics{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
 .metric-pill{font-size:11px;padding:0.3rem 0.85rem;border-radius:2rem;letter-spacing:0.03em}
-.metric-pill.default{border:1px solid var(--border2);color:var(--text)}
-.metric-pill.blue{border:1px solid rgba(201,146,74,0.35);color:#DFB47A;background:var(--accent-dim)}
+.metric-pill.blue{border:1px solid rgba(201,146,74,0.35);color:var(--accent);background:var(--accent-dim)}
 .role-links{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
 .role-link{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
 .role-link:hover{border-color:var(--accent);color:var(--accent)}
@@ -106,23 +118,20 @@ canvas#pulse{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;poi
 .contact-val{font-size:14px;color:var(--muted);transition:color 0.2s}
 .contact-item:hover .contact-val{color:var(--text)}
 
-footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;line-height:2}
-.divider{height:1px;background:var(--border)}
+footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;line-height:2;transition:border-color 0.35s,color 0.35s}
+.divider{height:1px;background:var(--border);transition:background 0.35s}
 
 @media(min-width:701px){body{cursor:none}}
 @media(max-width:700px){
-  nav ul{display:none}
-  .burger{display:flex}
+  nav ul{display:none}.burger{display:flex}
+  .nav-right{gap:1rem}
   nav{padding:1rem 1.5rem}
-  nav::before{backdrop-filter:none;background:rgba(30,26,20,0.98)}
   .hero,.section{padding-left:1.5rem;padding-right:1.5rem}
   .role-header{flex-direction:column;gap:0.5rem;padding:1.5rem}
   .role-right{text-align:left;display:flex;gap:1rem;align-items:center}
   .role-body{padding:0 1.5rem 1.5rem}
   .role-dots{display:none}
-  .scroll-hint{display:none}
-  body{cursor:auto}
-  #cursor{display:none}
+  body{cursor:auto}#cursor{display:none}
 }
 </style>
 </head>
@@ -132,15 +141,16 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
 <nav>
   <div class="logo">HN</div>
-  <ul>
-    <li><a href="#experience">Work</a></li>
-    <li><a href="#casestudies">Case Studies</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="burger" id="burger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <ul>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#casestudies">Case Studies</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"></button>
+    <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
@@ -150,17 +160,16 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
-<div class="hero-wrap">
-  <canvas id="pulse"></canvas>
-  <div class="hero">
-    <div class="hero-tag">Product Management &amp; Operations · Iceland / Pakistan</div>
-    <h1>Haseeb<br><span class="dim">Naveed</span><span class="accent">.</span></h1>
-    <p class="hero-sub">Senior Product Management &amp; Operations professional with 7+ years scaling marketplaces, developer tools, and platform ecosystems.</p>
-    <div class="hero-ctas">
-      <a href="#experience" class="btn btn-fill">View work</a>
-      <a href="#contact" class="btn btn-outline">Get in touch</a>
-      <a href="haseeb-naveed-cv.pdf" download class="btn btn-outline">Download CV</a>
-    </div>
+<canvas id="pulse"></canvas>
+
+<div class="hero">
+  <div class="hero-tag">Product Management &amp; Operations · Iceland / Pakistan</div>
+  <h1>Haseeb<br><span class="dim">Naveed</span><span class="accent">.</span></h1>
+  <p class="hero-sub">Senior Product Management &amp; Operations professional with 7+ years scaling marketplaces, developer tools, and platform ecosystems.</p>
+  <div class="hero-ctas">
+    <a href="#experience" class="btn btn-fill">View work</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
+    <a href="haseeb-naveed-cv.pdf" download class="btn btn-outline">Download CV</a>
   </div>
   <div class="scroll-hint">Scroll</div>
 </div>
@@ -181,21 +190,14 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
           <div class="role-company">CCP Games · Reykjavík</div>
           <div class="role-title">Snr. Product Manager / Snr. Product Ops — Carbon Platform &amp; Internal Dev Tools</div>
         </div>
-        <div class="role-right">
-          <div class="role-period">2025 — Present</div>
-          <span class="role-toggle">+</span>
-        </div>
+        <div class="role-right"><div class="role-period">2025 — Present</div><span class="role-toggle">+</span></div>
       </div>
       <div class="role-body">
         <div class="role-divider"></div>
         <p>Leading product for a cross-functional team of 6 engineers, 1 QA, and 1 designer building internal dev tools and asset publishing pipelines. Proposed and led initiatives across tooling stability, developer experience, and a full UI/UX redesign of core tooling implemented via Claude Code.</p>
         <p>Simultaneously leading the open source transformation of Carbon, CCP's in-house engine, working with engineering, legal, and production to establish governance, contribution pathways, community infrastructure, and documentation for external contributors.</p>
         <div class="role-metrics">
-          <span class="metric-pill blue">Team of 8</span>
-          <span class="metric-pill blue">Open source strategy</span>
-          <span class="metric-pill blue">Dev tooling</span>
-          <span class="metric-pill blue">Platform governance</span>
-          <span class="metric-pill blue">Community infrastructure</span>
+          <span class="metric-pill blue">Team of 8</span><span class="metric-pill blue">Open source strategy</span><span class="metric-pill blue">Dev tooling</span><span class="metric-pill blue">Platform governance</span><span class="metric-pill blue">Community infrastructure</span>
         </div>
         <div class="role-links">
           <a href="https://github.com/ccpgames" target="_blank" class="role-link">Carbon on GitHub</a>
@@ -214,10 +216,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
           <div class="role-company">Epic Games · Islamabad</div>
           <div class="role-title">Product Manager — Content, Merchandising &amp; Strategy</div>
         </div>
-        <div class="role-right">
-          <div class="role-period">2022 — 2024</div>
-          <span class="role-toggle">+</span>
-        </div>
+        <div class="role-right"><div class="role-period">2022 — 2024</div><span class="role-toggle">+</span></div>
       </div>
       <div class="role-body">
         <div class="role-divider"></div>
@@ -227,10 +226,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         </div>
         <p>Led pricing strategy for Megascans on FAB, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
         <div class="role-metrics">
-          <span class="metric-pill blue">+23% acquisition</span>
-          <span class="metric-pill blue">−16% support volume</span>
-          <span class="metric-pill blue">+21% ratings</span>
-          <span class="metric-pill blue">−20% time to publish</span>
+          <span class="metric-pill blue">+23% acquisition</span><span class="metric-pill blue">−16% support volume</span><span class="metric-pill blue">+21% ratings</span><span class="metric-pill blue">−20% time to publish</span>
         </div>
         <div class="role-links">
           <a href="https://fab.com" target="_blank" class="role-link">FAB Marketplace</a>
@@ -249,10 +245,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
           <div class="role-company">Epic Games · Islamabad</div>
           <div class="role-title">Associate Product Manager — Technical, Content &amp; Creator Tools</div>
         </div>
-        <div class="role-right">
-          <div class="role-period">2021 — 2022</div>
-          <span class="role-toggle">+</span>
-        </div>
+        <div class="role-right"><div class="role-period">2021 — 2022</div><span class="role-toggle">+</span></div>
       </div>
       <div class="role-body">
         <div class="role-divider"></div>
@@ -262,9 +255,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         </div>
         <p>Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
         <div class="role-metrics">
-          <span class="metric-pill blue">+46% subscriptions</span>
-          <span class="metric-pill blue">+33% MAU</span>
-          <span class="metric-pill blue">−40% manual reporting</span>
+          <span class="metric-pill blue">+46% subscriptions</span><span class="metric-pill blue">+33% MAU</span><span class="metric-pill blue">−40% manual reporting</span>
         </div>
       </div>
     </div>
@@ -279,10 +270,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
           <div class="role-company">Quixel (acq. Epic Games) · Islamabad</div>
           <div class="role-title">Senior Marketplace Manager — Megascans</div>
         </div>
-        <div class="role-right">
-          <div class="role-period">2019 — 2021</div>
-          <span class="role-toggle">+</span>
-        </div>
+        <div class="role-right"><div class="role-period">2019 — 2021</div><span class="role-toggle">+</span></div>
       </div>
       <div class="role-body">
         <div class="role-divider"></div>
@@ -292,14 +280,9 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         </div>
         <p>Sole operator managing a rapidly scaling catalog, publishing content and single-handedly rewriting the metadata architecture as the library grew from 7,000 to 18,000+ listings. Designed a 0→1 taxonomy and curation system, raised CSAT by 36 points to 83.5%.</p>
         <div class="role-metrics">
-          <span class="metric-pill blue">7K → 18K listings</span>
-          <span class="metric-pill blue">+109% downloads</span>
-          <span class="metric-pill blue">83.5% CSAT</span>
-          <span class="metric-pill blue">110K users surveyed</span>
+          <span class="metric-pill blue">7K → 18K listings</span><span class="metric-pill blue">+109% downloads</span><span class="metric-pill blue">83.5% CSAT</span><span class="metric-pill blue">110K users surveyed</span>
         </div>
-        <div class="role-links">
-          <a href="https://quixel.com/megascans" target="_blank" class="role-link">Megascans</a>
-        </div>
+        <div class="role-links"><a href="https://quixel.com/megascans" target="_blank" class="role-link">Megascans</a></div>
       </div>
     </div>
 
@@ -309,10 +292,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
           <div class="role-company">Motive (ex KeepTruckin) · Islamabad</div>
           <div class="role-title">Technical Support Specialist</div>
         </div>
-        <div class="role-right">
-          <div class="role-period">2018 — 2019</div>
-          <span class="role-toggle">+</span>
-        </div>
+        <div class="role-right"><div class="role-period">2018 — 2019</div><span class="role-toggle">+</span></div>
       </div>
       <div class="role-body">
         <div class="role-divider"></div>
@@ -340,9 +320,9 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <div style="padding:0 1.25rem 1.25rem;display:flex;flex-direction:column;gap:0.75rem">
         <div onclick="navigate('case-study-pricing.html')" style="display:block;width:100%;padding:0.65rem;background:var(--accent);color:var(--bg);border-radius:6px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-align:center;cursor:pointer">Read case study →</div>
         <div style="display:flex;gap:0.4rem;flex-wrap:wrap">
-          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(201,146,74,0.35);border-radius:2rem;color:#DFB47A;background:var(--accent-dim);letter-spacing:0.03em">+23% acquisition</span>
-          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(201,146,74,0.35);border-radius:2rem;color:#DFB47A;background:var(--accent-dim);letter-spacing:0.03em">18K+ assets repriced</span>
-          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(201,146,74,0.35);border-radius:2rem;color:#DFB47A;background:var(--accent-dim);letter-spacing:0.03em">Subscription to PPP</span>
+          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(201,146,74,0.35);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">+23% acquisition</span>
+          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(201,146,74,0.35);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">18K+ assets repriced</span>
+          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(201,146,74,0.35);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">Subscription to PPP</span>
         </div>
       </div>
     </div>
@@ -411,62 +391,72 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',()=>document.body.classList.add('loaded'));
+const root = document.documentElement;
 
-function navigate(href){
-  document.body.style.opacity='0';
-  document.body.style.transition='opacity 0.35s ease';
-  setTimeout(()=>window.location=href,350);
+function toggleTheme() {
+  root.classList.toggle('dark');
+  localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
 }
-document.addEventListener('click',e=>{
-  const a=e.target.closest('a[href]');
-  if(!a)return;
-  const href=a.getAttribute('href');
-  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto')||href.startsWith('tel')||a.hasAttribute('download'))return;
-  e.preventDefault();navigate(href);
+const saved = localStorage.getItem('theme');
+if (saved === 'dark') root.classList.add('dark');
+
+document.addEventListener('DOMContentLoaded', () => document.body.classList.add('loaded'));
+
+function navigate(href) {
+  document.body.style.opacity = '0';
+  document.body.style.transition = 'opacity 0.35s ease';
+  setTimeout(() => window.location = href, 350);
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || a.hasAttribute('download')) return;
+  e.preventDefault(); navigate(href);
 });
-window.addEventListener('pageshow',()=>{
-  document.body.style.opacity='0';document.body.style.transition='none';
-  closeMenu();
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    document.body.style.transition='opacity 0.4s ease';document.body.style.opacity='1';
-  }));
+window.addEventListener('pageshow', () => {
+  document.body.style.opacity = '0'; document.body.style.transition = 'none'; closeMenu();
+  requestAnimationFrame(() => requestAnimationFrame(() => { document.body.style.transition = 'opacity 0.4s ease'; document.body.style.opacity = '1'; }));
 });
 
-const cur=document.getElementById('cursor'),dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-(function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
-document.querySelectorAll('a,button,.role,.btn').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
+const cur = document.getElementById('cursor'), dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
+(function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
+document.querySelectorAll('a,button,.role,.btn').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
 
-function toggleImg(id,e){
+function toggleImg(id, e) {
   e.stopPropagation();
-  const wrap=document.getElementById(id);wrap.classList.toggle('open');
-  const btn=wrap.querySelector('.role-img-toggle');
-  btn.innerHTML=wrap.classList.contains('open')?'Hide product image <span class="arr" style="display:inline-block;transform:rotate(180deg)">▾</span>':'Show product image <span class="arr">▾</span>';
+  const wrap = document.getElementById(id); wrap.classList.toggle('open');
+  const btn = wrap.querySelector('.role-img-toggle');
+  btn.innerHTML = wrap.classList.contains('open') ? 'Hide product image <span class="arr" style="display:inline-block;transform:rotate(180deg)">▾</span>' : 'Show product image <span class="arr">▾</span>';
 }
-function toggleMenu(){document.getElementById('burger').classList.toggle('open');document.getElementById('mobile-menu').classList.toggle('open');}
-function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('mobile-menu').classList.remove('open');}
-function toggleRole(el){el.querySelector('.role-body').classList.toggle('open');el.classList.toggle('open');}
+function toggleMenu() { document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('burger').classList.remove('open'); document.getElementById('mobile-menu').classList.remove('open'); }
+function toggleRole(el) { el.querySelector('.role-body').classList.toggle('open'); el.classList.toggle('open'); }
 
-try{document.getElementById('fab-img').src='fab.png';document.getElementById('bridge-img').src='bridge.jpg';document.getElementById('megascans-img').src='megascans.png';}catch(e){}
+try { document.getElementById('fab-img').src = 'fab.png'; document.getElementById('bridge-img').src = 'bridge.jpg'; document.getElementById('megascans-img').src = 'megascans.png'; } catch (e) {}
 
-const c=document.getElementById('pulse'),ctx=c.getContext('2d');
-const wrap=document.querySelector('.hero-wrap');
-let W,H,t=0;
-function setup(){W=c.width=wrap.offsetWidth;H=c.height=wrap.offsetHeight;}
-setup();window.addEventListener('resize',setup);
-(function draw(){
-  ctx.clearRect(0,0,W,H);t+=0.012;
-  const cx=W*0.5,cy=H*0.52,rings=7;
-  for(let i=0;i<rings;i++){
-    const phase=t+i*(Math.PI*2/rings),pulse=Math.sin(phase)*0.5+0.5;
-    const r=60+i*70+pulse*30,alpha=0.06*(1-i/rings)*(0.4+pulse*0.6);
-    ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
-    ctx.strokeStyle=`rgba(201,146,74,${alpha})`;ctx.lineWidth=1.2;ctx.stroke();
+const c = document.getElementById('pulse'), ctx = c.getContext('2d');
+let W, H, t = 0;
+function setup() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; }
+window.addEventListener('load', setup);
+window.addEventListener('resize', setup);
+(function draw() {
+  ctx.clearRect(0, 0, W, H); t += 0.012;
+  const cx = W * 0.5, cy = H * 0.5, rings = 7;
+  const isDark = root.classList.contains('dark');
+  const base = isDark ? 0.07 : 0.18;
+  for (let i = 0; i < rings; i++) {
+    const phase = t + i * (Math.PI * 2 / rings);
+    const pulse = Math.sin(phase) * 0.5 + 0.5;
+    const r = 60 + i * 70 + pulse * 30;
+    const alpha = base * (1 - i / rings) * (0.4 + pulse * 0.6);
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(201,146,74,${alpha})`; ctx.lineWidth = 1.2; ctx.stroke();
   }
   requestAnimationFrame(draw);
 })();

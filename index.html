@@ -97,7 +97,10 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .role-body p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:300}
 .role-metrics{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
 .metric-pill{font-size:11px;padding:0.3rem 0.85rem;border-radius:2rem;letter-spacing:0.03em}
-.metric-pill.blue{border:1px solid rgba(201,146,74,0.35);color:var(--accent);background:var(--accent-dim)}
+        .metric-pill.blue{background:#3A2E22;color:#F5EFE4;border:none}
+        :root.dark .metric-pill.blue{background:#E8DECE;color:#1E1A14}
+        .cs-pill{background:#3A2E22;color:#F5EFE4}
+        :root.dark .cs-pill{background:#E8DECE;color:#1E1A14}
 .role-links{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
 .role-link{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
 .role-link:hover{border-color:var(--accent);color:var(--accent)}
@@ -320,9 +323,9 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <div style="padding:0 1.25rem 1.25rem;display:flex;flex-direction:column;gap:0.75rem">
         <div onclick="navigate('case-study-pricing.html')" style="display:block;width:100%;padding:0.65rem;background:var(--accent);color:var(--bg);border-radius:6px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-align:center;cursor:pointer">Read case study →</div>
         <div style="display:flex;gap:0.4rem;flex-wrap:wrap">
-          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(201,146,74,0.35);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">+23% acquisition</span>
-          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(201,146,74,0.35);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">18K+ assets repriced</span>
-          <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid rgba(201,146,74,0.35);border-radius:2rem;color:var(--accent);background:var(--accent-dim);letter-spacing:0.03em">Subscription to PPP</span>
+          <span class="cs-pill" style="font-size:10px;padding:0.2rem 0.65rem;border-radius:2rem;background:#3A2E22;color:#F5EFE4;letter-spacing:0.03em">+23% acquisition</span>
+          <span class="cs-pill" style="font-size:10px;padding:0.2rem 0.65rem;border-radius:2rem;background:#3A2E22;color:#F5EFE4;letter-spacing:0.03em">18K+ assets repriced</span>
+          <span class="cs-pill" style="font-size:10px;padding:0.2rem 0.65rem;border-radius:2rem;background:#3A2E22;color:#F5EFE4;letter-spacing:0.03em">Subscription to PPP</span>
         </div>
       </div>
     </div>

@@ -106,15 +106,16 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .role-divider{height:1px;background:var(--border);margin-bottom:1.5rem}
 .role-dots{position:absolute;top:0;right:0;bottom:0;width:180px;pointer-events:none;z-index:0;opacity:0.04}
 
-.logo-strip{display:block;background:#1a1612}
+.logo-strip{display:block;background:transparent;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .logo-strip-inner{max-width:1000px;margin:0 auto;padding:1.75rem 2.5rem;display:flex;align-items:center;gap:0}
-.logo-strip-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);white-space:nowrap;flex-shrink:0;padding-right:2rem;border-right:1px solid rgba(255,255,255,0.12);margin-right:0}
+.logo-strip-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);white-space:nowrap;flex-shrink:0;padding-right:2rem;border-right:1px solid var(--border2);margin-right:0}
 .logo-strip-logos{display:flex;align-items:center}
-.logo-item{padding:0 2.5rem;border-right:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;height:100%}
+.logo-item{padding:0 2.5rem;border-right:1px solid var(--border);display:flex;align-items:center}
 .logo-item:last-child{border-right:none}
-.logo-item img{height:28px;width:auto;display:block;opacity:0.85;transition:opacity 0.2s}
-.logo-item img:hover{opacity:1}
-:root.dark .logo-strip{background:#111009}
+.logo-item img{height:32px;width:auto;display:block;mix-blend-mode:multiply;opacity:0.55;transition:opacity 0.2s;filter:grayscale(100%)}
+.logo-item img:hover{opacity:0.8}
+:root.dark .logo-item img{mix-blend-mode:screen;opacity:0.7;filter:grayscale(100%)}
+:root.dark .logo-item img:hover{opacity:1}
 
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2rem}
 .skill-group h3{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:400}

@@ -14,7 +14,6 @@
   --accent:#B8782A;--accent2:#A87038;--accent-dim:rgba(201,146,74,0.12);
   --border:#DDD3C0;--border2:#C8B89A;
   --nav-bg:rgba(245,239,228,0.92);
-  --pulse-alpha:0.18;
 }
 :root.dark{
   --bg:#1E1A14;--bg2:#262118;--bg3:#2E2820;
@@ -22,7 +21,6 @@
   --accent:#C9924A;--accent2:#A87038;--accent-dim:rgba(201,146,74,0.12);
   --border:#2A2318;--border2:#3A3025;
   --nav-bg:rgba(30,26,20,0.92);
-  --pulse-alpha:0.07;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;opacity:0;transition:opacity 0.4s ease,background 0.35s,color 0.35s}
@@ -97,10 +95,10 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .role-body p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:300}
 .role-metrics{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
 .metric-pill{font-size:11px;padding:0.3rem 0.85rem;border-radius:2rem;letter-spacing:0.03em}
-        .metric-pill.blue{background:#3A2E22;color:#F5EFE4;border:none}
-        :root.dark .metric-pill.blue{background:#E8DECE;color:#1E1A14}
-        .cs-pill{background:#3A2E22;color:#F5EFE4}
-        :root.dark .cs-pill{background:#E8DECE;color:#1E1A14}
+.metric-pill.blue{background:#3A2E22;color:#F5EFE4;border:none}
+:root.dark .metric-pill.blue{background:#E8DECE;color:#1E1A14}
+.cs-pill{font-size:10px;padding:0.2rem 0.65rem;border-radius:2rem;background:#3A2E22;color:#F5EFE4;letter-spacing:0.03em}
+:root.dark .cs-pill{background:#E8DECE;color:#1E1A14}
 .role-links{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
 .role-link{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
 .role-link:hover{border-color:var(--accent);color:var(--accent)}
@@ -108,13 +106,16 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .role-divider{height:1px;background:var(--border);margin-bottom:1.5rem}
 .role-dots{position:absolute;top:0;right:0;bottom:0;width:180px;pointer-events:none;z-index:0;opacity:0.04}
 
-.logo-strip{padding:2.5rem 2.5rem;max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
-.logo-strip-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);white-space:nowrap;flex-shrink:0}
-.logo-strip-logos{display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
-.logo-strip-logos img{height:20px;width:auto;display:block;filter:grayscale(100%) opacity(0.55);transition:opacity 0.2s}
-.logo-strip-logos img:hover{filter:grayscale(100%) opacity(0.8)}
-:root.dark .logo-strip-logos img{filter:grayscale(100%) invert(1) opacity(0.45)}
-:root.dark .logo-strip-logos img:hover{filter:grayscale(100%) invert(1) opacity(0.7)}
+.logo-strip{display:block;background:#1a1612}
+.logo-strip-inner{max-width:1000px;margin:0 auto;padding:1.75rem 2.5rem;display:flex;align-items:center;gap:0}
+.logo-strip-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);white-space:nowrap;flex-shrink:0;padding-right:2rem;border-right:1px solid rgba(255,255,255,0.12);margin-right:0}
+.logo-strip-logos{display:flex;align-items:center}
+.logo-item{padding:0 2.5rem;border-right:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;height:100%}
+.logo-item:last-child{border-right:none}
+.logo-item img{height:28px;width:auto;display:block;opacity:0.85;transition:opacity 0.2s}
+.logo-item img:hover{opacity:1}
+:root.dark .logo-strip{background:#111009}
+
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2rem}
 .skill-group h3{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:400}
 .skill-group ul{list-style:none;display:flex;flex-wrap:wrap;gap:0.4rem}
@@ -142,6 +143,8 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   .role-body{padding:0 1.5rem 1.5rem}
   .role-dots{display:none}
   body{cursor:auto}#cursor{display:none}
+  .logo-strip-inner{padding:1.5rem}
+  .logo-item{padding:0 1.5rem}
 }
 </style>
 </head>
@@ -344,9 +347,9 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <div style="padding:0 1.25rem 1.25rem;display:flex;flex-direction:column;gap:0.75rem">
         <div onclick="navigate('case-study-pricing.html')" style="display:block;width:100%;padding:0.65rem;background:var(--accent);color:var(--bg);border-radius:6px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-align:center;cursor:pointer">Read case study →</div>
         <div style="display:flex;gap:0.4rem;flex-wrap:wrap">
-          <span class="cs-pill" style="font-size:10px;padding:0.2rem 0.65rem;border-radius:2rem;background:#3A2E22;color:#F5EFE4;letter-spacing:0.03em">+23% acquisition</span>
-          <span class="cs-pill" style="font-size:10px;padding:0.2rem 0.65rem;border-radius:2rem;background:#3A2E22;color:#F5EFE4;letter-spacing:0.03em">18K+ assets repriced</span>
-          <span class="cs-pill" style="font-size:10px;padding:0.2rem 0.65rem;border-radius:2rem;background:#3A2E22;color:#F5EFE4;letter-spacing:0.03em">Subscription to PPP</span>
+          <span class="cs-pill">+23% acquisition</span>
+          <span class="cs-pill">18K+ assets repriced</span>
+          <span class="cs-pill">Subscription to PPP</span>
         </div>
       </div>
     </div>

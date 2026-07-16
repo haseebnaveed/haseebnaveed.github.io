@@ -4,8 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Case Study – Megascans Pricing · Haseeb Naveed</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('fonts/fraunces-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#F5EFE4;--bg2:#E8DFCF;--bg3:#DDD3C0;
@@ -36,10 +41,10 @@ body.cursor-hover #cursor-ring{width:52px;height:52px;border-color:rgba(201,146,
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:border-color 0.4s ease}
 nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.4s ease}
-.logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--accent)}
+.logo{font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:1.5rem}
-.nav-back{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.4s ease;display:flex;align-items:center;gap:0.5rem;cursor:pointer;background:none;border:none;font-family:inherit}
-.nav-back:hover{color:var(--text)}
+.nav-back{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.4s ease,font-style 0.4s ease;display:flex;align-items:center;gap:0.5rem;cursor:pointer;background:none;border:none;font-family:inherit}
+.nav-back:hover{color:var(--text);font-style:italic}
 .nav-back::before{content:'←';font-size:14px}
 .theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.4s ease,border-color 0.4s ease;flex-shrink:0}
 .theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.4s ease}
@@ -48,7 +53,7 @@ nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdr
 .hero{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:10rem 2.5rem 5rem}
 .cs-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
 .cs-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1.5rem}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(2.25rem,6vw,4rem);font-weight:600;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1.5rem}
 .hero-meta{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
 .meta-pill{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em}
 .hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.8;font-weight:300;border-left:2px solid var(--accent);padding-left:1.25rem}
@@ -57,7 +62,7 @@ nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdr
 .section{margin-bottom:4rem}
 .section-label{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
 .section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
-.section h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:1rem;line-height:1.2}
+.section h2{font-family:'Fraunces',serif;font-size:clamp(1.5rem,3vw,1.85rem);font-weight:600;margin-bottom:1rem;line-height:1.2}
 .section p{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:1rem;font-weight:300}
 .section p:last-child{margin-bottom:0}
 
@@ -71,7 +76,7 @@ nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdr
 .outcomes-label{flex-shrink:0;display:none}
 .outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex:1;transition:background 0.4s ease,border-color 0.4s ease}
 .outcome{background:var(--bg2);padding:1.75rem 1.5rem;transition:background 0.4s ease}
-.outcome-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent);line-height:1}
+.outcome-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:600;color:var(--accent);line-height:1}
 .outcome-label{font-size:12px;color:var(--muted);margin-top:0.4rem;font-weight:300}
 
 .clients{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
@@ -87,7 +92,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
 @media(min-width:901px){
   .outcomes-label{display:block;width:120px;position:sticky;top:50vh;transform:translateY(-50%);align-self:flex-start}
-  .outcomes-label span{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--accent)}
+  .outcomes-label span{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:1.5rem;color:var(--accent)}
 }
 @media(max-width:700px){
   body{cursor:auto}#cursor{display:none}

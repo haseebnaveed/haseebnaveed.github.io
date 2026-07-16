@@ -25,7 +25,7 @@
    deep navy dark theme. :root.light class = the light counterpart. */
 :root{
   --bg:#080C1A;--bg2:rgba(255,255,255,0.03);--bg3:rgba(255,255,255,0.06);
-  --text:rgba(241,245,249,0.95);--muted:rgba(241,245,249,0.65);--muted2:rgba(241,245,249,0.4);
+  --text:rgba(241,245,249,0.95);--muted:rgba(241,245,249,0.76);--muted2:rgba(241,245,249,0.4);
   --accent:#22D3EE;--accent2:#818CF8;--accent-dim:rgba(34,211,238,0.12);
   --border:rgba(99,102,241,0.18);--border2:rgba(99,102,241,0.32);
   --nav-bg:rgba(8,12,26,0.7);
@@ -82,7 +82,7 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .hero h1{font-family:'Fraunces',serif;font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.75rem}
 .hero h1 .dim{color:var(--muted)}
 .hero h1 .accent{color:var(--accent)}
-.hero-sub{font-size:1rem;color:var(--muted);max-width:460px;line-height:1.75;margin-bottom:2.5rem;font-weight:300}
+.hero-sub{font-size:1.0625rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:2.5rem;font-weight:400}
 .hero-sub em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--text)}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.5rem;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;border-radius:2rem;transition:all 0.4s ease;font-weight:500}
@@ -134,7 +134,7 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .role-img-toggle.open .arr{transform:rotate(180deg)}
 .role-img{width:100%;height:auto;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--border2);display:none}
 .role-img-wrap.open .role-img{display:block}
-.role-body p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:300}
+.role-body p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:400}
 .role-metrics{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
 .metric-pill{font-size:11px;padding:0.3rem 0.85rem;border-radius:2rem;letter-spacing:0.03em}
 .metric-pill.blue{background:none;color:var(--accent);border:1px solid var(--border2)}
@@ -157,7 +157,7 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .contact-item{background:var(--bg2);padding:1.75rem;transition:background 0.4s ease}
 .contact-item:hover{background:var(--bg3)}
 .contact-type{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
-.contact-val{font-size:14px;color:var(--muted);transition:color 0.4s ease}
+.contact-val{font-size:15px;color:var(--muted);transition:color 0.4s ease}
 .contact-item:hover .contact-val{color:var(--text)}
 
 footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;line-height:2;transition:border-color 0.4s ease,color 0.4s ease}
@@ -567,7 +567,7 @@ function draw() {
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < LINK_DIST) {
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = isDarkTheme ? 'rgba(129,140,248,0.06)' : 'rgba(70,80,180,0.06)';
+        ctx.strokeStyle = isDarkTheme ? 'rgba(129,140,248,0.06)' : 'rgba(37,99,235,0.11)';
         ctx.lineWidth = 1; ctx.stroke();
       }
     }
@@ -576,7 +576,7 @@ function draw() {
     ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
     ctx.fillStyle = isDarkTheme
       ? (p.cyan ? `rgba(34,211,238,${p.a})` : `rgba(241,245,249,${p.a})`)
-      : `rgba(11,18,32,${p.a * 0.6})`;
+      : (p.cyan ? `rgba(8,145,178,${p.a * 0.85})` : `rgba(37,99,235,${p.a * 0.7})`);
     ctx.fill();
   }
   rafId = requestAnimationFrame(draw);

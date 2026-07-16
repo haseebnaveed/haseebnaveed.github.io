@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Haseeb Naveed</title>
-<meta name="description" content="Haseeb Naveed — Senior Product Management &amp; Operations professional with 7+ years scaling marketplaces, developer tools, and platform ecosystems.">
+<meta name="description" content="Haseeb Naveed — 7+ years in product across marketplaces, developer tools, and game development platforms. Career started in sales and support, turns out selling to and helping users is excellent product training.">
 <meta property="og:title" content="Haseeb Naveed">
-<meta property="og:description" content="Senior Product Management &amp; Operations professional with 7+ years scaling marketplaces, developer tools, and platform ecosystems.">
+<meta property="og:description" content="7+ years in product across marketplaces, developer tools, and game development platforms. Career started in sales and support, turns out selling to and helping users is excellent product training.">
 <meta property="og:url" content="https://haseebnaveed.cv/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#F5EFE4">
+<meta name="theme-color" content="#080C1A">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23F5EFE4'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%23C9924A'>HN</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23080C1A'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%2322D3EE'>HN</text></svg>">
 <style>
 @font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
@@ -21,19 +21,21 @@
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box}
+/* Midnight Signal: dark-FIRST palette. Default :root (no class on <html>) =
+   deep navy dark theme. :root.light class = the light counterpart. */
 :root{
-  --bg:#F5EFE4;--bg2:#E8DFCF;--bg3:#DDD3C0;
-  --text:#201B15;--muted:#4A3C2E;--muted2:#C8BAA8;
-  --accent:#B8782A;--accent2:#A87038;--accent-dim:rgba(201,146,74,0.12);
-  --border:#DDD3C0;--border2:#C8B89A;
-  --nav-bg:rgba(245,239,228,0.92);
+  --bg:#080C1A;--bg2:rgba(255,255,255,0.03);--bg3:rgba(255,255,255,0.06);
+  --text:rgba(241,245,249,0.95);--muted:rgba(241,245,249,0.65);--muted2:rgba(241,245,249,0.4);
+  --accent:#22D3EE;--accent2:#818CF8;--accent-dim:rgba(34,211,238,0.12);
+  --border:rgba(99,102,241,0.18);--border2:rgba(99,102,241,0.32);
+  --nav-bg:rgba(8,12,26,0.7);
 }
-:root.dark{
-  --bg:#1E1A14;--bg2:#262118;--bg3:#2E2820;
-  --text:#E8DECE;--muted:#9A8E7E;--muted2:#3E3428;
-  --accent:#C9924A;--accent2:#A87038;--accent-dim:rgba(201,146,74,0.12);
-  --border:#2A2318;--border2:#3A3025;
-  --nav-bg:rgba(30,26,20,0.92);
+:root.light{
+  --bg:#F3F6FC;--bg2:rgba(11,18,32,0.03);--bg3:rgba(11,18,32,0.06);
+  --text:#0B1220;--muted:#4B5876;--muted2:rgba(11,18,32,0.35);
+  --accent:#0891B2;--accent2:#6366F1;--accent-dim:rgba(8,145,178,0.12);
+  --border:rgba(70,80,180,0.18);--border2:rgba(70,80,180,0.32);
+  --nav-bg:rgba(243,246,252,0.75);
 }
 body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;transition:background 0.4s ease,color 0.4s ease}
 a{color:inherit;text-decoration:none}
@@ -44,9 +46,9 @@ a{color:inherit;text-decoration:none}
 
 #cursor{position:fixed;pointer-events:none;z-index:9999}
 #cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease}
-#cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease,border-color 0.4s ease;top:0;left:0}
+#cursor-ring{width:36px;height:36px;border:1px solid var(--accent);opacity:0.6;border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease,border-color 0.4s ease,opacity 0.4s ease;top:0;left:0}
 body.cursor-hover #cursor-dot{width:12px;height:12px}
-body.cursor-hover #cursor-ring{width:52px;height:52px;border-color:rgba(201,146,74,1)}
+body.cursor-hover #cursor-ring{width:52px;height:52px;opacity:1}
 @media(pointer:coarse){#cursor{display:none}}
 @media(prefers-reduced-motion:reduce){#cursor{display:none}}
 
@@ -62,7 +64,7 @@ nav ul a:hover{color:var(--text);font-style:italic}
 nav ul a .idx{color:var(--accent);margin-right:0.35em}
 .theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.4s ease,border-color 0.4s ease;flex-shrink:0}
 .theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.4s ease}
-:root.dark .theme-toggle::after{transform:translateX(20px)}
+:root.light .theme-toggle::after{transform:translateX(20px)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
 .burger span{display:block;width:22px;height:1.5px;background:var(--muted);transition:all 0.4s ease}
 .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
@@ -123,7 +125,7 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .role-img-toggle:hover{border-color:var(--accent);color:var(--accent)}
 .role-img-toggle .arr{display:inline-block;transition:transform 0.4s ease}
 .role-img-toggle.open .arr{transform:rotate(180deg)}
-.role-img{width:100%;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--border2);display:none}
+.role-img{width:100%;height:auto;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--border2);display:none}
 .role-img-wrap.open .role-img{display:block}
 .role-body p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:300}
 .role-metrics{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
@@ -152,7 +154,7 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .contact-item:hover .contact-val{color:var(--text)}
 
 footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;line-height:2;transition:border-color 0.4s ease,color 0.4s ease}
-.footer-signoff{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(1.5rem,3vw,2rem);text-transform:none;letter-spacing:normal;color:var(--text);margin-bottom:1.5rem;transition:color 0.4s ease}
+.footer-signoff{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(1.25rem,2.5vw,1.75rem);text-transform:none;letter-spacing:normal;color:var(--text);margin:0 auto 1.5rem;max-width:34ch;line-height:1.4;transition:color 0.4s ease}
 .footer-signoff:hover{color:var(--accent)}
 .divider{height:1px;background:var(--border);transition:background 0.4s ease}
 
@@ -205,7 +207,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 <div class="hero">
   <div class="hero-tag js-in">Product Management &amp; Operations · Iceland / Pakistan</div>
   <h1 class="js-in">Haseeb<br><span class="dim">Naveed</span><span class="accent">.</span></h1>
-  <p class="hero-sub js-in">Senior Product Management &amp; Operations professional with 7+ years scaling <em>marketplaces</em>, developer tools, and platform ecosystems.</p>
+  <p class="hero-sub js-in">7+ years in product across <em>marketplaces</em>, <em>developer tools</em>, and <em>game development platforms</em>. Career started in sales and support &mdash; turns out selling to and helping users is excellent product training.</p>
   <div class="hero-ctas js-in">
     <a href="#experience" class="btn btn-fill">View work</a>
     <a href="#contact" class="btn btn-outline">Get in touch</a>
@@ -222,7 +224,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
     <div class="role">
       <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
-        <defs><pattern id="d1" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
+        <defs><pattern id="d1" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" style="fill:var(--accent)"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d1)"/>
       </svg>
       <button class="role-header" type="button" aria-expanded="false">
@@ -248,7 +250,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
     <div class="role">
       <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
-        <defs><pattern id="d2" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
+        <defs><pattern id="d2" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" style="fill:var(--accent)"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d2)"/>
       </svg>
       <button class="role-header" type="button" aria-expanded="false">
@@ -277,7 +279,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
     <div class="role">
       <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
-        <defs><pattern id="d3" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
+        <defs><pattern id="d3" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" style="fill:var(--accent)"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d3)"/>
       </svg>
       <button class="role-header" type="button" aria-expanded="false">
@@ -302,7 +304,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
     <div class="role">
       <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
-        <defs><pattern id="d4" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
+        <defs><pattern id="d4" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" style="fill:var(--accent)"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d4)"/>
       </svg>
       <button class="role-header" type="button" aria-expanded="false">
@@ -430,7 +432,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 </main>
 
 <footer>
-  <a href="#contact" class="footer-signoff">Let's build something.</a>
+  <a href="#contact" class="footer-signoff">This site has no cookie banner. That&rsquo;s the level of care you can expect.</a>
   Haseeb Naveed &nbsp;·&nbsp; 2026<br>
   <span style="font-size:10px;color:var(--muted2)">All product names and trademarks are property of their respective owners.</span>
 </footer>
@@ -439,12 +441,14 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 <script>
 const root = document.documentElement;
 
+// Midnight Signal: dark navy is the default theme (no class on <html>).
+// Adding 'light' switches to the light counterpart. Only persisted explicitly.
 function toggleTheme() {
-  root.classList.toggle('dark');
-  localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+  root.classList.toggle('light');
+  localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
 }
 const saved = localStorage.getItem('theme');
-if (saved === 'dark') root.classList.add('dark');
+if (saved === 'light') root.classList.add('light');
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 function navigate(href) {
@@ -514,22 +518,49 @@ document.querySelectorAll('#experience .role').forEach(el => {
 try { document.getElementById('fab-img').src = 'fab.webp'; document.getElementById('bridge-img').src = 'bridge.jpg'; document.getElementById('megascans-img').src = 'megascans.webp'; } catch (e) {}
 
 const c = document.getElementById('pulse'), ctx = c.getContext('2d');
-let W, H, t = 0, rafId = null, heroVisible = true;
-function setup() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; }
+let W, H, rafId = null, heroVisible = true;
+const NUM_PARTICLES = 70, LINK_DIST = 120;
+let particles = [];
+function initParticles() {
+  particles = Array.from({ length: NUM_PARTICLES }, () => ({
+    x: Math.random() * W,
+    y: Math.random() * H,
+    vx: (Math.random() - 0.5) * 0.1,
+    vy: (Math.random() - 0.5) * 0.1,
+    r: 1 + Math.random() * 0.5,
+    a: 0.25 + Math.random() * 0.25,
+    cyan: Math.random() < 0.5
+  }));
+}
+function setup() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; initParticles(); }
 window.addEventListener('load', setup);
 window.addEventListener('resize', setup);
 function draw() {
-  ctx.clearRect(0, 0, W, H); t += 0.012;
-  const cx = W * 0.5, cy = H * 0.5, rings = 5;
-  const isDark = root.classList.contains('dark');
-  const base = isDark ? 0.07 : 0.18;
-  for (let i = 0; i < rings; i++) {
-    const phase = t + i * (Math.PI * 2 / rings);
-    const pulse = Math.sin(phase) * 0.5 + 0.5;
-    const r = 60 + i * 70 + pulse * 30;
-    const alpha = base * (1 - i / rings) * (0.4 + pulse * 0.6);
-    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
-    ctx.strokeStyle = `rgba(201,146,74,${alpha})`; ctx.lineWidth = 1.2; ctx.stroke();
+  ctx.clearRect(0, 0, W, H);
+  const isDarkTheme = !root.classList.contains('light');
+  for (const p of particles) {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x += W; else if (p.x > W) p.x -= W;
+    if (p.y < 0) p.y += H; else if (p.y > H) p.y -= H;
+  }
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const a = particles[i], b = particles[j];
+      const dx = a.x - b.x, dy = a.y - b.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < LINK_DIST) {
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = isDarkTheme ? 'rgba(129,140,248,0.06)' : 'rgba(70,80,180,0.06)';
+        ctx.lineWidth = 1; ctx.stroke();
+      }
+    }
+  }
+  for (const p of particles) {
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = isDarkTheme
+      ? (p.cyan ? `rgba(34,211,238,${p.a})` : `rgba(241,245,249,${p.a})`)
+      : `rgba(11,18,32,${p.a * 0.6})`;
+    ctx.fill();
   }
   rafId = requestAnimationFrame(draw);
 }

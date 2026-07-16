@@ -5,22 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page not found · Haseeb Naveed</title>
 <meta name="description" content="Page not found.">
-<meta name="theme-color" content="#F5EFE4">
+<meta name="theme-color" content="#080C1A">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23080C1A'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%2322D3EE'>HN</text></svg>">
 <style>
 @font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
 @font-face{font-family:'Fraunces';src:url('fonts/fraunces-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box}
+/* Midnight Signal: dark-FIRST palette. Default :root (no class on <html>) =
+   deep navy dark theme. :root.light class = the light counterpart. */
 :root{
-  --bg:#F5EFE4;--text:#201B15;--muted:#4A3C2E;
-  --accent:#B8782A;--accent2:#A87038;--border2:#C8B89A;
+  --bg:#080C1A;--text:rgba(241,245,249,0.95);--muted:rgba(241,245,249,0.65);
+  --accent:#22D3EE;--accent2:#818CF8;--border2:rgba(99,102,241,0.32);
 }
-:root.dark{
-  --bg:#1E1A14;--text:#E8DECE;--muted:#9A8E7E;
-  --accent:#C9924A;--accent2:#A87038;--border2:#3A3025;
+:root.light{
+  --bg:#F3F6FC;--text:#0B1220;--muted:#4B5876;
+  --accent:#0891B2;--accent2:#6366F1;--border2:rgba(70,80,180,0.32);
 }
 body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transition:background 0.4s ease,color 0.4s ease}
 a{color:inherit;text-decoration:none}
@@ -38,7 +41,7 @@ p{color:var(--muted);max-width:420px;margin-bottom:2rem;font-weight:300;line-hei
 <p>The page you're looking for doesn't exist, or has moved. Let's get you back to the portfolio.</p>
 <a href="/index.html" class="btn">Back to portfolio</a>
 <script>
-if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light');
 </script>
 </body>
 </html>

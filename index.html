@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Haseeb Naveed</title>
+<meta name="description" content="Haseeb Naveed — Senior Product Management &amp; Operations professional with 7+ years scaling marketplaces, developer tools, and platform ecosystems.">
+<meta property="og:title" content="Haseeb Naveed">
+<meta property="og:description" content="Senior Product Management &amp; Operations professional with 7+ years scaling marketplaces, developer tools, and platform ecosystems.">
+<meta property="og:url" content="https://haseebnaveed.cv/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F5EFE4">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23F5EFE4'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%23C9924A'>HN</text></svg>">
 <style>
 @font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
@@ -39,6 +47,10 @@ a{color:inherit;text-decoration:none}
 #cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease,border-color 0.4s ease;top:0;left:0}
 body.cursor-hover #cursor-dot{width:12px;height:12px}
 body.cursor-hover #cursor-ring{width:52px;height:52px;border-color:rgba(201,146,74,1)}
+@media(pointer:coarse){#cursor{display:none}}
+@media(prefers-reduced-motion:reduce){#cursor{display:none}}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:background 0.4s ease,border-color 0.4s ease}
 nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.4s ease}
@@ -87,7 +99,8 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .roles{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:background 0.4s ease,border-color 0.4s ease}
 .role{background:var(--bg2);cursor:pointer;transition:background 0.4s ease;position:relative;overflow:hidden}
 .role:hover{background:var(--bg3)}
-.role-header{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.25rem;position:relative;z-index:1;transition:padding-left 0.4s ease}
+.role-header{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.25rem;position:relative;z-index:1;transition:padding-left 0.4s ease;width:100%;text-align:left;background:none;border:none;color:inherit;font:inherit}
+#experience .role-header{cursor:pointer}
 .role-company{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
 .role-title{font-size:0.95rem;font-weight:500;color:var(--text);line-height:1.4}
 
@@ -163,6 +176,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
 <div id="cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
 
+<header>
 <nav>
   <div class="logo">HN</div>
   <div class="nav-right">
@@ -172,19 +186,21 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <li><a href="#skills"><span class="idx">C.</span>Skills</a></li>
       <li><a href="#contact"><span class="idx">D.</span>Contact</a></li>
     </ul>
-    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
-    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+</header>
 
-<div class="mobile-menu" id="mobile-menu">
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
   <a href="#experience">Work</a>
   <a href="#casestudies">Case Studies</a>
   <a href="#skills">Skills</a>
   <a href="#contact">Contact</a>
-</div>
+</nav>
 
-<canvas id="pulse"></canvas>
+<main>
+<canvas id="pulse" aria-hidden="true"></canvas>
 
 <div class="hero">
   <div class="hero-tag js-in">Product Management &amp; Operations · Iceland / Pakistan</div>
@@ -199,7 +215,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 </div>
 
 <div class="divider"></div>
-<div class="section" id="experience">
+<section class="section" id="experience">
   <div class="section-label">Experience</div>
   <h2 class="section-heading">Work</h2>
   <div class="roles">
@@ -209,13 +225,13 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         <defs><pattern id="d1" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d1)"/>
       </svg>
-      <div class="role-header">
+      <button class="role-header" type="button" aria-expanded="false">
         <div>
           <div class="role-company">CCP Games · Reykjavík</div>
-          <div class="role-title">Snr. Product Manager / Snr. Product Ops — Carbon Platform &amp; Internal Dev Tools</div>
+          <h3 class="role-title">Snr. Product Manager / Snr. Product Ops — Carbon Platform &amp; Internal Dev Tools</h3>
         </div>
         <div class="role-right"><div class="role-period">2025 — Present</div><span class="role-toggle">+</span></div>
-      </div>
+      </button>
       <div class="role-body">
         <div class="role-divider"></div>
         <p>Leading product for a cross-functional team of 6 engineers, 1 QA, and 1 designer building internal dev tools and asset publishing pipelines. Proposed and led initiatives across tooling stability, developer experience, and a full UI/UX redesign of core tooling implemented via Claude Code.</p>
@@ -235,18 +251,18 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         <defs><pattern id="d2" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d2)"/>
       </svg>
-      <div class="role-header">
+      <button class="role-header" type="button" aria-expanded="false">
         <div>
           <div class="role-company">Epic Games · Islamabad</div>
-          <div class="role-title">Product Manager — Content, Merchandising &amp; Strategy</div>
+          <h3 class="role-title">Product Manager — Content, Merchandising &amp; Strategy</h3>
         </div>
         <div class="role-right"><div class="role-period">2022 — 2024</div><span class="role-toggle">+</span></div>
-      </div>
+      </button>
       <div class="role-body">
         <div class="role-divider"></div>
         <div class="role-img-wrap" id="fab-wrap">
-          <button class="role-img-toggle" data-toggle-img="fab-wrap">Show product image <span class="arr">▾</span></button>
-          <img class="role-img" id="fab-img" alt="FAB Marketplace"/>
+          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="fab-wrap">Show product image <span class="arr">▾</span></button>
+          <img class="role-img" id="fab-img" alt="FAB Marketplace" width="1600" height="769" loading="lazy"/>
         </div>
         <p>Led pricing strategy for Megascans on FAB, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
         <div class="role-metrics">
@@ -264,18 +280,18 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         <defs><pattern id="d3" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d3)"/>
       </svg>
-      <div class="role-header">
+      <button class="role-header" type="button" aria-expanded="false">
         <div>
           <div class="role-company">Epic Games · Islamabad</div>
-          <div class="role-title">Associate Product Manager — Technical, Content &amp; Creator Tools</div>
+          <h3 class="role-title">Associate Product Manager — Technical, Content &amp; Creator Tools</h3>
         </div>
         <div class="role-right"><div class="role-period">2021 — 2022</div><span class="role-toggle">+</span></div>
-      </div>
+      </button>
       <div class="role-body">
         <div class="role-divider"></div>
         <div class="role-img-wrap" id="bridge-wrap">
-          <button class="role-img-toggle" data-toggle-img="bridge-wrap">Show product image <span class="arr">▾</span></button>
-          <img class="role-img" id="bridge-img" alt="Quixel Bridge"/>
+          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="bridge-wrap">Show product image <span class="arr">▾</span></button>
+          <img class="role-img" id="bridge-img" alt="Quixel Bridge" width="1920" height="1007" loading="lazy"/>
         </div>
         <p>Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
         <div class="role-metrics">
@@ -289,18 +305,18 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         <defs><pattern id="d4" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d4)"/>
       </svg>
-      <div class="role-header">
+      <button class="role-header" type="button" aria-expanded="false">
         <div>
           <div class="role-company">Quixel (acq. Epic Games) · Islamabad</div>
-          <div class="role-title">Senior Marketplace Manager — Megascans</div>
+          <h3 class="role-title">Senior Marketplace Manager — Megascans</h3>
         </div>
         <div class="role-right"><div class="role-period">2019 — 2021</div><span class="role-toggle">+</span></div>
-      </div>
+      </button>
       <div class="role-body">
         <div class="role-divider"></div>
         <div class="role-img-wrap" id="megascans-wrap">
-          <button class="role-img-toggle" data-toggle-img="megascans-wrap">Show product image <span class="arr">▾</span></button>
-          <img class="role-img" id="megascans-img" alt="Quixel Megascans"/>
+          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="megascans-wrap">Show product image <span class="arr">▾</span></button>
+          <img class="role-img" id="megascans-img" alt="Quixel Megascans" width="1600" height="765" loading="lazy"/>
         </div>
         <p>Sole operator managing a rapidly scaling catalog, publishing content and single-handedly rewriting the metadata architecture as the library grew from 7,000 to 18,000+ listings. Designed a 0→1 taxonomy and curation system, raised CSAT by 36 points to 83.5%.</p>
         <div class="role-metrics">
@@ -311,13 +327,13 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     </div>
 
     <div class="role">
-      <div class="role-header">
+      <button class="role-header" type="button" aria-expanded="false">
         <div>
           <div class="role-company">Motive (ex KeepTruckin) · Islamabad</div>
-          <div class="role-title">Technical Support Specialist</div>
+          <h3 class="role-title">Technical Support Specialist</h3>
         </div>
         <div class="role-right"><div class="role-period">2018 — 2019</div><span class="role-toggle">+</span></div>
-      </div>
+      </button>
       <div class="role-body">
         <div class="role-divider"></div>
         <p>Technical support across email, chat, and voice for a fleet management SaaS. Triaged issues to product and engineering, and contributed to the customer knowledge base.</p>
@@ -325,11 +341,11 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     </div>
 
   </div>
-</div>
+</section>
 
 <div class="divider"></div>
 
-<div class="section" id="casestudies">
+<section class="section" id="casestudies">
   <div class="section-label">Case Studies</div>
   <h2 class="section-heading">Case Studies</h2>
   <div class="roles">
@@ -338,7 +354,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <div class="role-header">
         <div>
           <div class="role-company">Epic Games · Pricing Strategy</div>
-          <div class="role-title">Rethinking how the world's largest 3D asset library charges for its content</div>
+          <h3 class="role-title">Rethinking how the world's largest 3D asset library charges for its content</h3>
           <div style="font-size:11px;color:var(--muted);margin-top:0.4rem">2022 – 2024</div>
         </div>
       </div>
@@ -356,7 +372,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <div class="role-header">
         <div>
           <div class="role-company">Quixel · Catalog &amp; Taxonomy</div>
-          <div class="role-title">Building a 0→1 curation system for an 18,000+ asset marketplace</div>
+          <h3 class="role-title">Building a 0→1 curation system for an 18,000+ asset marketplace</h3>
         </div>
         <div class="role-right">
           <div class="role-period">2019 – 2021</div>
@@ -374,7 +390,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <div class="role-header">
         <div>
           <div class="role-company">CCP Games · Open Source</div>
-          <div class="role-title">Taking an in-house game engine open source</div>
+          <h3 class="role-title">Taking an in-house game engine open source</h3>
         </div>
         <div class="role-right">
           <div class="role-period">2025 – Present</div>
@@ -384,11 +400,11 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     </div>
 
   </div>
-</div>
+</section>
 
 <div class="divider"></div>
 
-<div class="section" id="skills">
+<section class="section" id="skills">
   <div class="section-label">Skills</div>
   <h2 class="section-heading">Skills</h2>
   <div class="skills-grid">
@@ -399,18 +415,19 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     <div class="skill-group"><h3>AI</h3><ul><li>Claude Code</li><li>LLM workflows</li></ul></div>
     <div class="skill-group"><h3>Languages</h3><ul><li>English (C1)</li><li>Urdu</li><li>Punjabi</li></ul></div>
   </div>
-</div>
+</section>
 
 <div class="divider"></div>
 
-<div class="section" id="contact">
+<section class="section" id="contact">
   <div class="section-label">Contact</div>
   <h2 class="section-heading">Contact</h2>
   <div class="contact-grid">
     <div class="contact-item"><a href="mailto:haseebnaveed@protonmail.com"><div class="contact-type">Email</div><div class="contact-val">haseebnaveed@protonmail.com</div></a></div>
     <div class="contact-item"><a href="https://www.linkedin.com/in/haseeb-naveed/" target="_blank" rel="noopener noreferrer"><div class="contact-type">LinkedIn</div><div class="contact-val">linkedin.com/in/haseeb-naveed</div></a></div>
   </div>
-</div>
+</section>
+</main>
 
 <footer>
   <a href="#contact" class="footer-signoff">Let's build something.</a>
@@ -464,19 +481,37 @@ function toggleImg(id) {
   const btn = wrap.querySelector('.role-img-toggle');
   const open = wrap.classList.contains('open');
   btn.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', String(open));
   btn.childNodes[0].textContent = open ? 'Hide product image ' : 'Show product image ';
 }
 document.querySelectorAll('[data-toggle-img]').forEach(btn => {
   btn.addEventListener('click', e => { e.stopPropagation(); toggleImg(btn.getAttribute('data-toggle-img')); });
 });
-function toggleMenu() { document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
-function closeMenu() { document.getElementById('burger').classList.remove('open'); document.getElementById('mobile-menu').classList.remove('open'); }
+function toggleMenu() {
+  const burger = document.getElementById('burger');
+  const open = burger.classList.toggle('open');
+  document.getElementById('mobile-menu').classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', String(open));
+}
+function closeMenu() {
+  document.getElementById('burger').classList.remove('open');
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('burger').setAttribute('aria-expanded', 'false');
+}
 document.getElementById('burger').addEventListener('click', toggleMenu);
 document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
-function toggleRole(el) { el.querySelector('.role-body').classList.toggle('open'); el.classList.toggle('open'); }
-document.querySelectorAll('#experience .role').forEach(el => el.addEventListener('click', () => toggleRole(el)));
+function toggleRole(el) {
+  const open = el.classList.toggle('open');
+  el.querySelector('.role-body').classList.toggle('open', open);
+  const btn = el.querySelector('.role-header');
+  if (btn && btn.tagName === 'BUTTON') btn.setAttribute('aria-expanded', String(open));
+}
+document.querySelectorAll('#experience .role').forEach(el => {
+  const btn = el.querySelector('.role-header');
+  (btn || el).addEventListener('click', () => toggleRole(el));
+});
 
-try { document.getElementById('fab-img').src = 'fab.png'; document.getElementById('bridge-img').src = 'bridge.jpg'; document.getElementById('megascans-img').src = 'megascans.png'; } catch (e) {}
+try { document.getElementById('fab-img').src = 'fab.webp'; document.getElementById('bridge-img').src = 'bridge.jpg'; document.getElementById('megascans-img').src = 'megascans.webp'; } catch (e) {}
 
 const c = document.getElementById('pulse'), ctx = c.getContext('2d');
 let W, H, t = 0, rafId = null, heroVisible = true;

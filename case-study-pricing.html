@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Case Study – Megascans Pricing · Haseeb Naveed</title>
+<meta name="description" content="How Epic Games repriced the Megascans marketplace from subscription to Pay-Per-Product ahead of the FAB launch.">
+<meta property="og:title" content="Case Study – Megascans Pricing · Haseeb Naveed">
+<meta property="og:description" content="How Epic Games repriced the Megascans marketplace from subscription to Pay-Per-Product ahead of the FAB launch.">
+<meta property="og:url" content="https://haseebnaveed.cv/case-study-pricing.html">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#F5EFE4">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
 <style>
 @font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
@@ -38,6 +46,10 @@ a{color:inherit;text-decoration:none}
 #cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease,border-color 0.4s ease;top:0;left:0}
 body.cursor-hover #cursor-dot{width:12px;height:12px}
 body.cursor-hover #cursor-ring{width:52px;height:52px;border-color:rgba(201,146,74,1)}
+@media(pointer:coarse){#cursor{display:none}}
+@media(prefers-reduced-motion:reduce){#cursor{display:none}}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:border-color 0.4s ease}
 nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.4s ease}
@@ -105,6 +117,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
 <div id="cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
 
+<header>
 <nav>
   <div class="logo">HN</div>
   <div class="nav-right">
@@ -112,7 +125,9 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
   </div>
 </nav>
+</header>
 
+<main>
 <div class="hero">
   <div class="cs-tag js-in">Case Study</div>
   <h1 class="js-in">Rethinking how the world's largest 3D asset library charges for its content</h1>
@@ -127,37 +142,37 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
 <div class="content">
 
-  <div class="section">
+  <section class="section">
     <div class="section-label">The problem</div>
     <h2>A pricing model built for a different era</h2>
     <p>Megascans had been subscription-priced since before the Epic acquisition, optimised for broad adoption rather than revenue. The content, used in productions by Rockstar, Ubisoft, Disney, Netflix, and studios behind films like Love, Death &amp; Robots, was world-class. The pricing didn't reflect that.</p>
     <p>When Epic began building FAB as an open marketplace where independent creators could sell alongside Megascans, the problem became structural. A subscription-priced Megascans catalog sitting next to creator listings would make it impossible for smaller sellers to compete. The marketplace couldn't be open and equitable with Megascans effectively subsidised.</p>
     <div class="callout"><p><strong>The core tension:</strong> Megascans needed to be priced for its actual value, without pricing out the small creators FAB was being built to serve.</p></div>
-  </div>
+  </section>
 
   <div class="divider"></div>
 
-  <div class="section">
+  <section class="section">
     <div class="section-label">Stakeholder friction</div>
     <h2>Sales and support weren't convinced</h2>
     <p>The loudest pushback came from sales and support teams. The subscription price had been stable since the acquisition, customers had come to expect it, and a move to per-product pricing felt like a shock risk.</p>
     <p>The argument I made was straightforward: we hadn't raised prices in years, and the content had only gotten better. No other library operated at this caliber. AAA studios and Hollywood productions were using Megascans because there was simply no comparable alternative, not at this quality, not at this scale, not with our proprietary processing pipeline. A pricing adjustment wasn't just justifiable, it was overdue.</p>
     <p>The conversation shifted once we reframed it: this wasn't a price increase, it was a repricing for a new marketplace context. The goal wasn't to extract more from existing customers, it was to create a structure that could sustain a healthy ecosystem.</p>
-  </div>
+  </section>
 
   <div class="divider"></div>
 
-  <div class="section">
+  <section class="section">
     <div class="section-label">Research</div>
     <h2>Talking to creators, studying competitors</h2>
     <p>I started by going directly to the creators we were onboarding onto FAB, solo artists and small studios, to understand how they thought about asset pricing. What did they charge? What drove those decisions? How did they perceive Megascans relative to their own work?</p>
     <p>In parallel, I broke down competing content libraries: their subscription tiers, their per-asset pricing where it existed, and what you actually got for the money. The picture that emerged was consistent: smaller creators priced higher than us because they didn't have our operational scale. Competitors were priced similarly or above, and the quality gap was significant.</p>
     <div class="callout"><p><strong>Key finding:</strong> Megascans was underpriced relative to both its quality and the market. Solo creators couldn't undercut us even at our new prices, their operational costs made it structurally impossible. The moat wasn't price, it was the proprietary scanning pipeline.</p></div>
-  </div>
+  </section>
 
   <div class="divider"></div>
 
-  <div class="section">
+  <section class="section">
     <div class="section-label">The model</div>
     <h2>Building a pricing system from scratch</h2>
     <p>The company directive was clear: move away from subscription, price per product. What that meant in practice was building a repeatable, defensible system for pricing 18,000+ individual assets consistently, at scale.</p>
@@ -174,22 +189,22 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       </tbody>
     </table>
     <p style="margin-top:1.5rem">The result: a tiered structure where smaller, more generic content stayed accessible, and large-scale, unique, high-resolution assets were priced to reflect the production value behind them.</p>
-  </div>
+  </section>
 
   <div class="divider"></div>
 
-  <div class="section">
+  <section class="section">
     <div class="section-label">Context</div>
     <h2>Content trusted by the industry's biggest names</h2>
     <p>Part of what made this pricing conversation possible was the client base. Megascans wasn't a niche tool, it was infrastructure for some of the most demanding productions in games and film.</p>
     <div class="clients">
       <span class="client-tag">Rockstar Games</span><span class="client-tag">Ubisoft</span><span class="client-tag">Disney</span><span class="client-tag">Netflix</span><span class="client-tag">Love, Death &amp; Robots</span><span class="client-tag">AAA game studios</span><span class="client-tag">VFX houses</span>
     </div>
-  </div>
+  </section>
 
   <div class="divider"></div>
 
-  <div class="section">
+  <section class="section">
     <div class="section-label">Outcome</div>
     <h2>A marketplace ready to launch</h2>
     <p>The new pricing model shipped as part of the FAB launch. Beyond enabling a fair competitive environment for creators, the repricing drove measurable results in the first quarter.</p>
@@ -202,10 +217,10 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         <div class="outcome"><div class="outcome-num">18K+</div><div class="outcome-label">Assets repriced at launch</div></div>
       </div>
     </div>
-  </div>
+  </section>
 
 </div>
-
+</main>
 <footer>Haseeb Naveed &nbsp;·&nbsp; 2026</footer>
 
 <script src="vendor/lenis.min.js" defer></script>

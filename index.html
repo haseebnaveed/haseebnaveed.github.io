@@ -22,39 +22,41 @@
   --border:#2A2318;--border2:#3A3025;
   --nav-bg:rgba(30,26,20,0.92);
 }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;opacity:0;transition:opacity 0.4s ease,background 0.35s,color 0.35s}
-body.loaded{opacity:1}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;transition:background 0.4s ease,color 0.4s ease}
 a{color:inherit;text-decoration:none}
 
+.js-in{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js-in.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.js-in{opacity:1;transform:none;transition:none}}
+
 #cursor{position:fixed;pointer-events:none;z-index:9999}
-#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s}
-#cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.25s,height 0.25s,border-color 0.25s;top:0;left:0}
+#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease}
+#cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease,border-color 0.4s ease;top:0;left:0}
 body.cursor-hover #cursor-dot{width:12px;height:12px}
 body.cursor-hover #cursor-ring{width:52px;height:52px;border-color:rgba(201,146,74,1)}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:background 0.35s,border-color 0.35s}
-nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.35s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:background 0.4s ease,border-color 0.4s ease}
+nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.4s ease}
 .logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:2rem}
 nav ul{list-style:none;display:flex;gap:2.5rem}
-nav ul a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s}
+nav ul a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.4s ease}
 nav ul a:hover{color:var(--text)}
-.theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.35s,border-color 0.35s;flex-shrink:0}
-.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.3s ease}
+.theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.4s ease,border-color 0.4s ease;flex-shrink:0}
+.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.4s ease}
 :root.dark .theme-toggle::after{transform:translateX(20px)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
-.burger span{display:block;width:22px;height:1.5px;background:var(--muted);transition:all 0.25s}
+.burger span{display:block;width:22px;height:1.5px;background:var(--muted);transition:all 0.4s ease}
 .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transition:background 0.35s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transition:background 0.4s ease}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--muted);transition:color 0.2s}
+.mobile-menu a{font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--muted);transition:color 0.4s ease}
 .mobile-menu a:hover{color:var(--text)}
 
 canvas#pulse{display:block;width:100%;height:100vh}
-.hero{margin-top:calc(-100vh + 64px);min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin-left:auto;margin-right:auto;margin-top:calc(-100vh + 64px);position:relative;z-index:1}
+.hero{margin-top:calc(-100vh + 64px);min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
 .hero-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem}
 .hero-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.75rem}
@@ -62,7 +64,7 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .hero h1 .accent{color:var(--accent)}
 .hero-sub{font-size:1rem;color:var(--muted);max-width:460px;line-height:1.75;margin-bottom:2.5rem;font-weight:300}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.5rem;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;border-radius:2rem;transition:all 0.25s;font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.5rem;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;border-radius:2rem;transition:all 0.4s ease;font-weight:500}
 .btn-outline{border:1px solid var(--border2);color:var(--muted)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
 .btn-fill{background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
@@ -74,22 +76,23 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .section-label{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem;display:flex;align-items:center;gap:0.75rem}
 .section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
 
-.roles{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:background 0.35s,border-color 0.35s}
-.role{background:var(--bg2);cursor:pointer;transition:background 0.2s;position:relative;overflow:hidden}
+.roles{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:background 0.4s ease,border-color 0.4s ease}
+.role{background:var(--bg2);cursor:pointer;transition:background 0.4s ease;position:relative;overflow:hidden}
 .role:hover{background:var(--bg3)}
 .role-header{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.25rem;position:relative;z-index:1}
 .role-company{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
 .role-title{font-size:0.95rem;font-weight:500;color:var(--text);line-height:1.4}
 .role-right{text-align:right;flex-shrink:0}
 .role-period{font-size:11px;color:var(--muted);letter-spacing:0.05em}
-.role-toggle{font-size:20px;color:var(--muted2);margin-top:0.4rem;transition:transform 0.25s;display:block;line-height:1}
+.role-toggle{font-size:20px;color:var(--muted2);margin-top:0.4rem;transition:transform 0.4s ease;display:block;line-height:1}
 .role.open .role-toggle{transform:rotate(45deg);color:var(--accent)}
 .role-body{display:none;padding:0 2.25rem 2rem;position:relative;z-index:1}
 .role-body.open{display:block}
 .role-img-wrap{margin-bottom:1.5rem}
-.role-img-toggle{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);border-radius:2rem;padding:0.25rem 0.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:0.75rem;transition:all 0.2s;background:none}
+.role-img-toggle{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);border-radius:2rem;padding:0.25rem 0.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:0.75rem;transition:all 0.4s ease;background:none}
 .role-img-toggle:hover{border-color:var(--accent);color:var(--accent)}
-.role-img-toggle .arr{display:inline-block}
+.role-img-toggle .arr{display:inline-block;transition:transform 0.4s ease}
+.role-img-toggle.open .arr{transform:rotate(180deg)}
 .role-img{width:100%;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--border2);display:none}
 .role-img-wrap.open .role-img{display:block}
 .role-body p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:300}
@@ -100,7 +103,7 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .cs-pill{font-size:10px;padding:0.2rem 0.65rem;border-radius:2rem;background:#3A2E22;color:#F5EFE4;letter-spacing:0.03em}
 :root.dark .cs-pill{background:#E8DECE;color:#1E1A14}
 .role-links{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
-.role-link{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.role-link{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;transition:all 0.4s ease;display:inline-flex;align-items:center;gap:0.4rem}
 .role-link:hover{border-color:var(--accent);color:var(--accent)}
 .role-link::after{content:'↗';font-size:10px}
 .role-divider{height:1px;background:var(--border);margin-bottom:1.5rem}
@@ -110,18 +113,18 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2rem}
 .skill-group h3{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:400}
 .skill-group ul{list-style:none;display:flex;flex-wrap:wrap;gap:0.4rem}
-.skill-group li{font-size:12px;color:var(--muted);padding:0.25rem 0.7rem;border:1px solid var(--border);border-radius:2rem;transition:all 0.2s}
+.skill-group li{font-size:12px;color:var(--muted);padding:0.25rem 0.7rem;border:1px solid var(--border);border-radius:2rem;transition:all 0.4s ease}
 .skill-group li:hover{border-color:var(--border2);color:var(--text)}
 
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.contact-item{background:var(--bg2);padding:1.75rem;transition:background 0.2s}
+.contact-item{background:var(--bg2);padding:1.75rem;transition:background 0.4s ease}
 .contact-item:hover{background:var(--bg3)}
 .contact-type{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
-.contact-val{font-size:14px;color:var(--muted);transition:color 0.2s}
+.contact-val{font-size:14px;color:var(--muted);transition:color 0.4s ease}
 .contact-item:hover .contact-val{color:var(--text)}
 
-footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;line-height:2;transition:border-color 0.35s,color 0.35s}
-.divider{height:1px;background:var(--border);transition:background 0.35s}
+footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;line-height:2;transition:border-color 0.4s ease,color 0.4s ease}
+.divider{height:1px;background:var(--border);transition:background 0.4s ease}
 
 @media(min-width:701px){body{cursor:none}}
 @media(max-width:700px){
@@ -152,25 +155,25 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"></button>
-    <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#experience" onclick="closeMenu()">Work</a>
-  <a href="#casestudies" onclick="closeMenu()">Case Studies</a>
-  <a href="#skills" onclick="closeMenu()">Skills</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#experience">Work</a>
+  <a href="#casestudies">Case Studies</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
 </div>
 
 <canvas id="pulse"></canvas>
 
 <div class="hero">
-  <div class="hero-tag">Product Management &amp; Operations · Iceland / Pakistan</div>
-  <h1>Haseeb<br><span class="dim">Naveed</span><span class="accent">.</span></h1>
-  <p class="hero-sub">Senior Product Management &amp; Operations professional with 7+ years scaling marketplaces, developer tools, and platform ecosystems.</p>
-  <div class="hero-ctas">
+  <div class="hero-tag js-in">Product Management &amp; Operations · Iceland / Pakistan</div>
+  <h1 class="js-in">Haseeb<br><span class="dim">Naveed</span><span class="accent">.</span></h1>
+  <p class="hero-sub js-in">Senior Product Management &amp; Operations professional with 7+ years scaling marketplaces, developer tools, and platform ecosystems.</p>
+  <div class="hero-ctas js-in">
     <a href="#experience" class="btn btn-fill">View work</a>
     <a href="#contact" class="btn btn-outline">Get in touch</a>
     <a href="haseeb-naveed-cv.pdf" download class="btn btn-outline">Download CV</a>
@@ -183,7 +186,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   <div class="section-label">Experience</div>
   <div class="roles">
 
-    <div class="role" onclick="toggleRole(this)">
+    <div class="role">
       <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
         <defs><pattern id="d1" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d1)"/>
@@ -203,13 +206,13 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
           <span class="metric-pill blue">Team of 8</span><span class="metric-pill blue">Open source strategy</span><span class="metric-pill blue">Dev tooling</span><span class="metric-pill blue">Platform governance</span><span class="metric-pill blue">Community infrastructure</span>
         </div>
         <div class="role-links">
-          <a href="https://github.com/ccpgames" target="_blank" class="role-link">Carbon on GitHub</a>
-          <a href="https://www.ccpgames.com/carbon" target="_blank" class="role-link">Carbon website</a>
+          <a href="https://github.com/ccpgames" target="_blank" rel="noopener noreferrer" class="role-link">Carbon on GitHub</a>
+          <a href="https://www.ccpgames.com/carbon" target="_blank" rel="noopener noreferrer" class="role-link">Carbon website</a>
         </div>
       </div>
     </div>
 
-    <div class="role" onclick="toggleRole(this)">
+    <div class="role">
       <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
         <defs><pattern id="d2" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d2)"/>
@@ -224,7 +227,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <div class="role-body">
         <div class="role-divider"></div>
         <div class="role-img-wrap" id="fab-wrap">
-          <button class="role-img-toggle" onclick="toggleImg('fab-wrap',event)">Show product image <span class="arr">▾</span></button>
+          <button class="role-img-toggle" data-toggle-img="fab-wrap">Show product image <span class="arr">▾</span></button>
           <img class="role-img" id="fab-img" alt="FAB Marketplace"/>
         </div>
         <p>Led pricing strategy for Megascans on FAB, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
@@ -232,13 +235,13 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
           <span class="metric-pill blue">+23% acquisition</span><span class="metric-pill blue">−16% support volume</span><span class="metric-pill blue">+21% ratings</span><span class="metric-pill blue">−20% time to publish</span>
         </div>
         <div class="role-links">
-          <a href="https://fab.com" target="_blank" class="role-link">FAB Marketplace</a>
-          <a href="https://quixel.com/megascans" target="_blank" class="role-link">Megascans</a>
+          <a href="https://fab.com" target="_blank" rel="noopener noreferrer" class="role-link">FAB Marketplace</a>
+          <a href="https://quixel.com/megascans" target="_blank" rel="noopener noreferrer" class="role-link">Megascans</a>
         </div>
       </div>
     </div>
 
-    <div class="role" onclick="toggleRole(this)">
+    <div class="role">
       <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
         <defs><pattern id="d3" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d3)"/>
@@ -253,7 +256,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <div class="role-body">
         <div class="role-divider"></div>
         <div class="role-img-wrap" id="bridge-wrap">
-          <button class="role-img-toggle" onclick="toggleImg('bridge-wrap',event)">Show product image <span class="arr">▾</span></button>
+          <button class="role-img-toggle" data-toggle-img="bridge-wrap">Show product image <span class="arr">▾</span></button>
           <img class="role-img" id="bridge-img" alt="Quixel Bridge"/>
         </div>
         <p>Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
@@ -263,7 +266,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       </div>
     </div>
 
-    <div class="role" onclick="toggleRole(this)">
+    <div class="role">
       <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
         <defs><pattern id="d4" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#C9924A"/></pattern></defs>
         <rect width="180" height="100" fill="url(#d4)"/>
@@ -278,18 +281,18 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
       <div class="role-body">
         <div class="role-divider"></div>
         <div class="role-img-wrap" id="megascans-wrap">
-          <button class="role-img-toggle" onclick="toggleImg('megascans-wrap',event)">Show product image <span class="arr">▾</span></button>
+          <button class="role-img-toggle" data-toggle-img="megascans-wrap">Show product image <span class="arr">▾</span></button>
           <img class="role-img" id="megascans-img" alt="Quixel Megascans"/>
         </div>
         <p>Sole operator managing a rapidly scaling catalog, publishing content and single-handedly rewriting the metadata architecture as the library grew from 7,000 to 18,000+ listings. Designed a 0→1 taxonomy and curation system, raised CSAT by 36 points to 83.5%.</p>
         <div class="role-metrics">
           <span class="metric-pill blue">7K → 18K listings</span><span class="metric-pill blue">+109% downloads</span><span class="metric-pill blue">83.5% CSAT</span><span class="metric-pill blue">110K users surveyed</span>
         </div>
-        <div class="role-links"><a href="https://quixel.com/megascans" target="_blank" class="role-link">Megascans</a></div>
+        <div class="role-links"><a href="https://quixel.com/megascans" target="_blank" rel="noopener noreferrer" class="role-link">Megascans</a></div>
       </div>
     </div>
 
-    <div class="role" onclick="toggleRole(this)">
+    <div class="role">
       <div class="role-header">
         <div>
           <div class="role-company">Motive (ex KeepTruckin) · Islamabad</div>
@@ -312,8 +315,8 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   <div class="section-label">Case Studies</div>
   <div class="roles">
 
-    <div class="role" style="cursor:pointer">
-      <div class="role-header" onclick="navigate('case-study-pricing.html')">
+    <div class="role" style="cursor:pointer" data-navigate="case-study-pricing.html">
+      <div class="role-header">
         <div>
           <div class="role-company">Epic Games · Pricing Strategy</div>
           <div class="role-title">Rethinking how the world's largest 3D asset library charges for its content</div>
@@ -321,7 +324,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
         </div>
       </div>
       <div style="padding:0 1.25rem 1.25rem;display:flex;flex-direction:column;gap:0.75rem">
-        <div onclick="navigate('case-study-pricing.html')" style="display:block;width:100%;padding:0.65rem;background:var(--accent);color:var(--bg);border-radius:6px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-align:center;cursor:pointer">Read case study →</div>
+        <div style="display:block;width:100%;padding:0.65rem;background:var(--accent);color:var(--bg);border-radius:6px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-align:center;cursor:pointer">Read case study →</div>
         <div style="display:flex;gap:0.4rem;flex-wrap:wrap">
           <span class="cs-pill">+23% acquisition</span>
           <span class="cs-pill">18K+ assets repriced</span>
@@ -384,7 +387,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   <div class="section-label">Contact</div>
   <div class="contact-grid">
     <div class="contact-item"><a href="mailto:haseebnaveed@protonmail.com"><div class="contact-type">Email</div><div class="contact-val">haseebnaveed@protonmail.com</div></a></div>
-    <div class="contact-item"><a href="https://www.linkedin.com/in/haseeb-naveed/" target="_blank"><div class="contact-type">LinkedIn</div><div class="contact-val">linkedin.com/in/haseeb-naveed</div></a></div>
+    <div class="contact-item"><a href="https://www.linkedin.com/in/haseeb-naveed/" target="_blank" rel="noopener noreferrer"><div class="contact-type">LinkedIn</div><div class="contact-val">linkedin.com/in/haseeb-naveed</div></a></div>
   </div>
 </div>
 
@@ -393,6 +396,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   <span style="font-size:10px;color:var(--muted2)">All product names and trademarks are property of their respective owners.</span>
 </footer>
 
+<script src="vendor/lenis.min.js" defer></script>
 <script>
 const root = document.documentElement;
 
@@ -402,14 +406,16 @@ function toggleTheme() {
 }
 const saved = localStorage.getItem('theme');
 if (saved === 'dark') root.classList.add('dark');
-
-document.addEventListener('DOMContentLoaded', () => document.body.classList.add('loaded'));
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 function navigate(href) {
   document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.35s ease';
-  setTimeout(() => window.location = href, 350);
+  document.body.style.transition = 'opacity 0.4s ease';
+  setTimeout(() => window.location = href, 400);
 }
+document.querySelectorAll('[data-navigate]').forEach(el => {
+  el.addEventListener('click', () => navigate(el.getAttribute('data-navigate')));
+});
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href]');
   if (!a) return;
@@ -431,15 +437,22 @@ document.querySelectorAll('a,button,.role,.btn').forEach(el => {
   el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
 
-function toggleImg(id, e) {
-  e.stopPropagation();
+function toggleImg(id) {
   const wrap = document.getElementById(id); wrap.classList.toggle('open');
   const btn = wrap.querySelector('.role-img-toggle');
-  btn.innerHTML = wrap.classList.contains('open') ? 'Hide product image <span class="arr" style="display:inline-block;transform:rotate(180deg)">▾</span>' : 'Show product image <span class="arr">▾</span>';
+  const open = wrap.classList.contains('open');
+  btn.classList.toggle('open', open);
+  btn.childNodes[0].textContent = open ? 'Hide product image ' : 'Show product image ';
 }
+document.querySelectorAll('[data-toggle-img]').forEach(btn => {
+  btn.addEventListener('click', e => { e.stopPropagation(); toggleImg(btn.getAttribute('data-toggle-img')); });
+});
 function toggleMenu() { document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
 function closeMenu() { document.getElementById('burger').classList.remove('open'); document.getElementById('mobile-menu').classList.remove('open'); }
+document.getElementById('burger').addEventListener('click', toggleMenu);
+document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
 function toggleRole(el) { el.querySelector('.role-body').classList.toggle('open'); el.classList.toggle('open'); }
+document.querySelectorAll('#experience .role').forEach(el => el.addEventListener('click', () => toggleRole(el)));
 
 try { document.getElementById('fab-img').src = 'fab.png'; document.getElementById('bridge-img').src = 'bridge.jpg'; document.getElementById('megascans-img').src = 'megascans.png'; } catch (e) {}
 
@@ -462,6 +475,39 @@ window.addEventListener('resize', setup);
     ctx.strokeStyle = `rgba(201,146,74,${alpha})`; ctx.lineWidth = 1.2; ctx.stroke();
   }
   requestAnimationFrame(draw);
+})();
+
+// Lenis smooth scroll
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && window.Lenis) {
+  const lenis = new Lenis({ autoRaf: true, lerp: 0.1, anchors: true });
+}
+
+// Hero load choreography
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.hero .js-in').forEach((el, i) => {
+    el.style.transitionDelay = (i * 100) + 'ms';
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-in')));
+  });
+});
+
+// Scroll-in reveals
+(function () {
+  const selectors = '.section-label, .role, .skill-group, .contact-item';
+  const els = Array.from(document.querySelectorAll(selectors));
+  els.forEach(el => el.classList.add('js-in'));
+  const byParent = new Map();
+  els.forEach(el => {
+    const p = el.parentElement;
+    const idx = byParent.get(p) || 0;
+    el.style.transitionDelay = (idx % 5) * 70 + 'ms';
+    byParent.set(p, idx + 1);
+  });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(el => io.observe(el));
 })();
 </script>
 </body>

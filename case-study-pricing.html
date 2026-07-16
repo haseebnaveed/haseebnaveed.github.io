@@ -21,26 +21,28 @@
   --border:#2A2318;--border2:#3A3025;
   --nav-bg:rgba(30,26,20,0.92);
 }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;opacity:0;transition:opacity 0.4s ease,background 0.35s,color 0.35s;cursor:none}
-body.loaded{opacity:1}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;transition:background 0.4s ease,color 0.4s ease;cursor:none}
 a{color:inherit;text-decoration:none}
 
+.js-in{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js-in.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.js-in{opacity:1;transform:none;transition:none}}
+
 #cursor{position:fixed;pointer-events:none;z-index:9999}
-#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s}
-#cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.25s,height 0.25s,border-color 0.25s;top:0;left:0}
+#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease}
+#cursor-ring{width:36px;height:36px;border:1px solid rgba(201,146,74,0.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease,border-color 0.4s ease;top:0;left:0}
 body.cursor-hover #cursor-dot{width:12px;height:12px}
 body.cursor-hover #cursor-ring{width:52px;height:52px;border-color:rgba(201,146,74,1)}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:border-color 0.35s}
-nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.35s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:border-color 0.4s ease}
+nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.4s ease}
 .logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:1.5rem}
-.nav-back{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.4s ease;display:flex;align-items:center;gap:0.5rem;cursor:pointer;background:none;border:none;font-family:inherit}
 .nav-back:hover{color:var(--text)}
 .nav-back::before{content:'←';font-size:14px}
-.theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.35s,border-color 0.35s;flex-shrink:0}
-.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.3s ease}
+.theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.4s ease,border-color 0.4s ease;flex-shrink:0}
+.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.4s ease}
 :root.dark .theme-toggle::after{transform:translateX(20px)}
 
 .hero{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:10rem 2.5rem 5rem}
@@ -63,10 +65,12 @@ nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdr
 .callout p{font-size:14px;color:var(--text);line-height:1.75;margin:0;font-weight:300}
 .callout strong{font-weight:500;color:var(--accent)}
 
-.divider{height:1px;background:var(--border);margin:3.5rem 0;transition:background 0.35s}
+.divider{height:1px;background:var(--border);margin:3.5rem 0;transition:background 0.4s ease}
 
-.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:2rem;transition:background 0.35s,border-color 0.35s}
-.outcome{background:var(--bg2);padding:1.75rem 1.5rem;transition:background 0.35s}
+.outcomes-wrap{display:flex;gap:2rem;margin-top:2rem}
+.outcomes-label{flex-shrink:0;display:none}
+.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex:1;transition:background 0.4s ease,border-color 0.4s ease}
+.outcome{background:var(--bg2);padding:1.75rem 1.5rem;transition:background 0.4s ease}
 .outcome-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--accent);line-height:1}
 .outcome-label{font-size:12px;color:var(--muted);margin-top:0.4rem;font-weight:300}
 
@@ -75,12 +79,16 @@ nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdr
 
 .weight-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:13px}
 .weight-table th{text-align:left;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:400;padding:0.75rem 1rem;border-bottom:1px solid var(--border)}
-.weight-table td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);color:var(--muted);font-weight:300;vertical-align:top;transition:border-color 0.35s}
+.weight-table td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);color:var(--muted);font-weight:300;vertical-align:top;transition:border-color 0.4s ease}
 .weight-table tr:last-child td{border-bottom:none}
 .weight-table td:first-child{color:var(--text);font-weight:400;white-space:nowrap}
 
-footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;position:relative;z-index:1;transition:border-color 0.35s,color 0.35s}
+footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;position:relative;z-index:1;transition:border-color 0.4s ease,color 0.4s ease}
 
+@media(min-width:901px){
+  .outcomes-label{display:block;width:120px;position:sticky;top:50vh;transform:translateY(-50%);align-self:flex-start}
+  .outcomes-label span{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--accent)}
+}
 @media(max-width:700px){
   body{cursor:auto}#cursor{display:none}
   .hero,.content{padding-left:1.5rem;padding-right:1.5rem}
@@ -95,21 +103,21 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 <nav>
   <div class="logo">HN</div>
   <div class="nav-right">
-    <a class="nav-back" onclick="navigate('index.html')">Back to portfolio</a>
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode"></button>
+    <button class="nav-back" id="nav-back">Back to portfolio</button>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
   </div>
 </nav>
 
 <div class="hero">
-  <div class="cs-tag">Case Study</div>
-  <h1>Rethinking how the world's largest 3D asset library charges for its content</h1>
-  <div class="hero-meta">
+  <div class="cs-tag js-in">Case Study</div>
+  <h1 class="js-in">Rethinking how the world's largest 3D asset library charges for its content</h1>
+  <div class="hero-meta js-in">
     <span class="meta-pill">Epic Games</span>
     <span class="meta-pill">2022 – 2024</span>
     <span class="meta-pill">Pricing Strategy</span>
     <span class="meta-pill">Marketplace</span>
   </div>
-  <p class="hero-sub">Megascans had been priced for adoption since the Quixel acquisition. As Epic prepared to launch FAB, a fully open UGC marketplace, that model became a liability. I led the transition from a subscription model to a tiered Pay-Per-Product system designed to be fair, scalable, and market-ready.</p>
+  <p class="hero-sub js-in">Megascans had been priced for adoption since the Quixel acquisition. As Epic prepared to launch FAB, a fully open UGC marketplace, that model became a liability. I led the transition from a subscription model to a tiered Pay-Per-Product system designed to be fair, scalable, and market-ready.</p>
 </div>
 
 <div class="content">
@@ -180,11 +188,14 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     <div class="section-label">Outcome</div>
     <h2>A marketplace ready to launch</h2>
     <p>The new pricing model shipped as part of the FAB launch. Beyond enabling a fair competitive environment for creators, the repricing drove measurable results in the first quarter.</p>
-    <div class="outcomes">
-      <div class="outcome"><div class="outcome-num">+23%</div><div class="outcome-label">Customer acquisition in Q1</div></div>
-      <div class="outcome"><div class="outcome-num">−16%</div><div class="outcome-label">Support volume post-launch</div></div>
-      <div class="outcome"><div class="outcome-num">+21%</div><div class="outcome-label">5-star ratings</div></div>
-      <div class="outcome"><div class="outcome-num">18K+</div><div class="outcome-label">Assets repriced at launch</div></div>
+    <div class="outcomes-wrap">
+      <div class="outcomes-label"><span>Outcomes</span></div>
+      <div class="outcomes">
+        <div class="outcome"><div class="outcome-num">+23%</div><div class="outcome-label">Customer acquisition in Q1</div></div>
+        <div class="outcome"><div class="outcome-num">−16%</div><div class="outcome-label">Support volume post-launch</div></div>
+        <div class="outcome"><div class="outcome-num">+21%</div><div class="outcome-label">5-star ratings</div></div>
+        <div class="outcome"><div class="outcome-num">18K+</div><div class="outcome-label">Assets repriced at launch</div></div>
+      </div>
     </div>
   </div>
 
@@ -192,6 +203,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
 <footer>Haseeb Naveed &nbsp;·&nbsp; 2026</footer>
 
+<script src="vendor/lenis.min.js" defer></script>
 <script>
 const root = document.documentElement;
 
@@ -200,14 +212,14 @@ function toggleTheme() {
   localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
 }
 if (localStorage.getItem('theme') === 'dark') root.classList.add('dark');
-
-document.addEventListener('DOMContentLoaded', () => document.body.classList.add('loaded'));
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 function navigate(href) {
   document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.35s ease';
-  setTimeout(() => window.location = href, 350);
+  document.body.style.transition = 'opacity 0.4s ease';
+  setTimeout(() => window.location = href, 400);
 }
+document.getElementById('nav-back').addEventListener('click', () => navigate('index.html'));
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href]');
   if (!a) return;
@@ -228,6 +240,39 @@ document.querySelectorAll('a,button').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
 });
+
+// Lenis smooth scroll
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && window.Lenis) {
+  const lenis = new Lenis({ autoRaf: true, lerp: 0.1, anchors: true });
+}
+
+// Hero load choreography
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.hero .js-in').forEach((el, i) => {
+    el.style.transitionDelay = (i * 100) + 'ms';
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-in')));
+  });
+});
+
+// Scroll-in reveals
+(function () {
+  const selectors = '.section, .outcome';
+  const els = Array.from(document.querySelectorAll(selectors));
+  els.forEach(el => el.classList.add('js-in'));
+  const byParent = new Map();
+  els.forEach(el => {
+    const p = el.parentElement;
+    const idx = byParent.get(p) || 0;
+    el.style.transitionDelay = (idx % 5) * 70 + 'ms';
+    byParent.set(p, idx + 1);
+  });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(el => io.observe(el));
+})();
 </script>
 </body>
 </html>

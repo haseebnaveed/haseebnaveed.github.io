@@ -90,6 +90,13 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
 .btn-fill{background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
 .btn-fill:hover{background:var(--accent2);border-color:var(--accent2)}
+.worked-at{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:3rem}
+.worked-at-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted2);margin-right:0.5rem}
+.worked-at img{width:auto;opacity:0.75;transition:opacity 0.4s ease}
+.worked-at img:hover{opacity:1}
+.worked-at-sep{width:1px;height:26px;background:var(--border2);flex-shrink:0}
+:root.light .worked-at img{filter:invert(0.85)}
+@media(max-width:700px){.worked-at{gap:1.25rem}.worked-at-label{width:100%;margin-right:0}.worked-at-sep{display:none}.worked-at img{transform:scale(0.9);transform-origin:left center}}
 .scroll-hint{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:0.75rem;margin-top:3rem}
 .scroll-hint::after{content:'';display:inline-block;width:40px;height:1px;background:var(--muted2)}
 
@@ -212,6 +219,16 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
     <a href="#experience" class="btn btn-fill">View work</a>
     <a href="#contact" class="btn btn-outline">Get in touch</a>
     <a href="haseeb-naveed-cv.pdf" download class="btn btn-outline">Download CV</a>
+  </div>
+  <div class="worked-at js-in">
+    <span class="worked-at-label">Worked at</span>
+    <img src="logo-ccp.png" alt="CCP Games" width="88" height="88" style="height:40px">
+    <span class="worked-at-sep" aria-hidden="true"></span>
+    <img src="logo-epic.png" alt="Epic Games" width="82" height="88" style="height:40px">
+    <span class="worked-at-sep" aria-hidden="true"></span>
+    <img src="logo-quixel.png" alt="Quixel" width="179" height="52" style="height:22px">
+    <span class="worked-at-sep" aria-hidden="true"></span>
+    <img src="logo-motive.png" alt="Motive" width="229" height="60" style="height:20px">
   </div>
   <div class="scroll-hint">Scroll</div>
 </div>

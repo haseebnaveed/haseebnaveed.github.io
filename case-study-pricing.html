@@ -20,6 +20,7 @@
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Pixel';src:url('fonts/pixel.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box}
 /* Midnight Signal: dark-FIRST palette. Default :root (no class on <html>) =
    deep navy dark theme. :root.light class = the light counterpart. */
@@ -40,7 +41,7 @@
 body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;transition:background 0.4s ease,color 0.4s ease;cursor:none}
 a{color:inherit;text-decoration:none}
 
-.js-in{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js-in{opacity:0;transform:translateY(18px);transition:opacity .6s steps(6),transform .6s steps(6)}
 .js-in.is-in{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.js-in{opacity:1;transform:none;transition:none}}
 
@@ -75,7 +76,7 @@ nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdr
 
 .content{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0 2.5rem 8rem}
 .section{margin-bottom:4rem}
-.section-label{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.section-label{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
 .section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
 .section h2{font-family:'Fraunces',serif;font-size:clamp(1.5rem,3vw,1.85rem);font-weight:600;margin-bottom:1rem;line-height:1.2}
 .section p{font-size:16px;color:var(--muted);line-height:1.85;margin-bottom:1rem;font-weight:400}

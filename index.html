@@ -20,6 +20,7 @@
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Pixel';src:url('fonts/pixel.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box}
 /* Midnight Signal: dark-FIRST palette. Default :root (no class on <html>) =
    deep navy dark theme. :root.light class = the light counterpart. */
@@ -40,7 +41,7 @@
 body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;transition:background 0.4s ease,color 0.4s ease}
 a{color:inherit;text-decoration:none}
 
-.js-in{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js-in{opacity:0;transform:translateY(18px);transition:opacity .6s steps(6),transform .6s steps(6)}
 .js-in.is-in{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.js-in{opacity:1;transform:none;transition:none}}
 
@@ -59,8 +60,8 @@ nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdr
 .logo{font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:2rem}
 nav ul{list-style:none;display:flex;gap:2.5rem}
-nav ul a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.4s ease,font-style 0.4s ease}
-nav ul a:hover{color:var(--text);font-style:italic}
+nav ul a{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);transition:color 0.4s ease}
+nav ul a:hover{color:var(--text)}
 nav ul a .idx{color:var(--accent);margin-right:0.35em}
 .theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.4s ease,border-color 0.4s ease;flex-shrink:0}
 .theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.4s ease}
@@ -77,7 +78,7 @@ nav ul a .idx{color:var(--accent);margin-right:0.35em}
 
 canvas#pulse{display:block;width:100%;height:100vh}
 .hero{margin-top:calc(-100vh + 64px);min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
-.hero-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem}
+.hero-tag{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem;line-height:1.8}
 .hero-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
 .hero h1{font-family:'Fraunces',serif;font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.75rem}
 .hero h1 .dim{color:var(--muted)}
@@ -85,23 +86,31 @@ canvas#pulse{display:block;width:100%;height:100vh}
 .hero-sub{font-size:1.0625rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:2.5rem;font-weight:400}
 .hero-sub em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--text)}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.65rem 1.5rem;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;border-radius:2rem;transition:all 0.4s ease;font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.4rem;font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.04em;text-transform:uppercase;border-radius:0;transition:all 0.2s steps(2);font-weight:400}
 .btn-outline{border:1px solid var(--border2);color:var(--muted)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-.btn-fill{background:var(--accent);color:var(--bg);border:1px solid var(--accent)}
-.btn-fill:hover{background:var(--accent2);border-color:var(--accent2)}
+.btn-fill{background:var(--accent);color:var(--bg);border:1px solid var(--accent);box-shadow:3px 3px 0 var(--accent2)}
+.btn-fill:hover{background:var(--accent2);border-color:var(--accent2);box-shadow:1px 1px 0 var(--accent);transform:translate(2px,2px)}
 .worked-at{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;max-width:560px;margin:0.5rem 0 3rem}
-.worked-at-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted2);width:100%;margin-bottom:1.25rem}
+.worked-at-label{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted2);width:100%;margin-bottom:1.25rem}
 .worked-at img{width:auto;opacity:0.75;transition:opacity 0.4s ease}
 .worked-at img:hover{opacity:1}
 .worked-at-sep{width:1px;height:26px;background:var(--border2);flex-shrink:0}
 :root.light .worked-at img{filter:invert(0.85)}
 @media(max-width:700px){.worked-at-sep{display:none}.worked-at img{transform:scale(0.9)}}
-.scroll-hint{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:0.75rem;margin-top:3rem}
+.scroll-hint{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:0.75rem;margin-top:3rem}
 .scroll-hint::after{content:'';display:inline-block;width:40px;height:1px;background:var(--muted2)}
 
 .section{padding:clamp(6rem,14vh,10rem) 2.5rem;max-width:1000px;margin:0 auto}
-.section-label{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
+.section-label{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
+.story-body{max-width:640px;position:relative;overflow:hidden;max-height:16rem}
+.story-body.open{max-height:none}
+.story-body::after{content:'';position:absolute;bottom:0;left:0;right:0;height:8rem;background:linear-gradient(transparent,var(--bg));pointer-events:none;transition:opacity 0.4s ease}
+.story-body.open::after{opacity:0}
+.story-body p{color:var(--muted);line-height:1.85;margin-bottom:1.6rem;font-size:1.0625rem}
+.story-body p:last-child{margin-bottom:0}
+.story-body em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--text)}
+.story-toggle{margin-top:1.5rem;background:none;cursor:pointer}
 .section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
 .section-heading{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1.15;letter-spacing:-0.01em;margin-bottom:3rem}
 
@@ -190,10 +199,11 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   <div class="logo">HN</div>
   <div class="nav-right">
     <ul>
-      <li><a href="#experience"><span class="idx">A.</span>Work</a></li>
-      <li><a href="#casestudies"><span class="idx">B.</span>Case Studies</a></li>
-      <li><a href="#skills"><span class="idx">C.</span>Skills</a></li>
-      <li><a href="#contact"><span class="idx">D.</span>Contact</a></li>
+      <li><a href="#story"><span class="idx">A.</span>Story</a></li>
+      <li><a href="#experience"><span class="idx">B.</span>Work</a></li>
+      <li><a href="#casestudies"><span class="idx">C.</span>Case Studies</a></li>
+      <li><a href="#skills"><span class="idx">D.</span>Skills</a></li>
+      <li><a href="#contact"><span class="idx">E.</span>Contact</a></li>
     </ul>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
@@ -202,6 +212,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 </header>
 
 <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+  <a href="#story">Story</a>
   <a href="#experience">Work</a>
   <a href="#casestudies">Case Studies</a>
   <a href="#skills">Skills</a>
@@ -222,6 +233,22 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
   </div>
   <div class="scroll-hint">Scroll</div>
 </div>
+
+<div class="divider"></div>
+<section class="section" id="story">
+  <div class="section-label">Story</div>
+  <h2 class="section-heading">How I got here</h2>
+  <div class="story-body" id="story-text">
+    <p>I started working while I was still in university. Partly to fund my own studies, but mostly because I wanted to know what earning my own money felt like. The answer came through outbound sales, where I spent two years moving up fast enough that I ended up leading a team while still being the top seller on the floor. The thrill of sales is quite unique. Nothing since has taught me faster how to <em>build relationships</em> and get to what customers actually want out of a deal.</p>
+    <p>After that I spent a fair bit of time on the other side of the phone doing customer support at various small companies, until I joined Motive as a Technical Support Engineer, a step up from the basic support roles I'd done while studying.</p>
+    <p>In parallel to both of those jobs I built a solid reputation as a content writer, with clients primarily in Australia and the US, back before freelancing was cool. I kept most of them for the better part of a decade, right up until Motive.</p>
+    <p>Then came Quixel, one of the best experiences I've had. The company was fewer than 20 people when I joined as the marketplace manager, and at a startup that size the title mostly means you wear <em>every hat in the building</em>. We had a marketplace that had been hacked together by a small team years earlier, and it did what it was supposed to, one way or another. But there was hardly any sensible experience around browsing, searching, promoting new content or the purchase flow. That's where I actually <em>learned product</em>, shaping that first marketplace experience almost incidentally. A small and humble team turned it into a world-class product, to the point that in 2019 Epic acquired Quixel.</p>
+    <p>At Epic I worked as a Product Manager on creator tools for Unreal Engine. Our work touched Fortnite, importing and exporting content to and from UE, the content browsing experience and entirely new asset types like packed level instance blueprints for prefabs and megatrees. Later on I helped the Fab team define the new marketplace experience, building on what had made Megascans work in the first place.</p>
+    <p>Today I'm a Senior Product Manager at Fenris Creations (formerly CCP Games), working on creator tools for Carbon, the in-house engine that powers EVE Online, the world's second oldest MMO. I built the product function in a platform team that had only ever operated as a service team: a product vision, pillars and a roadmap from scratch, plus taking charge of the Tools team of one designer and eight engineers including QA. The work ranges from redesigning the engine's world editor to bring it closer to industry standards, to a telemetry pipeline that catches issues before users report them, to fully new workflows like a Sequencer-style cinematics pipeline for producing beauty shots and trailers directly in the engine. We even converted our manual test suite into an automated behaviour suite using LLMs. On top of that I lead product operations and the productization of Carbon as an engine, along with its open source program, from governance and contribution pathways to what open-sourcing parts of the engine changes for us internally.</p>
+    <p>Always learning, always giving it my all and then some. Perpetually trying to take myself <em>a bit less seriously</em> and my work <em>a bit more seriously</em>.</p>
+  </div>
+  <button class="btn btn-outline story-toggle" id="story-toggle" aria-expanded="false" aria-controls="story-text">Read the full story</button>
+</section>
 
 <div class="divider"></div>
 <section class="section" id="experience">
@@ -534,6 +561,13 @@ document.querySelectorAll('#experience .role').forEach(el => {
 
 try { document.getElementById('fab-img').src = 'fab.webp'; document.getElementById('bridge-img').src = 'bridge.jpg'; document.getElementById('megascans-img').src = 'megascans.webp'; } catch (e) {}
 
+const storyBody = document.getElementById('story-text'), storyToggle = document.getElementById('story-toggle');
+storyToggle.addEventListener('click', () => {
+  const open = storyBody.classList.toggle('open');
+  storyToggle.setAttribute('aria-expanded', open);
+  storyToggle.textContent = open ? 'Collapse story' : 'Read the full story';
+});
+
 const c = document.getElementById('pulse'), ctx = c.getContext('2d');
 let W, H, rafId = null, heroVisible = true;
 const NUM_PARTICLES = 70, LINK_DIST = 120;
@@ -573,11 +607,12 @@ function draw() {
     }
   }
   for (const p of particles) {
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    const s = Math.max(2, Math.round(p.r * 2.5));
+    const gx = Math.round(p.x / 3) * 3, gy = Math.round(p.y / 3) * 3;
     ctx.fillStyle = isDarkTheme
       ? (p.cyan ? `rgba(34,211,238,${p.a})` : `rgba(241,245,249,${p.a})`)
       : (p.cyan ? `rgba(8,145,178,${p.a * 0.85})` : `rgba(37,99,235,${p.a * 0.7})`);
-    ctx.fill();
+    ctx.fillRect(gx - s / 2, gy - s / 2, s, s);
   }
   rafId = requestAnimationFrame(draw);
 }
@@ -606,7 +641,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Scroll-in reveals
 (function () {
-  const selectors = '.section-label, .worked-at, .role, .skill-group, .contact-item';
+  const selectors = '.section-label, .story-body p, .worked-at, .role, .skill-group, .contact-item';
   const els = Array.from(document.querySelectorAll(selectors));
   els.forEach(el => el.classList.add('js-in'));
   const byParent = new Map();

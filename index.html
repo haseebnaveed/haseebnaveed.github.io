@@ -145,7 +145,8 @@ canvas#net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .scroll-cue .bar{width:34px;height:1px;background:var(--faint);position:relative;overflow:hidden}
 .scroll-cue .bar::after{content:'';position:absolute;inset:0;width:40%;background:var(--accent);animation:sweep 2.6s cubic-bezier(.7,0,.3,1) infinite}
 @keyframes sweep{0%{transform:translateX(-100%)}60%,100%{transform:translateX(260%)}}
-.avail{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.55rem}
+.avail{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.55rem;pointer-events:auto;transition:color .3s ease}
+.avail:hover{color:var(--text)}
 .avail .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);position:relative}
 .avail .pulse::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--accent);animation:ping 2s cubic-bezier(0,0,.2,1) infinite}
 @keyframes ping{0%{transform:scale(1);opacity:.7}80%,100%{transform:scale(2.6);opacity:0}}
@@ -185,7 +186,8 @@ canvas#net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:1.9rem 0;transition:padding-left .45s cubic-bezier(.16,1,.3,1)}
 .role:hover .role-header{padding-left:1.1rem}
 .role-yr{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--accent);padding-top:.35rem;white-space:nowrap}
-.role-co{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.role-co{display:block;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
+.role-title{display:block}
 .role-title{font-family:'Bricolage',sans-serif;font-weight:600;font-size:clamp(1.1rem,1.9vw,1.45rem);line-height:1.2;letter-spacing:-0.015em;color:var(--text)}
 .role-plus{font-size:22px;line-height:1;color:var(--faint);transition:transform .45s cubic-bezier(.16,1,.3,1),color .3s ease;justify-self:end;align-self:center}
 .role:hover .role-plus{color:var(--text)}
@@ -264,6 +266,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 .footer-note{font-size:13px;color:var(--muted);max-width:44ch;line-height:1.6}
 .footer-note a{color:var(--text);border-bottom:1px solid var(--line-2);transition:border-color .3s ease}
 .footer-note a:hover{border-color:var(--accent)}
+.footer-fine{font-size:12px;color:var(--faint);margin-top:.7rem;line-height:1.6}
 .footer-meta{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.8}
 
 /* ============ RESPONSIVE ============ */
@@ -336,7 +339,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
   <div class="hero-foot">
     <div class="wrap">
       <div class="scroll-cue">Scroll <span class="bar"></span></div>
-      <div class="avail"><span class="pulse"></span>Open to conversations</div>
+      <a class="avail" href="#contact"><span class="pulse"></span>Open to conversations</a>
     </div>
   </div>
 </header>
@@ -469,7 +472,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 <!-- CASE STUDIES -->
 <section class="section" id="casestudies">
   <div class="wrap">
-    <h2 class="h-sec reveal" style="margin-bottom:2.5rem">Selected work</h2>
+    <h2 class="h-sec reveal" style="margin-bottom:2.5rem">Case Studies</h2>
     <div class="cs-grid">
       <article class="cs cs-live reveal" data-navigate="case-study-pricing.html">
         <div class="cs-live-body">
@@ -558,7 +561,10 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 
 <footer>
   <div class="wrap">
-    <p class="footer-note"><a href="#contact">This site has no cookie banner.</a> That's the level of care you can expect. All product names and trademarks are property of their respective owners.</p>
+    <div>
+      <p class="footer-note"><a href="#contact">This site has no cookie banner.</a> That's the level of care you can expect.</p>
+      <p class="footer-fine">All product names and trademarks are property of their respective owners.</p>
+    </div>
     <div class="footer-meta">Haseeb Naveed<br>© 2026 · haseebnaveed.cv</div>
   </div>
 </footer>

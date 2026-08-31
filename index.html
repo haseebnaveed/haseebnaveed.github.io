@@ -9,655 +9,770 @@
 <meta property="og:description" content="7+ years in product across marketplaces, developer tools, and game development platforms. Career started in sales and support, turns out selling to and helping users is excellent product training.">
 <meta property="og:url" content="https://haseebnaveed.cv/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#080C1A">
+<meta name="theme-color" content="#08090C">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23080C1A'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%2322D3EE'>HN</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2308090C'/><text x='50%25' y='53%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='700' fill='%23F5C451'>HN</text></svg>">
 <style>
-@font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'Fraunces';src:url('fonts/fraunces-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300 500;font-style:normal;font-display:swap}
 @font-face{font-family:'Pixel';src:url('fonts/pixel.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+
 *{margin:0;padding:0;box-sizing:border-box}
-/* Midnight Signal: dark-FIRST palette. Default :root (no class on <html>) =
-   deep navy dark theme. :root.light class = the light counterpart. */
+
+/* ============ TOKENS ============
+   Dark-first. Bare :root = deep ink dark theme.
+   :root.light = warm-paper counterpart. One accent (signal amber), locked. */
 :root{
-  --bg:#080C1A;--bg2:rgba(255,255,255,0.03);--bg3:rgba(255,255,255,0.06);
-  --text:rgba(241,245,249,0.95);--muted:rgba(241,245,249,0.76);--muted2:rgba(241,245,249,0.4);
-  --accent:#22D3EE;--accent2:#818CF8;--accent-dim:rgba(34,211,238,0.12);
-  --border:rgba(99,102,241,0.18);--border2:rgba(99,102,241,0.32);
-  --nav-bg:rgba(8,12,26,0.7);
+  --bg:#08090C; --bg-elev:#0E0F14;
+  --surface:rgba(255,255,255,0.024); --surface-2:rgba(255,255,255,0.055);
+  --text:#ECEDEE; --muted:rgba(236,237,238,0.60); --faint:rgba(236,237,238,0.32);
+  --line:rgba(255,255,255,0.09); --line-2:rgba(255,255,255,0.17);
+  --accent:#F5C451; --accent-2:#F0B429; --accent-ink:#08090C;
+  --accent-soft:rgba(245,196,81,0.13); --accent-line:rgba(245,196,81,0.34);
+  --nav-bg:rgba(8,9,12,0.68);
+  --grain:0.04;
+  --mono:ui-monospace,'SF Mono','Cascadia Mono','Segoe UI Mono',Menlo,Consolas,monospace;
 }
 :root.light{
-  --bg:#F3F6FC;--bg2:rgba(11,18,32,0.03);--bg3:rgba(11,18,32,0.06);
-  --text:#0B1220;--muted:#4B5876;--muted2:rgba(11,18,32,0.35);
-  --accent:#0891B2;--accent2:#6366F1;--accent-dim:rgba(8,145,178,0.12);
-  --border:rgba(70,80,180,0.18);--border2:rgba(70,80,180,0.32);
-  --nav-bg:rgba(243,246,252,0.75);
+  --bg:#F4F2EC; --bg-elev:#FBFAF6;
+  --surface:rgba(23,21,15,0.028); --surface-2:rgba(23,21,15,0.06);
+  --text:#17150F; --muted:rgba(23,21,15,0.62); --faint:rgba(23,21,15,0.34);
+  --line:rgba(23,21,15,0.12); --line-2:rgba(23,21,15,0.22);
+  --accent:#9A6E0C; --accent-2:#845E08; --accent-ink:#FBFAF6;
+  --accent-soft:rgba(154,110,12,0.10); --accent-line:rgba(154,110,12,0.30);
+  --nav-bg:rgba(244,242,236,0.72);
+  --grain:0.02;
 }
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;transition:background 0.4s ease,color 0.4s ease}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6;
+  font-weight:400; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden; transition:background .5s ease,color .5s ease;
+}
 a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
-.js-in{opacity:0;transform:translateY(18px);transition:opacity .6s steps(6),transform .6s steps(6)}
-.js-in.is-in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){.js-in{opacity:1;transform:none;transition:none}}
+/* film grain, fixed, never on scrolling containers */
+body::after{
+  content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;transition:opacity .5s ease;
+}
 
-#cursor{position:fixed;pointer-events:none;z-index:9999}
-#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease}
-#cursor-ring{width:36px;height:36px;border:1px solid var(--accent);opacity:0.6;border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease,border-color 0.4s ease,opacity 0.4s ease;top:0;left:0}
-body.cursor-hover #cursor-dot{width:12px;height:12px}
-body.cursor-hover #cursor-ring{width:52px;height:52px;opacity:1}
-@media(pointer:coarse){#cursor{display:none}}
-@media(prefers-reduced-motion:reduce){#cursor{display:none}}
+/* ============ REVEALS ============ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.mask{display:block;overflow:hidden;padding-bottom:.08em}
+.mask > *{display:block;transform:translateY(112%);opacity:0;transition:transform 1s cubic-bezier(.16,1,.3,1),opacity 1s cubic-bezier(.16,1,.3,1),filter 1s ease}
+.loaded .mask > *{transform:none;opacity:1;filter:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.mask>*{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+}
 
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:background 0.4s ease,border-color 0.4s ease}
-nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.4s ease}
-.logo{font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--accent)}
-.nav-right{display:flex;align-items:center;gap:2rem}
-nav ul{list-style:none;display:flex;gap:2.5rem}
-nav ul a{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);transition:color 0.4s ease}
+/* ============ NAV ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;padding:0 clamp(1.25rem,4vw,2.75rem);
+  display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid transparent;transition:border-color .5s ease}
+nav.scrolled{border-color:var(--line)}
+nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);z-index:-1;opacity:0;transition:opacity .5s ease}
+nav.scrolled::before{opacity:1}
+.brand{font-family:'Bricolage',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-0.02em;display:flex;align-items:center;gap:.55rem}
+.brand .mk{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.nav-right{display:flex;align-items:center;gap:clamp(1.25rem,3vw,2.5rem)}
+nav ul{list-style:none;display:flex;gap:clamp(1.1rem,2.4vw,2.1rem)}
+nav ul a{font-size:12.5px;color:var(--muted);letter-spacing:.01em;position:relative;transition:color .3s ease}
+nav ul a::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:0;background:var(--accent);transition:width .35s cubic-bezier(.16,1,.3,1)}
 nav ul a:hover{color:var(--text)}
-nav ul a .idx{color:var(--accent);margin-right:0.35em}
-.theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.4s ease,border-color 0.4s ease;flex-shrink:0}
-.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.4s ease}
-:root.light .theme-toggle::after{transform:translateX(20px)}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
-.burger span{display:block;width:22px;height:1.5px;background:var(--muted);transition:all 0.4s ease}
+nav ul a:hover::after{width:100%}
+.theme-toggle{width:46px;height:25px;border-radius:20px;border:1px solid var(--line-2);background:var(--surface);cursor:pointer;position:relative;transition:border-color .4s ease,background .4s ease;flex-shrink:0}
+.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:var(--accent);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+:root.light .theme-toggle::after{transform:translateX(21px)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.burger span{display:block;width:24px;height:1.5px;background:var(--text);transition:all .4s ease}
 .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transition:background 0.4s ease}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:99;flex-direction:column;align-items:flex-start;justify-content:center;gap:1.25rem;padding:0 2rem}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:1.5rem;font-family:'Fraunces',serif;color:var(--muted);transition:color 0.4s ease,font-style 0.4s ease}
-.mobile-menu a:hover{color:var(--text);font-style:italic}
+.mobile-menu a{font-family:'Bricolage',sans-serif;font-weight:600;font-size:2rem;letter-spacing:-0.02em;color:var(--muted);transition:color .3s ease}
+.mobile-menu a:hover,.mobile-menu a:active{color:var(--text)}
+.mobile-menu a .ix{font-family:var(--mono);font-size:11px;color:var(--accent);margin-right:.7rem;vertical-align:middle}
 
-canvas#pulse{display:block;width:100%;height:100vh}
-.hero{margin-top:calc(-100vh + 64px);min-height:calc(100vh - 64px);display:flex;flex-direction:column;justify-content:center;padding:0 2.5rem;max-width:1000px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
-.hero-tag{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem;line-height:1.8}
-.hero-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
-.hero h1{font-family:'Fraunces',serif;font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.75rem}
-.hero h1 .dim{color:var(--muted)}
-.hero h1 .accent{color:var(--accent)}
-.hero-sub{font-size:1.0625rem;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:2.5rem;font-weight:400}
-.hero-sub em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--text)}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.8rem 1.4rem;font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.04em;text-transform:uppercase;border-radius:0;transition:all 0.2s steps(2);font-weight:400}
-.btn-outline{border:1px solid var(--border2);color:var(--muted)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-.btn-fill{background:var(--accent);color:var(--bg);border:1px solid var(--accent);box-shadow:3px 3px 0 var(--accent2)}
-.btn-fill:hover{background:var(--accent2);border-color:var(--accent2);box-shadow:1px 1px 0 var(--accent);transform:translate(2px,2px)}
-.worked-at{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;max-width:560px;margin:0.5rem 0 3rem}
-.worked-at-label{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted2);width:100%;margin-bottom:1.25rem}
-.worked-at img{width:auto;opacity:0.75;transition:opacity 0.4s ease}
-.worked-at img:hover{opacity:1}
-.worked-at-sep{width:1px;height:26px;background:var(--border2);flex-shrink:0}
-:root.light .worked-at img{filter:invert(0.85)}
-@media(max-width:700px){.worked-at-sep{display:none}.worked-at img{transform:scale(0.9)}}
-.scroll-hint{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:0.75rem;margin-top:3rem}
-.scroll-hint::after{content:'';display:inline-block;width:40px;height:1px;background:var(--muted2)}
+/* ============ LAYOUT ============ */
+.wrap{max-width:1120px;margin:0 auto;padding-left:clamp(1.25rem,5vw,2.75rem);padding-right:clamp(1.25rem,5vw,2.75rem)}
+.section{padding-top:clamp(6rem,13vh,10rem);padding-bottom:clamp(6rem,13vh,10rem)}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--accent-line)}
+.h-sec{font-family:'Bricolage',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;letter-spacing:-0.025em}
+.rule{height:1px;background:var(--line)}
 
-.section{padding:clamp(6rem,14vh,10rem) 2.5rem;max-width:1000px;margin:0 auto}
-.section-label{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
-.story-body{max-width:640px;position:relative;overflow:hidden;max-height:16rem}
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+canvas#net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 90% at 15% 20%,transparent 0%,var(--bg) 78%)}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero-tag{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+  display:flex;align-items:center;gap:.75rem;margin-bottom:2rem}
+.hero-tag::before{content:'';width:26px;height:1px;background:var(--accent-line)}
+.hero h1{font-family:'Bricolage',sans-serif;font-weight:800;font-size:clamp(3.4rem,12vw,9rem);line-height:.92;letter-spacing:-0.04em;margin-bottom:1.9rem}
+.hero h1 .l2{color:var(--faint)}
+.hero h1 .dot{color:var(--accent)}
+.hero-sub{font-size:clamp(1rem,1.4vw,1.15rem);color:var(--muted);max-width:33rem;line-height:1.7;margin-bottom:2.6rem}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.9rem 1.5rem;font-size:13px;font-weight:500;letter-spacing:.01em;
+  border-radius:100px;transition:transform .25s cubic-bezier(.16,1,.3,1),background .3s ease,color .3s ease,border-color .3s ease;will-change:transform}
+.btn .arw{transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.btn-fill{background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
+.btn-fill:hover{background:var(--accent-2);border-color:var(--accent-2)}
+.btn-fill:hover .arw{transform:translateX(4px)}
+.btn-fill:active{transform:scale(.97)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line-2)}
+.btn-ghost:hover{border-color:var(--text)}
+.btn-ghost:active{transform:scale(.97)}
+.hero-foot{position:absolute;left:0;right:0;bottom:clamp(1.5rem,4vh,2.5rem);z-index:2;pointer-events:none}
+.hero-foot .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap}
+.scroll-cue{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:.7rem}
+.scroll-cue .bar{width:34px;height:1px;background:var(--faint);position:relative;overflow:hidden}
+.scroll-cue .bar::after{content:'';position:absolute;inset:0;width:40%;background:var(--accent);animation:sweep 2.6s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes sweep{0%{transform:translateX(-100%)}60%,100%{transform:translateX(260%)}}
+.avail{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.55rem}
+.avail .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);position:relative}
+.avail .pulse::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--accent);animation:ping 2s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.7}80%,100%{transform:scale(2.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){.scroll-cue .bar::after,.avail .pulse::after{animation:none}}
+
+/* ============ STORY ============ */
+.story-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.story-aside{position:sticky;top:110px}
+.story-aside .h-sec{margin-top:1.4rem}
+.story-lead{font-family:'Bricolage',sans-serif;font-weight:500;font-size:clamp(1.3rem,2.3vw,1.7rem);line-height:1.35;letter-spacing:-0.015em;color:var(--text);margin-bottom:2rem}
+.story-lead .hl{color:var(--accent)}
+.story-body{position:relative;overflow:hidden;max-height:20rem;transition:max-height .1s}
 .story-body.open{max-height:none}
-.story-body::after{content:'';position:absolute;bottom:0;left:0;right:0;height:8rem;background:linear-gradient(transparent,var(--bg));pointer-events:none;transition:opacity 0.4s ease}
+.story-body::after{content:'';position:absolute;left:0;right:0;bottom:0;height:9rem;background:linear-gradient(transparent,var(--bg));pointer-events:none;transition:opacity .5s ease}
 .story-body.open::after{opacity:0}
-.story-body p{color:var(--muted);line-height:1.85;margin-bottom:1.6rem;font-size:1.0625rem}
-.story-body p:last-child{margin-bottom:0}
-.story-body em{font-family:'Fraunces',serif;font-style:italic;font-weight:400;color:var(--text)}
-.story-toggle{margin-top:1.5rem;background:none;cursor:pointer}
-.section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
-.section-heading{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1.15;letter-spacing:-0.01em;margin-bottom:3rem}
+.story-body p{color:var(--muted);line-height:1.85;margin-bottom:1.5rem;max-width:60ch}
+.story-body p strong{color:var(--text);font-weight:500}
+.link-btn{margin-top:1.75rem;background:none;border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:500;color:var(--text);
+  display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 0;position:relative}
+.link-btn::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--line-2);transition:background .3s ease}
+.link-btn:hover::after{background:var(--accent)}
+.link-btn .chev{color:var(--accent);transition:transform .3s ease}
+.link-btn.open .chev{transform:rotate(180deg)}
 
-.roles{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:background 0.4s ease,border-color 0.4s ease}
-.role{background:var(--bg2);cursor:pointer;transition:background 0.4s ease;position:relative;overflow:hidden}
-.role:hover{background:var(--bg3)}
-.role-header{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.25rem;position:relative;z-index:1;transition:padding-left 0.4s ease;width:100%;text-align:left;background:none;border:none;color:inherit;font:inherit}
-#experience .role-header{cursor:pointer}
-.role-company{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
-.role-title{font-size:0.95rem;font-weight:500;color:var(--text);line-height:1.4}
+/* ============ WORKED AT ============ */
+.workedat{display:flex;align-items:center;gap:clamp(1.5rem,4vw,3rem);flex-wrap:wrap;margin-bottom:clamp(3rem,7vh,5rem)}
+.workedat .lab{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.workedat img{height:26px;width:auto;opacity:.5;filter:grayscale(1) brightness(1.7);transition:opacity .4s ease,filter .4s ease}
+.workedat img:hover{opacity:1;filter:grayscale(0) brightness(1)}
+:root.light .workedat img{filter:grayscale(1) brightness(.2);opacity:.55}
+:root.light .workedat img:hover{filter:grayscale(0) brightness(1);opacity:1}
 
-/* Experience: editorial row list, no card chrome */
-#experience .roles{background:none;border:none;border-radius:0;gap:0}
-#experience .role{background:none;overflow:visible;border-top:1px solid var(--border);transition:border-color 0.4s ease}
-#experience .role:last-child{border-bottom:1px solid var(--border)}
-#experience .role:hover{background:none}
-#experience .role:hover .role-header{padding-left:2.75rem}
-#experience .role-title{font-family:'Inter',system-ui,sans-serif;font-weight:500;font-size:1.05rem;line-height:1.4;letter-spacing:0.01em}
-@media(max-width:700px){#experience .role:hover .role-header{padding-left:2rem}}
-.role-right{text-align:right;flex-shrink:0}
-.role-period{font-size:11px;color:var(--muted);letter-spacing:0.05em}
-.role-toggle{font-size:20px;color:var(--muted2);margin-top:0.4rem;transition:transform 0.4s ease;display:block;line-height:1}
-.role.open .role-toggle{transform:rotate(45deg);color:var(--accent)}
-.role-body{display:none;padding:0 2.25rem 2rem;position:relative;z-index:1}
-.role-body.open{display:block}
-.role-img-wrap{margin-bottom:1.5rem}
-.role-img-toggle{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);border-radius:2rem;padding:0.25rem 0.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:0.75rem;transition:all 0.4s ease;background:none}
+/* ============ EXPERIENCE ============ */
+.roles{border-top:1px solid var(--line)}
+.role{border-bottom:1px solid var(--line);position:relative}
+.role-header{display:grid;grid-template-columns:5.5rem 1fr auto;gap:1.5rem;align-items:baseline;width:100%;text-align:left;
+  background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:1.9rem 0;transition:padding-left .45s cubic-bezier(.16,1,.3,1)}
+.role:hover .role-header{padding-left:1.1rem}
+.role-yr{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--accent);padding-top:.35rem;white-space:nowrap}
+.role-co{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.role-title{font-family:'Bricolage',sans-serif;font-weight:600;font-size:clamp(1.1rem,1.9vw,1.45rem);line-height:1.2;letter-spacing:-0.015em;color:var(--text)}
+.role-plus{font-size:22px;line-height:1;color:var(--faint);transition:transform .45s cubic-bezier(.16,1,.3,1),color .3s ease;justify-self:end;align-self:center}
+.role:hover .role-plus{color:var(--text)}
+.role.open .role-plus{transform:rotate(45deg);color:var(--accent)}
+.role-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.16,1,.3,1)}
+.role.open .role-body{grid-template-rows:1fr}
+.role-body-in{overflow:hidden}
+.role-body-pad{padding:0 0 2.2rem;padding-left:calc(5.5rem + 1.5rem);max-width:64ch}
+.role-body-pad p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:1rem}
+.role-img-toggle{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);border-radius:100px;
+  padding:.35rem .9rem;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;margin-bottom:1rem;transition:all .35s ease;background:none;font-family:inherit}
 .role-img-toggle:hover{border-color:var(--accent);color:var(--accent)}
-.role-img-toggle .arr{display:inline-block;transition:transform 0.4s ease}
+.role-img-toggle .arr{transition:transform .35s ease}
 .role-img-toggle.open .arr{transform:rotate(180deg)}
-.role-img{width:100%;height:auto;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--border2);display:none}
-.role-img-wrap.open .role-img{display:block}
-.role-body p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;font-weight:400}
-.role-metrics{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
-.metric-pill{font-size:11px;padding:0.3rem 0.85rem;border-radius:2rem;letter-spacing:0.03em}
-.metric-pill.blue{background:none;color:var(--accent);border:1px solid var(--border2)}
-.cs-pill{font-size:10px;padding:0.2rem 0.65rem;border-radius:2rem;background:none;color:var(--accent);border:1px solid var(--border2);letter-spacing:0.03em}
-.role-links{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
-.role-link{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;transition:all 0.4s ease;display:inline-flex;align-items:center;gap:0.4rem}
+.role-img-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.16,1,.3,1);margin-bottom:1rem}
+.role-img-wrap.open{grid-template-rows:1fr}
+.role-img-in{overflow:hidden}
+.role-img{width:100%;height:auto;object-fit:cover;border-radius:10px;border:1px solid var(--line-2);display:block;margin-bottom:.4rem}
+.metrics{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.35rem}
+.metric{font-size:11.5px;padding:.35rem .8rem;border-radius:100px;color:var(--accent);border:1px solid var(--accent-line);background:var(--accent-soft);letter-spacing:.02em}
+.role-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.1rem}
+.role-link{font-size:11px;padding:.35rem .85rem;border:1px solid var(--line-2);border-radius:100px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;
+  transition:all .35s ease;display:inline-flex;align-items:center;gap:.4rem}
 .role-link:hover{border-color:var(--accent);color:var(--accent)}
-.role-link::after{content:'↗';font-size:10px}
-.role-divider{height:1px;background:var(--border);margin-bottom:1.5rem}
-.role-dots{position:absolute;top:0;right:0;bottom:0;width:180px;pointer-events:none;z-index:0;opacity:0.04}
+.role-link .ext{font-size:10px}
 
+/* ============ CASE STUDIES ============ */
+.cs-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.1rem}
+.cs{border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden;position:relative;transition:border-color .4s ease,transform .4s cubic-bezier(.16,1,.3,1),background .4s ease}
+.cs-live{grid-column:span 6;display:grid;grid-template-columns:1.1fr 1fr;cursor:pointer;min-height:300px}
+.cs-live:hover{border-color:var(--accent-line);background:var(--surface-2)}
+.cs-live:hover .cs-cta .arw{transform:translateX(4px)}
+.cs-live-body{padding:clamp(1.75rem,3vw,2.75rem);display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
+.cs-co{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.cs-title{font-family:'Bricolage',sans-serif;font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.14;letter-spacing:-0.02em;margin-bottom:1rem}
+.cs-meta{font-size:12px;color:var(--faint);letter-spacing:.04em}
+.cs-bottom{display:flex;flex-direction:column;gap:1.1rem}
+.cs-pills{display:flex;gap:.45rem;flex-wrap:wrap}
+.cs-pill{font-size:11px;padding:.3rem .75rem;border-radius:100px;border:1px solid var(--line-2);color:var(--muted);letter-spacing:.02em}
+.cs-cta{display:inline-flex;align-items:center;gap:.5rem;font-size:13px;font-weight:500;color:var(--accent)}
+.cs-cta .arw{transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.cs-media{position:relative;overflow:hidden;background:var(--bg-elev)}
+.cs-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;opacity:.9;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .4s ease}
+.cs-live:hover .cs-media img{transform:scale(1.04);opacity:1}
+.cs-media::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--surface),transparent 30%)}
+.cs-soon{grid-column:span 3;padding:clamp(1.5rem,2.5vw,2rem);min-height:210px;display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem;opacity:.72}
+.cs-soon .cs-co{color:var(--muted)}
+.cs-soon .cs-title{font-size:clamp(1.15rem,1.8vw,1.4rem)}
+.cs-badge{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line-2);border-radius:100px;padding:.3rem .7rem;align-self:flex-start}
 
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2rem}
-.skill-group h3{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:400}
-.skill-group ul{list-style:none;display:flex;flex-wrap:wrap;gap:0.4rem}
-.skill-group li{font-size:12px;color:var(--muted);padding:0.25rem 0.7rem;border:1px solid var(--border);border-radius:2rem;transition:all 0.4s ease}
-.skill-group li:hover{border-color:var(--border2);color:var(--text)}
+/* ============ SKILLS ============ */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.skill-group{background:var(--bg);padding:1.6rem 1.5rem;transition:background .4s ease}
+.skill-group:hover{background:var(--surface)}
+.skill-group h3{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;justify-content:space-between}
+.skill-group h3 .n{color:var(--faint)}
+.skill-group ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.skill-group li{font-size:14px;color:var(--muted);transition:color .3s ease,transform .3s ease}
+.skill-group li:hover{color:var(--text);transform:translateX(3px)}
 
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.contact-item{background:var(--bg2);padding:1.75rem;transition:background 0.4s ease}
-.contact-item:hover{background:var(--bg3)}
-.contact-type{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
-.contact-val{font-size:15px;color:var(--muted);transition:color 0.4s ease}
-.contact-item:hover .contact-val{color:var(--text)}
+/* ============ CONTACT ============ */
+.contact-lead{font-family:'Bricolage',sans-serif;font-weight:700;font-size:clamp(2.4rem,6vw,4.5rem);line-height:1;letter-spacing:-0.035em;margin-bottom:2.5rem}
+.contact-lead .hl{color:var(--accent)}
+.contact-rows{border-top:1px solid var(--line)}
+.contact-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.6rem 0;border-bottom:1px solid var(--line);
+  transition:padding-left .45s cubic-bezier(.16,1,.3,1)}
+.contact-row:hover{padding-left:1rem}
+.contact-row .k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.contact-row .v{font-family:'Bricolage',sans-serif;font-weight:500;font-size:clamp(1.05rem,2vw,1.5rem);letter-spacing:-0.01em;color:var(--text);display:flex;align-items:center;gap:.7rem}
+.contact-row .v .ext{font-size:.7em;color:var(--accent);transition:transform .3s ease}
+.contact-row:hover .v .ext{transform:translate(3px,-3px)}
 
-footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;line-height:2;transition:border-color 0.4s ease,color 0.4s ease}
-.footer-signoff{display:block;font-family:'Inter',system-ui,sans-serif;font-style:normal;font-weight:400;font-size:13px;text-transform:none;letter-spacing:0.02em;color:var(--muted);margin:0 auto 1.25rem;max-width:48ch;line-height:1.6;transition:color 0.4s ease}
-.footer-signoff:hover{color:var(--accent)}
-.divider{height:1px;background:var(--border);transition:background 0.4s ease}
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);padding:3rem 0}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.footer-note{font-size:13px;color:var(--muted);max-width:44ch;line-height:1.6}
+.footer-note a{color:var(--text);border-bottom:1px solid var(--line-2);transition:border-color .3s ease}
+.footer-note a:hover{border-color:var(--accent)}
+.footer-meta{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.8}
 
-@media(min-width:701px){body{cursor:none}}
-@media(max-width:700px){
-  nav ul{display:none}.burger{display:flex}
-  .nav-right{gap:1rem}
-  nav{padding:1rem 1.5rem}
-  .hero,.section{padding-left:1.5rem;padding-right:1.5rem}
-  .role-header{flex-direction:column;gap:0.5rem;padding:1.5rem}
-  .role-right{text-align:left;display:flex;gap:1rem;align-items:center}
-  .role-body{padding:0 1.5rem 1.5rem}
-  .role-dots{display:none}
-  body{cursor:auto}#cursor{display:none}
-  .logo-strip-inner{padding:1.5rem}
-  .logo-item{padding:0 1.5rem}
+/* ============ RESPONSIVE ============ */
+@media(max-width:820px){
+  .story-grid{grid-template-columns:1fr;gap:2rem}
+  .story-aside{position:static}
+  .story-aside .h-sec{margin-top:.6rem}
+  .cs-live{grid-template-columns:1fr}
+  .cs-media{min-height:200px}
+  .cs-soon{grid-column:span 6}
+}
+@media(max-width:640px){
+  nav ul{display:none}
+  .burger{display:flex}
+  .nav-right{gap:.9rem}
+  .role-header{grid-template-columns:1fr auto;gap:.4rem 1rem}
+  .role-yr{grid-column:1;grid-row:1;padding-top:0;order:-1}
+  .role-body-pad{padding-left:0}
+  .role:hover .role-header{padding-left:0}
+  .hero h1{font-size:clamp(3rem,17vw,5rem)}
+  .contact-row{flex-direction:column;align-items:flex-start;gap:.4rem}
 }
 </style>
 </head>
 <body>
 
-<div id="cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
-
-<header>
-<nav>
-  <div class="logo">HN</div>
+<nav id="nav">
+  <a href="#top" class="brand"><span class="mk"></span>Haseeb Naveed</a>
   <div class="nav-right">
     <ul>
-      <li><a href="#story"><span class="idx">A.</span>Story</a></li>
-      <li><a href="#experience"><span class="idx">B.</span>Work</a></li>
-      <li><a href="#casestudies"><span class="idx">C.</span>Case Studies</a></li>
-      <li><a href="#skills"><span class="idx">D.</span>Skills</a></li>
-      <li><a href="#contact"><span class="idx">E.</span>Contact</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#casestudies">Case Studies</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle colour theme"></button>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-</header>
 
 <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
-  <a href="#story">Story</a>
-  <a href="#experience">Work</a>
-  <a href="#casestudies">Case Studies</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
+  <a href="#story"><span class="ix">A</span>Story</a>
+  <a href="#experience"><span class="ix">B</span>Work</a>
+  <a href="#casestudies"><span class="ix">C</span>Case Studies</a>
+  <a href="#skills"><span class="ix">D</span>Skills</a>
+  <a href="#contact"><span class="ix">E</span>Contact</a>
 </nav>
 
-<main>
-<canvas id="pulse" aria-hidden="true"></canvas>
+<main id="top">
 
-<div class="hero">
-  <div class="hero-tag js-in">Product Management &amp; Operations · Iceland / Pakistan</div>
-  <h1 class="js-in">Haseeb<br><span class="dim">Naveed</span><span class="accent">.</span></h1>
-  <p class="hero-sub js-in">7+ years in product across <em>marketplaces</em>, <em>developer tools</em>, and <em>game development platforms</em>. Career started in sales and support. Turns out selling to and helping users is excellent product training.</p>
-  <div class="hero-ctas js-in">
-    <a href="#experience" class="btn btn-fill">View work</a>
-    <a href="#contact" class="btn btn-outline">Get in touch</a>
-    <a href="haseeb-naveed-cv.pdf" download class="btn btn-outline">Download CV</a>
+<!-- HERO -->
+<header class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="hero-veil"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="hero-tag reveal">Senior Product Manager · Reykjavík / Islamabad</div>
+      <h1>
+        <span class="mask"><span>Haseeb</span></span>
+        <span class="mask"><span class="l2">Naveed<span class="dot">.</span></span></span>
+      </h1>
+      <p class="hero-sub reveal">7+ years in product across <strong>marketplaces</strong>, <strong>developer tools</strong>, and <strong>game engine platforms</strong>. Started in sales and support. Turns out selling to and helping users is excellent product training.</p>
+      <div class="hero-ctas reveal">
+        <a href="#experience" class="btn btn-fill" id="magnet">View work <span class="arw">→</span></a>
+        <a href="haseeb-naveed-cv.pdf" download class="btn btn-ghost">Download CV</a>
+      </div>
+    </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
-</div>
+  <div class="hero-foot">
+    <div class="wrap">
+      <div class="scroll-cue">Scroll <span class="bar"></span></div>
+      <div class="avail"><span class="pulse"></span>Open to conversations</div>
+    </div>
+  </div>
+</header>
 
-<div class="divider"></div>
+<!-- STORY -->
 <section class="section" id="story">
-  <div class="section-label">Story</div>
-  <h2 class="section-heading">How I got here</h2>
-  <div class="story-body" id="story-text">
-    <p>I started working while I was still in university. Partly to fund my own studies, but mostly because I wanted to know what earning my own money felt like. The answer came through outbound sales, where I spent two years moving up fast enough that I ended up leading a team while still being the top seller on the floor. The thrill of sales is quite unique. Nothing since has taught me faster how to <em>build relationships</em> and get to what customers actually want out of a deal.</p>
-    <p>After that I spent a fair bit of time on the other side of the phone doing customer support at various small companies, until I joined Motive as a Technical Support Engineer, a step up from the basic support roles I'd done while studying.</p>
-    <p>In parallel to both of those jobs I built a solid reputation as a content writer, with clients primarily in Australia and the US, back before freelancing was cool. I kept most of them for the better part of a decade, right up until Motive.</p>
-    <p>Then came Quixel, one of the best experiences I've had. The company was fewer than 20 people when I joined as the marketplace manager, and at a startup that size the title mostly means you wear <em>every hat in the building</em>. We had a marketplace that had been hacked together by a small team years earlier, and it did what it was supposed to, one way or another. But there was hardly any sensible experience around browsing, searching, promoting new content or the purchase flow. That's where I actually <em>learned product</em>, shaping that first marketplace experience almost incidentally. A small and humble team turned it into a world-class product, to the point that in 2019 Epic acquired Quixel.</p>
-    <p>At Epic I worked as a Product Manager on creator tools for Unreal Engine. Our work touched Fortnite, importing and exporting content to and from UE, the content browsing experience and entirely new asset types like packed level instance blueprints for prefabs and megatrees. Later on I helped the Fab team define the new marketplace experience, building on what had made Megascans work in the first place.</p>
-    <p>Today I'm a Senior Product Manager at Fenris Creations (formerly CCP Games), working on creator tools for Carbon, the in-house engine that powers EVE Online, the world's second oldest MMO. I built the product function in a platform team that had only ever operated as a service team: a product vision, pillars and a roadmap from scratch, plus taking charge of the Tools team of one designer and eight engineers including QA. The work ranges from redesigning the engine's world editor to bring it closer to industry standards, to a telemetry pipeline that catches issues before users report them, to fully new workflows like a Sequencer-style cinematics pipeline for producing beauty shots and trailers directly in the engine. We even converted our manual test suite into an automated behaviour suite using LLMs. On top of that I lead product operations and the productization of Carbon as an engine, along with its open source program, from governance and contribution pathways to what open-sourcing parts of the engine changes for us internally.</p>
-    <p>Always learning, always giving it my all and then some. Perpetually trying to take myself <em>a bit less seriously</em> and my work <em>a bit more seriously</em>.</p>
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-aside">
+        <div class="eyebrow reveal">Story</div>
+        <h2 class="h-sec reveal">How I<br>got here</h2>
+      </div>
+      <div>
+        <p class="story-lead reveal">A career that started on the phone in outbound sales and support, and turned that into a decade of shaping <span class="hl">marketplaces, creator tools, and game engines</span>.</p>
+        <div class="story-body reveal" id="story-body">
+          <p>I started working while I was still in university. Partly to fund my own studies, but mostly because I wanted to know what earning my own money felt like. The answer came through outbound sales, where I spent two years moving up fast enough that I ended up leading a team while still being the top seller on the floor. The thrill of sales is quite unique. Nothing since has taught me faster how to <strong>build relationships</strong> and get to what customers actually want out of a deal.</p>
+          <p>After that I spent a fair bit of time on the other side of the phone doing customer support at various small companies, until I joined Motive as a Technical Support Engineer, a step up from the basic support roles I'd done while studying.</p>
+          <p>In parallel to both of those jobs I built a solid reputation as a content writer, with clients primarily in Australia and the US, back before freelancing was cool. I kept most of them for the better part of a decade, right up until Motive.</p>
+          <p>Then came Quixel, one of the best experiences I've had. The company was fewer than 20 people when I joined as the marketplace manager, and at a startup that size the title mostly means you wear <strong>every hat in the building</strong>. We had a marketplace that had been hacked together by a small team years earlier, and it did what it was supposed to, one way or another. But there was hardly any sensible experience around browsing, searching, promoting new content or the purchase flow. That's where I actually <strong>learned product</strong>, shaping that first marketplace experience almost incidentally. A small and humble team turned it into a world-class product, to the point that in 2019 Epic acquired Quixel.</p>
+          <p>At Epic I worked as a Product Manager on creator tools for Unreal Engine. Our work touched Fortnite, importing and exporting content to and from UE, the content browsing experience and entirely new asset types like packed level instance blueprints for prefabs and megatrees. Later on I helped the Fab team define the new marketplace experience, building on what had made Megascans work in the first place.</p>
+          <p>Today I'm a Senior Product Manager at Fenris Creations (formerly CCP Games), working on creator tools for Carbon, the in-house engine that powers EVE Online, the world's second oldest MMO. I built the product function in a platform team that had only ever operated as a service team: a product vision, pillars and a roadmap from scratch, plus taking charge of the Tools team of one designer and eight engineers including QA. The work ranges from redesigning the engine's world editor to bring it closer to industry standards, to a telemetry pipeline that catches issues before users report them, to fully new workflows like a Sequencer-style cinematics pipeline for producing beauty shots and trailers directly in the engine. We even converted our manual test suite into an automated behaviour suite using LLMs. On top of that I lead product operations and the productization of Carbon as an engine, along with its open source program, from governance and contribution pathways to what open-sourcing parts of the engine changes for us internally.</p>
+          <p>Always learning, always giving it my all and then some. Perpetually trying to take myself <strong>a bit less seriously</strong> and my work <strong>a bit more seriously</strong>.</p>
+        </div>
+        <button class="link-btn" id="story-toggle" aria-expanded="false" aria-controls="story-body">Read the full story <span class="chev">↓</span></button>
+      </div>
+    </div>
   </div>
-  <button class="btn btn-outline story-toggle" id="story-toggle" aria-expanded="false" aria-controls="story-text">Read the full story</button>
 </section>
 
-<div class="divider"></div>
+<!-- EXPERIENCE -->
 <section class="section" id="experience">
-  <div class="section-label">Experience</div>
-  <h2 class="section-heading">Work</h2>
-  <div class="worked-at js-in">
-    <span class="worked-at-label">Worked at</span>
-    <img src="logo-ccp.png" alt="CCP Games" width="104" height="88" style="height:30px">
-    <span class="worked-at-sep" aria-hidden="true"></span>
-    <img src="logo-epic.png" alt="Epic Games" width="71" height="68" style="height:30px">
-    <span class="worked-at-sep" aria-hidden="true"></span>
-    <img src="logo-quixel.png" alt="Quixel" width="179" height="52" style="height:30px">
-    <span class="worked-at-sep" aria-hidden="true"></span>
-    <img src="logo-motive.png" alt="Motive" width="229" height="60" style="height:30px">
-  </div>
-  <div class="roles">
-
-    <div class="role">
-      <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
-        <defs><pattern id="d1" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" style="fill:var(--accent)"/></pattern></defs>
-        <rect width="180" height="100" fill="url(#d1)"/>
-      </svg>
-      <button class="role-header" type="button" aria-expanded="false">
-        <div>
-          <div class="role-company">CCP Games · Reykjavík</div>
-          <h3 class="role-title">Snr. Product Manager / Snr. Product Ops - Carbon Platform &amp; Internal Dev Tools</h3>
-        </div>
-        <div class="role-right"><div class="role-period">2025 – Present</div><span class="role-toggle">+</span></div>
-      </button>
-      <div class="role-body">
-        <div class="role-divider"></div>
-        <p>Leading product for a cross-functional team of 6 engineers, 1 QA, and 1 designer building internal dev tools and asset publishing pipelines. Proposed and led initiatives across tooling stability, developer experience, and a full UI/UX redesign of core tooling implemented via Claude Code.</p>
-        <p>Simultaneously leading the open source transformation of Carbon, CCP's in-house engine, working with engineering, legal, and production to establish governance, contribution pathways, community infrastructure, and documentation for external contributors.</p>
-        <div class="role-metrics">
-          <span class="metric-pill blue">Team of 8</span><span class="metric-pill blue">Open source strategy</span><span class="metric-pill blue">Dev tooling</span><span class="metric-pill blue">Platform governance</span><span class="metric-pill blue">Community infrastructure</span>
-        </div>
-        <div class="role-links">
-          <a href="https://github.com/ccpgames" target="_blank" rel="noopener noreferrer" class="role-link">Carbon on GitHub</a>
-          <a href="https://www.ccpgames.com/carbon" target="_blank" rel="noopener noreferrer" class="role-link">Carbon website</a>
-        </div>
-      </div>
+  <div class="wrap">
+    <div class="eyebrow reveal" style="margin-bottom:1rem">Experience</div>
+    <h2 class="h-sec reveal" style="margin-bottom:2.5rem">Where I've worked</h2>
+    <div class="workedat reveal">
+      <span class="lab">Worked at</span>
+      <img src="logo-ccp.png" alt="CCP Games" width="104" height="88">
+      <img src="logo-epic.png" alt="Epic Games" width="71" height="68">
+      <img src="logo-quixel.png" alt="Quixel" width="179" height="52">
+      <img src="logo-motive.png" alt="Motive" width="229" height="60">
     </div>
 
-    <div class="role">
-      <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
-        <defs><pattern id="d2" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" style="fill:var(--accent)"/></pattern></defs>
-        <rect width="180" height="100" fill="url(#d2)"/>
-      </svg>
-      <button class="role-header" type="button" aria-expanded="false">
-        <div>
-          <div class="role-company">Epic Games · Islamabad</div>
-          <h3 class="role-title">Product Manager - Content, Merchandising &amp; Strategy</h3>
-        </div>
-        <div class="role-right"><div class="role-period">2022 – 2024</div><span class="role-toggle">+</span></div>
-      </button>
-      <div class="role-body">
-        <div class="role-divider"></div>
-        <div class="role-img-wrap" id="fab-wrap">
-          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="fab-wrap">Show product image <span class="arr">▾</span></button>
-          <img class="role-img" id="fab-img" alt="FAB Marketplace" width="1600" height="769" loading="lazy"/>
-        </div>
-        <p>Led pricing strategy for Megascans on FAB, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
-        <div class="role-metrics">
-          <span class="metric-pill blue">+23% acquisition</span><span class="metric-pill blue">−16% support volume</span><span class="metric-pill blue">+21% ratings</span><span class="metric-pill blue">−20% time to publish</span>
-        </div>
-        <div class="role-links">
-          <a href="https://fab.com" target="_blank" rel="noopener noreferrer" class="role-link">FAB Marketplace</a>
-          <a href="https://quixel.com/megascans" target="_blank" rel="noopener noreferrer" class="role-link">Megascans</a>
-        </div>
+    <div class="roles">
+      <div class="role reveal">
+        <button class="role-header" type="button" aria-expanded="false">
+          <span class="role-yr">2025 — Now</span>
+          <span><span class="role-co">CCP Games · Reykjavík</span><span class="role-title">Snr. Product Manager / Snr. Product Ops — Carbon Platform &amp; Internal Dev Tools</span></span>
+          <span class="role-plus" aria-hidden="true">+</span>
+        </button>
+        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
+          <p>Leading product for a cross-functional team of 6 engineers, 1 QA, and 1 designer building internal dev tools and asset publishing pipelines. Proposed and led initiatives across tooling stability, developer experience, and a full UI/UX redesign of core tooling implemented via Claude Code.</p>
+          <p>Simultaneously leading the open source transformation of Carbon, CCP's in-house engine, working with engineering, legal, and production to establish governance, contribution pathways, community infrastructure, and documentation for external contributors.</p>
+          <div class="metrics">
+            <span class="metric">Team of 8</span><span class="metric">Open source strategy</span><span class="metric">Dev tooling</span><span class="metric">Platform governance</span><span class="metric">Community infrastructure</span>
+          </div>
+          <div class="role-links">
+            <a href="https://github.com/ccpgames" target="_blank" rel="noopener noreferrer" class="role-link">Carbon on GitHub <span class="ext">↗</span></a>
+            <a href="https://www.ccpgames.com/carbon" target="_blank" rel="noopener noreferrer" class="role-link">Carbon website <span class="ext">↗</span></a>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="role reveal">
+        <button class="role-header" type="button" aria-expanded="false">
+          <span class="role-yr">2022 — 2024</span>
+          <span><span class="role-co">Epic Games · Islamabad</span><span class="role-title">Product Manager — Content, Merchandising &amp; Strategy</span></span>
+          <span class="role-plus" aria-hidden="true">+</span>
+        </button>
+        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
+          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="fab-wrap">Show product image <span class="arr">↓</span></button>
+          <div class="role-img-wrap" id="fab-wrap"><div class="role-img-in"><img class="role-img" data-src="fab.webp" alt="Fab Marketplace" width="1600" height="769" loading="lazy"></div></div>
+          <p>Led pricing strategy for Megascans on Fab, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
+          <div class="metrics">
+            <span class="metric">+23% acquisition</span><span class="metric">−16% support volume</span><span class="metric">+21% ratings</span><span class="metric">−20% time to publish</span>
+          </div>
+          <div class="role-links">
+            <a href="https://fab.com" target="_blank" rel="noopener noreferrer" class="role-link">Fab Marketplace <span class="ext">↗</span></a>
+            <a href="https://quixel.com/megascans" target="_blank" rel="noopener noreferrer" class="role-link">Megascans <span class="ext">↗</span></a>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="role reveal">
+        <button class="role-header" type="button" aria-expanded="false">
+          <span class="role-yr">2021 — 2022</span>
+          <span><span class="role-co">Epic Games · Islamabad</span><span class="role-title">Associate Product Manager — Technical, Content &amp; Creator Tools</span></span>
+          <span class="role-plus" aria-hidden="true">+</span>
+        </button>
+        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
+          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="bridge-wrap">Show product image <span class="arr">↓</span></button>
+          <div class="role-img-wrap" id="bridge-wrap"><div class="role-img-in"><img class="role-img" data-src="bridge.jpg" alt="Quixel Bridge" width="1920" height="1007" loading="lazy"></div></div>
+          <p>Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
+          <div class="metrics">
+            <span class="metric">+46% subscriptions</span><span class="metric">+33% MAU</span><span class="metric">−40% manual reporting</span>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="role reveal">
+        <button class="role-header" type="button" aria-expanded="false">
+          <span class="role-yr">2019 — 2021</span>
+          <span><span class="role-co">Quixel (acq. Epic Games) · Islamabad</span><span class="role-title">Senior Marketplace Manager — Megascans</span></span>
+          <span class="role-plus" aria-hidden="true">+</span>
+        </button>
+        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
+          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="megascans-wrap">Show product image <span class="arr">↓</span></button>
+          <div class="role-img-wrap" id="megascans-wrap"><div class="role-img-in"><img class="role-img" data-src="megascans.webp" alt="Quixel Megascans" width="1600" height="765" loading="lazy"></div></div>
+          <p>Sole operator managing a rapidly scaling catalog, publishing content and single-handedly rewriting the metadata architecture as the library grew from 7,000 to 18,000+ listings. Designed a 0→1 taxonomy and curation system, raised CSAT by 36 points to 83.5%.</p>
+          <div class="metrics">
+            <span class="metric">7K → 18K listings</span><span class="metric">+109% downloads</span><span class="metric">83.5% CSAT</span><span class="metric">110K users surveyed</span>
+          </div>
+          <div class="role-links"><a href="https://quixel.com/megascans" target="_blank" rel="noopener noreferrer" class="role-link">Megascans <span class="ext">↗</span></a></div>
+        </div></div></div>
+      </div>
+
+      <div class="role reveal">
+        <button class="role-header" type="button" aria-expanded="false">
+          <span class="role-yr">2018 — 2019</span>
+          <span><span class="role-co">Motive (ex KeepTruckin) · Islamabad</span><span class="role-title">Technical Support Specialist</span></span>
+          <span class="role-plus" aria-hidden="true">+</span>
+        </button>
+        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
+          <p>Technical support across email, chat, and voice for a fleet management SaaS. Triaged issues to product and engineering, and contributed to the customer knowledge base.</p>
+        </div></div></div>
       </div>
     </div>
-
-    <div class="role">
-      <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
-        <defs><pattern id="d3" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" style="fill:var(--accent)"/></pattern></defs>
-        <rect width="180" height="100" fill="url(#d3)"/>
-      </svg>
-      <button class="role-header" type="button" aria-expanded="false">
-        <div>
-          <div class="role-company">Epic Games · Islamabad</div>
-          <h3 class="role-title">Associate Product Manager - Technical, Content &amp; Creator Tools</h3>
-        </div>
-        <div class="role-right"><div class="role-period">2021 – 2022</div><span class="role-toggle">+</span></div>
-      </button>
-      <div class="role-body">
-        <div class="role-divider"></div>
-        <div class="role-img-wrap" id="bridge-wrap">
-          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="bridge-wrap">Show product image <span class="arr">▾</span></button>
-          <img class="role-img" id="bridge-img" alt="Quixel Bridge" width="1920" height="1007" loading="lazy"/>
-        </div>
-        <p>Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
-        <div class="role-metrics">
-          <span class="metric-pill blue">+46% subscriptions</span><span class="metric-pill blue">+33% MAU</span><span class="metric-pill blue">−40% manual reporting</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="role">
-      <svg class="role-dots" viewBox="0 0 180 100" preserveAspectRatio="xMaxYMid slice">
-        <defs><pattern id="d4" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" style="fill:var(--accent)"/></pattern></defs>
-        <rect width="180" height="100" fill="url(#d4)"/>
-      </svg>
-      <button class="role-header" type="button" aria-expanded="false">
-        <div>
-          <div class="role-company">Quixel (acq. Epic Games) · Islamabad</div>
-          <h3 class="role-title">Senior Marketplace Manager - Megascans</h3>
-        </div>
-        <div class="role-right"><div class="role-period">2019 – 2021</div><span class="role-toggle">+</span></div>
-      </button>
-      <div class="role-body">
-        <div class="role-divider"></div>
-        <div class="role-img-wrap" id="megascans-wrap">
-          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="megascans-wrap">Show product image <span class="arr">▾</span></button>
-          <img class="role-img" id="megascans-img" alt="Quixel Megascans" width="1600" height="765" loading="lazy"/>
-        </div>
-        <p>Sole operator managing a rapidly scaling catalog, publishing content and single-handedly rewriting the metadata architecture as the library grew from 7,000 to 18,000+ listings. Designed a 0→1 taxonomy and curation system, raised CSAT by 36 points to 83.5%.</p>
-        <div class="role-metrics">
-          <span class="metric-pill blue">7K → 18K listings</span><span class="metric-pill blue">+109% downloads</span><span class="metric-pill blue">83.5% CSAT</span><span class="metric-pill blue">110K users surveyed</span>
-        </div>
-        <div class="role-links"><a href="https://quixel.com/megascans" target="_blank" rel="noopener noreferrer" class="role-link">Megascans</a></div>
-      </div>
-    </div>
-
-    <div class="role">
-      <button class="role-header" type="button" aria-expanded="false">
-        <div>
-          <div class="role-company">Motive (ex KeepTruckin) · Islamabad</div>
-          <h3 class="role-title">Technical Support Specialist</h3>
-        </div>
-        <div class="role-right"><div class="role-period">2018 – 2019</div><span class="role-toggle">+</span></div>
-      </button>
-      <div class="role-body">
-        <div class="role-divider"></div>
-        <p>Technical support across email, chat, and voice for a fleet management SaaS. Triaged issues to product and engineering, and contributed to the customer knowledge base.</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<div class="divider"></div>
-
+<!-- CASE STUDIES -->
 <section class="section" id="casestudies">
-  <div class="section-label">Case Studies</div>
-  <h2 class="section-heading">Case Studies</h2>
-  <div class="roles">
+  <div class="wrap">
+    <h2 class="h-sec reveal" style="margin-bottom:2.5rem">Selected work</h2>
+    <div class="cs-grid">
+      <article class="cs cs-live reveal" data-navigate="case-study-pricing.html">
+        <div class="cs-live-body">
+          <div>
+            <div class="cs-co">Epic Games · Pricing Strategy</div>
+            <h3 class="cs-title">Rethinking how the world's largest 3D asset library charges for its content</h3>
+            <div class="cs-meta">2022 — 2024</div>
+          </div>
+          <div class="cs-bottom">
+            <div class="cs-pills">
+              <span class="cs-pill">+23% acquisition</span>
+              <span class="cs-pill">18K+ assets repriced</span>
+              <span class="cs-pill">Subscription → PPP</span>
+            </div>
+            <span class="cs-cta">Read case study <span class="arw">→</span></span>
+          </div>
+        </div>
+        <div class="cs-media"><img data-src="megascans.webp" alt="Megascans marketplace" width="1600" height="765" loading="lazy"></div>
+      </article>
 
-    <div class="role" style="cursor:pointer" data-navigate="case-study-pricing.html">
-      <div class="role-header">
+      <article class="cs cs-soon reveal">
         <div>
-          <div class="role-company">Epic Games · Pricing Strategy</div>
-          <h3 class="role-title">Rethinking how the world's largest 3D asset library charges for its content</h3>
-          <div style="font-size:11px;color:var(--muted);margin-top:0.4rem">2022 – 2024</div>
+          <div class="cs-co">Quixel · Catalog &amp; Taxonomy</div>
+          <h3 class="cs-title">Building a 0→1 curation system for an 18,000+ asset marketplace</h3>
         </div>
-      </div>
-      <div style="padding:0 1.25rem 1.25rem;display:flex;flex-direction:column;gap:0.75rem">
-        <div style="display:block;width:100%;padding:0.65rem;background:var(--accent);color:var(--bg);border-radius:6px;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-align:center;cursor:pointer">Read case study →</div>
-        <div style="display:flex;gap:0.4rem;flex-wrap:wrap">
-          <span class="cs-pill">+23% acquisition</span>
-          <span class="cs-pill">18K+ assets repriced</span>
-          <span class="cs-pill">Subscription to PPP</span>
+        <div class="cs-pills">
+          <span class="cs-pill">18K+ assets</span>
+          <span class="cs-pill">+109% downloads</span>
+          <span class="cs-pill">83.5% CSAT</span>
         </div>
-      </div>
-    </div>
+        <span class="cs-badge">Coming soon</span>
+      </article>
 
-    <div class="role" style="opacity:0.4;cursor:default">
-      <div class="role-header">
+      <article class="cs cs-soon reveal">
         <div>
-          <div class="role-company">Quixel · Catalog &amp; Taxonomy</div>
-          <h3 class="role-title">Building a 0→1 curation system for an 18,000+ asset marketplace</h3>
+          <div class="cs-co">CCP Games · Open Source</div>
+          <h3 class="cs-title">Taking an in-house game engine open source</h3>
         </div>
-        <div class="role-right">
-          <div class="role-period">2019 – 2021</div>
-          <span style="font-size:11px;padding:0.25rem 0.7rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em">Coming soon</span>
+        <div class="cs-pills">
+          <span class="cs-pill">Governance</span>
+          <span class="cs-pill">Contribution paths</span>
         </div>
-      </div>
-      <div style="padding:0 2.25rem 1.5rem;display:flex;gap:0.4rem;flex-wrap:wrap">
-        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.03em">18K+ assets</span>
-        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.03em">+109% downloads</span>
-        <span style="font-size:10px;padding:0.2rem 0.65rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.03em">83.5% CSAT</span>
-      </div>
+        <span class="cs-badge">Coming soon</span>
+      </article>
     </div>
-
-    <div class="role" style="opacity:0.4;cursor:default">
-      <div class="role-header">
-        <div>
-          <div class="role-company">CCP Games · Open Source</div>
-          <h3 class="role-title">Taking an in-house game engine open source</h3>
-        </div>
-        <div class="role-right">
-          <div class="role-period">2025 – Present</div>
-          <span style="font-size:11px;padding:0.25rem 0.7rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em">Coming soon</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<div class="divider"></div>
-
+<!-- SKILLS -->
 <section class="section" id="skills">
-  <div class="section-label">Skills</div>
-  <h2 class="section-heading">Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-group"><h3>Product</h3><ul><li>Roadmapping</li><li>Pricing Strategy</li><li>Feature Prioritization</li><li>Release Planning</li><li>Backlog Management</li><li>Sprint Planning</li><li>A/B Testing</li><li>Agile</li></ul></div>
-    <div class="skill-group"><h3>Research</h3><ul><li>Customer Interviews</li><li>Survey Design</li><li>Market Research</li><li>Competitive Analysis</li><li>Stakeholder Management</li></ul></div>
-    <div class="skill-group"><h3>Analytics</h3><ul><li>SQL</li><li>Python</li><li>Tableau</li><li>Metabase</li><li>Excel</li></ul></div>
-    <div class="skill-group"><h3>Tools</h3><ul><li>Figma</li><li>JIRA</li><li>Notion</li><li>Asana</li><li>GitHub</li><li>Miro</li><li>Slack</li></ul></div>
-    <div class="skill-group"><h3>AI</h3><ul><li>Claude Code</li><li>LLM workflows</li></ul></div>
-    <div class="skill-group"><h3>Languages</h3><ul><li>English (C1)</li><li>Urdu</li><li>Punjabi</li></ul></div>
+  <div class="wrap">
+    <div class="eyebrow reveal" style="margin-bottom:1rem">Skills</div>
+    <h2 class="h-sec reveal" style="margin-bottom:2.5rem">What I do</h2>
+    <div class="skills-grid reveal">
+      <div class="skill-group"><h3>Product <span class="n">01</span></h3><ul><li>Roadmapping</li><li>Pricing Strategy</li><li>Feature Prioritization</li><li>Release Planning</li><li>Backlog Management</li><li>Sprint Planning</li><li>A/B Testing</li><li>Agile</li></ul></div>
+      <div class="skill-group"><h3>Research <span class="n">02</span></h3><ul><li>Customer Interviews</li><li>Survey Design</li><li>Market Research</li><li>Competitive Analysis</li><li>Stakeholder Management</li></ul></div>
+      <div class="skill-group"><h3>Analytics <span class="n">03</span></h3><ul><li>SQL</li><li>Python</li><li>Tableau</li><li>Metabase</li><li>Excel</li></ul></div>
+      <div class="skill-group"><h3>Tools <span class="n">04</span></h3><ul><li>Figma</li><li>JIRA</li><li>Notion</li><li>Asana</li><li>GitHub</li><li>Miro</li><li>Slack</li></ul></div>
+      <div class="skill-group"><h3>AI <span class="n">05</span></h3><ul><li>Claude Code</li><li>LLM workflows</li></ul></div>
+      <div class="skill-group"><h3>Languages <span class="n">06</span></h3><ul><li>English (C1)</li><li>Urdu</li><li>Punjabi</li></ul></div>
+    </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
+<!-- CONTACT -->
 <section class="section" id="contact">
-  <div class="section-label">Contact</div>
-  <h2 class="section-heading">Talk to me</h2>
-  <div class="contact-grid">
-    <div class="contact-item"><a href="mailto:haseebnaveed@protonmail.com"><div class="contact-type">Email</div><div class="contact-val">haseebnaveed@protonmail.com</div></a></div>
-    <div class="contact-item"><a href="https://www.linkedin.com/in/haseeb-naveed/" target="_blank" rel="noopener noreferrer"><div class="contact-type">LinkedIn</div><div class="contact-val">linkedin.com/in/haseeb-naveed</div></a></div>
+  <div class="wrap">
+    <h2 class="contact-lead reveal">Let's <span class="hl">talk.</span></h2>
+    <div class="contact-rows reveal">
+      <a class="contact-row" href="mailto:haseebnaveed@protonmail.com">
+        <span class="k">Email</span>
+        <span class="v">haseebnaveed@protonmail.com <span class="ext">↗</span></span>
+      </a>
+      <a class="contact-row" href="https://www.linkedin.com/in/haseeb-naveed/" target="_blank" rel="noopener noreferrer">
+        <span class="k">LinkedIn</span>
+        <span class="v">linkedin.com/in/haseeb-naveed <span class="ext">↗</span></span>
+      </a>
+      <a class="contact-row" href="haseeb-naveed-cv.pdf" download>
+        <span class="k">Résumé</span>
+        <span class="v">Download CV (PDF) <span class="ext">↓</span></span>
+      </a>
+    </div>
   </div>
 </section>
 </main>
 
 <footer>
-  <a href="#contact" class="footer-signoff">This site has no cookie banner. That&rsquo;s the level of care you can expect.</a>
-  Haseeb Naveed &nbsp;·&nbsp; 2026<br>
-  <span style="font-size:10px;color:var(--muted2)">All product names and trademarks are property of their respective owners.</span>
+  <div class="wrap">
+    <p class="footer-note"><a href="#contact">This site has no cookie banner.</a> That's the level of care you can expect. All product names and trademarks are property of their respective owners.</p>
+    <div class="footer-meta">Haseeb Naveed<br>© 2026 · haseebnaveed.cv</div>
+  </div>
 </footer>
 
 <script src="vendor/lenis.min.js" defer></script>
 <script>
 const root = document.documentElement;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Midnight Signal: dark navy is the default theme (no class on <html>).
-// Adding 'light' switches to the light counterpart. Only persisted explicitly.
-function toggleTheme() {
+/* Theme */
+function toggleTheme(){
   root.classList.toggle('light');
-  localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+  const light = root.classList.contains('light');
+  localStorage.setItem('theme', light ? 'light' : 'dark');
+  document.querySelector('meta[name=theme-color]').setAttribute('content', light ? '#F4F2EC' : '#08090C');
 }
-const saved = localStorage.getItem('theme');
-if (saved === 'light') root.classList.add('light');
+if(localStorage.getItem('theme')==='light') root.classList.add('light');
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
-function navigate(href) {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.4s ease';
-  setTimeout(() => window.location = href, 400);
+/* Nav scrolled state */
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+onScroll();
+document.addEventListener('scroll', onScroll, {passive:true});
+
+/* Page transitions for internal links */
+function navigate(href){
+  document.body.style.transition='opacity .35s ease';
+  document.body.style.opacity='0';
+  setTimeout(()=>{ window.location = href; }, 350);
 }
-document.querySelectorAll('[data-navigate]').forEach(el => {
-  el.addEventListener('click', () => navigate(el.getAttribute('data-navigate')));
+document.querySelectorAll('[data-navigate]').forEach(el=>{
+  el.addEventListener('click', ()=>navigate(el.getAttribute('data-navigate')));
 });
-document.addEventListener('click', e => {
+document.addEventListener('click', e=>{
   const a = e.target.closest('a[href]');
-  if (!a) return;
+  if(!a) return;
   const href = a.getAttribute('href');
-  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || a.hasAttribute('download')) return;
+  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || a.hasAttribute('download')) return;
   e.preventDefault(); navigate(href);
 });
-window.addEventListener('pageshow', () => {
-  document.body.style.opacity = '0'; document.body.style.transition = 'none'; closeMenu();
-  requestAnimationFrame(() => requestAnimationFrame(() => { document.body.style.transition = 'opacity 0.4s ease'; document.body.style.opacity = '1'; }));
+window.addEventListener('pageshow', ()=>{
+  document.body.style.transition='none'; document.body.style.opacity='0'; closeMenu();
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ document.body.style.transition='opacity .4s ease'; document.body.style.opacity='1'; }));
 });
 
-const cur = document.getElementById('cursor'), dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
-(function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
-document.querySelectorAll('a,button,.role,.btn').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-});
-
-function toggleImg(id) {
-  const wrap = document.getElementById(id); wrap.classList.toggle('open');
-  const btn = wrap.querySelector('.role-img-toggle');
-  const open = wrap.classList.contains('open');
-  btn.classList.toggle('open', open);
-  btn.setAttribute('aria-expanded', String(open));
-  btn.childNodes[0].textContent = open ? 'Hide product image ' : 'Show product image ';
+/* Mobile menu */
+function toggleMenu(){
+  const b=document.getElementById('burger');
+  const open=b.classList.toggle('open');
+  document.getElementById('mobile-menu').classList.toggle('open',open);
+  b.setAttribute('aria-expanded',String(open));
+  document.body.style.overflow=open?'hidden':'';
 }
-document.querySelectorAll('[data-toggle-img]').forEach(btn => {
-  btn.addEventListener('click', e => { e.stopPropagation(); toggleImg(btn.getAttribute('data-toggle-img')); });
-});
-function toggleMenu() {
-  const burger = document.getElementById('burger');
-  const open = burger.classList.toggle('open');
-  document.getElementById('mobile-menu').classList.toggle('open', open);
-  burger.setAttribute('aria-expanded', String(open));
-}
-function closeMenu() {
-  document.getElementById('burger').classList.remove('open');
+function closeMenu(){
+  const b=document.getElementById('burger');
+  b.classList.remove('open');
   document.getElementById('mobile-menu').classList.remove('open');
-  document.getElementById('burger').setAttribute('aria-expanded', 'false');
+  b.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
 }
 document.getElementById('burger').addEventListener('click', toggleMenu);
-document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
-function toggleRole(el) {
-  const open = el.classList.toggle('open');
-  el.querySelector('.role-body').classList.toggle('open', open);
-  const btn = el.querySelector('.role-header');
-  if (btn && btn.tagName === 'BUTTON') btn.setAttribute('aria-expanded', String(open));
+document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click', closeMenu));
+
+/* Role expand */
+document.querySelectorAll('#experience .role').forEach(role=>{
+  const btn=role.querySelector('.role-header');
+  btn.addEventListener('click', ()=>{
+    const open=role.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+});
+
+/* Product image toggle (lazy-load on first open) */
+function toggleImg(id){
+  const wrap=document.getElementById(id);
+  const open=wrap.classList.toggle('open');
+  const btn=document.querySelector('[data-toggle-img="'+id+'"]');
+  btn.classList.toggle('open',open);
+  btn.setAttribute('aria-expanded',String(open));
+  const img=wrap.querySelector('img');
+  if(open && img.dataset.src && !img.src){ img.src=img.dataset.src; }
+  btn.childNodes[0].textContent = open ? 'Hide product image ' : 'Show product image ';
 }
-document.querySelectorAll('#experience .role').forEach(el => {
-  const btn = el.querySelector('.role-header');
-  (btn || el).addEventListener('click', () => toggleRole(el));
+document.querySelectorAll('[data-toggle-img]').forEach(btn=>{
+  btn.addEventListener('click', e=>{ e.stopPropagation(); toggleImg(btn.getAttribute('data-toggle-img')); });
 });
 
-try { document.getElementById('fab-img').src = 'fab.webp'; document.getElementById('bridge-img').src = 'bridge.jpg'; document.getElementById('megascans-img').src = 'megascans.webp'; } catch (e) {}
+/* Case study media lazy-load */
+document.querySelectorAll('.cs-media img[data-src]').forEach(img=>{ img.src=img.dataset.src; });
 
-const storyBody = document.getElementById('story-text'), storyToggle = document.getElementById('story-toggle');
-storyToggle.addEventListener('click', () => {
-  const open = storyBody.classList.toggle('open');
-  storyToggle.setAttribute('aria-expanded', open);
-  storyToggle.textContent = open ? 'Collapse story' : 'Read the full story';
+/* Story toggle */
+const sb=document.getElementById('story-body'), st=document.getElementById('story-toggle');
+st.addEventListener('click', ()=>{
+  const open=sb.classList.toggle('open');
+  st.setAttribute('aria-expanded',String(open));
+  st.classList.toggle('open',open);
+  st.childNodes[0].textContent = open ? 'Collapse story ' : 'Read the full story ';
 });
 
-const c = document.getElementById('pulse'), ctx = c.getContext('2d');
-let W, H, rafId = null, heroVisible = true;
-const NUM_PARTICLES = 70, LINK_DIST = 120;
-let particles = [];
-function initParticles() {
-  particles = Array.from({ length: NUM_PARTICLES }, () => ({
-    x: Math.random() * W,
-    y: Math.random() * H,
-    vx: (Math.random() - 0.5) * 0.1,
-    vy: (Math.random() - 0.5) * 0.1,
-    r: 1 + Math.random() * 0.5,
-    a: 0.25 + Math.random() * 0.25,
-    cyan: Math.random() < 0.5
+/* Magnetic CTA */
+const mag=document.getElementById('magnet');
+if(mag && !reduce && matchMedia('(pointer:fine)').matches){
+  mag.addEventListener('pointermove', e=>{
+    const r=mag.getBoundingClientRect();
+    const x=e.clientX-(r.left+r.width/2), y=e.clientY-(r.top+r.height/2);
+    mag.style.transform=`translate(${x*0.25}px, ${y*0.35}px)`;
+  });
+  mag.addEventListener('pointerleave', ()=>{ mag.style.transform=''; });
+}
+
+/* Reveal on scroll (hero excluded — it runs its own choreography) */
+(function(){
+  const els=Array.from(document.querySelectorAll('.reveal')).filter(el=>!el.closest('.hero'));
+  const byParent=new Map();
+  els.forEach(el=>{
+    const p=el.parentElement;
+    const i=byParent.get(p)||0;
+    el.style.transitionDelay=((i%6)*65)+'ms';
+    byParent.set(p,i+1);
+  });
+  // Sweep: reveal anything already at or above the viewport bottom. Catches
+  // fast scrolls, deep-links, and refresh-restored scroll positions that the
+  // observer would otherwise skip (leaving content stuck invisible).
+  const sweep=()=>els.forEach(el=>{
+    if(!el.classList.contains('in') && el.getBoundingClientRect().top < innerHeight*0.92) el.classList.add('in');
+  });
+  const io=new IntersectionObserver((entries)=>{
+    if(entries.some(en=>en.isIntersecting)) sweep();
+  },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  els.forEach(el=>io.observe(el));
+  requestAnimationFrame(sweep);
+})();
+
+/* Hero load choreography */
+function fireHero(){
+  document.body.classList.add('loaded');
+  document.querySelectorAll('.hero .reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(250+i*110)+'ms';
+    el.classList.add('in');
+  });
+}
+if(document.readyState==='complete') fireHero();
+else window.addEventListener('load', fireHero);
+setTimeout(()=>{ if(!document.body.classList.contains('loaded')) fireHero(); }, 600);
+
+/* ===== Generative network canvas (mono + amber signal nodes) ===== */
+const cv=document.getElementById('net'), cx=cv.getContext('2d');
+let W,H,parts=[],raf=null,vis=true,DPR=Math.min(2,window.devicePixelRatio||1);
+const N=64, LINK=140;
+function seed(){
+  parts=Array.from({length:N},()=>({
+    x:Math.random()*W, y:Math.random()*H,
+    vx:(Math.random()-0.5)*0.12, vy:(Math.random()-0.5)*0.12,
+    r:0.8+Math.random()*1.4,
+    a:0.18+Math.random()*0.3,
+    hot:Math.random()<0.14
   }));
 }
-function setup() { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight; initParticles(); }
-window.addEventListener('load', setup);
-window.addEventListener('resize', setup);
-function draw() {
-  ctx.clearRect(0, 0, W, H);
-  const isDarkTheme = !root.classList.contains('light');
-  for (const p of particles) {
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x += W; else if (p.x > W) p.x -= W;
-    if (p.y < 0) p.y += H; else if (p.y > H) p.y -= H;
+function size(){
+  W=cv.offsetWidth; H=cv.offsetHeight;
+  cv.width=W*DPR; cv.height=H*DPR; cx.setTransform(DPR,0,0,DPR,0,0);
+  seed();
+}
+function tick(){
+  cx.clearRect(0,0,W,H);
+  const light=root.classList.contains('light');
+  for(const p of parts){
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0)p.x+=W; else if(p.x>W)p.x-=W;
+    if(p.y<0)p.y+=H; else if(p.y>H)p.y-=H;
   }
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const a = particles[i], b = particles[j];
-      const dx = a.x - b.x, dy = a.y - b.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < LINK_DIST) {
-        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = isDarkTheme ? 'rgba(129,140,248,0.06)' : 'rgba(37,99,235,0.11)';
-        ctx.lineWidth = 1; ctx.stroke();
+  for(let i=0;i<parts.length;i++){
+    for(let j=i+1;j<parts.length;j++){
+      const a=parts[i], b=parts[j];
+      const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+      if(d<LINK){
+        const t=1-d/LINK;
+        const hot=a.hot||b.hot;
+        cx.strokeStyle = hot
+          ? (light?`rgba(154,110,12,${0.14*t})`:`rgba(245,196,81,${0.16*t})`)
+          : (light?`rgba(23,21,15,${0.10*t})`:`rgba(236,237,238,${0.06*t})`);
+        cx.lineWidth=hot?1.1:0.8;
+        cx.beginPath(); cx.moveTo(a.x,a.y); cx.lineTo(b.x,b.y); cx.stroke();
       }
     }
   }
-  for (const p of particles) {
-    const s = Math.max(2, Math.round(p.r * 2.5));
-    const gx = Math.round(p.x / 3) * 3, gy = Math.round(p.y / 3) * 3;
-    ctx.fillStyle = isDarkTheme
-      ? (p.cyan ? `rgba(34,211,238,${p.a})` : `rgba(241,245,249,${p.a})`)
-      : (p.cyan ? `rgba(8,145,178,${p.a * 0.85})` : `rgba(37,99,235,${p.a * 0.7})`);
-    ctx.fillRect(gx - s / 2, gy - s / 2, s, s);
+  for(const p of parts){
+    cx.fillStyle = p.hot
+      ? (light?`rgba(154,110,12,${p.a+0.25})`:`rgba(245,196,81,${p.a+0.35})`)
+      : (light?`rgba(23,21,15,${p.a*0.6})`:`rgba(236,237,238,${p.a})`);
+    cx.beginPath(); cx.arc(p.x,p.y,p.r,0,6.2832); cx.fill();
   }
-  rafId = requestAnimationFrame(draw);
+  raf=requestAnimationFrame(tick);
 }
-rafId = requestAnimationFrame(draw);
-const heroObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    heroVisible = entry.isIntersecting;
-    if (heroVisible && rafId === null) { rafId = requestAnimationFrame(draw); }
-    else if (!heroVisible && rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
-  });
-});
-heroObserver.observe(c);
-
-// Lenis smooth scroll
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches && window.Lenis) {
-  const lenis = new Lenis({ autoRaf: true, lerp: 0.1, anchors: true });
+if(!reduce){
+  window.addEventListener('resize', size);
+  size();
+  raf=requestAnimationFrame(tick);
+  const io2=new IntersectionObserver(es=>es.forEach(e=>{
+    vis=e.isIntersecting;
+    if(vis && raf===null) raf=requestAnimationFrame(tick);
+    else if(!vis && raf!==null){ cancelAnimationFrame(raf); raf=null; }
+  }));
+  io2.observe(cv);
+}else{
+  size();
+  const light=root.classList.contains('light');
+  cx.fillStyle=light?'rgba(23,21,15,0.15)':'rgba(236,237,238,0.15)';
+  for(const p of parts) cx.fillRect(p.x,p.y,1.5,1.5);
 }
 
-// Hero load choreography
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.hero .js-in').forEach((el, i) => {
-    el.style.transitionDelay = (i * 100) + 'ms';
-    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-in')));
-  });
-});
-
-// Scroll-in reveals
-(function () {
-  const selectors = '.section-label, .story-body p, .worked-at, .role, .skill-group, .contact-item';
-  const els = Array.from(document.querySelectorAll(selectors));
-  els.forEach(el => el.classList.add('js-in'));
-  const byParent = new Map();
-  els.forEach(el => {
-    const p = el.parentElement;
-    const idx = byParent.get(p) || 0;
-    el.style.transitionDelay = (idx % 5) * 70 + 'ms';
-    byParent.set(p, idx + 1);
-  });
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
-    });
-  }, { threshold: 0.15 });
-  els.forEach(el => io.observe(el));
-})();
+/* Lenis smooth scroll */
+if(!reduce && window.Lenis && !location.search.includes('nolenis')){ new Lenis({autoRaf:true, lerp:0.09, anchors:true}); }
 </script>
 </body>
 </html>

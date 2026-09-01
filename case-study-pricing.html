@@ -4,159 +4,178 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Case Study – Megascans Pricing · Haseeb Naveed</title>
-<meta name="description" content="How Epic Games repriced the Megascans marketplace from subscription to Pay-Per-Product ahead of the FAB launch.">
+<meta name="description" content="How Epic Games repriced the Megascans marketplace from subscription to Pay-Per-Product ahead of the Fab launch.">
 <meta property="og:title" content="Case Study – Megascans Pricing · Haseeb Naveed">
-<meta property="og:description" content="How Epic Games repriced the Megascans marketplace from subscription to Pay-Per-Product ahead of the FAB launch.">
+<meta property="og:description" content="How Epic Games repriced the Megascans marketplace from subscription to Pay-Per-Product ahead of the Fab launch.">
 <meta property="og:url" content="https://haseebnaveed.cv/case-study-pricing.html">
 <meta property="og:type" content="article">
-<meta name="theme-color" content="#080C1A">
+<meta name="theme-color" content="#08090C">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23080C1A'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%2322D3EE'>HN</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2308090C'/><text x='50%25' y='53%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='700' fill='%23F5C451'>HN</text></svg>">
 <style>
-@font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Fraunces';src:url('fonts/fraunces-normal.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'Fraunces';src:url('fonts/fraunces-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:'Pixel';src:url('fonts/pixel.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Bricolage';src:url('fonts/bricolage-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300 500;font-style:normal;font-display:swap}
+
 *{margin:0;padding:0;box-sizing:border-box}
-/* Midnight Signal: dark-FIRST palette. Default :root (no class on <html>) =
-   deep navy dark theme. :root.light class = the light counterpart. */
+
 :root{
-  --bg:#080C1A;--bg2:rgba(255,255,255,0.03);--bg3:rgba(255,255,255,0.06);
-  --text:rgba(241,245,249,0.95);--muted:rgba(241,245,249,0.76);--muted2:rgba(241,245,249,0.4);
-  --accent:#22D3EE;--accent2:#818CF8;--accent-dim:rgba(34,211,238,0.12);
-  --border:rgba(99,102,241,0.18);--border2:rgba(99,102,241,0.32);
-  --nav-bg:rgba(8,12,26,0.7);
+  --bg:#08090C; --bg-elev:#0E0F14;
+  --surface:rgba(255,255,255,0.024); --surface-2:rgba(255,255,255,0.055);
+  --text:#ECEDEE; --muted:rgba(236,237,238,0.60); --faint:rgba(236,237,238,0.32);
+  --line:rgba(255,255,255,0.09); --line-2:rgba(255,255,255,0.17);
+  --accent:#F5C451; --accent-2:#F0B429; --accent-ink:#08090C;
+  --accent-soft:rgba(245,196,81,0.13); --accent-line:rgba(245,196,81,0.34);
+  --nav-bg:rgba(8,9,12,0.68);
+  --grain:0.04;
+  --mono:ui-monospace,'SF Mono','Cascadia Mono','Segoe UI Mono',Menlo,Consolas,monospace;
 }
 :root.light{
-  --bg:#F3F6FC;--bg2:rgba(11,18,32,0.03);--bg3:rgba(11,18,32,0.06);
-  --text:#0B1220;--muted:#4B5876;--muted2:rgba(11,18,32,0.35);
-  --accent:#0891B2;--accent2:#6366F1;--accent-dim:rgba(8,145,178,0.12);
-  --border:rgba(70,80,180,0.18);--border2:rgba(70,80,180,0.32);
-  --nav-bg:rgba(243,246,252,0.75);
+  --bg:#F4F2EC; --bg-elev:#FBFAF6;
+  --surface:rgba(23,21,15,0.028); --surface-2:rgba(23,21,15,0.06);
+  --text:#17150F; --muted:rgba(23,21,15,0.62); --faint:rgba(23,21,15,0.34);
+  --line:rgba(23,21,15,0.12); --line-2:rgba(23,21,15,0.22);
+  --accent:#9A6E0C; --accent-2:#845E08; --accent-ink:#FBFAF6;
+  --accent-soft:rgba(154,110,12,0.10); --accent-line:rgba(154,110,12,0.30);
+  --nav-bg:rgba(244,242,236,0.72);
+  --grain:0.02;
 }
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;transition:background 0.4s ease,color 0.4s ease;cursor:none}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;transition:background .5s ease,color .5s ease}
 a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
-.js-in{opacity:0;transform:translateY(18px);transition:opacity .6s steps(6),transform .6s steps(6)}
-.js-in.is-in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){.js-in{opacity:1;transform:none;transition:none}}
+body::after{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;transition:opacity .5s ease}
 
-#cursor{position:fixed;pointer-events:none;z-index:9999}
-#cursor-dot{width:8px;height:8px;background:var(--text);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease}
-#cursor-ring{width:36px;height:36px;border:1px solid var(--accent);opacity:0.6;border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width 0.4s ease,border-color 0.4s ease,opacity 0.4s ease;top:0;left:0}
-body.cursor-hover #cursor-dot{width:12px;height:12px}
-body.cursor-hover #cursor-ring{width:52px;height:52px;opacity:1}
-@media(pointer:coarse){#cursor{display:none}}
-@media(prefers-reduced-motion:reduce){#cursor{display:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
 
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;padding:0 clamp(1.25rem,4vw,2.75rem);
+  display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid transparent;transition:border-color .5s ease}
+nav.scrolled{border-color:var(--line)}
+nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);z-index:-1;opacity:0;transition:opacity .5s ease}
+nav.scrolled::before{opacity:1}
+.brand{font-family:'Bricolage',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-0.02em;display:flex;align-items:center;gap:.55rem}
+.brand .mk{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.nav-right{display:flex;align-items:center;gap:clamp(1rem,2.5vw,1.75rem)}
+.nav-back{font-size:12.5px;color:var(--muted);transition:color .3s ease;display:inline-flex;align-items:center;gap:.5rem;background:none;border:none;cursor:pointer;font-family:inherit}
+.nav-back::before{content:'←';font-size:14px;color:var(--accent);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.nav-back:hover{color:var(--text)}
+.nav-back:hover::before{transform:translateX(-4px)}
+.theme-toggle{width:46px;height:25px;border-radius:20px;border:1px solid var(--line-2);background:var(--surface);cursor:pointer;position:relative;transition:border-color .4s ease,background .4s ease;flex-shrink:0}
+.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:var(--accent);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+:root.light .theme-toggle::after{transform:translateX(21px)}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:border-color 0.4s ease}
-nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(16px);z-index:-1;transition:background 0.4s ease}
-.logo{font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--accent)}
-.nav-right{display:flex;align-items:center;gap:1.5rem}
-.nav-back{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);transition:color 0.4s ease,font-style 0.4s ease;display:flex;align-items:center;gap:0.5rem;cursor:pointer;background:none;border:none;font-family:inherit}
-.nav-back:hover{color:var(--text);font-style:italic}
-.nav-back::before{content:'←';font-size:14px}
-.theme-toggle{width:44px;height:24px;border-radius:12px;border:1px solid var(--border2);background:var(--bg2);cursor:pointer;position:relative;transition:background 0.4s ease,border-color 0.4s ease;flex-shrink:0}
-.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--accent);transition:transform 0.4s ease}
-:root.light .theme-toggle::after{transform:translateX(20px)}
+/* hero */
+.hero{max-width:760px;margin:0 auto;padding:9.5rem clamp(1.5rem,5vw,2.75rem) 4rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:340px;z-index:-1;pointer-events:none;
+  background:radial-gradient(90% 100% at 12% 0%, var(--accent-soft), transparent 62%)}
+.cs-tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1.6rem;display:inline-flex;align-items:center;gap:.7rem}
+.cs-tag::before{content:'';width:22px;height:1px;background:var(--accent-line)}
+.hero h1{font-family:'Bricolage',sans-serif;font-size:clamp(2.1rem,5.5vw,3.6rem);font-weight:700;line-height:1.04;letter-spacing:-0.03em;margin-bottom:1.75rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.meta-pill{font-size:11px;padding:.32rem .85rem;border:1px solid var(--line-2);border-radius:100px;color:var(--muted);letter-spacing:.03em}
+.hero-sub{font-size:1.08rem;color:var(--muted);line-height:1.8;border-left:2px solid var(--accent);padding-left:1.35rem}
 
-.hero{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:10rem 2.5rem 5rem}
-.cs-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
-.cs-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent)}
-.hero h1{font-family:'Fraunces',serif;font-size:clamp(2.25rem,6vw,4rem);font-weight:600;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1.5rem}
-.hero-meta{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
-.meta-pill{font-size:11px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);letter-spacing:0.05em}
-.hero-sub{font-size:1.1rem;color:var(--muted);line-height:1.8;font-weight:400;border-left:2px solid var(--accent);padding-left:1.25rem}
-
-.content{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0 2.5rem 8rem}
-.section{margin-bottom:4rem}
-.section-label{font-family:'Pixel',monospace;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
-.section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent)}
-.section h2{font-family:'Fraunces',serif;font-size:clamp(1.5rem,3vw,1.85rem);font-weight:600;margin-bottom:1rem;line-height:1.2}
-.section p{font-size:16px;color:var(--muted);line-height:1.85;margin-bottom:1rem;font-weight:400}
+/* content */
+.content{max-width:760px;margin:0 auto;padding:0 clamp(1.5rem,5vw,2.75rem) 7rem}
+.section{margin-bottom:3.5rem}
+.section-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem;display:inline-flex;align-items:center;gap:.7rem}
+.section-label::before{content:'';width:16px;height:1px;background:var(--accent-line)}
+.section h2{font-family:'Bricolage',sans-serif;font-size:clamp(1.5rem,3vw,1.95rem);font-weight:600;letter-spacing:-0.02em;margin-bottom:1.1rem;line-height:1.18}
+.section p{font-size:16px;color:var(--muted);line-height:1.85;margin-bottom:1rem;max-width:64ch}
 .section p:last-child{margin-bottom:0}
 
-.callout{background:var(--accent-dim);border:1px solid var(--border2);border-radius:10px;padding:1.5rem 1.75rem;margin:2rem 0}
-.callout p{font-size:15px;color:var(--text);line-height:1.75;margin:0;font-weight:400}
-.callout strong{font-weight:500;color:var(--accent)}
+.callout{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0}
+.callout p{font-size:15px;color:var(--text);line-height:1.75;margin:0}
+.callout strong{font-weight:600;color:var(--accent)}
 
-.divider{height:1px;background:var(--border);margin:3.5rem 0;transition:background 0.4s ease}
+.divider{height:1px;background:var(--line);margin:3.25rem 0}
 
 .outcomes-wrap{display:flex;gap:2rem;margin-top:2rem}
 .outcomes-label{flex-shrink:0;display:none}
-.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex:1;transition:background 0.4s ease,border-color 0.4s ease}
-.outcome{background:var(--bg2);padding:1.75rem 1.5rem;transition:background 0.4s ease}
-.outcome-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:600;color:var(--accent);line-height:1}
-.outcome-label{font-size:13px;color:var(--muted);margin-top:0.4rem;font-weight:400}
+.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;flex:1}
+.outcome{background:var(--bg);padding:1.75rem 1.5rem;transition:background .4s ease}
+.outcome:hover{background:var(--surface)}
+.outcome-num{font-family:'Bricolage',sans-serif;font-size:2.1rem;font-weight:700;color:var(--accent);line-height:1;letter-spacing:-0.02em}
+.outcome-label{font-size:13px;color:var(--muted);margin-top:.5rem}
 
-.clients{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
-.client-tag{font-size:12px;padding:0.3rem 0.85rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted)}
+.clients{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.client-tag{font-size:12px;padding:.32rem .85rem;border:1px solid var(--line-2);border-radius:100px;color:var(--muted);transition:border-color .3s ease,color .3s ease}
+.client-tag:hover{border-color:var(--accent-line);color:var(--text)}
 
-.weight-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:13px}
-.weight-table th{text-align:left;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:400;padding:0.75rem 1rem;border-bottom:1px solid var(--border)}
-.weight-table td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);color:var(--muted);font-weight:400;vertical-align:top;transition:border-color 0.4s ease}
+.weight-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:13.5px}
+.weight-table th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:400;padding:.8rem 1rem;border-bottom:1px solid var(--line-2)}
+.weight-table td{padding:.8rem 1rem;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
 .weight-table tr:last-child td{border-bottom:none}
-.weight-table td:first-child{color:var(--text);font-weight:400;white-space:nowrap}
+.weight-table td:first-child{color:var(--text);white-space:nowrap}
 
-footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);border-top:1px solid var(--border);letter-spacing:0.08em;text-transform:uppercase;position:relative;z-index:1;transition:border-color 0.4s ease,color 0.4s ease}
+footer{border-top:1px solid var(--line);padding:2.75rem clamp(1.5rem,5vw,2.75rem)}
+footer .inner{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.footer-back{font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:none;border:none;font-family:inherit;transition:color .3s ease}
+.footer-back::before{content:'←';color:var(--accent)}
+.footer-back:hover{color:var(--text)}
+.footer-meta{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.8}
 
-@media(min-width:901px){
-  .outcomes-label{display:block;width:120px;position:sticky;top:50vh;transform:translateY(-50%);align-self:flex-start}
-  .outcomes-label span{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:1.5rem;color:var(--accent)}
+@media(min-width:961px){
+  .outcomes-label{display:block;width:110px;position:sticky;top:50vh;transform:translateY(-50%);align-self:flex-start}
+  .outcomes-label span{font-family:'Bricolage',sans-serif;font-weight:600;font-style:normal;font-size:1.25rem;color:var(--faint);letter-spacing:-0.01em}
 }
-@media(max-width:700px){
-  body{cursor:auto}#cursor{display:none}
-  .hero,.content{padding-left:1.5rem;padding-right:1.5rem}
-  nav{padding:1rem 1.5rem}
+@media(max-width:640px){
+  nav{padding:0 1.25rem}
+  .nav-back span{display:none}
+  .outcomes-wrap{flex-direction:column;gap:1rem}
 }
 </style>
 </head>
 <body>
 
-<div id="cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
-
-<header>
-<nav>
-  <div class="logo">HN</div>
+<nav id="nav">
+  <a href="index.html" class="brand"><span class="mk"></span>Haseeb Naveed</a>
   <div class="nav-right">
-    <button class="nav-back" id="nav-back">Back to portfolio</button>
-    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode"></button>
+    <a href="index.html" class="nav-back"><span>Back to portfolio</span></a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle colour theme"></button>
   </div>
 </nav>
-</header>
 
 <main>
 <div class="hero">
-  <div class="cs-tag js-in">Case Study</div>
-  <h1 class="js-in">Rethinking how the world's largest 3D asset library charges for its content</h1>
-  <div class="hero-meta js-in">
+  <div class="cs-tag reveal">Case Study</div>
+  <h1 class="reveal">Rethinking how the world's largest 3D asset library charges for its content</h1>
+  <div class="hero-meta reveal">
     <span class="meta-pill">Epic Games</span>
     <span class="meta-pill">2022 – 2024</span>
     <span class="meta-pill">Pricing Strategy</span>
     <span class="meta-pill">Marketplace</span>
   </div>
-  <p class="hero-sub js-in">Megascans had been priced for adoption since the Quixel acquisition. As Epic prepared to launch FAB, a fully open UGC marketplace, that model became a liability. I led the transition from a subscription model to a tiered Pay-Per-Product system designed to be fair, scalable, and market-ready.</p>
+  <p class="hero-sub reveal">Megascans had been priced for adoption since the Quixel acquisition. As Epic prepared to launch Fab, a fully open UGC marketplace, that model became a liability. I led the transition from a subscription model to a tiered Pay-Per-Product system designed to be fair, scalable, and market-ready.</p>
 </div>
 
 <div class="content">
 
-  <section class="section">
+  <section class="section reveal">
     <div class="section-label">The problem</div>
     <h2>A pricing model built for a different era</h2>
     <p>Megascans had been subscription-priced since before the Epic acquisition, optimised for broad adoption rather than revenue. The content, used in productions by Rockstar, Ubisoft, Disney, Netflix, and studios behind films like Love, Death &amp; Robots, was world-class. The pricing didn't reflect that.</p>
-    <p>When Epic began building FAB as an open marketplace where independent creators could sell alongside Megascans, the problem became structural. A subscription-priced Megascans catalog sitting next to creator listings would make it impossible for smaller sellers to compete. The marketplace couldn't be open and equitable with Megascans effectively subsidised.</p>
-    <div class="callout"><p><strong>The core tension:</strong> Megascans needed to be priced for its actual value, without pricing out the small creators FAB was being built to serve.</p></div>
+    <p>When Epic began building Fab as an open marketplace where independent creators could sell alongside Megascans, the problem became structural. A subscription-priced Megascans catalog sitting next to creator listings would make it impossible for smaller sellers to compete. The marketplace couldn't be open and equitable with Megascans effectively subsidised.</p>
+    <div class="callout"><p><strong>The core tension:</strong> Megascans needed to be priced for its actual value, without pricing out the small creators Fab was being built to serve.</p></div>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <section class="section reveal">
     <div class="section-label">Stakeholder friction</div>
     <h2>Sales and support weren't convinced</h2>
     <p>The loudest pushback came from sales and support teams. The subscription price had been stable since the acquisition, customers had come to expect it, and a move to per-product pricing felt like a shock risk.</p>
@@ -166,17 +185,17 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
   <div class="divider"></div>
 
-  <section class="section">
+  <section class="section reveal">
     <div class="section-label">Research</div>
     <h2>Talking to creators, studying competitors</h2>
-    <p>I started by going directly to the creators we were onboarding onto FAB, solo artists and small studios, to understand how they thought about asset pricing. What did they charge? What drove those decisions? How did they perceive Megascans relative to their own work?</p>
+    <p>I started by going directly to the creators we were onboarding onto Fab, solo artists and small studios, to understand how they thought about asset pricing. What did they charge? What drove those decisions? How did they perceive Megascans relative to their own work?</p>
     <p>In parallel, I broke down competing content libraries: their subscription tiers, their per-asset pricing where it existed, and what you actually got for the money. The picture that emerged was consistent: smaller creators priced higher than us because they didn't have our operational scale. Competitors were priced similarly or above, and the quality gap was significant.</p>
     <div class="callout"><p><strong>Key finding:</strong> Megascans was underpriced relative to both its quality and the market. Solo creators couldn't undercut us even at our new prices, their operational costs made it structurally impossible. The moat wasn't price, it was the proprietary scanning pipeline.</p></div>
   </section>
 
   <div class="divider"></div>
 
-  <section class="section">
+  <section class="section reveal">
     <div class="section-label">The model</div>
     <h2>Building a pricing system from scratch</h2>
     <p>The company directive was clear: move away from subscription, price per product. What that meant in practice was building a repeatable, defensible system for pricing 18,000+ individual assets consistently, at scale.</p>
@@ -197,7 +216,7 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
   <div class="divider"></div>
 
-  <section class="section">
+  <section class="section reveal">
     <div class="section-label">Context</div>
     <h2>Content trusted by the industry's biggest names</h2>
     <p>Part of what made this pricing conversation possible was the client base. Megascans wasn't a niche tool, it was infrastructure for some of the most demanding productions in games and film.</p>
@@ -208,10 +227,10 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
   <div class="divider"></div>
 
-  <section class="section">
+  <section class="section reveal">
     <div class="section-label">Outcome</div>
     <h2>A marketplace ready to launch</h2>
-    <p>The new pricing model shipped as part of the FAB launch. Beyond enabling a fair competitive environment for creators, the repricing drove measurable results in the first quarter.</p>
+    <p>The new pricing model shipped as part of the Fab launch. Beyond enabling a fair competitive environment for creators, the repricing drove measurable results in the first quarter.</p>
     <div class="outcomes-wrap">
       <div class="outcomes-label"><span>Outcomes</span></div>
       <div class="outcomes">
@@ -225,80 +244,70 @@ footer{text-align:center;padding:3rem 2rem;font-size:11px;color:var(--muted2);bo
 
 </div>
 </main>
-<footer>Haseeb Naveed &nbsp;·&nbsp; 2026</footer>
+
+<footer>
+  <div class="inner">
+    <a href="index.html" class="footer-back">Back to portfolio</a>
+    <div class="footer-meta">Haseeb Naveed<br>© 2026 · haseebnaveed.cv</div>
+  </div>
+</footer>
 
 <script src="vendor/lenis.min.js" defer></script>
 <script>
-const root = document.documentElement;
+const root=document.documentElement;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Midnight Signal: dark navy is the default theme (no class on <html>).
-// Adding 'light' switches to the light counterpart. Only persisted explicitly.
-function toggleTheme() {
+function toggleTheme(){
   root.classList.toggle('light');
-  localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+  const light=root.classList.contains('light');
+  localStorage.setItem('theme', light?'light':'dark');
+  document.querySelector('meta[name=theme-color]').setAttribute('content', light?'#F4F2EC':'#08090C');
 }
-if (localStorage.getItem('theme') === 'light') root.classList.add('light');
+if(localStorage.getItem('theme')==='light') root.classList.add('light');
 document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
-function navigate(href) {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.4s ease';
-  setTimeout(() => window.location = href, 400);
+const nav=document.getElementById('nav');
+const onScroll=()=>nav.classList.toggle('scrolled', window.scrollY>40);
+onScroll();
+document.addEventListener('scroll', onScroll, {passive:true});
+
+function navigate(href){
+  document.body.style.transition='opacity .35s ease';
+  document.body.style.opacity='0';
+  setTimeout(()=>{ window.location=href; }, 350);
 }
-document.getElementById('nav-back').addEventListener('click', () => navigate('index.html'));
-document.addEventListener('click', e => {
-  const a = e.target.closest('a[href]');
-  if (!a) return;
-  const href = a.getAttribute('href');
-  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || a.hasAttribute('download')) return;
+document.addEventListener('click', e=>{
+  const a=e.target.closest('a[href]');
+  if(!a) return;
+  const href=a.getAttribute('href');
+  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || a.hasAttribute('download')) return;
   e.preventDefault(); navigate(href);
 });
-window.addEventListener('pageshow', () => {
-  document.body.style.opacity = '0'; document.body.style.transition = 'none';
-  requestAnimationFrame(() => requestAnimationFrame(() => { document.body.style.transition = 'opacity 0.4s ease'; document.body.style.opacity = '1'; }));
+window.addEventListener('pageshow', ()=>{
+  document.body.style.transition='none'; document.body.style.opacity='0';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ document.body.style.transition='opacity .4s ease'; document.body.style.opacity='1'; }));
 });
 
-const cur = document.getElementById('cursor'), dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
-(function animRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
-document.querySelectorAll('a,button').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-});
-
-// Lenis smooth scroll
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches && window.Lenis) {
-  const lenis = new Lenis({ autoRaf: true, lerp: 0.1, anchors: true });
-}
-
-// Hero load choreography
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.hero .js-in').forEach((el, i) => {
-    el.style.transitionDelay = (i * 100) + 'ms';
-    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-in')));
+/* Reveal (hardened: sweep catches fast scroll / deep-links) */
+(function(){
+  const els=Array.from(document.querySelectorAll('.reveal'));
+  const byParent=new Map();
+  els.forEach(el=>{
+    const p=el.parentElement;
+    const i=byParent.get(p)||0;
+    el.style.transitionDelay=((i%5)*70)+'ms';
+    byParent.set(p,i+1);
   });
-});
-
-// Scroll-in reveals
-(function () {
-  const selectors = '.section, .outcome';
-  const els = Array.from(document.querySelectorAll(selectors));
-  els.forEach(el => el.classList.add('js-in'));
-  const byParent = new Map();
-  els.forEach(el => {
-    const p = el.parentElement;
-    const idx = byParent.get(p) || 0;
-    el.style.transitionDelay = (idx % 5) * 70 + 'ms';
-    byParent.set(p, idx + 1);
+  const sweep=()=>els.forEach(el=>{
+    if(!el.classList.contains('in') && el.getBoundingClientRect().top < innerHeight*0.92) el.classList.add('in');
   });
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
-    });
-  }, { threshold: 0.15 });
-  els.forEach(el => io.observe(el));
+  const io=new IntersectionObserver((entries)=>{ if(entries.some(en=>en.isIntersecting)) sweep(); },
+    {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  els.forEach(el=>io.observe(el));
+  requestAnimationFrame(sweep);
 })();
+
+if(!reduce && window.Lenis){ new Lenis({autoRaf:true, lerp:0.09, anchors:true}); }
 </script>
 </body>
 </html>

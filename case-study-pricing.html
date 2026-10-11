@@ -1,205 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-hero="none">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Case Study – Megascans Pricing · Haseeb Naveed</title>
 <meta name="description" content="How Epic Games repriced the Megascans marketplace from subscription to Pay-Per-Product ahead of the Fab launch.">
+<meta name="theme-color" content="#F3F3F3">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -30 160 160'><rect x='-20' y='-30' width='160' height='160' rx='34' fill='%230A0A0A'/><path d='M0 0h22v100H0zM46 0h22v100H46zM22 40h24v20H22zM98 0h22v100H98z' fill='%23fff'/><path d='M46 0h22l52 100H98z' fill='%237370FF'/></svg>">
+<link rel="preload" href="fonts/intertight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/base.css?v=1791750848">
+<link rel="stylesheet" href="assets/css/site.css?v=1791750848">
 <meta property="og:title" content="Case Study – Megascans Pricing · Haseeb Naveed">
 <meta property="og:description" content="How Epic Games repriced the Megascans marketplace from subscription to Pay-Per-Product ahead of the Fab launch.">
 <meta property="og:url" content="https://haseebnaveed.cv/case-study-pricing.html">
 <meta property="og:type" content="article">
-<meta name="theme-color" content="#08090C">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2308090C'/><text x='50%25' y='53%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='700' fill='%23F5C451'>HN</text></svg>">
-<script>document.documentElement.classList.add('js')</script>
-<style>
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
-@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300 500;font-style:normal;font-display:swap}
 
-*{margin:0;padding:0;box-sizing:border-box}
-
-:root{
-  --bg:#08090C; --bg-elev:#0E0F14;
-  --surface:rgba(255,255,255,0.024); --surface-2:rgba(255,255,255,0.055);
-  --text:#ECEDEE; --muted:rgba(236,237,238,0.60); --faint:rgba(236,237,238,0.32);
-  --line:rgba(255,255,255,0.09); --line-2:rgba(255,255,255,0.17);
-  --accent:#F5C451; --accent-2:#F0B429; --accent-ink:#08090C;
-  --accent-soft:rgba(245,196,81,0.13); --accent-line:rgba(245,196,81,0.34);
-  --nav-bg:rgba(8,9,12,0.68);
-  --grain:0.04;
-  --mono:ui-monospace,'SF Mono','Cascadia Mono','Segoe UI Mono',Menlo,Consolas,monospace;
-}
-:root.light{
-  --bg:#F4F2EC; --bg-elev:#FBFAF6;
-  --surface:rgba(23,21,15,0.028); --surface-2:rgba(23,21,15,0.06);
-  --text:#17150F; --muted:rgba(23,21,15,0.62); --faint:rgba(23,21,15,0.34);
-  --line:rgba(23,21,15,0.12); --line-2:rgba(23,21,15,0.22);
-  --accent:#9A6E0C; --accent-2:#845E08; --accent-ink:#FBFAF6;
-  --accent-soft:rgba(154,110,12,0.10); --accent-line:rgba(154,110,12,0.30);
-  --nav-bg:rgba(244,242,236,0.72);
-  --grain:0.02;
-}
-
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;transition:background .5s ease,color .5s ease}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--accent);color:var(--accent-ink)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-
-body::after{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:var(--grain);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode:overlay;transition:opacity .5s ease}
-
-.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
-
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;padding:0 clamp(1.25rem,4vw,2.75rem);
-  display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid transparent;transition:border-color .5s ease}
-nav.scrolled{border-color:var(--line)}
-nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(18px) saturate(140%);
-  -webkit-backdrop-filter:blur(18px) saturate(140%);z-index:-1;opacity:0;transition:opacity .5s ease}
-nav.scrolled::before{opacity:1}
-.brand{font-family:'Bricolage',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-0.02em;display:flex;align-items:center;gap:.55rem}
-.brand .mk{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
-.nav-right{display:flex;align-items:center;gap:clamp(1rem,2.5vw,1.75rem)}
-.nav-back{font-size:12.5px;color:var(--muted);transition:color .3s ease;display:inline-flex;align-items:center;gap:.5rem;background:none;border:none;cursor:pointer;font-family:inherit}
-.nav-back::before{content:'←';font-size:14px;color:var(--accent);transition:transform .3s cubic-bezier(.16,1,.3,1)}
-.nav-back:hover{color:var(--text)}
-.nav-back:hover::before{transform:translateX(-4px)}
-.theme-toggle{width:46px;height:25px;border-radius:20px;border:1px solid var(--line-2);background:var(--surface);cursor:pointer;position:relative;transition:border-color .4s ease,background .4s ease;flex-shrink:0}
-.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:var(--accent);transition:transform .45s cubic-bezier(.16,1,.3,1)}
-:root.light .theme-toggle::after{transform:translateX(21px)}
-
-/* hero */
-.hero{max-width:760px;margin:0 auto;padding:9.5rem clamp(1.5rem,5vw,2.75rem) 4rem;position:relative}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:340px;z-index:-1;pointer-events:none;
-  background:radial-gradient(90% 100% at 12% 0%, var(--accent-soft), transparent 62%)}
-.cs-tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1.6rem;display:inline-flex;align-items:center;gap:.7rem}
-.cs-tag::before{content:'';width:22px;height:1px;background:var(--accent-line)}
-.hero h1{font-family:'Bricolage',sans-serif;font-size:clamp(2.1rem,5.5vw,3.6rem);font-weight:700;line-height:1.04;letter-spacing:-0.03em;margin-bottom:1.75rem}
-.hero-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
-.meta-pill{font-size:11px;padding:.32rem .85rem;border:1px solid var(--line-2);border-radius:100px;color:var(--muted);letter-spacing:.03em}
-.hero-sub{font-size:1.08rem;color:var(--muted);line-height:1.8;border-left:2px solid var(--accent);padding-left:1.35rem}
-
-/* content */
-.content{max-width:760px;margin:0 auto;padding:0 clamp(1.5rem,5vw,2.75rem) 7rem}
-.section{margin-bottom:3.5rem}
-.section-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem;display:inline-flex;align-items:center;gap:.7rem}
-.section-label::before{content:'';width:16px;height:1px;background:var(--accent-line)}
-.section h2{font-family:'Bricolage',sans-serif;font-size:clamp(1.5rem,3vw,1.95rem);font-weight:600;letter-spacing:-0.02em;margin-bottom:1.1rem;line-height:1.18}
-.section p{font-size:16px;color:var(--muted);line-height:1.85;margin-bottom:1rem;max-width:64ch}
-.section p:last-child{margin-bottom:0}
-
-.callout{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0}
-.callout p{font-size:15px;color:var(--text);line-height:1.75;margin:0}
-.callout strong{font-weight:600;color:var(--accent)}
-
-.divider{height:1px;background:var(--line);margin:3.25rem 0}
-
-.outcomes-wrap{display:flex;gap:2rem;margin-top:2rem}
-.outcomes-label{flex-shrink:0;display:none}
-.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;flex:1}
-.outcome{background:var(--bg);padding:1.75rem 1.5rem;transition:background .4s ease}
-.outcome:hover{background:var(--surface)}
-.outcome-num{font-family:'Bricolage',sans-serif;font-size:2.1rem;font-weight:700;color:var(--accent);line-height:1;letter-spacing:-0.02em}
-.outcome-label{font-size:13px;color:var(--muted);margin-top:.5rem}
-
-.clients{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
-.client-tag{font-size:12px;padding:.32rem .85rem;border:1px solid var(--line-2);border-radius:100px;color:var(--muted);transition:border-color .3s ease,color .3s ease}
-.client-tag:hover{border-color:var(--accent-line);color:var(--text)}
-
-.weight-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:13.5px}
-.weight-table th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:400;padding:.8rem 1rem;border-bottom:1px solid var(--line-2)}
-.weight-table td{padding:.8rem 1rem;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
-.weight-table tr:last-child td{border-bottom:none}
-.weight-table td:first-child{color:var(--text);white-space:nowrap}
-
-footer{border-top:1px solid var(--line);padding:2.75rem clamp(1.5rem,5vw,2.75rem)}
-footer .inner{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
-.footer-back{font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:none;border:none;font-family:inherit;transition:color .3s ease}
-.footer-back::before{content:'←';color:var(--accent)}
-.footer-back:hover{color:var(--text)}
-.footer-meta{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.8}
-
-@media(min-width:961px){
-  .outcomes-label{display:block;width:110px;position:sticky;top:50vh;transform:translateY(-50%);align-self:flex-start}
-  .outcomes-label span{font-family:'Bricolage',sans-serif;font-weight:600;font-style:normal;font-size:1.25rem;color:var(--faint);letter-spacing:-0.01em}
-}
-@media(max-width:640px){
-  nav{padding:0 1.25rem}
-  .nav-back span{display:none}
-  .outcomes-wrap{flex-direction:column;gap:1rem}
-}
-</style>
 </head>
 <body>
-
-<nav id="nav">
-  <a href="index.html" class="brand"><span class="mk"></span>Haseeb Naveed</a>
-  <div class="nav-right">
-    <a href="index.html" class="nav-back"><span>Back to portfolio</span></a>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle colour theme"></button>
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="Haseeb Naveed, home"><svg class="mark" viewBox="0 0 120 100" aria-hidden="true"><path d="M0 0h22v100H0zM46 0h22v100H46zM22 40h24v20H22zM98 0h22v100H98z" fill="currentColor"/><path class="d" d="M46 0h22l52 100H98z"/></svg><span>Haseeb Naveed</span></a>
+  <nav aria-label="Sections"><a class="keep" href="index.html">Back to portfolio</a></nav>
+  <div class="theme" role="group" aria-label="Colours">
+    <button class="th paper" data-theme="paper" title="Paper" aria-label="Paper colours"><i></i></button>
+    <button class="th spectrum" data-theme="spectrum" title="Spectrum" aria-label="Spectrum colours"><i></i></button>
+    <button class="th sh" title="Shuffle the colours" aria-label="Shuffle the colours"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></button>
   </div>
-</nav>
-
+</header>
 <main>
-<div class="hero">
-  <div class="cs-tag reveal">Case Study</div>
-  <h1 class="reveal">Rethinking how the world's largest 3D asset library charges for its content</h1>
-  <div class="hero-meta reveal">
-    <span class="meta-pill">Epic Games</span>
-    <span class="meta-pill">2022 – 2024</span>
-    <span class="meta-pill">Pricing Strategy</span>
-    <span class="meta-pill">Marketplace</span>
-  </div>
-  <p class="hero-sub reveal">Megascans had been priced for adoption since the Quixel acquisition. As Epic prepared to launch Fab, a fully open UGC marketplace, that model became a liability. I led the transition from a subscription model to a tiered Pay-Per-Product system designed to be fair, scalable, and market-ready.</p>
-</div>
-
-<div class="content">
-
-  <section class="section reveal">
-    <div class="section-label">The problem</div>
-    <h2>A pricing model built for a different era</h2>
-    <p>Megascans had been subscription-priced since before the Epic acquisition, optimised for broad adoption rather than revenue. The content, used in productions by Rockstar, Ubisoft, Disney, Netflix, and studios behind films like Love, Death &amp; Robots, was world-class. The pricing didn't reflect that.</p>
+<section class="cs-hero" style="--pc:var(--w5)">
+  <div class="top-line rv"><b>Case Study</b><span>Epic Games</span><span>2022 – 2024</span><span>Pricing Strategy</span><span>Marketplace</span></div>
+  <h1 class="rv">Rethinking how the world's largest 3D asset library charges for its content</h1>
+  <p class="lede rv">Megascans had been priced for adoption since the Quixel acquisition. As Epic prepared to launch Fab, a fully open UGC marketplace, that model became a liability. I led the transition from a subscription model to a tiered Pay-Per-Product system designed to be fair, scalable, and market-ready.</p>
+</section>
+<article class="cs-body">
+  <section class="cs-sec" style="--pc:var(--w1)">
+    <p class="cs-label rv">The problem</p>
+    <div class="cs-main rv">
+      <h2>A pricing model built for a different era</h2>
+      <p>Megascans had been subscription-priced since before the Epic acquisition, optimised for broad adoption rather than revenue. The content, used in productions by Rockstar, Ubisoft, Disney, Netflix, and studios behind films like Love, Death &amp; Robots, was world-class. The pricing didn't reflect that.</p>
     <p>When Epic began building Fab as an open marketplace where independent creators could sell alongside Megascans, the problem became structural. A subscription-priced Megascans catalog sitting next to creator listings would make it impossible for smaller sellers to compete. The marketplace couldn't be open and equitable with Megascans effectively subsidised.</p>
     <div class="callout"><p><strong>The core tension:</strong> Megascans needed to be priced for its actual value, without pricing out the small creators Fab was being built to serve.</p></div>
+    </div>
   </section>
-
-  <div class="divider"></div>
-
-  <section class="section reveal">
-    <div class="section-label">Stakeholder friction</div>
-    <h2>Sales and support weren't convinced</h2>
-    <p>The loudest pushback came from sales and support teams. The subscription price had been stable since the acquisition, customers had come to expect it, and a move to per-product pricing felt like a shock risk.</p>
+  <section class="cs-sec" style="--pc:var(--w2)">
+    <p class="cs-label rv">Stakeholder friction</p>
+    <div class="cs-main rv">
+      <h2>Sales and support weren't convinced</h2>
+      <p>The loudest pushback came from sales and support teams. The subscription price had been stable since the acquisition, customers had come to expect it, and a move to per-product pricing felt like a shock risk.</p>
     <p>The argument I made was straightforward: we hadn't raised prices in years, and the content had only gotten better. No other library operated at this caliber. AAA studios and Hollywood productions were using Megascans because there was simply no comparable alternative, not at this quality, not at this scale, not with our proprietary processing pipeline. A pricing adjustment wasn't just justifiable, it was overdue.</p>
     <p>The conversation shifted once we reframed it: this wasn't a price increase, it was a repricing for a new marketplace context. The goal wasn't to extract more from existing customers, it was to create a structure that could sustain a healthy ecosystem.</p>
+    </div>
   </section>
-
-  <div class="divider"></div>
-
-  <section class="section reveal">
-    <div class="section-label">Research</div>
-    <h2>Talking to creators, studying competitors</h2>
-    <p>I started by going directly to the creators we were onboarding onto Fab, solo artists and small studios, to understand how they thought about asset pricing. What did they charge? What drove those decisions? How did they perceive Megascans relative to their own work?</p>
+  <section class="cs-sec" style="--pc:var(--w3)">
+    <p class="cs-label rv">Research</p>
+    <div class="cs-main rv">
+      <h2>Talking to creators, studying competitors</h2>
+      <p>I started by going directly to the creators we were onboarding onto Fab, solo artists and small studios, to understand how they thought about asset pricing. What did they charge? What drove those decisions? How did they perceive Megascans relative to their own work?</p>
     <p>In parallel, I broke down competing content libraries: their subscription tiers, their per-asset pricing where it existed, and what you actually got for the money. The picture that emerged was consistent: smaller creators priced higher than us because they didn't have our operational scale. Competitors were priced similarly or above, and the quality gap was significant.</p>
     <div class="callout"><p><strong>Key finding:</strong> Megascans was underpriced relative to both its quality and the market. Solo creators couldn't undercut us even at our new prices, their operational costs made it structurally impossible. The moat wasn't price, it was the proprietary scanning pipeline.</p></div>
+    </div>
   </section>
-
-  <div class="divider"></div>
-
-  <section class="section reveal">
-    <div class="section-label">The model</div>
-    <h2>Building a pricing system from scratch</h2>
-    <p>The company directive was clear: move away from subscription, price per product. What that meant in practice was building a repeatable, defensible system for pricing 18,000+ individual assets consistently, at scale.</p>
+  <section class="cs-sec" style="--pc:var(--w4)">
+    <p class="cs-label rv">The model</p>
+    <div class="cs-main rv">
+      <h2>Building a pricing system from scratch</h2>
+      <p>The company directive was clear: move away from subscription, price per product. What that meant in practice was building a repeatable, defensible system for pricing 18,000+ individual assets consistently, at scale.</p>
     <p>I designed a weighting framework that scored each asset across several dimensions to arrive at a price point. The goal was a model that felt fair to buyers, was defensible internally, and created meaningful price differentiation between asset types without going so high that small creators were priced out entirely.</p>
     <table class="weight-table">
       <thead><tr><th>Factor</th><th>What it captured</th></tr></thead>
@@ -213,25 +81,23 @@ footer .inner{max-width:760px;margin:0 auto;display:flex;justify-content:space-b
       </tbody>
     </table>
     <p style="margin-top:1.5rem">The result: a tiered structure where smaller, more generic content stayed accessible, and large-scale, unique, high-resolution assets were priced to reflect the production value behind them.</p>
+    </div>
   </section>
-
-  <div class="divider"></div>
-
-  <section class="section reveal">
-    <div class="section-label">Context</div>
-    <h2>Content trusted by the industry's biggest names</h2>
-    <p>Part of what made this pricing conversation possible was the client base. Megascans wasn't a niche tool, it was infrastructure for some of the most demanding productions in games and film.</p>
+  <section class="cs-sec" style="--pc:var(--w5)">
+    <p class="cs-label rv">Context</p>
+    <div class="cs-main rv">
+      <h2>Content trusted by the industry's biggest names</h2>
+      <p>Part of what made this pricing conversation possible was the client base. Megascans wasn't a niche tool, it was infrastructure for some of the most demanding productions in games and film.</p>
     <div class="clients">
       <span class="client-tag">Rockstar Games</span><span class="client-tag">Ubisoft</span><span class="client-tag">Disney</span><span class="client-tag">Netflix</span><span class="client-tag">Love, Death &amp; Robots</span><span class="client-tag">AAA game studios</span><span class="client-tag">VFX houses</span>
     </div>
+    </div>
   </section>
-
-  <div class="divider"></div>
-
-  <section class="section reveal">
-    <div class="section-label">Outcome</div>
-    <h2>A marketplace ready to launch</h2>
-    <p>The new pricing model shipped as part of the Fab launch. Beyond enabling a fair competitive environment for creators, the repricing drove measurable results in the first quarter.</p>
+  <section class="cs-sec" style="--pc:var(--w6)">
+    <p class="cs-label rv">Outcome</p>
+    <div class="cs-main rv">
+      <h2>A marketplace ready to launch</h2>
+      <p>The new pricing model shipped as part of the Fab launch. Beyond enabling a fair competitive environment for creators, the repricing drove measurable results in the first quarter.</p>
     <div class="outcomes-wrap">
       <div class="outcomes-label"><span>Outcomes</span></div>
       <div class="outcomes">
@@ -241,74 +107,18 @@ footer .inner{max-width:760px;margin:0 auto;display:flex;justify-content:space-b
         <div class="outcome"><div class="outcome-num">18K+</div><div class="outcome-label">Assets repriced at launch</div></div>
       </div>
     </div>
+    </div>
   </section>
-
-</div>
+</article>
 </main>
-
-<footer>
-  <div class="inner">
-    <a href="index.html" class="footer-back">Back to portfolio</a>
-    <div class="footer-meta">Haseeb Naveed<br>© 2026 · haseebnaveed.cv</div>
-  </div>
-</footer>
-
-<script src="vendor/lenis.min.js" defer></script>
-<script>
-const root=document.documentElement;
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-function toggleTheme(){
-  root.classList.toggle('light');
-  const light=root.classList.contains('light');
-  localStorage.setItem('theme', light?'light':'dark');
-  document.querySelector('meta[name=theme-color]').setAttribute('content', light?'#F4F2EC':'#08090C');
-}
-if(localStorage.getItem('theme')==='light') root.classList.add('light');
-document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-
-const nav=document.getElementById('nav');
-const onScroll=()=>nav.classList.toggle('scrolled', window.scrollY>40);
-onScroll();
-document.addEventListener('scroll', onScroll, {passive:true});
-
-function navigate(href){
-  document.body.style.transition='opacity .35s ease';
-  document.body.style.opacity='0';
-  setTimeout(()=>{ window.location=href; }, 350);
-}
-document.addEventListener('click', e=>{
-  const a=e.target.closest('a[href]');
-  if(!a) return;
-  const href=a.getAttribute('href');
-  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || a.hasAttribute('download')) return;
-  e.preventDefault(); navigate(href);
-});
-window.addEventListener('pageshow', ()=>{
-  document.body.style.transition='none'; document.body.style.opacity='0';
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{ document.body.style.transition='opacity .4s ease'; document.body.style.opacity='1'; }));
-});
-
-/* Reveal (hardened: sweep catches fast scroll / deep-links) */
-(function(){
-  const els=Array.from(document.querySelectorAll('.reveal'));
-  const byParent=new Map();
-  els.forEach(el=>{
-    const p=el.parentElement;
-    const i=byParent.get(p)||0;
-    el.style.transitionDelay=((i%5)*70)+'ms';
-    byParent.set(p,i+1);
-  });
-  const sweep=()=>els.forEach(el=>{
-    if(!el.classList.contains('in') && el.getBoundingClientRect().top < innerHeight*0.92) el.classList.add('in');
-  });
-  const io=new IntersectionObserver((entries)=>{ if(entries.some(en=>en.isIntersecting)) sweep(); },
-    {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
-  els.forEach(el=>io.observe(el));
-  requestAnimationFrame(sweep);
-})();
-
-if(!reduce && window.Lenis){ new Lenis({autoRaf:true, lerp:0.09, anchors:true}); }
-</script>
+<section class="contact" id="contact">
+  <h2 class="rv">Let's <span class="k k1">talk</span>.</h2>
+  <a class="c-mail rv" href="mailto:haseebnaveed@protonmail.com">haseebnaveed@protonmail.com</a>
+  <div class="c-links rv"><a href="https://www.linkedin.com/in/haseeb-naveed/">LinkedIn</a><a href="haseeb-naveed-cv.pdf">Download CV (PDF)</a></div>
+</section>
+<div class="bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<footer class="foot"><span class="cookie">This site has no cookie banner. That's the level of care you can expect.</span><span>All product names and trademarks are property of their respective owners. Renders and collection art &copy; Epic Games.</span><span>Haseeb Naveed · 2026</span></footer>
+<script src="assets/js/site.js?v=1791750848"></script>
+<script src="assets/js/page.js?v=1791750848"></script>
 </body>
 </html>

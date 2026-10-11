@@ -1,847 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-hero="pillars">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Haseeb Naveed</title>
 <meta name="description" content="Haseeb Naveed: 7+ years in product across marketplaces, developer tools, and game development platforms. Career started in sales and support, turns out selling to and helping users is excellent product training.">
 <meta property="og:title" content="Haseeb Naveed">
 <meta property="og:description" content="7+ years in product across marketplaces, developer tools, and game development platforms. Career started in sales and support, turns out selling to and helping users is excellent product training.">
 <meta property="og:url" content="https://haseebnaveed.cv/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#08090C">
+<meta name="theme-color" content="#F3F3F3">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2308090C'/><text x='50%25' y='53%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='700' fill='%23F5C451'>HN</text></svg>">
-<script>document.documentElement.classList.add('js')</script>
-<style>
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:'Bricolage';src:url('fonts/bricolage-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
-@font-face{font-family:'Inter';src:url('fonts/inter.woff2') format('woff2');font-weight:300 500;font-style:normal;font-display:swap}
-
-*{margin:0;padding:0;box-sizing:border-box}
-
-/* ============ TOKENS ============
-   Dark-first. Bare :root = deep ink dark theme.
-   :root.light = warm-paper counterpart. One accent (signal amber), locked. */
-:root{
-  --bg:#08090C; --bg-elev:#0E0F14;
-  --surface:rgba(255,255,255,0.024); --surface-2:rgba(255,255,255,0.055);
-  --text:#ECEDEE; --muted:rgba(236,237,238,0.60); --faint:rgba(236,237,238,0.32);
-  --line:rgba(255,255,255,0.09); --line-2:rgba(255,255,255,0.17);
-  --accent:#F5C451; --accent-2:#F0B429; --accent-ink:#08090C;
-  --accent-soft:rgba(245,196,81,0.13); --accent-line:rgba(245,196,81,0.34);
-  --nav-bg:rgba(8,9,12,0.68);
-  --scrim:rgba(8,9,12,0.62);
-  --grain:0.04;
-  --mono:ui-monospace,'SF Mono','Cascadia Mono','Segoe UI Mono',Menlo,Consolas,monospace;
-}
-:root.light{
-  --bg:#F4F2EC; --bg-elev:#FBFAF6;
-  --surface:rgba(23,21,15,0.028); --surface-2:rgba(23,21,15,0.06);
-  --text:#17150F; --muted:rgba(23,21,15,0.62); --faint:rgba(23,21,15,0.34);
-  --line:rgba(23,21,15,0.12); --line-2:rgba(23,21,15,0.22);
-  --accent:#9A6E0C; --accent-2:#845E08; --accent-ink:#FBFAF6;
-  --accent-soft:rgba(154,110,12,0.10); --accent-line:rgba(154,110,12,0.30);
-  --nav-bg:rgba(244,242,236,0.72);
-  --scrim:rgba(244,242,236,0.55);
-  --grain:0.02;
-}
-
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg); color:var(--text);
-  font-family:'Inter',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6;
-  font-weight:400; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-  overflow-x:hidden; transition:background .5s ease,color .5s ease;
-}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--accent);color:var(--accent-ink)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-
-/* film grain, fixed, never on scrolling containers */
-body::after{
-  content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:var(--grain);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode:overlay;transition:opacity .5s ease;
-}
-
-/* ============ REVEALS (hiding gated on .js so no-JS/crawlers see content) ============ */
-.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.reveal.in{opacity:1;transform:none}
-.mask{display:block;overflow:hidden;padding-bottom:.08em}
-.js .mask > *{transform:translateY(112%);opacity:0;transition:transform 1s cubic-bezier(.16,1,.3,1),opacity 1s cubic-bezier(.16,1,.3,1),filter 1s ease}
-.mask > *{display:block}
-.loaded .mask > *{transform:none;opacity:1;filter:none}
-@media (prefers-reduced-motion:reduce){
-  .reveal,.mask>*{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
-}
-
-/* ============ NAV ============ */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:66px;padding:0 clamp(1.25rem,4vw,2.75rem);
-  display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid transparent;transition:border-color .5s ease}
-nav.scrolled{border-color:var(--line)}
-nav::before{content:'';position:absolute;inset:0;background:var(--nav-bg);backdrop-filter:blur(18px) saturate(140%);
-  -webkit-backdrop-filter:blur(18px) saturate(140%);z-index:-1;opacity:0;transition:opacity .5s ease}
-nav.scrolled::before{opacity:1}
-.brand{font-family:'Bricolage',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-0.02em;display:flex;align-items:center;gap:.55rem}
-.brand .mk{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
-.nav-right{display:flex;align-items:center;gap:clamp(1.25rem,3vw,2.5rem)}
-nav ul{list-style:none;display:flex;gap:clamp(1.1rem,2.4vw,2.1rem)}
-nav ul a{font-size:12.5px;color:var(--muted);letter-spacing:.01em;position:relative;transition:color .3s ease}
-nav ul a::after{content:'';position:absolute;left:0;bottom:-5px;height:1px;width:0;background:var(--accent);transition:width .35s cubic-bezier(.16,1,.3,1)}
-nav ul a:hover{color:var(--text)}
-nav ul a:hover::after{width:100%}
-.theme-toggle{width:46px;height:25px;border-radius:20px;border:1px solid var(--line-2);background:var(--surface);cursor:pointer;position:relative;transition:border-color .4s ease,background .4s ease;flex-shrink:0}
-.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:var(--accent);transition:transform .45s cubic-bezier(.16,1,.3,1)}
-:root.light .theme-toggle::after{transform:translateX(21px)}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
-.burger span{display:block;width:24px;height:1.5px;background:var(--text);transition:all .4s ease}
-.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:99;flex-direction:column;align-items:flex-start;justify-content:center;gap:1.25rem;padding:0 2rem}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-family:'Bricolage',sans-serif;font-weight:600;font-size:2rem;letter-spacing:-0.02em;color:var(--muted);transition:color .3s ease}
-.mobile-menu a:hover,.mobile-menu a:active{color:var(--text)}
-.mobile-menu a .ix{font-family:var(--mono);font-size:11px;color:var(--accent);margin-right:.7rem;vertical-align:middle}
-
-/* ============ LAYOUT ============ */
-.wrap{max-width:1120px;margin:0 auto;padding-left:clamp(1.25rem,5vw,2.75rem);padding-right:clamp(1.25rem,5vw,2.75rem)}
-.section{padding-top:clamp(6rem,13vh,10rem);padding-bottom:clamp(6rem,13vh,10rem)}
-.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:.7rem}
-.eyebrow::before{content:'';width:22px;height:1px;background:var(--accent-line)}
-.h-sec{font-family:'Bricolage',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;letter-spacing:-0.025em}
-.rule{height:1px;background:var(--line)}
-
-/* ============ HERO ============ */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
-canvas#net{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:1;transition:opacity .6s ease}
-:root.light canvas#net{opacity:0}
-.hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:
-    linear-gradient(90deg, var(--bg) 0%, var(--scrim) 36%, transparent 66%),
-    linear-gradient(0deg, var(--bg) 1%, transparent 24%),
-    radial-gradient(130% 120% at 12% 15%, transparent 0%, var(--bg) 88%)}
-.hero-inner{position:relative;z-index:2;width:100%}
-.hero-tag{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
-  display:flex;align-items:center;gap:.75rem;margin-bottom:2rem}
-.hero-tag::before{content:'';width:26px;height:1px;background:var(--accent-line)}
-.hero h1{font-family:'Bricolage',sans-serif;font-weight:800;font-size:clamp(3.4rem,12vw,9rem);line-height:.92;letter-spacing:-0.04em;margin-bottom:1.9rem}
-.hero h1 .l2{color:var(--faint)}
-.hero h1 .dot{color:var(--accent)}
-.hero-sub{font-size:clamp(1rem,1.4vw,1.15rem);color:var(--muted);max-width:33rem;line-height:1.7;margin-bottom:2.6rem}
-.hero-sub strong{color:var(--text);font-weight:500}
-.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.9rem 1.5rem;font-size:13px;font-weight:500;letter-spacing:.01em;
-  border-radius:100px;transition:transform .25s cubic-bezier(.16,1,.3,1),background .3s ease,color .3s ease,border-color .3s ease;will-change:transform}
-.btn .arw{transition:transform .3s cubic-bezier(.16,1,.3,1)}
-.btn-fill{background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
-.btn-fill:hover{background:var(--accent-2);border-color:var(--accent-2)}
-.btn-fill:hover .arw{transform:translateX(4px)}
-.btn-fill:active{transform:scale(.97)}
-.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line-2)}
-.btn-ghost:hover{border-color:var(--text)}
-.btn-ghost:active{transform:scale(.97)}
-.hero-foot{position:absolute;left:0;right:0;bottom:clamp(1.5rem,4vh,2.5rem);z-index:2;pointer-events:none}
-.hero-foot .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap}
-.scroll-cue{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:.7rem}
-.scroll-cue .bar{width:34px;height:1px;background:var(--faint);position:relative;overflow:hidden}
-.scroll-cue .bar::after{content:'';position:absolute;inset:0;width:40%;background:var(--accent);animation:sweep 2.6s cubic-bezier(.7,0,.3,1) infinite}
-@keyframes sweep{0%{transform:translateX(-100%)}60%,100%{transform:translateX(260%)}}
-.avail{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.55rem;pointer-events:auto;transition:color .3s ease}
-.avail:hover{color:var(--text)}
-.avail .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);position:relative}
-.avail .pulse::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--accent);animation:ping 2s cubic-bezier(0,0,.2,1) infinite}
-@keyframes ping{0%{transform:scale(1);opacity:.7}80%,100%{transform:scale(2.6);opacity:0}}
-@media (prefers-reduced-motion:reduce){.scroll-cue .bar::after,.avail .pulse::after{animation:none}}
-
-/* ============ STORY ============ */
-.story-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
-.story-aside{position:sticky;top:110px}
-.story-aside .h-sec{margin-top:1.4rem}
-.story-lead{font-family:'Bricolage',sans-serif;font-weight:500;font-size:clamp(1.3rem,2.3vw,1.7rem);line-height:1.35;letter-spacing:-0.015em;color:var(--text);margin-bottom:2rem}
-.story-lead .hl{color:var(--accent)}
-.story-body{position:relative;overflow:hidden;max-height:20rem;transition:max-height .1s}
-.story-body.open{max-height:none}
-.story-body::after{content:'';position:absolute;left:0;right:0;bottom:0;height:9rem;background:linear-gradient(transparent,var(--bg));pointer-events:none;transition:opacity .5s ease}
-.story-body.open::after{opacity:0}
-.story-body p{color:var(--muted);line-height:1.85;margin-bottom:1.5rem;max-width:60ch}
-.story-body p strong{color:var(--text);font-weight:500}
-.link-btn{margin-top:1.75rem;background:none;border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:500;color:var(--text);
-  display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 0;position:relative}
-.link-btn::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--line-2);transition:background .3s ease}
-.link-btn:hover::after{background:var(--accent)}
-.link-btn .chev{color:var(--accent);transition:transform .3s ease}
-.link-btn.open .chev{transform:rotate(180deg)}
-
-/* ============ WORKED AT ============ */
-.workedat{display:flex;align-items:center;gap:clamp(1.5rem,4vw,3rem);flex-wrap:wrap;margin-bottom:clamp(3rem,7vh,5rem)}
-.workedat .lab{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.workedat img{height:26px;width:auto;opacity:.5;filter:grayscale(1) brightness(1.7);transition:opacity .4s ease,filter .4s ease}
-.workedat img:hover{opacity:1;filter:grayscale(0) brightness(1)}
-:root.light .workedat img{filter:grayscale(1) brightness(.2);opacity:.55}
-:root.light .workedat img:hover{filter:grayscale(0) brightness(1);opacity:1}
-
-/* ============ EXPERIENCE ============ */
-.roles{border-top:1px solid var(--line)}
-.role{border-bottom:1px solid var(--line);position:relative}
-.role-header{display:grid;grid-template-columns:5.5rem 1fr auto;gap:1.5rem;align-items:baseline;width:100%;text-align:left;
-  background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:1.9rem 0;transition:padding-left .45s cubic-bezier(.16,1,.3,1)}
-.role:hover .role-header{padding-left:1.1rem}
-.role-yr{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--accent);padding-top:.35rem;white-space:nowrap}
-.role-co{display:block;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
-.role-title{display:block}
-.role-title{font-family:'Bricolage',sans-serif;font-weight:600;font-size:clamp(1.1rem,1.9vw,1.45rem);line-height:1.2;letter-spacing:-0.015em;color:var(--text)}
-.role-plus{font-size:22px;line-height:1;color:var(--faint);transition:transform .45s cubic-bezier(.16,1,.3,1),color .3s ease;justify-self:end;align-self:center}
-.role:hover .role-plus{color:var(--text)}
-.role.open .role-plus{transform:rotate(45deg);color:var(--accent)}
-.role-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.16,1,.3,1)}
-.role.open .role-body{grid-template-rows:1fr}
-.role-body-in{overflow:hidden}
-.role-body-pad{padding:0 0 2.2rem;padding-left:calc(5.5rem + 1.5rem);max-width:64ch}
-.role-body-pad p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:1rem}
-.role-img-toggle{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);border-radius:100px;
-  padding:.35rem .9rem;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;margin-bottom:1rem;transition:all .35s ease;background:none;font-family:inherit}
-.role-img-toggle:hover{border-color:var(--accent);color:var(--accent)}
-.role-img-toggle .arr{transition:transform .35s ease}
-.role-img-toggle.open .arr{transform:rotate(180deg)}
-.role-img-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.16,1,.3,1);margin-bottom:1rem}
-.role-img-wrap.open{grid-template-rows:1fr}
-.role-img-in{overflow:hidden}
-.role-img{width:100%;height:auto;object-fit:cover;border-radius:10px;border:1px solid var(--line-2);display:block;margin-bottom:.4rem}
-.metrics{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.35rem}
-.metric{font-size:11.5px;padding:.35rem .8rem;border-radius:100px;color:var(--accent);border:1px solid var(--accent-line);background:var(--accent-soft);letter-spacing:.02em}
-.role-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.1rem}
-.role-link{font-size:11px;padding:.35rem .85rem;border:1px solid var(--line-2);border-radius:100px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;
-  transition:all .35s ease;display:inline-flex;align-items:center;gap:.4rem}
-.role-link:hover{border-color:var(--accent);color:var(--accent)}
-.role-link .ext{font-size:10px}
-
-/* ============ CASE STUDIES ============ */
-.cs-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.1rem;perspective:1500px}
-.cs{border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden;position:relative;transform-style:preserve-3d;
-  transition:border-color .4s ease,transform .5s cubic-bezier(.16,1,.3,1),background .4s ease}
-.cs::before{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;transition:opacity .45s ease;
-  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%), var(--accent-soft), transparent 66%)}
-.cs:hover::before{opacity:1}
-.cs-live{grid-column:span 6;display:grid;grid-template-columns:1.1fr 1fr;cursor:pointer;min-height:300px}
-.cs-live:hover{border-color:var(--accent-line);background:var(--surface-2)}
-.cs-live:hover .cs-cta .arw{transform:translateX(4px)}
-.cs-live-body{padding:clamp(1.75rem,3vw,2.75rem);display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
-.cs-co{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
-.cs-title{font-family:'Bricolage',sans-serif;font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.14;letter-spacing:-0.02em;margin-bottom:1rem}
-.cs-meta{font-size:12px;color:var(--faint);letter-spacing:.04em}
-.cs-bottom{display:flex;flex-direction:column;gap:1.1rem}
-.cs-pills{display:flex;gap:.45rem;flex-wrap:wrap}
-.cs-pill{font-size:11px;padding:.3rem .75rem;border-radius:100px;border:1px solid var(--line-2);color:var(--muted);letter-spacing:.02em}
-.cs-cta{display:inline-flex;align-items:center;gap:.5rem;font-size:13px;font-weight:500;color:var(--accent)}
-.cs-cta .arw{transition:transform .3s cubic-bezier(.16,1,.3,1)}
-.cs-media{position:relative;overflow:hidden;background:var(--bg-elev)}
-.cs-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;opacity:.9;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .4s ease}
-.cs-live:hover .cs-media img{transform:scale(1.04);opacity:1}
-.cs-media::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--surface),transparent 30%)}
-.cs-soon{grid-column:span 3;padding:clamp(1.5rem,2.5vw,2rem);min-height:210px;display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem;opacity:.72}
-.cs-soon .cs-co{color:var(--muted)}
-.cs-soon .cs-title{font-size:clamp(1.15rem,1.8vw,1.4rem)}
-.cs-badge{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line-2);border-radius:100px;padding:.3rem .7rem;align-self:flex-start}
-
-/* ============ SKILLS ============ */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.skill-group{background:var(--bg);padding:1.6rem 1.5rem;transition:background .4s ease}
-.skill-group:hover{background:var(--surface)}
-.skill-group h3{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;justify-content:space-between}
-.skill-group h3 .n{color:var(--faint)}
-.skill-group ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
-.skill-group li{font-size:14px;color:var(--muted);transition:color .3s ease,transform .3s ease}
-.skill-group li:hover{color:var(--text);transform:translateX(3px)}
-
-/* ============ CONTACT ============ */
-.contact-lead{font-family:'Bricolage',sans-serif;font-weight:700;font-size:clamp(2.4rem,6vw,4.5rem);line-height:1;letter-spacing:-0.035em;margin-bottom:2.5rem}
-.contact-lead .hl{color:var(--accent)}
-.contact-rows{border-top:1px solid var(--line)}
-.contact-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.6rem 0;border-bottom:1px solid var(--line);
-  transition:padding-left .45s cubic-bezier(.16,1,.3,1)}
-.contact-row:hover{padding-left:1rem}
-.contact-row .k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.contact-row .v{font-family:'Bricolage',sans-serif;font-weight:500;font-size:clamp(1.05rem,2vw,1.5rem);letter-spacing:-0.01em;color:var(--text);display:flex;align-items:center;gap:.7rem}
-.contact-row .v .ext{font-size:.7em;color:var(--accent);transition:transform .3s ease}
-.contact-row:hover .v .ext{transform:translate(3px,-3px)}
-
-/* ============ FOOTER ============ */
-footer{border-top:1px solid var(--line);padding:3rem 0}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
-.footer-note{font-size:13px;color:var(--muted);max-width:44ch;line-height:1.6}
-.footer-note a{color:var(--text);border-bottom:1px solid var(--line-2);transition:border-color .3s ease}
-.footer-note a:hover{border-color:var(--accent)}
-.footer-fine{font-size:12px;color:var(--faint);margin-top:.7rem;line-height:1.6}
-.footer-meta{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.8}
-
-/* ============ RESPONSIVE ============ */
-@media(max-width:820px){
-  .story-grid{grid-template-columns:1fr;gap:2rem}
-  .story-aside{position:static}
-  .story-aside .h-sec{margin-top:.6rem}
-  .cs-live{grid-template-columns:1fr}
-  .cs-media{min-height:200px}
-  .cs-soon{grid-column:span 6}
-}
-@media(max-width:640px){
-  nav ul{display:none}
-  .burger{display:flex}
-  .nav-right{gap:.9rem}
-  .role-header{grid-template-columns:1fr auto;gap:.4rem 1rem}
-  .role-yr{grid-column:1;grid-row:1;padding-top:0;order:-1}
-  .role-body-pad{padding-left:0}
-  .role:hover .role-header{padding-left:0}
-  .hero h1{font-size:clamp(3rem,17vw,5rem)}
-  .contact-row{flex-direction:column;align-items:flex-start;gap:.4rem}
-}
-</style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-20 -30 160 160'><rect x='-20' y='-30' width='160' height='160' rx='34' fill='%230A0A0A'/><path d='M0 0h22v100H0zM46 0h22v100H46zM22 40h24v20H22zM98 0h22v100H98z' fill='%23fff'/><path d='M46 0h22l52 100H98z' fill='%237370FF'/></svg>">
+<link rel="preload" href="fonts/intertight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/base.css?v=1791750848">
+<link rel="stylesheet" href="assets/css/site.css?v=1791750848">
+<script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js","three/addons/":"./vendor/three/addons/"}}</script>
 </head>
 <body>
-
-<nav id="nav">
-  <a href="#top" class="brand"><span class="mk"></span>Haseeb Naveed</a>
-  <div class="nav-right">
-    <ul>
-      <li><a href="#story">Story</a></li>
-      <li><a href="#experience">Work</a></li>
-      <li><a href="#casestudies">Case Studies</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle colour theme"></button>
-    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-
-<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
-  <a href="#story"><span class="ix">A</span>Story</a>
-  <a href="#experience"><span class="ix">B</span>Work</a>
-  <a href="#casestudies"><span class="ix">C</span>Case Studies</a>
-  <a href="#skills"><span class="ix">D</span>Skills</a>
-  <a href="#contact"><span class="ix">E</span>Contact</a>
-</nav>
-
-<main id="top">
-
-<!-- HERO -->
-<header class="hero">
-  <canvas id="net" aria-hidden="true"></canvas>
-  <div class="hero-veil"></div>
-  <div class="hero-inner">
-    <div class="wrap">
-      <div class="hero-tag reveal">Senior Product Manager · Reykjavík / Islamabad</div>
-      <h1>
-        <span class="mask"><span class="scr" data-final="Haseeb">Haseeb</span></span>
-        <span class="mask"><span class="l2"><span class="scr" data-final="Naveed">Naveed</span><span class="dot">.</span></span></span>
-      </h1>
-      <p class="hero-sub reveal">7+ years in product across <strong>marketplaces</strong>, <strong>developer tools</strong>, and <strong>game engine platforms</strong>. Started in sales and support. Turns out selling to and helping users is excellent product training.</p>
-      <div class="hero-ctas reveal">
-        <a href="#experience" class="btn btn-fill" id="magnet">View work <span class="arw">→</span></a>
-        <a href="haseeb-naveed-cv.pdf" download class="btn btn-ghost">Download CV</a>
-      </div>
-    </div>
-  </div>
-  <div class="hero-foot">
-    <div class="wrap">
-      <div class="scroll-cue">Scroll <span class="bar"></span></div>
-      <a class="avail" href="#contact"><span class="pulse"></span>Open to conversations</a>
-    </div>
+<header class="nav">
+  <a class="brand" href="#top" aria-label="Haseeb Naveed, home"><svg class="mark" viewBox="0 0 120 100" aria-hidden="true"><path d="M0 0h22v100H0zM46 0h22v100H46zM22 40h24v20H22zM98 0h22v100H98z" fill="currentColor"/><path class="d" d="M46 0h22l52 100H98z"/></svg><span>Haseeb Naveed</span></a>
+  <nav aria-label="Sections"><a href="#story">Story</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#case-studies">Case studies</a><a class="keep" href="#contact">Contact</a></nav>
+  <div class="theme" role="group" aria-label="Colours">
+    <button class="th paper" data-theme="paper" title="Paper" aria-label="Paper colours"><i></i></button>
+    <button class="th spectrum" data-theme="spectrum" title="Spectrum" aria-label="Spectrum colours"><i></i></button>
+    <button class="th sh" title="Shuffle the colours" aria-label="Shuffle the colours"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></button>
   </div>
 </header>
-
-<!-- STORY -->
-<section class="section" id="story">
-  <div class="wrap">
-    <div class="story-grid">
-      <div class="story-aside">
-        <div class="eyebrow reveal">Story</div>
-        <h2 class="h-sec reveal">How I<br>got here</h2>
-      </div>
-      <div>
-        <p class="story-lead reveal">A career that started on the phone in outbound sales and support, and turned that into a decade of shaping <span class="hl">marketplaces, creator tools, and game engines</span>.</p>
-        <div class="story-body reveal" id="story-body">
-          <p>I started working while I was still in university. Partly to fund my own studies, but mostly because I wanted to know what earning my own money felt like. The answer came through outbound sales, where I spent two years moving up fast enough that I ended up leading a team while still being the top seller on the floor. The thrill of sales is quite unique. Nothing since has taught me faster how to <strong>build relationships</strong> and get to what customers actually want out of a deal.</p>
-          <p>After that I spent a fair bit of time on the other side of the phone doing customer support at various small companies, until I joined Motive as a Technical Support Engineer, a step up from the basic support roles I'd done while studying.</p>
-          <p>In parallel to both of those jobs I built a solid reputation as a content writer, with clients primarily in Australia and the US, back before freelancing was cool. I kept most of them for the better part of a decade, right up until Motive.</p>
-          <p>Then came Quixel, one of the best experiences I've had. The company was fewer than 20 people when I joined as the marketplace manager, and at a startup that size the title mostly means you wear <strong>every hat in the building</strong>. We had a marketplace that had been hacked together by a small team years earlier, and it did what it was supposed to, one way or another. But there was hardly any sensible experience around browsing, searching, promoting new content or the purchase flow. That's where I actually <strong>learned product</strong>, shaping that first marketplace experience almost incidentally. A small and humble team turned it into a world-class product, to the point that in 2019 Epic acquired Quixel.</p>
-          <p>At Epic I worked as a Product Manager on creator tools for Unreal Engine. Our work touched Fortnite, importing and exporting content to and from UE, the content browsing experience and entirely new asset types like packed level instance blueprints for prefabs and megatrees. Later on I helped the Fab team define the new marketplace experience, building on what had made Megascans work in the first place.</p>
-          <p>Today I'm a Senior Product Manager at Fenris Creations (formerly CCP Games), working on creator tools for Carbon, the in-house engine that powers EVE Online, the world's second oldest MMO. I built the product function in a platform team that had only ever operated as a service team: a product vision, pillars and a roadmap from scratch, plus taking charge of the Tools team of one designer and eight engineers including QA. The work ranges from redesigning the engine's world editor to bring it closer to industry standards, to a telemetry pipeline that catches issues before users report them, to fully new workflows like a Sequencer-style cinematics pipeline for producing beauty shots and trailers directly in the engine. We even converted our manual test suite into an automated behaviour suite using LLMs. On top of that I lead product operations and the productization of Carbon as an engine, along with its open source program, from governance and contribution pathways to what open-sourcing parts of the engine changes for us internally.</p>
-          <p>Always learning, always giving it my all and then some. Perpetually trying to take myself <strong>a bit less seriously</strong> and my work <strong>a bit more seriously</strong>.</p>
-        </div>
-        <button class="link-btn" id="story-toggle" aria-expanded="false" aria-controls="story-body">Read the full story <span class="chev">↓</span></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="section" id="experience">
-  <div class="wrap">
-    <div class="eyebrow reveal" style="margin-bottom:1rem">Experience</div>
-    <h2 class="h-sec reveal" style="margin-bottom:2.5rem">Where I've worked</h2>
-    <div class="workedat reveal">
-      <span class="lab">Worked at</span>
-      <img src="logo-ccp.png" alt="CCP Games" width="104" height="88">
-      <img src="logo-epic.png" alt="Epic Games" width="71" height="68">
-      <img src="logo-quixel.png" alt="Quixel" width="179" height="52">
-      <img src="logo-motive.png" alt="Motive" width="229" height="60">
-    </div>
-
-    <div class="roles">
-      <div class="role reveal">
-        <button class="role-header" type="button" aria-expanded="false">
-          <span class="role-yr">2025 — Now</span>
-          <span><span class="role-co">CCP Games · Reykjavík</span><span class="role-title">Snr. Product Manager / Snr. Product Ops — Carbon Platform &amp; Internal Dev Tools</span></span>
-          <span class="role-plus" aria-hidden="true">+</span>
-        </button>
-        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
-          <p>Leading product for a cross-functional team of 6 engineers, 1 QA, and 1 designer building internal dev tools and asset publishing pipelines. Proposed and led initiatives across tooling stability, developer experience, and a full UI/UX redesign of core tooling implemented via Claude Code.</p>
-          <p>Simultaneously leading the open source transformation of Carbon, CCP's in-house engine, working with engineering, legal, and production to establish governance, contribution pathways, community infrastructure, and documentation for external contributors.</p>
-          <div class="metrics">
-            <span class="metric">Team of 8</span><span class="metric">Open source strategy</span><span class="metric">Dev tooling</span><span class="metric">Platform governance</span><span class="metric">Community infrastructure</span>
-          </div>
-          <div class="role-links">
-            <a href="https://github.com/ccpgames" target="_blank" rel="noopener noreferrer" class="role-link">Carbon on GitHub <span class="ext">↗</span></a>
-            <a href="https://www.ccpgames.com/carbon" target="_blank" rel="noopener noreferrer" class="role-link">Carbon website <span class="ext">↗</span></a>
-          </div>
-        </div></div></div>
-      </div>
-
-      <div class="role reveal">
-        <button class="role-header" type="button" aria-expanded="false">
-          <span class="role-yr">2022 — 2024</span>
-          <span><span class="role-co">Epic Games · Islamabad</span><span class="role-title">Product Manager — Content, Merchandising &amp; Strategy</span></span>
-          <span class="role-plus" aria-hidden="true">+</span>
-        </button>
-        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
-          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="fab-wrap">Show product image <span class="arr">↓</span></button>
-          <div class="role-img-wrap" id="fab-wrap"><div class="role-img-in"><img class="role-img" data-src="fab.webp" alt="Fab Marketplace" width="1600" height="769" loading="lazy"></div></div>
-          <p>Led pricing strategy for Megascans on Fab, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
-          <div class="metrics">
-            <span class="metric">+23% acquisition</span><span class="metric">−16% support volume</span><span class="metric">+21% ratings</span><span class="metric">−20% time to publish</span>
-          </div>
-          <div class="role-links">
-            <a href="https://fab.com" target="_blank" rel="noopener noreferrer" class="role-link">Fab Marketplace <span class="ext">↗</span></a>
-            <a href="https://quixel.com/megascans" target="_blank" rel="noopener noreferrer" class="role-link">Megascans <span class="ext">↗</span></a>
-          </div>
-        </div></div></div>
-      </div>
-
-      <div class="role reveal">
-        <button class="role-header" type="button" aria-expanded="false">
-          <span class="role-yr">2021 — 2022</span>
-          <span><span class="role-co">Epic Games · Islamabad</span><span class="role-title">Associate Product Manager — Technical, Content &amp; Creator Tools</span></span>
-          <span class="role-plus" aria-hidden="true">+</span>
-        </button>
-        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
-          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="bridge-wrap">Show product image <span class="arr">↓</span></button>
-          <div class="role-img-wrap" id="bridge-wrap"><div class="role-img-in"><img class="role-img" data-src="bridge.jpg" alt="Quixel Bridge" width="1920" height="1007" loading="lazy"></div></div>
-          <p>Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
-          <div class="metrics">
-            <span class="metric">+46% subscriptions</span><span class="metric">+33% MAU</span><span class="metric">−40% manual reporting</span>
-          </div>
-        </div></div></div>
-      </div>
-
-      <div class="role reveal">
-        <button class="role-header" type="button" aria-expanded="false">
-          <span class="role-yr">2019 — 2021</span>
-          <span><span class="role-co">Quixel (acq. Epic Games) · Islamabad</span><span class="role-title">Senior Marketplace Manager — Megascans</span></span>
-          <span class="role-plus" aria-hidden="true">+</span>
-        </button>
-        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
-          <button class="role-img-toggle" type="button" aria-expanded="false" data-toggle-img="megascans-wrap">Show product image <span class="arr">↓</span></button>
-          <div class="role-img-wrap" id="megascans-wrap"><div class="role-img-in"><img class="role-img" data-src="megascans.webp" alt="Quixel Megascans" width="1600" height="765" loading="lazy"></div></div>
-          <p>Sole operator managing a rapidly scaling catalog, publishing content and single-handedly rewriting the metadata architecture as the library grew from 7,000 to 18,000+ listings. Designed a 0→1 taxonomy and curation system, raised CSAT by 36 points to 83.5%.</p>
-          <div class="metrics">
-            <span class="metric">7K → 18K listings</span><span class="metric">+109% downloads</span><span class="metric">83.5% CSAT</span><span class="metric">110K users surveyed</span>
-          </div>
-          <div class="role-links"><a href="https://quixel.com/megascans" target="_blank" rel="noopener noreferrer" class="role-link">Megascans <span class="ext">↗</span></a></div>
-        </div></div></div>
-      </div>
-
-      <div class="role reveal">
-        <button class="role-header" type="button" aria-expanded="false">
-          <span class="role-yr">2018 — 2019</span>
-          <span><span class="role-co">Motive (ex KeepTruckin) · Islamabad</span><span class="role-title">Technical Support Specialist</span></span>
-          <span class="role-plus" aria-hidden="true">+</span>
-        </button>
-        <div class="role-body"><div class="role-body-in"><div class="role-body-pad">
-          <p>Technical support across email, chat, and voice for a fleet management SaaS. Triaged issues to product and engineering, and contributed to the customer knowledge base.</p>
-        </div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CASE STUDIES -->
-<section class="section" id="casestudies">
-  <div class="wrap">
-    <h2 class="h-sec reveal" style="margin-bottom:2.5rem">Case Studies</h2>
-    <div class="cs-grid">
-      <article class="cs cs-live reveal" data-navigate="case-study-pricing.html">
-        <div class="cs-live-body">
-          <div>
-            <div class="cs-co">Epic Games · Pricing Strategy</div>
-            <h3 class="cs-title">Rethinking how the world's largest 3D asset library charges for its content</h3>
-            <div class="cs-meta">2022 — 2024</div>
-          </div>
-          <div class="cs-bottom">
-            <div class="cs-pills">
-              <span class="cs-pill">+23% acquisition</span>
-              <span class="cs-pill">18K+ assets repriced</span>
-              <span class="cs-pill">Subscription → PPP</span>
-            </div>
-            <span class="cs-cta">Read case study <span class="arw">→</span></span>
-          </div>
-        </div>
-        <div class="cs-media"><img data-src="megascans.webp" alt="Megascans marketplace" width="1600" height="765" loading="lazy"></div>
-      </article>
-
-      <article class="cs cs-soon reveal">
-        <div>
-          <div class="cs-co">Quixel · Catalog &amp; Taxonomy</div>
-          <h3 class="cs-title">Building a 0→1 curation system for an 18,000+ asset marketplace</h3>
-        </div>
-        <div class="cs-pills">
-          <span class="cs-pill">18K+ assets</span>
-          <span class="cs-pill">+109% downloads</span>
-          <span class="cs-pill">83.5% CSAT</span>
-        </div>
-        <span class="cs-badge">Coming soon</span>
-      </article>
-
-      <article class="cs cs-soon reveal">
-        <div>
-          <div class="cs-co">CCP Games · Open Source</div>
-          <h3 class="cs-title">Taking an in-house game engine open source</h3>
-        </div>
-        <div class="cs-pills">
-          <span class="cs-pill">Governance</span>
-          <span class="cs-pill">Contribution paths</span>
-        </div>
-        <span class="cs-badge">Coming soon</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="section" id="skills">
-  <div class="wrap">
-    <div class="eyebrow reveal" style="margin-bottom:1rem">Skills</div>
-    <h2 class="h-sec reveal" style="margin-bottom:2.5rem">What I do</h2>
-    <div class="skills-grid reveal">
-      <div class="skill-group"><h3>Product <span class="n">01</span></h3><ul><li>Roadmapping</li><li>Pricing Strategy</li><li>Feature Prioritization</li><li>Release Planning</li><li>Backlog Management</li><li>Sprint Planning</li><li>A/B Testing</li><li>Agile</li></ul></div>
-      <div class="skill-group"><h3>Research <span class="n">02</span></h3><ul><li>Customer Interviews</li><li>Survey Design</li><li>Market Research</li><li>Competitive Analysis</li><li>Stakeholder Management</li></ul></div>
-      <div class="skill-group"><h3>Analytics <span class="n">03</span></h3><ul><li>SQL</li><li>Python</li><li>Tableau</li><li>Metabase</li><li>Excel</li></ul></div>
-      <div class="skill-group"><h3>Tools <span class="n">04</span></h3><ul><li>Figma</li><li>JIRA</li><li>Notion</li><li>Asana</li><li>GitHub</li><li>Miro</li><li>Slack</li></ul></div>
-      <div class="skill-group"><h3>AI <span class="n">05</span></h3><ul><li>Claude Code</li><li>LLM workflows</li></ul></div>
-      <div class="skill-group"><h3>Languages <span class="n">06</span></h3><ul><li>English (C1)</li><li>Urdu</li><li>Punjabi</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="wrap">
-    <h2 class="contact-lead reveal">Let's <span class="hl">talk.</span></h2>
-    <div class="contact-rows reveal">
-      <a class="contact-row" href="mailto:haseebnaveed@protonmail.com">
-        <span class="k">Email</span>
-        <span class="v">haseebnaveed@protonmail.com <span class="ext">↗</span></span>
-      </a>
-      <a class="contact-row" href="https://www.linkedin.com/in/haseeb-naveed/" target="_blank" rel="noopener noreferrer">
-        <span class="k">LinkedIn</span>
-        <span class="v">linkedin.com/in/haseeb-naveed <span class="ext">↗</span></span>
-      </a>
-      <a class="contact-row" href="haseeb-naveed-cv.pdf" download>
-        <span class="k">Résumé</span>
-        <span class="v">Download CV (PDF) <span class="ext">↓</span></span>
-      </a>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
+<section class="hero" id="top">
+  <h1><span class="new">I build products that solve <span class="k k1">real problems</span> for the people using them.</span></h1>
+  <div class="hero-foot">
     <div>
-      <p class="footer-note"><a href="#contact">This site has no cookie banner.</a> That's the level of care you can expect.</p>
-      <p class="footer-fine">All product names and trademarks are property of their respective owners.</p>
+      <p class="lede"><span class="new"><b>Haseeb Naveed</b>, Senior Product Manager in Reykjavík.</span> 7+ years in product across marketplaces, developer tools, and game engine platforms. Started in sales and support. Turns out selling to and helping users is excellent product training.</p>
+      <div class="ctas"><a class="btn" href="#work">View work</a><a class="btn line" href="haseeb-naveed-cv.pdf">Download CV</a></div>
     </div>
-    <div class="footer-meta">Haseeb Naveed<br>© 2026 · haseebnaveed.cv</div>
   </div>
-</footer>
+  <div class="hero-art gl pillars" data-fx="pillars" aria-hidden="true"><canvas></canvas><p class="gl-hint"><span class="new">Click to send a wave through. It brings new colours.</span></p></div>
+</section>
+<section class="band alt" id="story">
+  <div class="story">
+    <div>
+      <h2 class="rv">How I got here</h2>
+      <p class="story-lead rv">A career that started on the phone in outbound sales and support, and turned that into a decade of shaping marketplaces, creator tools, and game engines.</p>
+    </div>
+    <div class="story-body rv">
+      <p>I started working while I was still in university. Partly to fund my own studies, but mostly because I wanted to know what earning my own money felt like. The answer came through outbound sales, where I spent two years moving up fast enough that I ended up leading a team while still being the top seller on the floor. The thrill of sales is quite unique. Nothing since has taught me faster how to <strong>build relationships</strong> and get to what customers actually want out of a deal.</p>
+      <p>After that I spent a fair bit of time on the other side of the phone doing customer support at various small companies, until I joined Motive as a Technical Support Engineer, a step up from the basic support roles I'd done while studying.</p>
+      <div class="story-more">
+        <p>In parallel to both of those jobs I built a solid reputation as a content writer, with clients primarily in Australia and the US, back before freelancing was cool. I kept most of them for the better part of a decade, right up until Motive.</p>
+        <p>Then came Quixel, one of the best experiences I've had. The company was fewer than 20 people when I joined as the marketplace manager, and at a startup that size the title mostly means you wear <strong>every hat in the building</strong>. We had a marketplace that had been hacked together by a small team years earlier, and it did what it was supposed to, one way or another. But there was hardly any sensible experience around browsing, searching, promoting new content or the purchase flow. That's where I actually <strong>learned product</strong>, shaping that first marketplace experience almost incidentally. A small and humble team turned it into a world-class product, to the point that in 2019 Epic acquired Quixel.</p>
+        <p>At Epic I worked as a Product Manager on creator tools for Unreal Engine. Our work touched Fortnite, importing and exporting content to and from UE, the content browsing experience and entirely new asset types like packed level instance blueprints for prefabs and megatrees. Later on I helped the Fab team define the new marketplace experience, building on what had made Megascans work in the first place.</p>
+        <p>Today I'm a Senior Product Manager at Fenris Creations (formerly CCP Games), working on creator tools for Carbon, the in-house engine that powers EVE Online, the world's second oldest MMO. I built the product function in a platform team that had only ever operated as a service team: a product vision, pillars and a roadmap from scratch, plus taking charge of the Tools team of one designer and eight engineers including QA. The work ranges from redesigning the engine's world editor to bring it closer to industry standards, to a telemetry pipeline that catches issues before users report them, to fully new workflows like a Sequencer-style cinematics pipeline for producing beauty shots and trailers directly in the engine. We even converted our manual test suite into an automated behaviour suite using LLMs. On top of that I lead product operations and the productization of Carbon as an engine, along with its open source program, from governance and contribution pathways to what open-sourcing parts of the engine changes for us internally.</p>
+        <p class="story-end">Always learning, always giving it my all and then some. Perpetually trying to take myself <strong>a bit less seriously</strong> and my work <strong>a bit more seriously</strong>.</p>
+      </div>
+      <button class="story-btn" aria-expanded="false">Read the full story</button>
+    </div>
+  </div>
+</section>
+<section class="band" id="work" style="--pc:var(--w1)">
+  <header class="band-head"><h2 class="rv">Things I've worked on</h2></header>
+  <div class="sub" id="megascans" style="--pc:var(--w1)">
+    <header class="sub-head"><div><div class="top-line"><b>Quixel, then Epic Games</b><span>2019 – 2024</span></div><h3 class="rv"><span>Megascans</span></h3></div><div class="rv"><p><span class="new">Megascans is a library of 18,000+ scanned assets that studios like Rockstar, Ubisoft and Disney use in their games and films. I spent five years on it: running the catalogue at Quixel, staying on through the Epic acquisition, helping launch Bridge and then repricing the whole thing for Fab.</span></p><ul class="facts"><li><b>7K → 18K</b>listings</li><li><b>+109%</b>downloads</li><li><b>83.5%</b>CSAT</li></ul></div></header>
+  </div>
+  <div class="sub" id="home-page" style="--pc:var(--w1)">
+    <header class="sub-head"><div><h3 class="rv">The <span>home page</span></h3></div><div class="rv"><p><span class="new">The front door to the whole library. For two years I decided every detail about what went on it, picking every row and every feature by hand while the catalogue grew from 7,000 to 18,000+ assets. Behind it sat the asset taxonomy I rebuilt from scratch, so every one of those assets ended up somewhere people would actually look for it.</span></p></div></header>
+    <figure class="shot rv"><img src="img/megascans.webp" alt="The Megascans home page" loading="lazy" width="1600" height="765"></figure>
+  </div>
 
-<script src="vendor/lenis.min.js" defer></script>
-<script>
-const root = document.documentElement;
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  <div class="sub" id="collections" style="--pc:var(--w2)">
+    <header class="sub-head"><div><h3 class="rv"><span>Collections</span></h3></div><div class="rv"><p><span class="new">Collections grouped the library by idea instead of by keyword: a coastline, a castle, a medieval dinner table. I was the only curator, so every collection on that page was picked and sequenced by me, and sorted into a collection taxonomy I put together just for them. Hover the names to see a few, and click the picture to look inside.</span></p></div></header>
+    <div class="coll rv">
+    <ol class="coll-list" aria-label="Collections"><li><button data-slug="nordic-coastal-cliffs" data-img="img/coll/nordic-coastal-cliffs.webp" data-xl="img/coll/nordic-coastal-cliffs-xl.webp" data-k="Biome"><i>01</i><span>Nordic Coastal Cliffs</span><em>Biome</em></button></li><li><button data-slug="mughal-modular-building" data-img="img/coll/mughal-modular-building.webp" data-xl="img/coll/mughal-modular-building-xl.webp" data-k="Architecture"><i>02</i><span>Mughal Modular Building</span><em>Architecture</em></button></li><li><button data-slug="castle-ruins" data-img="img/coll/castle-ruins.webp" data-xl="img/coll/castle-ruins-xl.webp" data-k="Architecture"><i>03</i><span>Castle Ruins</span><em>Architecture</em></button></li><li><button data-slug="japanese-tropical-jungle" data-img="img/coll/japanese-tropical-jungle.webp" data-xl="img/coll/japanese-tropical-jungle-xl.webp" data-k="Biome"><i>04</i><span>Japanese Tropical Jungle</span><em>Biome</em></button></li><li><button data-slug="xeric-shrublands" data-img="img/coll/xeric-shrublands.webp" data-xl="img/coll/xeric-shrublands-xl.webp" data-k="Biome"><i>05</i><span>Xeric Shrublands</span><em>Biome</em></button></li><li><button data-slug="arctic-ice-and-snow" data-img="img/coll/arctic-ice-and-snow.webp" data-xl="img/coll/arctic-ice-and-snow-xl.webp" data-k="Biome"><i>06</i><span>Arctic Ice and Snow</span><em>Biome</em></button></li><li><button data-slug="hartland-quay-shore" data-img="img/coll/hartland-quay-shore.webp" data-xl="img/coll/hartland-quay-shore-xl.webp" data-k="Biome"><i>07</i><span>Hartland Quay Shore</span><em>Biome</em></button></li><li><button data-slug="broadleaf-forest" data-img="img/coll/broadleaf-forest.webp" data-xl="img/coll/broadleaf-forest-xl.webp" data-k="Biome"><i>08</i><span>Broadleaf Forest</span><em>Biome</em></button></li><li><button data-slug="medieval-banquet" data-img="img/coll/medieval-banquet.webp" data-xl="img/coll/medieval-banquet-xl.webp" data-k="Food and props"><i>09</i><span>Medieval Banquet</span><em>Food and props</em></button></li><li><button data-slug="definitive-breads" data-img="img/coll/definitive-breads.webp" data-xl="img/coll/definitive-breads-xl.webp" data-k="Food"><i>10</i><span>Definitive Breads</span><em>Food</em></button></li><li><button data-slug="old-workshop" data-img="img/coll/old-workshop.webp" data-xl="img/coll/old-workshop-xl.webp" data-k="Interior"><i>11</i><span>Old Workshop</span><em>Interior</em></button></li><li><button data-slug="junkyard-vol-1" data-img="img/coll/junkyard-vol-1.webp" data-xl="img/coll/junkyard-vol-1-xl.webp" data-k="Props"><i>12</i><span>Junkyard Vol. 1</span><em>Props</em></button></li><li><button data-slug="premium-fabrics" data-img="img/coll/premium-fabrics.webp" data-xl="img/coll/premium-fabrics-xl.webp" data-k="Surfaces"><i>13</i><span>Premium Fabrics</span><em>Surfaces</em></button></li><li><button data-slug="animal-bones" data-img="img/coll/animal-bones.webp" data-xl="img/coll/animal-bones-xl.webp" data-k="Props"><i>14</i><span>Animal Bones</span><em>Props</em></button></li></ol>
+    <figure class="coll-view"><button class="frame" aria-label="Look inside this collection"></button><figcaption><b></b><span></span></figcaption></figure>
+  </div>
+  </div>
 
-/* Theme */
-function toggleTheme(){
-  root.classList.toggle('light');
-  const light = root.classList.contains('light');
-  localStorage.setItem('theme', light ? 'light' : 'dark');
-  document.querySelector('meta[name=theme-color]').setAttribute('content', light ? '#F4F2EC' : '#08090C');
-}
-if(localStorage.getItem('theme')==='light') root.classList.add('light');
-document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+  <div class="sub" id="renders" style="--pc:var(--w3)">
+    <header class="sub-head"><div><h3 class="rv">Marketplace <span>renders</span></h3></div><div class="rv"><p><span class="new">Before Fab, Megascans also sold as packs on the Unreal Engine Marketplace, and every pack needed listing images. I made them in Unreal, and these are the 340 I could still find on my old PC, from late 2019 to 2021. Drag it, fling it, or jump to a pack.</span></p></div></header>
+    <div class="stage reel bleed" id="reel" data-fx="reel">
+    <canvas aria-label="Marketplace renders on a curved strip. Drag to move it, click one to open it."></canvas>
+    <div class="s-load" id="reelLoad">Loading renders</div>
+  </div>
+  <div class="reel-cap"><span><b id="reelName">Icelandic rocks</b></span><span id="reelNum"></span></div>
+  <div class="reel-chaps" id="reelChaps" role="group" aria-label="Jump to a pack"></div>
+  </div>
 
-/* Nav scrolled state */
-const nav = document.getElementById('nav');
-const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
-onScroll();
-document.addEventListener('scroll', onScroll, {passive:true});
-
-/* Page transitions for internal links */
-function navigate(href){
-  document.body.style.transition='opacity .35s ease';
-  document.body.style.opacity='0';
-  setTimeout(()=>{ window.location = href; }, 350);
-}
-document.querySelectorAll('[data-navigate]').forEach(el=>{
-  el.addEventListener('click', ()=>navigate(el.getAttribute('data-navigate')));
-});
-document.addEventListener('click', e=>{
-  const a = e.target.closest('a[href]');
-  if(!a) return;
-  const href = a.getAttribute('href');
-  if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || a.hasAttribute('download')) return;
-  e.preventDefault(); navigate(href);
-});
-window.addEventListener('pageshow', ()=>{
-  document.body.style.transition='none'; document.body.style.opacity='0'; closeMenu();
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{ document.body.style.transition='opacity .4s ease'; document.body.style.opacity='1'; }));
-});
-
-/* Mobile menu */
-function toggleMenu(){
-  const b=document.getElementById('burger');
-  const open=b.classList.toggle('open');
-  document.getElementById('mobile-menu').classList.toggle('open',open);
-  b.setAttribute('aria-expanded',String(open));
-  document.body.style.overflow=open?'hidden':'';
-}
-function closeMenu(){
-  const b=document.getElementById('burger');
-  b.classList.remove('open');
-  document.getElementById('mobile-menu').classList.remove('open');
-  b.setAttribute('aria-expanded','false');
-  document.body.style.overflow='';
-}
-document.getElementById('burger').addEventListener('click', toggleMenu);
-document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click', closeMenu));
-
-/* Role expand */
-document.querySelectorAll('#experience .role').forEach(role=>{
-  const btn=role.querySelector('.role-header');
-  btn.addEventListener('click', ()=>{
-    const open=role.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-});
-
-/* Product image toggle (lazy-load on first open) */
-function toggleImg(id){
-  const wrap=document.getElementById(id);
-  const open=wrap.classList.toggle('open');
-  const btn=document.querySelector('[data-toggle-img="'+id+'"]');
-  btn.classList.toggle('open',open);
-  btn.setAttribute('aria-expanded',String(open));
-  const img=wrap.querySelector('img');
-  if(open && img.dataset.src && !img.src){ img.src=img.dataset.src; }
-  btn.childNodes[0].textContent = open ? 'Hide product image ' : 'Show product image ';
-}
-document.querySelectorAll('[data-toggle-img]').forEach(btn=>{
-  btn.addEventListener('click', e=>{ e.stopPropagation(); toggleImg(btn.getAttribute('data-toggle-img')); });
-});
-
-/* Case study media lazy-load */
-document.querySelectorAll('.cs-media img[data-src]').forEach(img=>{ img.src=img.dataset.src; });
-
-/* Story toggle */
-const sb=document.getElementById('story-body'), st=document.getElementById('story-toggle');
-st.addEventListener('click', ()=>{
-  const open=sb.classList.toggle('open');
-  st.setAttribute('aria-expanded',String(open));
-  st.classList.toggle('open',open);
-  st.childNodes[0].textContent = open ? 'Collapse story ' : 'Read the full story ';
-});
-
-/* Magnetic CTA */
-const mag=document.getElementById('magnet');
-if(mag && !reduce && matchMedia('(pointer:fine)').matches){
-  mag.addEventListener('pointermove', e=>{
-    const r=mag.getBoundingClientRect();
-    const x=e.clientX-(r.left+r.width/2), y=e.clientY-(r.top+r.height/2);
-    mag.style.transform=`translate(${x*0.25}px, ${y*0.35}px)`;
-  });
-  mag.addEventListener('pointerleave', ()=>{ mag.style.transform=''; });
-}
-
-/* Reveal on scroll (hero excluded — it runs its own choreography) */
-(function(){
-  const els=Array.from(document.querySelectorAll('.reveal')).filter(el=>!el.closest('.hero'));
-  const byParent=new Map();
-  els.forEach(el=>{
-    const p=el.parentElement;
-    const i=byParent.get(p)||0;
-    el.style.transitionDelay=((i%6)*65)+'ms';
-    byParent.set(p,i+1);
-  });
-  // Sweep: reveal anything already at or above the viewport bottom. Catches
-  // fast scrolls, deep-links, and refresh-restored scroll positions that the
-  // observer would otherwise skip (leaving content stuck invisible).
-  const sweep=()=>els.forEach(el=>{
-    if(!el.classList.contains('in') && el.getBoundingClientRect().top < innerHeight*0.92) el.classList.add('in');
-  });
-  const io=new IntersectionObserver((entries)=>{
-    if(entries.some(en=>en.isIntersecting)) sweep();
-  },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
-  els.forEach(el=>io.observe(el));
-  requestAnimationFrame(sweep);
-})();
-
-/* Hero load choreography */
-function fireHero(){
-  document.body.classList.add('loaded');
-  document.querySelectorAll('.hero .reveal').forEach((el,i)=>{
-    el.style.transitionDelay=(250+i*110)+'ms';
-    el.classList.add('in');
-  });
-}
-if(document.readyState==='complete') fireHero();
-else window.addEventListener('load', fireHero);
-setTimeout(()=>{ if(!document.body.classList.contains('loaded')) fireHero(); }, 600);
-
-/* ===== WebGL nebula hero background (raw GL, no libraries) ===== */
-(function(){
-  const cv=document.getElementById('net');
-  const DPR=Math.min(1.6, window.devicePixelRatio||1);
-  let gl,prog,raf=null,start=0,uRes,uTime,uMouse;
-  const mouse={x:0.5,y:0.42,tx:0.5,ty:0.42};
-  const vsrc='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
-  const fsrc=[
-    'precision highp float;',
-    'uniform vec2 u_res; uniform float u_time; uniform vec2 u_mouse;',
-    'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
-    'float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);',
-    ' float a=hash(i),b=hash(i+vec2(1,0)),c=hash(i+vec2(0,1)),d=hash(i+vec2(1,1));',
-    ' return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);}',
-    'float fbm(vec2 p){float v=0.,a=.5;mat2 m=mat2(1.6,1.2,-1.2,1.6);',
-    ' for(int i=0;i<6;i++){v+=a*noise(p);p=m*p;a*=.5;}return v;}',
-    'void main(){',
-    ' vec2 R=u_res.xy; vec2 p=(gl_FragCoord.xy-.5*R)/R.y;',
-    ' vec2 m=(u_mouse*R-.5*R)/R.y; float d=distance(p,m);',
-    ' p+=normalize(p-m+1e-4)*(-0.08/(d*5.+0.3));',
-    ' float t=u_time*0.022; vec2 q=p*1.5;',
-    ' float warp=fbm(q*0.6+t*0.6);',
-    ' float n=fbm(q+vec2(t,-t*0.5)+warp);',
-    ' float n2=fbm(q*2.4-t*0.6);',
-    ' float cloud=smoothstep(0.26,0.9,n*0.72+n2*0.38);',
-    ' float side=smoothstep(-0.05,0.95,p.x);',   // richer toward the right, clean behind text
-    ' cloud*=mix(0.5,1.3,side);',
-    ' vec3 base=vec3(0.031,0.035,0.047);',
-    ' vec3 cool=vec3(0.09,0.13,0.27);',
-    ' vec3 amber=vec3(0.96,0.77,0.32);',
-    ' vec3 col=base; col=mix(col,cool,clamp(cloud,0.,1.)*1.0);',
-    ' col+=amber*pow(clamp(cloud,0.,1.),2.4)*0.6;',
-    ' float glow=exp(-d*3.2);',                         // cursor light presence
-    ' col+=amber*glow*0.22+cool*glow*0.32;',
-    ' vec2 si=floor(gl_FragCoord.xy/1.5);',
-    ' float star=step(0.9968,hash(si));',
-    ' float tw=0.5+0.5*sin(u_time*2.3+hash(si)*6.2831);',  // per-star twinkle
-    ' col+=vec3(star)*(0.3+0.85*tw);',
-    ' float vig=smoothstep(1.35,0.1,length(p*vec2(0.7,1.0)));',
-    ' col*=mix(0.55,1.0,vig);',
-    ' gl_FragColor=vec4(col,1.0);}'
-  ].join('\n');
-  function compile(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
-    return gl.getShaderParameter(s,gl.COMPILE_STATUS)?s:null;}
-  function init(){
-    gl=cv.getContext('webgl',{antialias:false})||cv.getContext('experimental-webgl');
-    if(!gl) return false;
-    const vs=compile(gl.VERTEX_SHADER,vsrc), fs=compile(gl.FRAGMENT_SHADER,fsrc);
-    if(!vs||!fs) return false;
-    prog=gl.createProgram();gl.attachShader(prog,vs);gl.attachShader(prog,fs);gl.linkProgram(prog);
-    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) return false;
-    gl.useProgram(prog);
-    const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
-    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
-    const loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-    uRes=gl.getUniformLocation(prog,'u_res');uTime=gl.getUniformLocation(prog,'u_time');uMouse=gl.getUniformLocation(prog,'u_mouse');
-    return true;
-  }
-  function size(){
-    const w=cv.offsetWidth,h=cv.offsetHeight;
-    cv.width=Math.max(1,Math.floor(w*DPR));cv.height=Math.max(1,Math.floor(h*DPR));
-    if(gl)gl.viewport(0,0,cv.width,cv.height);
-  }
-  function render(time){
-    mouse.x+=(mouse.tx-mouse.x)*0.05; mouse.y+=(mouse.ty-mouse.y)*0.05;
-    gl.uniform2f(uRes,cv.width,cv.height);
-    gl.uniform1f(uTime,time);
-    gl.uniform2f(uMouse,mouse.x,mouse.y);
-    gl.drawArrays(gl.TRIANGLES,0,3);
-  }
-  function frame(now){ if(!start)start=now; render((now-start)/1000); raf=requestAnimationFrame(frame); }
-  if(!init()){ cv.style.display='none'; return; }
-  size();
-  window.addEventListener('resize', size);
-  window.addEventListener('pointermove', e=>{ mouse.tx=e.clientX/innerWidth; mouse.ty=1-e.clientY/innerHeight; }, {passive:true});
-  if(reduce){ render(14.0); return; }
-  raf=requestAnimationFrame(frame);
-  new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){ if(raf===null){ start=0; raf=requestAnimationFrame(frame); } }
-    else if(raf!==null){ cancelAnimationFrame(raf); raf=null; }
-  })).observe(cv);
-})();
-
-/* ===== Hero name decode/scramble ===== */
-(function(){
-  if(reduce) return;
-  const glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZ#%/<>*+=';
-  document.querySelectorAll('.hero .scr').forEach((el,idx)=>{
-    const final=el.dataset.final, len=final.length, dur=680, delay=380+idx*170;
-    let t0=0;
-    el.textContent=Array.from({length:len},()=>glyphs[Math.floor(Math.random()*glyphs.length)]).join('');
-    setTimeout(()=>requestAnimationFrame(function step(now){
-      if(!t0)t0=now;
-      const t=Math.min(1,(now-t0)/dur), reveal=Math.floor(t*len*1.2);
-      let out='';
-      for(let i=0;i<len;i++){ out += i<reveal ? final[i] : glyphs[Math.floor(Math.random()*glyphs.length)]; }
-      el.textContent=out;
-      if(t<1) requestAnimationFrame(step); else el.textContent=final;
-    }), delay);
-  });
-})();
-
-/* ===== Case-study 3D tilt + cursor spotlight ===== */
-(function(){
-  if(reduce || !matchMedia('(pointer:fine)').matches) return;
-  document.querySelectorAll('.cs').forEach(card=>{
-    card.addEventListener('pointermove', e=>{
-      const r=card.getBoundingClientRect();
-      const px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
-      card.style.setProperty('--mx',(px*100)+'%');
-      card.style.setProperty('--my',(py*100)+'%');
-      card.style.transition='transform .12s ease-out';
-      card.style.transform=`rotateX(${(0.5-py)*5}deg) rotateY(${(px-0.5)*5}deg)`;
-    });
-    card.addEventListener('pointerleave', ()=>{ card.style.transition=''; card.style.transform=''; });
-  });
-})();
-
-/* Lenis smooth scroll */
-if(!reduce && window.Lenis){ new Lenis({autoRaf:true, lerp:0.09, anchors:true}); }
-</script>
+  <div class="sub"><div class="cards">
+    <article class="card rv" style="--pc:var(--w4)">
+      <figure class="media"><img src="img/bridge.webp" alt="Quixel Bridge" loading="lazy" width="1440" height="755"></figure>
+      <div class="top-line"><b>Epic Games</b><span>2021 – 2022</span></div>
+      <h3>Quixel <span>Bridge</span></h3>
+      <p class="lede2">Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
+      <ul class="facts"><li><b>+46%</b>subscriptions</li><li><b>+33%</b>MAU</li><li><b>−40%</b>manual reporting</li></ul>
+    </article>
+    <article class="card rv" style="--pc:var(--w5)">
+      <figure class="media"><img src="img/fab.webp" alt="Megascans on Fab" loading="lazy" width="1440" height="755"></figure>
+      <div class="top-line"><b>Epic Games</b><span>2022 – 2024</span></div>
+      <h3>Megascans <span>on Fab</span></h3>
+      <p class="lede2">Led pricing strategy for Megascans on Fab, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
+      <ul class="facts"><li><b>+23%</b>acquisition</li><li><b>−16%</b>support volume</li><li><a href="case-study-pricing.html">Read the case study</a></li></ul>
+    </article>
+  </div></div>
+</section>
+<section class="band" id="carbon" style="--pc:var(--w6);padding:0">
+  <div class="warp" id="warp" data-fx="warp" role="group" aria-label="Carbon. A space backdrop drawn live; click it to warp."><canvas aria-hidden="true"></canvas>
+    <div class="warp-copy">
+      <div class="top-line"><b>Fenris Creations (formerly CCP Games)</b><span>2025 – Present</span></div>
+      <h3><span>Carbon</span></h3>
+      <p><span class="new">Carbon is the in-house engine that powers EVE Online, the world&#39;s second oldest MMO.</span> I built the product function in a platform team that had only ever operated as a service team: a product vision, pillars and a roadmap from scratch, plus taking charge of the Tools team of one designer and eight engineers including QA.</p>
+      <div class="links" style="pointer-events:auto"><a href="https://github.com/ccpgames">Carbon on GitHub</a><a href="https://www.ccpgames.com/carbon">Carbon website</a></div>
+    </div>
+    <button class="warp-btn">Warp</button></div>
+</section>
+<section class="nums" aria-label="Results">
+  <div class="rv"><b>+23%</b><span class="new">Customer acquisition after repricing Megascans for Fab</span></div>
+  <div class="rv"><b>+109%</b><span class="new">Megascans downloads while I ran the catalogue</span></div>
+  <div class="rv"><b>+46%</b><span class="new">Subscriptions after the Bridge launch</span></div>
+  <div class="rv"><b>83.5%</b><span class="new">CSAT, up 36 points, from 110K users surveyed</span></div>
+</section>
+<section class="band alt" id="experience">
+  <header class="band-head"><h2 class="rv">Where I've worked</h2></header>
+  <div class="xp">
+    <div class="xp-row rv" style="--pc:var(--w6)"><span class="yr">2025 – Present</span>
+      <div><h3>Snr. Product Manager / Snr. Product Ops - Carbon Platform &amp; Internal Dev Tools</h3><p class="where">Fenris Creations (formerly CCP Games) · Reykjavík</p></div>
+      <div class="body"><p>Leading product for a cross-functional team of 6 engineers, 1 QA, and 1 designer building internal dev tools and asset publishing pipelines. Proposed and led initiatives across tooling stability, developer experience, and a full UI/UX redesign of core tooling implemented via Claude Code.</p><p>Simultaneously leading the open source transformation of Carbon, CCP's in-house engine, working with engineering, legal, and production to establish governance, contribution pathways, community infrastructure, and documentation for external contributors.</p>
+      <ul class="chips"><li>Team of 8</li><li>Open source strategy</li><li>Dev tooling</li><li>Platform governance</li><li>Community infrastructure</li></ul>
+      <div class="links"><a href="https://github.com/ccpgames">Carbon on GitHub</a><a href="https://www.ccpgames.com/carbon">Carbon website</a></div></div></div>
+    <div class="xp-row rv" style="--pc:var(--w5)"><span class="yr">2022 – 2024</span>
+      <div><h3>Product Manager - Content, Merchandising &amp; Strategy</h3><p class="where">Epic Games · Islamabad</p></div>
+      <div class="body"><p>Led pricing strategy for Megascans on Fab, transitioning from a subscription model to a tiered Pay-Per-Product model. Expanded the catalog through customer research, built and optimised the content publishing pipeline, and overhauled metadata and discoverability.</p>
+      <ul class="chips"><li><b>+23%</b> acquisition</li><li><b>−16%</b> support volume</li><li><b>+21%</b> ratings</li><li><b>−20%</b> time to publish</li></ul>
+      <div class="links"><a href="https://fab.com">Fab Marketplace</a><a href="https://quixel.com/megascans">Megascans</a></div></div></div>
+    <div class="xp-row rv" style="--pc:var(--w4)"><span class="yr">2021 – 2022</span>
+      <div><h3>Associate Product Manager - Technical, Content &amp; Creator Tools</h3><p class="where">Epic Games · Islamabad</p></div>
+      <div class="body"><p>Contributed to the launch of Bridge, a desktop app sitting on top of the Megascans marketplace offering asset browsing, purchasing, downloading, and one-click integration with game engines and 3D software. Built stakeholder-facing analytics dashboards and owned end-to-end feature delivery across design, engineering, and executive stakeholders.</p>
+      <ul class="chips"><li><b>+46%</b> subscriptions</li><li><b>+33%</b> MAU</li><li><b>−40%</b> manual reporting</li></ul></div></div>
+    <div class="xp-row rv" style="--pc:var(--w1)"><span class="yr">2019 – 2021</span>
+      <div><h3>Senior Marketplace Manager - Megascans</h3><p class="where">Quixel (acq. Epic Games) · Islamabad</p></div>
+      <div class="body"><p>Sole operator managing a rapidly scaling catalog, publishing content and single-handedly rewriting the metadata architecture as the library grew from 7,000 to 18,000+ listings. Designed a 0→1 taxonomy and curation system, raised CSAT by 36 points to 83.5%.</p>
+      <ul class="chips"><li><b>7K → 18K</b> listings</li><li><b>+109%</b> downloads</li><li><b>83.5%</b> CSAT</li><li><b>110K</b> users surveyed</li></ul>
+      <div class="links"><a href="https://quixel.com/megascans">Megascans</a></div></div></div>
+    <div class="xp-row rv" style="--pc:var(--mute)"><span class="yr">2018 – 2019</span>
+      <div><h3>Technical Support Specialist</h3><p class="where">Motive (ex KeepTruckin) · Islamabad</p></div>
+      <div class="body"><p>Technical support across email, chat, and voice for a fleet management SaaS. Triaged issues to product and engineering, and contributed to the customer knowledge base.</p></div></div>
+  </div>
+</section>
+<section class="band" id="case-studies">
+  <header class="band-head"><h2 class="rv">Case studies</h2></header>
+  <div class="cs">
+    <a class="cs-row rv" href="case-study-pricing.html" style="--pc:var(--w5)"><span class="co">Epic Games<span>Pricing Strategy</span></span><h3>Rethinking how the world's largest 3D asset library charges for its content</h3><span class="go">Read case study</span></a>
+    <div class="cs-row rv" style="--pc:var(--w2)"><span class="co">Quixel<span>Catalog &amp; Taxonomy</span></span><h3>Building a 0→1 curation system for an 18,000+ asset marketplace</h3><span class="go">Coming soon</span></div>
+    <div class="cs-row rv" style="--pc:var(--w6)"><span class="co">CCP Games<span>Open Source</span></span><h3>Taking an in-house game engine open source</h3><span class="go">Coming soon</span></div>
+  </div>
+</section>
+<section class="band alt" id="skills">
+  <header class="band-head"><h2 class="rv">What I do</h2></header>
+  <div class="skills"><div class="rv"><h3>Product</h3><ul><li>Roadmapping</li><li>Pricing Strategy</li><li>Feature Prioritization</li><li>Release Planning</li><li>Backlog Management</li><li>Sprint Planning</li><li>A/B Testing</li><li>Agile</li></ul></div><div class="rv"><h3>Research</h3><ul><li>Customer Interviews</li><li>Survey Design</li><li>Market Research</li><li>Competitive Analysis</li><li>Stakeholder Management</li></ul></div><div class="rv"><h3>Analytics</h3><ul><li>SQL</li><li>Python</li><li>Tableau</li><li>Metabase</li><li>Excel</li></ul></div><div class="rv"><h3>Tools</h3><ul><li>Figma</li><li>JIRA</li><li>Notion</li><li>Asana</li><li>GitHub</li><li>Miro</li><li>Slack</li></ul></div><div class="rv"><h3>AI</h3><ul><li>Claude Code</li><li>LLM workflows</li></ul></div><div class="rv"><h3>Languages</h3><ul><li>English (C1)</li><li>Urdu</li><li>Punjabi</li></ul></div></div>
+</section>
+<section class="contact" id="contact">
+  <h2 class="rv">Let's <span class="k k1">talk</span>.</h2>
+  <a class="c-mail rv" href="mailto:haseebnaveed@protonmail.com">haseebnaveed@protonmail.com</a>
+  <div class="c-links rv"><a href="https://www.linkedin.com/in/haseeb-naveed/">LinkedIn</a><a href="haseeb-naveed-cv.pdf">Download CV (PDF)</a></div>
+</section>
+<div class="bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<footer class="foot"><span class="cookie">This site has no cookie banner. That's the level of care you can expect.</span><span>All product names and trademarks are property of their respective owners. Renders and collection art &copy; Epic Games.</span><span>Haseeb Naveed · 2026</span></footer>
+<dialog class="lb" aria-label="Render"><img alt=""><p></p></dialog>
+<dialog class="cv" id="collLb" aria-label="Inside the collection">
+  <header class="cv-top"><div><b></b><span></span></div><div class="cv-ctl"><button data-d="-1" aria-label="Previous collection">&larr;</button><button data-d="1" aria-label="Next collection">&rarr;</button><button class="cv-x">Close</button></div></header>
+  <div class="cv-body"><img class="cv-banner" alt=""><p class="cv-sub"></p><div class="cv-grid"></div><p class="cv-more"><span></span><a target="_blank" rel="noopener noreferrer">See the whole collection on Quixel</a></p></div>
+</dialog>
+<script type="application/json" id="collData">{"nordic-coastal-cliffs":{"url":"https://quixel.com/megascans/collections?category=environment&category=natural&category=nordic-coastal-cliffs","sub":"These stark cliff faces add that jagged edge to your northern waterfront environments.","count":94,"assets":[{"f":"we0nehh","n":"Drift Wood Branch","k":"3d"},{"f":"wfcucag","n":"Small Driftwood Piece","k":"3d"},{"f":"wfgsfd1","n":"Driftwood Piece","k":"3d"},{"f":"we0pdf1","n":"Wooden Log","k":"3d"},{"f":"wfepday","n":"Pecky Cypress Drift Wood","k":"3d"},{"f":"wldgfhrlw","n":"Shoreline Beach Rocks","k":"surface"},{"f":"wjmkehfg","n":"Shoreline Beach Rocks","k":"surface"},{"f":"vldufeiha","n":"Bilberry","k":"3d"},{"f":"vlkhcbxia","n":"Wild Grass","k":"3d"},{"f":"uknmbblmw","n":"Nordic Beach Rocky Ground","k":"3d"},{"f":"vgjjdb1mw","n":"Nordic Beach Rock","k":"3d"},{"f":"vkblbbpia","n":"Sea Campion","k":"3d"},{"f":"vkblbcdia","n":"Butterfly Weed","k":"3d"},{"f":"uknnejkmw","n":"Nordic Beach Rock Formation","k":"3d"},{"f":"vgjicivmw","n":"Nordic Beach Rock","k":"3d"},{"f":"vgjicakmw","n":"Nordic Beach Rock","k":"3d"},{"f":"vgjidiqmw","n":"Nordic Beach Rock","k":"3d"},{"f":"vgjiee0mw","n":"Nordic Beach Rock","k":"3d"},{"f":"vgjifeamw","n":"Nordic Beach Rock","k":"3d"},{"f":"vgjjbfvmw","n":"Nordic Beach Rock","k":"3d"},{"f":"vjikdh3cb","n":"Nordic Beach Rock Formation","k":"3d"},{"f":"ukopbc2","n":"Nordic Beach Rock Formation","k":"3d"},{"f":"ukniffg","n":"Nordic Beach Rocky Ground","k":"3d"},{"f":"vgjjae1mw","n":"Nordic Beach Rock","k":"3d"},{"f":"vi5lcjpfa","n":"Nordic Coastal Cliff","k":"3d"},{"f":"uknmedo","n":"Nordic Beach Rock","k":"3d"},{"f":"ukpjfipmw","n":"Nordic Beach Rock","k":"3d"},{"f":"vf5pajccb","n":"Nordic Beach Rocky Ground","k":"3d"},{"f":"vfgkajyga","n":"Nordic Beach Rock Formation","k":"3d"},{"f":"vffjfgeqx","n":"Large Nordic Coastal Cliff","k":"3d"},{"f":"ve3qdhmqx","n":"Nordic Beach Rocky Ground","k":"3d"},{"f":"ukoncdamw","n":"Nordic Beach Rocky Ground","k":"3d"},{"f":"uktjfiu","n":"Nordic Beach Rock Formation","k":"3d"},{"f":"vewjdajqx","n":"Nordic Beach Rock Formation","k":"3d"},{"f":"ve3hahfcb","n":"Huge Nordic Coastal Cliff","k":"3d"},{"f":"veqnci0db","n":"Massive Nordic Coastal Cliff","k":"3d"},{"f":"uknodgn","n":"Nordic Beach Rock","k":"3d"},{"f":"ukoifj1mw","n":"Nordic Beach Rocks","k":"3d"},{"f":"uknnbiq","n":"Nordic Beach Rock","k":"3d"},{"f":"vepkcelqx","n":"Nordic Beach Rocks","k":"3d"},{"f":"vehkdeodb","n":"Nordic Beach Rock Formation","k":"3d"},{"f":"uktkfdg","n":"Nordic Beach Rock Formation","k":"3d"},{"f":"venjcjyqx","n":"Nordic Beach Boulder","k":"3d"},{"f":"venrdcgga","n":"Huge Nordic Coastal Cliff","k":"3d"},{"f":"vefhef2ga","n":"Nordic Beach Rocky Ground","k":"3d"},{"f":"veflbabqx","n":"Nordic Beach Rock Formation","k":"3d"},{"f":"vefkehbva","n":"Huge Nordic Coastal Cliff","k":"3d"},{"f":"uknicjmmw","n":"Rocky Steppe","k":"surface"},{"f":"vebhcduva","n":"Nordic Beach Boulder","k":"3d"},{"f":"vd5jdclga","n":"Nordic Beach Rock Formation","k":"3d"}]},"mughal-modular-building":{"url":"https://quixel.com/megascans/collections?category=historic&category=mughal-modular-building","sub":"These yellowing walls, sturdy wooden doors, and decorative arches tell stories of a time long past.","count":20,"assets":[{"f":"wmfiaaldw","n":"Historic Mughal Building Wall Stone Modular 01","k":"3d"},{"f":"wmfhcf0dw","n":"Modular Building 1st Floor Kit","k":"3d"},{"f":"wmfiecydw","n":"Modular Building Trim Kit","k":"3d"},{"f":"wmfidbydw","n":"Modular Building Ground Floor Corner Kit","k":"3d"},{"f":"wmfibaqdw","n":"Modular Building Ground Floor Pillar Kit","k":"3d"},{"f":"wmfhecedw","n":"Modular Building 1st Floor Corner Kit","k":"3d"},{"f":"wmfhbggdw","n":"Modular Building Door","k":"3d"},{"f":"wmcqbapdw","n":"Modular Building Door","k":"3d"},{"f":"wmcqaaodw","n":"Modular Building Door","k":"3d"},{"f":"wmcpfbydw","n":"Modular Building Door","k":"3d"},{"f":"wmcpdjzdw","n":"Modular Building Door","k":"3d"},{"f":"wmfmcdkdw","n":"Modular Building Bay Window","k":"3d"},{"f":"wmfhaejdw","n":"Modular Building Wall","k":"3d"},{"f":"wmcqceqdw","n":"Modular Building Window","k":"3d"},{"f":"wmcpdbadw","n":"Modular Building Window","k":"3d"},{"f":"wjwhafddw","n":"Old Decorative Pillar","k":"3d"},{"f":"wjnjccidw","n":"Modular Arch & Pillar Kit","k":"3d"},{"f":"wjmgedcdw","n":"Modular Arches","k":"3d"},{"f":"wjmgdi0dw","n":"Modular Frieze","k":"3d"},{"f":"wjnhfhfdw","n":"Modular Pillar","k":"3d"}]},"castle-ruins":{"url":"https://quixel.com/megascans/collections?category=environment&category=historic&category=castle-ruins","sub":"Capturing the lost glory of kingdoms of old, this collection brings together the remains of castles, chapels, and more. Scanned in various locations around Europe.","count":73,"assets":[{"f":"td0pceor","n":"Castle Wall","k":"surface"},{"f":"td0neior","n":"Castle Wall","k":"surface"},{"f":"tc2obchp","n":"Mossy Cobblestone","k":"surface"},{"f":"tdnlccjs","n":"Mossy Cobblestone Path","k":"surface"},{"f":"tctoehat","n":"Cobblestone","k":"surface"},{"f":"tdblbcyt","n":"Castle Floor Stone","k":"surface"},{"f":"tc2kbiqt","n":"Castle Wall","k":"surface"},{"f":"tbhoajkr","n":"Castle Wall","k":"surface"},{"f":"sdxbd","n":"Mossy Castle Wall Structure","k":"3d"},{"f":"sgyvB","n":"Castle Floor Stone","k":"3d"},{"f":"sdCbm","n":"Mossy Castle Wall","k":"3d"},{"f":"sgmgo","n":"Castle Floor Structure","k":"3d"},{"f":"sdAta","n":"Castle Wall Stone","k":"3d"},{"f":"sgmgu","n":"Castle Floor Structure","k":"3d"},{"f":"sgmgq","n":"Castle Stone Structure","k":"3d"},{"f":"sgmgm","n":"Castle Stone Structure","k":"3d"},{"f":"sgmgj","n":"Castle Stone Structure","k":"3d"},{"f":"scout","n":"Castle Column","k":"3d"},{"f":"scnv2","n":"Stone Structure","k":"3d"},{"f":"scohv","n":"Castle Column","k":"3d"},{"f":"selvF","n":"Stone Pillar","k":"3d"},{"f":"sevuM","n":"Castle Stairs","k":"3d"},{"f":"sehwz","n":"Stone Pillar","k":"3d"},{"f":"sfytbfbb","n":"Castle Wall","k":"surface"},{"f":"sf4febwb","n":"Castle Wall","k":"surface"},{"f":"sf5efgmb","n":"Castle Wall","k":"surface"},{"f":"sdAfk","n":"Mossy Stone","k":"3d"},{"f":"scCxt","n":"Castle Stairs","k":"3d"},{"f":"sebgb","n":"Castle Wall","k":"3d"},{"f":"sdEvm","n":"Castle Stairs","k":"3d"},{"f":"sddxS","n":"Castle Wall","k":"3d"},{"f":"sdpaB","n":"Castle Structure","k":"3d"},{"f":"sdnwk","n":"Castle Wall","k":"3d"},{"f":"sczvi","n":"Castle Structure","k":"3d"},{"f":"scywx","n":"Damaged Castle Wall","k":"3d"},{"f":"scDxB","n":"Broken Castle Wall","k":"3d"},{"f":"sdvtahoa","n":"Castle Wall","k":"surface"},{"f":"sdntbgha","n":"Castle Wall","k":"surface"},{"f":"sc2rdefa","n":"Castle Cobblestone","k":"surface"},{"f":"sd4idbla","n":"Castle Wall","k":"surface"},{"f":"sdvsdfra","n":"Castle Wall","k":"surface"},{"f":"sdvtcgja","n":"Castle Wall","k":"surface"},{"f":"sbnrbgpa","n":"Castle Wall","k":"surface"},{"f":"scpgdgca","n":"Castle Wall","k":"surface"},{"f":"sdvscgca","n":"Castle Wall","k":"surface"},{"f":"scuhi","n":"Castle Wall","k":"3d"},{"f":"scAtJ","n":"Castle Wall","k":"3d"},{"f":"scrwQ","n":"Castle Wall","k":"3d"},{"f":"sctv3","n":"Castle Wall","k":"3d"},{"f":"scbgA","n":"Chapel Piscine","k":"3d"}]},"japanese-tropical-jungle":{"url":"https://quixel.com/megascans/collections?category=environment&category=natural&category=japanese-tropical-jungle","sub":"Explore the deep jungle of a Pacific island","count":32,"assets":[{"f":"xdkjbbp","n":"Mossy Rock","k":"surface"},{"f":"xdkjbeo","n":"Mossy Rock","k":"surface"},{"f":"wdoicd0","n":"Long Liana Stem","k":"3d"},{"f":"wdfhdjr","n":"Mossy Forest Roots","k":"3d"},{"f":"xdjofhw","n":"Mossy Rock","k":"surface"},{"f":"wc2hbjw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wd3efe3","n":"Small Mossy Rock","k":"3d"},{"f":"wdribfe","n":"Tree Debris","k":"3d"},{"f":"wdribb2","n":"Tree Debris","k":"3d"},{"f":"wdbncbl","n":"Mossy Forest Boulder","k":"3d"},{"f":"wdcbcds","n":"Mossy Forest Rock","k":"3d"},{"f":"wdribcv","n":"Tree Debris","k":"3d"},{"f":"wdjqbag","n":"Ficus Microcarpa Tree Trunk","k":"3d"},{"f":"wdjkdjs","n":"Ficus Microcarpa Tree Trunk","k":"3d"},{"f":"wdribhj","n":"Small Beach Rock","k":"3d"},{"f":"wdbnbbb","n":"Mossy Forest Rock","k":"3d"},{"f":"wdbnahj","n":"Small Forest Rock","k":"3d"},{"f":"wc1kdgo","n":"Mossy Forest Boulder","k":"3d"},{"f":"wd3efd1","n":"Mossy Forest Rock","k":"3d"},{"f":"wd3ecdy","n":"Mossy Forest Rock","k":"3d"},{"f":"wd1xehb","n":"Small Beach Rock","k":"3d"},{"f":"wdoidgs","n":"Mossy Forest Roots","k":"3d"},{"f":"wdbdaew","n":"Forest Rocky Ground","k":"3d"},{"f":"wc1kcgg","n":"Mossy Forest Boulder","k":"3d"},{"f":"wc1kebr","n":"Mossy Forest Boulder","k":"3d"},{"f":"wc2hbd0","n":"Forest Rocky Ground","k":"3d"},{"f":"wd4hdfr","n":"Mossy Forest Boulder","k":"3d"},{"f":"wc1kedt","n":"Mossy Forest Boulder","k":"3d"},{"f":"wdbncfq","n":"Buttress Root","k":"surface"},{"f":"wdjkeed","n":"Jungle Floor","k":"surface"},{"f":"wdemcbi","n":"Mossy Forest Rock","k":"surface"},{"f":"wdfhdcf","n":"Forest Floor","k":"surface"}]},"xeric-shrublands":{"url":"https://quixel.com/megascans/collections?category=environment&category=natural&category=xeric-shrublands","sub":"Huge sandstone cliffs, sparse vegetation, and arid landscapes - these assets are perfect for creating any desolate scene.","count":180,"assets":[{"f":"vd3edgg","n":"Stone","k":"3d"},{"f":"vd5sbdk","n":"Sandy Rock","k":"3d"},{"f":"vd5scco","n":"Sand Rock","k":"3d"},{"f":"xjfgdhaqx","n":"Xeric Grass","k":"3d"},{"f":"vmiiej1","n":"Small Boulder","k":"3d"},{"f":"vmiieis","n":"Small Rock","k":"3d"},{"f":"vd3faax","n":"Sandstone Rock","k":"3d"},{"f":"vd3ffgp","n":"Sandstone Boulder","k":"3d"},{"f":"vd5reff","n":"Small Sandstone","k":"3d"},{"f":"vd5scdo","n":"Small Sandstone","k":"3d"},{"f":"vecqdebqx","n":"Sandstone Boulder","k":"3d"},{"f":"vebqebcqx","n":"Sandstone Rock","k":"3d"},{"f":"vd5rdhd","n":"Sandstone Rock","k":"3d"},{"f":"vd4efbp","n":"Sandstone Boulder","k":"3d"},{"f":"vd3meb1","n":"Sandstone Boulder","k":"3d"},{"f":"vmhiee2","n":"Sandstone Rock","k":"3d"},{"f":"vd5rfaf","n":"Small Sandstone Rock","k":"3d"},{"f":"vmjddby","n":"Sandstone Rock","k":"3d"},{"f":"xffhfekia","n":"Rubber Bush","k":"3d"},{"f":"xeogciyqx","n":"Desert Cotton","k":"3d"},{"f":"xdjmfeqqx","n":"Rhazya","k":"3d"},{"f":"xdkgfgtqx","n":"Leptadenia","k":"3d"},{"f":"wlehdfkqx","n":"Gigantic Sandstone Terrain","k":"3d"},{"f":"wldhdhxva","n":"Gigantic Sandstone Terrain","k":"3d"},{"f":"vd5scjo","n":"Gigantic Sandstone Terrain","k":"3d"},{"f":"vd5sdbz","n":"Gigantic Sandstone Terrain","k":"3d"},{"f":"vfgjfag","n":"Gigantic Sandstone Terrain","k":"3d"},{"f":"vd4qfdu","n":"Gigantic Sandstone Terrain","k":"3d"},{"f":"vd4jeiy","n":"Sandstone Boulder","k":"3d"},{"f":"vmodcha","n":"Massive Sandstone Cliff","k":"3d"},{"f":"vmjecjd","n":"Huge Sandstone Cliff","k":"3d"},{"f":"vmhjagv","n":"Sandstone Boulder","k":"3d"},{"f":"vmiibev","n":"Sandstone Boulder","k":"3d"},{"f":"vmobfiw","n":"Huge Sandstone Cliff","k":"3d"},{"f":"vmiibdg","n":"Sandstone Rocky Ground","k":"3d"},{"f":"vmjedba","n":"Sandstone Boulder","k":"3d"},{"f":"wenobfys","n":"Small Beach Rock","k":"3d"},{"f":"vmjdaf1","n":"Sandstone Boulder","k":"3d"},{"f":"wi3mcjtab","n":"Sandstone Rocky Ground","k":"3d"},{"f":"vmjebem","n":"Sandstone Rock","k":"3d"},{"f":"vmnmcbr","n":"Sandstone Rocky Ground","k":"3d"},{"f":"vd5rfg2","n":"Small Sandstone","k":"3d"},{"f":"vd5rfiq","n":"Small Sandstone","k":"3d"},{"f":"vecqfdwqx","n":"Sandstone Rock","k":"3d"},{"f":"vmhjbat","n":"Huge Sandstone Cliff","k":"3d"},{"f":"vmjjfa3","n":"Sandstone Rocky Ground","k":"3d"},{"f":"vmnmbhv","n":"Massive Sandstone Cliff","k":"3d"},{"f":"vmnmbjp","n":"Massive Sandstone Cliff","k":"3d"},{"f":"vmlpbgrqx","n":"Sandstone Rock","k":"3d"},{"f":"vd5rfbr","n":"Small Sandstone","k":"3d"}]},"arctic-ice-and-snow":{"url":"https://quixel.com/megascans/collections?category=environment&category=natural&category=arctic-ice-and-snow","sub":"Create treks through snowy peaks and frozen cliffs. Build a world fit for yetis and the bravest of men.","count":90,"assets":[{"f":"vcrieaa","n":"Trampled Snow","k":"surface"},{"f":"veipbcmcb","n":"Ice Cliff","k":"3d"},{"f":"vefkajufa","n":"Snowy Ground","k":"3d"},{"f":"vd5leh0ga","n":"Ice Cliff","k":"3d"},{"f":"vdspdazqa","n":"Huge Snow Hill","k":"3d"},{"f":"vd4hbizcb","n":"Ice Cliff","k":"3d"},{"f":"vdsrdd0fa","n":"Large Ice Cliff","k":"3d"},{"f":"vdfjegtdb","n":"Ice Cliff","k":"3d"},{"f":"vdbmabvva","n":"Snow Hill","k":"3d"},{"f":"vcyiedgfa","n":"Snow Embankment","k":"3d"},{"f":"vcyobflcb","n":"Snow Embankment","k":"3d"},{"f":"vcytca0fa","n":"Rocky Snow Pile","k":"3d"},{"f":"vcyhedzga","n":"Plowed Snow Ground","k":"3d"},{"f":"vcyjaf1ga","n":"Huge Snow Pile","k":"3d"},{"f":"vcykbjsva","n":"Snowy Rocks Pile","k":"3d"},{"f":"vcyiccyga","n":"Rocky Snow Pile","k":"3d"},{"f":"vctkci0fa","n":"Ice Cliff","k":"3d"},{"f":"uhpocesfa","n":"Ice Cliff","k":"3d"},{"f":"uhupbgxfa","n":"Ice Cliff","k":"3d"},{"f":"vcwjeh2fa","n":"Snow Embankment","k":"3d"},{"f":"vcsibaiga","n":"Snow Embankment","k":"3d"},{"f":"vctiegmfa","n":"Ice Cliff","k":"3d"},{"f":"vctgcj2fa","n":"Snowy Stump","k":"3d"},{"f":"vctldcnfa","n":"Snow Embankment","k":"3d"},{"f":"uhwifglfa","n":"Snow Embankment","k":"3d"},{"f":"uhvjae0fa","n":"Snow Embankment","k":"3d"},{"f":"uhvifcgfa","n":"Snow Embankment","k":"3d"},{"f":"uhuldf3fa","n":"Snow Embankment","k":"3d"},{"f":"uhuldcyfa","n":"Snow Embankment","k":"3d"},{"f":"uhppcirfa","n":"Snow Embankment","k":"3d"},{"f":"uhprdg2fa","n":"Ice Cliff","k":"3d"},{"f":"uhpqdjvfa","n":"Modular Snow Road","k":"3d"},{"f":"uhqffeyfa","n":"Snow Embankment","k":"3d"},{"f":"uhqncfpdy","n":"Snow Cliff","k":"surface"},{"f":"uhqmadyn","n":"Snowmobile Tracks","k":"surface"},{"f":"uhpjdeyn","n":"Fresh Windswept Snow","k":"surface"},{"f":"ugwlejnn","n":"Icy Road","k":"surface"},{"f":"ugwkbfcdy","n":"Snowmobile Tracks","k":"surface"},{"f":"ugtjcewn","n":"Melting Snow Road","k":"surface"},{"f":"ugspafgdy","n":"Fresh Windswept Snow","k":"surface"},{"f":"ugkieimdy","n":"Fresh Snow","k":"surface"},{"f":"ugjichedy","n":"Fresh Windswept Snow","k":"surface"},{"f":"ugjldd1n","n":"Snowmobile Tracks","k":"surface"},{"f":"ugclecsn","n":"Dirty Trampled Snow","k":"surface"},{"f":"ufvicbqdy","n":"Snowmobile Tracks","k":"surface"},{"f":"ufolfdvdy","n":"Snow Gravel","k":"surface"},{"f":"ufmmbfvn","n":"Snow Road","k":"surface"},{"f":"ue4meixdy","n":"Snow Tracks","k":"surface"},{"f":"ue4lcejdy","n":"Snow Road","k":"surface"},{"f":"ue3mccan","n":"Snowy Road","k":"surface"}]},"hartland-quay-shore":{"url":"https://quixel.com/megascans/collections?category=environment&category=natural&category=hartland-quay-shore","sub":"If you came here to make a sand castle, you're in for a surprise.","count":62,"assets":[{"f":"wepocfz","n":"Beach Rock Shelf","k":"3d"},{"f":"wepodcg","n":"Beach Rock Shelf","k":"3d"},{"f":"wepodd3","n":"Beach Shelf Rock","k":"3d"},{"f":"wepoefs","n":"Beach Rock Shelf","k":"3d"},{"f":"weoodgl","n":"Scattered Beach Rocks","k":"3d"},{"f":"weorfgvga","n":"Scattered Beach Rocks","k":"3d"},{"f":"wfglachs","n":"Rounded Cobble","k":"3d"},{"f":"wfgkeazs","n":"Rounded Cobble","k":"3d"},{"f":"wffned1s","n":"Rounded Cobble","k":"3d"},{"f":"weloeh3","n":"Rocky Ground","k":"3d"},{"f":"wepodfl","n":"Beach Boulder","k":"3d"},{"f":"weoodcm","n":"Beach Rock Formation","k":"3d"},{"f":"wenobdn","n":"Beach Boulder","k":"3d"},{"f":"wffnebus","n":"Rounded Cobble","k":"3d"},{"f":"wenobgz","n":"Beach Rock","k":"3d"},{"f":"weppabfga","n":"Beach Rock Formation","k":"3d"},{"f":"wfglbgys","n":"Rounded Cobble","k":"3d"},{"f":"wffnehvs","n":"Rounded Cobble","k":"3d"},{"f":"wjfidjgdb","n":"Rocky Ground","k":"3d"},{"f":"weoochx","n":"Beach Rock Formation","k":"3d"},{"f":"wenobjws","n":"Beach Rock","k":"3d"},{"f":"weosabwga","n":"Beach Sand With Pebbles","k":"3d"},{"f":"wenobfys","n":"Small Beach Rock","k":"3d"},{"f":"wffneg0s","n":"Rounded Cobble","k":"3d"},{"f":"wffnefhs","n":"Rounded Cobble","k":"3d"},{"f":"wenocdss","n":"Gravel Ground","k":"surface"},{"f":"wemraic","n":"Beach Boulder","k":"3d"},{"f":"wiqmfcmn","n":"Cracked Shale Beach Rock","k":"surface"},{"f":"wbtoacj","n":"Gravel Ground","k":"surface"},{"f":"wepoeaw","n":"Layered Beach Rock","k":"surface"},{"f":"wftnffyva","n":"Beach Rock Formation","k":"3d"},{"f":"wfkiddlva","n":"Beach Rock Formation","k":"3d"},{"f":"ukopebls","n":"Beach Boulder","k":"3d"},{"f":"we3gai2fa","n":"Huge Beach Rock Formation","k":"3d"},{"f":"wensdgrqx","n":"Beach Rock Formation","k":"3d"},{"f":"wengeiuqx","n":"Beach Rock Formation","k":"3d"},{"f":"weigfiddb","n":"Beach Rock Formation","k":"3d"},{"f":"weimcftga","n":"Beach Boulder","k":"3d"},{"f":"ukopfbks","n":"Beach Boulder","k":"3d"},{"f":"weitee2ga","n":"Long Beach Rock Formation","k":"3d"},{"f":"ukopdins","n":"Beach Boulder","k":"3d"},{"f":"uisjbbis","n":"Beach Boulder","k":"3d"},{"f":"ukopeijs","n":"Beach Boulder","k":"3d"},{"f":"ukopeess","n":"Beach Boulder","k":"3d"},{"f":"ve4lfbng","n":"Cracked Shale Beach Rock","k":"surface"},{"f":"vdljfeglw","n":"Cracked Shale Beach Rock","k":"surface"},{"f":"vdfmebig","n":"Cracked Shale Beach Rock","k":"surface"},{"f":"vctkacfg","n":"Jagged Shale Beach Cliff","k":"surface"},{"f":"vcsncbkew","n":"Jagged Shale Beach Cliff","k":"surface"},{"f":"vcrkbfdn","n":"Cracked Shale Beach Rock","k":"surface"}]},"broadleaf-forest":{"url":"https://quixel.com/megascans/collections?category=environment&category=natural&category=broadleaf-forest","sub":"If a tree falls in this forest, does it get stumped?","count":123,"assets":[{"f":"xikkdhjja","n":"Lily Of The Valley","k":"3d"},{"f":"xh1kdfbqx","n":"Common Hemp Nettle","k":"3d"},{"f":"xh5pdgiqx","n":"Greater Burdock","k":"3d"},{"f":"xf5lebcqx","n":"Silvery Glade Fern","k":"3d"},{"f":"xfcnebhqx","n":"English Ivy","k":"3d"},{"f":"xefmcgrqx","n":"Small Balsam","k":"3d"},{"f":"vfntbi2bw","n":"Maple Tree Trunk","k":"3d"},{"f":"vfntbdjbw","n":"Maple Tree Trunk","k":"3d"},{"f":"vfuqee0aw","n":"Maple Tree Trunk","k":"3d"},{"f":"whitfhoaw","n":"Beech Tree Trunk","k":"3d"},{"f":"vlpnfcjaw","n":"Beech Tree Trunk","k":"3d"},{"f":"vlrnfdhaw","n":"Beech Tree Trunk","k":"3d"},{"f":"wisifaeaw","n":"Beech Tree Trunk","k":"3d"},{"f":"vlrnfeyaw","n":"Beech Tree Trunk","k":"3d"},{"f":"wgoubbgaw","n":"Beech Tree Trunk","k":"3d"},{"f":"wiskdaraw","n":"Beech Tree Trunk","k":"3d"},{"f":"whjtba1aw","n":"Beech Tree Trunk","k":"3d"},{"f":"wgouaioaw","n":"Beech Tree Trunk","k":"3d"},{"f":"vlpnffbaw","n":"Beech Tree Trunk","k":"3d"},{"f":"vlrnfbeaw","n":"Beech Tree Trunk","k":"3d"},{"f":"vetladiaw","n":"Dry Fallen Leaves","k":"surface"},{"f":"wgykaio","n":"Forest Floor","k":"surface"},{"f":"wd1mbcvbw","n":"Large Fallen Tree","k":"3d"},{"f":"wf5seihaw","n":"Forest Floor","k":"surface"},{"f":"whnpaed","n":"Rotten Tree Stump","k":"3d"},{"f":"wdfhdcf","n":"Forest Floor","k":"surface"},{"f":"whnnajh","n":"Old Tree Branch","k":"3d"},{"f":"whhmehm","n":"Large Fallen Tree","k":"3d"},{"f":"whbedjl","n":"Rotten Tree Stump","k":"3d"},{"f":"wgxodhsaw","n":"Mossy Forest Roots","k":"3d"},{"f":"wgxjfiaaw","n":"Mossy Forest Roots","k":"3d"},{"f":"whbecg1","n":"Large Fallen Tree","k":"3d"},{"f":"wgyvfinaw","n":"Large Fallen Tree","k":"3d"},{"f":"wgxicjs","n":"Mossy Forest Roots","k":"3d"},{"f":"wgxmbee","n":"Mossy Forest Roots","k":"3d"},{"f":"wgxjfhr","n":"Mossy Forest Roots","k":"3d"},{"f":"wgxlbc3aw","n":"Mossy Forest Ground","k":"3d"},{"f":"wfxsbggaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wgjddahaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wfxsbfgaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wfgpefjaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wfstchwaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wfgpedbaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wfgpeelaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wfuiaccaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wfstcdnaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wgoubaaaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"we2rbgvaw","n":"Mossy Forest Boulder","k":"3d"},{"f":"wdykdjybw","n":"Old Tree Branch","k":"3d"},{"f":"wd0pfjxbw","n":"Mossy Tree Stump","k":"3d"}]},"medieval-banquet":{"url":"https://quixel.com/megascans/collections?category=environment&category=historic&category=medieval-banquet","sub":"Dine like royalty! Add lavish feasts to your scenes with meticulously crafted assets for an authentic medieval touch.","count":51,"assets":[{"f":"wktnfbds","n":"Food Meat Quail Roasted 01","k":"3d"},{"f":"wktpfaks","n":"Food Meat Lamb Rack Roasted 01","k":"3d"},{"f":"wktqbjzs","n":"Food Meat Lamb Ribs Roasted 01","k":"3d"},{"f":"wk2mcbn","n":"Banquet Turnip Roasted","k":"3d"},{"f":"xfphaja","n":"Banquet Wooden Cup","k":"3d"},{"f":"xfphbfb","n":"Banquet Wooden Cup","k":"3d"},{"f":"xfphbgf","n":"Banquet Wooden Cup","k":"3d"},{"f":"xfphcey","n":"Tableware Chalice Wood Old 01","k":"3d"},{"f":"xixlcj1mw","n":"Tableware Plate Metal Old 01","k":"3d"},{"f":"xixsfgd","n":"Banquet Wood Plate","k":"3d"},{"f":"xiyhbcs","n":"Banquet Wood Plate","k":"3d"},{"f":"wdzmcjeaa","n":"Roasted Piglet","k":"3d"},{"f":"wfzobeds","n":"Pork Pie Slice","k":"3d"},{"f":"weojfdjaa","n":"Smoked Deer Leg","k":"3d"},{"f":"whplffy","n":"Round White Bread","k":"3d"},{"f":"wewjbdtaa","n":"Smoked Sausage","k":"3d"},{"f":"wfsoefxs","n":"Half Pork Pie","k":"3d"},{"f":"wf0hdhxs","n":"Pork Pie","k":"3d"},{"f":"wfzjegjs","n":"Pork Pie","k":"3d"},{"f":"whplehh","n":"Bread Roll","k":"3d"},{"f":"wfsnfdhs","n":"Pork Pie","k":"3d"},{"f":"wfskegls","n":"Small Pork Pie","k":"3d"},{"f":"webjdcvaa","n":"Smoked Meat","k":"3d"},{"f":"weflciqaa","n":"Smoked Fish","k":"3d"},{"f":"wd5lcfcaa","n":"Grilled Turkey Leg","k":"3d"},{"f":"weuhdcyaa","n":"Smoked Meat","k":"3d"},{"f":"wjokfjq","n":"Sliced Sausage","k":"3d"},{"f":"wfthdgvs","n":"Bitten Pork Pie","k":"3d"},{"f":"whpmact","n":"Cranberry Bread","k":"3d"},{"f":"weukfcwaa","n":"Smoked Meat","k":"3d"},{"f":"whplfip","n":"Round Rye Bread","k":"3d"},{"f":"whplejz","n":"Brown Bread","k":"3d"},{"f":"wjbgdiz","n":"Red Grapes","k":"3d"},{"f":"wi0ifgr","n":"Smoked Sausage","k":"3d"},{"f":"wi0heax","n":"Smoked Sausage","k":"3d"},{"f":"wjojcfp","n":"Smoked Sausage","k":"3d"},{"f":"whpmaba","n":"Sourdough Bread","k":"3d"},{"f":"wd5ffbnaa","n":"Roasted Chicken Leg","k":"3d"},{"f":"wenkejdaa","n":"Smoked Sausage","k":"3d"},{"f":"vd4kda1jw","n":"Carrot","k":"3d"},{"f":"ub2lehrjw","n":"Carrot","k":"3d"},{"f":"tl2kealva","n":"Apples Pack","k":"3d"},{"f":"tgzoahbpa","n":"Red Apple","k":"3d"},{"f":"tgyndd2pa","n":"Bitten Apple","k":"3d"},{"f":"tezbbgrra","n":"Green Pear Bite","k":"3d"},{"f":"teypehhra","n":"Red Apple Core","k":"3d"},{"f":"tehuccela","n":"Fresh Apple Bite","k":"3d"},{"f":"tefadiqla","n":"Green Apple","k":"3d"},{"f":"teeceidla","n":"Green Pear","k":"3d"},{"f":"td3nedtla","n":"Apple","k":"3d"}]},"definitive-breads":{"url":"https://quixel.com/megascans/collections?category=archviz&category=3d&category=definitive-breads","sub":"What's a dining area without some hot, tasty accessories? Get that bread!","count":22,"assets":[{"f":"te0kbikpa","n":"Black Bread","k":"3d"},{"f":"tkdkahphw","n":"Hot Dog Bun","k":"3d"},{"f":"tjciddjqx","n":"Hamburger Bun","k":"3d"},{"f":"ti1oacqqx","n":"Braided Pastry","k":"3d"},{"f":"ti2lehvqx","n":"Cardamom Bun","k":"3d"},{"f":"ti2jdifva","n":"Chocolate Pastry","k":"3d"},{"f":"ti0lbipqx","n":"Bread Roll","k":"3d"},{"f":"tiwkagvva","n":"Bread Roll","k":"3d"},{"f":"tiblceyva","n":"Black Seed Bread","k":"3d"},{"f":"thqsfdepa","n":"Bread Roll","k":"3d"},{"f":"thnjfanpa","n":"Bread Roll","k":"3d"},{"f":"thmhfjkpa","n":"Nutty Bread","k":"3d"},{"f":"thlqafopa","n":"Bread Roll","k":"3d"},{"f":"tf3nehypa","n":"Half Walnut Bread","k":"3d"},{"f":"tf3ibcppa","n":"Walnut Bread","k":"3d"},{"f":"tfyjdabpa","n":"Half Bread","k":"3d"},{"f":"tfxndfdpa","n":"Slice Of Bread","k":"3d"},{"f":"te0qfanpa","n":"Curly Bun","k":"3d"},{"f":"tezrbfzra","n":"Brown Bread Roll","k":"3d"},{"f":"tepvcdbra","n":"Brown Bread Roll","k":"3d"},{"f":"tesrabopa","n":"Stripe Bread","k":"3d"},{"f":"teewecnla","n":"Sliced Brown Bread","k":"3d"}]},"old-workshop":{"url":"https://quixel.com/megascans/collections?category=environment&category=industrial&category=old-workshop","sub":"All the tools you need to build your hobby dream","count":121,"assets":[{"f":"vemibigaw","n":"Wooden Mallet","k":"3d"},{"f":"wlkldig","n":"Rusty Bow Saw","k":"3d"},{"f":"whwndbl","n":"Decorative Wooden Scoop","k":"3d"},{"f":"wlkldgk","n":"Rusty Hand Saw","k":"3d"},{"f":"wlkncbw","n":"Rusty Fire Poker","k":"3d"},{"f":"wllhaha","n":"Old Hand Drill","k":"image"},{"f":"wlkldfs","n":"Old Soldering Iron","k":"3d"},{"f":"vj4qajts","n":"Wooden Shelf","k":"3d"},{"f":"wlkmfjt","n":"Rusty Wrench","k":"3d"},{"f":"wlknccq","n":"Rusty Tire Iron","k":"3d"},{"f":"wlkncfz","n":"Old Pickaxe","k":"3d"},{"f":"wllhadl","n":"Rusty Secateurs","k":"3d"},{"f":"wlkldcz","n":"Rusty Screwdriver","k":"3d"},{"f":"wlkmeg1","n":"Rusty Hand Drill","k":"3d"},{"f":"wlkleaj","n":"Rusty Bow Saw","k":"3d"},{"f":"wlkldew","n":"Rusty Hand Saw","k":"3d"},{"f":"wlklcax","n":"Rusty Sickle","k":"3d"},{"f":"wlkncg2","n":"Rusty Wrapped Chisel","k":"3d"},{"f":"wlkmbhx","n":"Rusty Comealong","k":"3d"},{"f":"wlkkedt","n":"Rusty Shears","k":"3d"},{"f":"veilfgfaw","n":"Wooden Table","k":"3d"},{"f":"wjkjbb1aw","n":"Wooden Beehive","k":"3d"},{"f":"ulzrcgoaw","n":"Wooden Table","k":"3d"},{"f":"ulzrbdraw","n":"Wooden Bench","k":"3d"},{"f":"ukqmfcxaw","n":"Worn Wooden Crate","k":"3d"},{"f":"vimrdgh","n":"Wooden Storage Box","k":"3d"},{"f":"vh2jeews","n":"Rusty Bench Vice","k":"3d"},{"f":"wllhaf0","n":"Old Hand Drill","k":"3d"},{"f":"wjkjeixaw","n":"Old Handle Holder","k":"3d"},{"f":"wjfjdea","n":"Old Wooden Trough","k":"3d"},{"f":"wjfjafo","n":"Wooden Stool","k":"3d"},{"f":"wgrqcgk","n":"Wooden Slab","k":"3d"},{"f":"wgrqaci","n":"Wooden Slab","k":"3d"},{"f":"wg2rbe2","n":"Wooden Ladder","k":"3d"},{"f":"wlkkddf","n":"Old Peat Cutter","k":"3d"},{"f":"wllhae1","n":"Rusty Wheel Spanner","k":"3d"},{"f":"wlkncdl","n":"Old Pickaxe","k":"3d"},{"f":"wlkmfbb","n":"Rusty Hammer","k":"3d"},{"f":"wlkmefo","n":"Old Hand Drill","k":"3d"},{"f":"wlkmccn","n":"Rusty Bucking Saw","k":"3d"},{"f":"wlkmbjr","n":"Rusty Bucking Saw","k":"3d"},{"f":"wlklda1","n":"Rusty Wrench","k":"3d"},{"f":"wlklcjw","n":"Rusty Wrench","k":"3d"},{"f":"wlklcio","n":"Rusty S Curved Wrench","k":"3d"},{"f":"wlklcgw","n":"Rusty Hammer","k":"3d"},{"f":"wlkkegz","n":"Rusty Hammer","k":"3d"},{"f":"wlkkeeg","n":"Rusty Trowel","k":"3d"},{"f":"wlkkdjd","n":"Old Wooden Mallet","k":"3d"},{"f":"wlkkdhk","n":"Old Scythe","k":"3d"},{"f":"wlkkdfz","n":"Pick Axe","k":"3d"}]},"junkyard-vol-1":{"url":"https://quixel.com/megascans/collections?category=environment&category=urban&category=junkyard-vol-1","sub":"One man's junk is another man's treasure!","count":168,"assets":[{"f":"wdlifhrs","n":"Industrial Junkyard Crate Metal","k":"3d"},{"f":"wdlkaces","n":"Industrial Junkyard Crate Metal","k":"3d"},{"f":"xf3pbgi","n":"Industrial Junkyard Heavy Duty Stand Metal","k":"3d"},{"f":"xf3pbjy","n":"Industrial Junkyard Propane Tank Metal","k":"3d"},{"f":"xiwcfassc","n":"Industrial Junkyard Storage Pallet Wood Tarp","k":"3d"},{"f":"xiekfhtiw","n":"Rusty Painted Metal Sheet","k":"surface"},{"f":"vckieff","n":"Rusty Painted Metal Sheet","k":"surface"},{"f":"xhuifdajw","n":"Rusty Painted Metal Sheet","k":"surface"},{"f":"vbzkeis","n":"Rusty Painted Metal Sheet","k":"surface"},{"f":"vckjca2","n":"Rusty Painted Metal Sheet","k":"surface"},{"f":"vh2mecws","n":"Plastic Container","k":"3d"},{"f":"wcljbdb","n":"Rusty Metal Cover","k":"3d"},{"f":"vj2meecs","n":"Rusty Wheel","k":"3d"},{"f":"wcljdbi","n":"Rusty Wheel Hub","k":"3d"},{"f":"wcljejz","n":"Rusty Axle Shaft","k":"3d"},{"f":"wdlmdexbw","n":"Manhole Cover Frame","k":"3d"},{"f":"viktbfp","n":"Small Wire Reel","k":"3d"},{"f":"wcvoagh","n":"Rusty Car Exhaust","k":"3d"},{"f":"wdlmaco","n":"Metal Cover","k":"3d"},{"f":"wcvodhd","n":"Rusty Metal Tank","k":"3d"},{"f":"wcvoca1","n":"Rusty Car Exhaust","k":"3d"},{"f":"wcvoadt","n":"Rusty Metal Geyser","k":"3d"},{"f":"wcvodee","n":"Steering Wheel","k":"3d"},{"f":"wcliegz","n":"Rusty Spring","k":"3d"},{"f":"wcvocfe","n":"Painted Metal Cover","k":"3d"},{"f":"wdlmdgebw","n":"Metal Manhole Cover","k":"3d"},{"f":"wcvoahp","n":"Rusty Car Exhaust","k":"3d"},{"f":"wcvoaas","n":"Old Metal Geyser","k":"3d"},{"f":"wcvocea","n":"Rusty Metal Cover","k":"3d"},{"f":"wcvodba","n":"Rusty Saw Blade","k":"3d"},{"f":"wdljaaqbw","n":"Rusty Gas Tank","k":"3d"},{"f":"wclifde","n":"Rusty Metal Gear","k":"3d"},{"f":"wclifak","n":"Rusty Pinion Ring","k":"3d"},{"f":"wcliffv","n":"Rusty Metal Ring","k":"3d"},{"f":"wclicd1","n":"Metal Cover Plug","k":"3d"},{"f":"wclidiw","n":"Rusty Differential Cog","k":"3d"},{"f":"wclicht","n":"Rusty Hex Nut","k":"3d"},{"f":"vjukchjaa","n":"Rusty Metal Lock","k":"3d"},{"f":"vjukcetaa","n":"Rusty Metal Lock","k":"3d"},{"f":"wcljcaa","n":"Old Metal Wheel Hub","k":"3d"},{"f":"wclifiq","n":"Rusty Pulley Wheel","k":"3d"},{"f":"wcljagy","n":"Rusty Metal Flywheel","k":"3d"},{"f":"wcvodbv","n":"Rusty Metal Weight","k":"3d"},{"f":"wcvoefi","n":"Metal Hook","k":"3d"},{"f":"wcvoeht","n":"Rusty Pipe Joint","k":"3d"},{"f":"wdkkaar","n":"Rusty Metal Stand","k":"3d"},{"f":"wclida0","n":"Rusty Metal Gear","k":"3d"},{"f":"wcliee1","n":"Rusty Metal Gear","k":"3d"},{"f":"wcvoaje","n":"Rusty Car Exhaust","k":"3d"},{"f":"wcljdev","n":"Rusty Radiator Fan","k":"3d"}]},"premium-fabrics":{"url":"https://quixel.com/megascans/collections?category=essential&category=surface&category=premium-fabrics","sub":"Wrap yourself in these luxurious 8K materials","count":43,"assets":[{"f":"xjekccn","n":"Fabric Generic Leather Top Grain Light Brown","k":"surface"},{"f":"xjekcey","n":"Fabric Generic Leather Top Grain Medium Brown","k":"surface"},{"f":"xjekdbj","n":"Fabric Generic Leather Top Grain Gray","k":"surface"},{"f":"xjekdep","n":"Fabric Generic Leather Top Grain Smooth Black","k":"surface"},{"f":"xjelfgh","n":"Fabric Generic Leather Top Grain Blue","k":"surface"},{"f":"xjgheam","n":"Fabric Generic Leather Suede Black","k":"surface"},{"f":"xjghdgl","n":"Fabric Generic Leather Top Grain Brown","k":"surface"},{"f":"xjghdaf","n":"Fabric Generic Leather Full Grain Black","k":"surface"},{"f":"xjghehz","n":"Fabric Generic Leather Top Grain Dark Brown","k":"surface"},{"f":"xjgjdhp","n":"Fabric Clothes Leather Full Grain Dark Red","k":"surface"},{"f":"xjgkaat","n":"Fabric Generic Leather Top Grain Smooth Black","k":"surface"},{"f":"xjgkdhh","n":"Fabric Generic Leather Top Grain White","k":"surface"},{"f":"xjviejd","n":"Fabric Generic Jute Plain Weave","k":"surface"},{"f":"xfeced0qx","n":"Fabric Clothes Cotton Plain Weave White","k":"surface"},{"f":"xfeieh0qx","n":"Fabric Clothes Cotton Polyester Plain Weave Brown","k":"surface"},{"f":"xgmcfjrqx","n":"Fabric Generic Leather Top Grain Black","k":"surface"},{"f":"xgbcediqx","n":"Fabric Clothes Cotton Twill Weave Gray","k":"surface"},{"f":"xgbdfdxqx","n":"Fabric Clothes Cotton Twill Weave Dark Gray","k":"surface"},{"f":"xkskbia","n":"Fabric Clothes Cotton Polyester Twill Weave Black","k":"surface"},{"f":"xicdeciqx","n":"Fabric Clothes Wool Plain Weave Dark Brown","k":"surface"},{"f":"xicdcjeqx","n":"Fabric Clothes Wool Plain Weave Brown","k":"surface"},{"f":"xjembfg","n":"Fabric Generic Leather Smooth Red","k":"surface"},{"f":"xjghddi","n":"Fabric Generic Leather Suede Light Brown","k":"surface"},{"f":"xjghfgu","n":"Fabric Generic Leather Full Grain Brown","k":"surface"},{"f":"xkskfhh","n":"Fabric Clothes Cotton Plain Weave Blue","k":"surface"},{"f":"xiddcckqx","n":"Fabric Clothes Cotton Plain Weave Green","k":"surface"},{"f":"xisiafjl","n":"Denim","k":"surface"},{"f":"xiurbeml","n":"Denim","k":"surface"},{"f":"xiurcgzl","n":"Unfinished Leather","k":"surface"},{"f":"xiurdgvl","n":"Top Grain Leather","k":"surface"},{"f":"xivree2l","n":"Plain Weave Cotton","k":"surface"},{"f":"xiymfewl","n":"Suede Leather","k":"surface"},{"f":"xiurebbl","n":"Plain Weave Cotton","k":"surface"},{"f":"xiureftl","n":"Plain Weave Polyester Cotton Mix","k":"surface"},{"f":"xiurfbil","n":"Rope Net","k":"surface"},{"f":"xiymcbyl","n":"Top Grain Leather","k":"surface"},{"f":"xiymdeol","n":"Suede Leather","k":"surface"},{"f":"xiynajwl","n":"Plain Weave Cotton","k":"surface"},{"f":"xiynbeil","n":"Plain Weave Cotton","k":"surface"},{"f":"xiyncbcl","n":"Crepe Weave Jute","k":"surface"},{"f":"xi2kdjxl","n":"Suede Leather","k":"surface"},{"f":"xi2kedtl","n":"Top Grain Leather","k":"surface"},{"f":"xi2kehol","n":"Dobby Weave Cotton","k":"surface"}]},"animal-bones":{"url":"https://quixel.com/megascans/collections?category=environment&category=natural&category=animal-bones","sub":"Add life to your scene with these highly detailed skull and bones","count":38,"assets":[{"f":"wk5hci0","n":"Skulls Horn","k":"3d"},{"f":"wk5jaai","n":"Skulls Horn","k":"3d"},{"f":"wk2nact","n":"Skull","k":"3d"},{"f":"whwifez","n":"Animal Bone","k":"3d"},{"f":"wk2kbfj","n":"Skull","k":"3d"},{"f":"wk5iect","n":"Skull","k":"3d"},{"f":"wk5hfcl","n":"Animal Skull","k":"3d"},{"f":"wk2nbaf","n":"Skull","k":"3d"},{"f":"wk2kafe","n":"Skull","k":"3d"},{"f":"wk2kagl","n":"Animal Skull","k":"3d"},{"f":"wk5idgv","n":"Skull","k":"3d"},{"f":"wk5ifhn","n":"Skull","k":"3d"},{"f":"wk5ifjf","n":"Animal Skull","k":"3d"},{"f":"vikkdgxaa","n":"Damaged Animal Skull","k":"3d"},{"f":"viljadhaa","n":"Animal Jaw Bone","k":"3d"},{"f":"vikjeeraa","n":"Animal Skull","k":"3d"},{"f":"vififeyaa","n":"Animal Skull","k":"3d"},{"f":"vigjcekaa","n":"Animal Skull","k":"3d"},{"f":"vigichmaa","n":"Animal Skull","k":"3d"},{"f":"vilicfiaa","n":"Animal Jaw Bone","k":"3d"},{"f":"vd4lejkaa","n":"Animal Leg Bone","k":"3d"},{"f":"vebhfbraa","n":"Animal Leg Bone","k":"3d"},{"f":"vevlaa3aa","n":"Knucklebone","k":"3d"},{"f":"viljdglaa","n":"Animal Jaw Bone","k":"3d"},{"f":"vevkfjsaa","n":"Animal Leg Bone","k":"3d"},{"f":"vd5jei1aa","n":"Animal Leg Bone","k":"3d"},{"f":"uk1cdish","n":"Scattered Bones","k":"surface"},{"f":"uk1cdj1h","n":"Scattered Bones","k":"surface"},{"f":"uk1cdibh","n":"Scattered Bones","k":"surface"},{"f":"uk1cdguh","n":"Scattered Bones","k":"surface"},{"f":"uk1ceb1h","n":"Scattered Bones","k":"surface"},{"f":"uk1cecth","n":"Scattered Bones","k":"surface"},{"f":"uk1ceazh","n":"Scattered Bones","k":"surface"},{"f":"ukxiabph","n":"Scattered Bones","k":"surface"},{"f":"tcugcajfa","n":"Ram Leg Bone","k":"3d"},{"f":"tiiiej1fa","n":"Ram Leg Bone","k":"3d"},{"f":"tiiief2fa","n":"Ram Skull","k":"3d"},{"f":"tiiieh1fa","n":"Ram Leg Bone","k":"3d"}]}}</script>
+<script src="assets/js/site.js?v=1791750848"></script>
+<script src="assets/js/page.js?v=1791750848"></script>
+<script src="assets/js/boot.js?v=1791750848"></script>
 </body>
 </html>

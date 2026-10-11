@@ -15,7 +15,7 @@
 
 /* hero */
 .hero{position:relative;overflow:hidden;isolation:isolate}
-.hero h1{font:400 clamp(2.8rem,6.3vw,7.2rem)/.98 var(--disp);letter-spacing:-.045em;max-width:17ch;position:relative;z-index:2}
+.hero h1{font:400 clamp(2.8rem,6.3vw,7.2rem)/.98 var(--disp);letter-spacing:-.045em;max-width:20ch;position:relative;z-index:2}
 .hero h1 [data-h]{display:none}
 [data-hl="1"] .hero h1 [data-h="1"],[data-hl="2"] .hero h1 [data-h="2"],[data-hl="3"] .hero h1 [data-h="3"],[data-hl="4"] .hero h1 [data-h="4"]{display:inline}
 .hero-foot{position:relative;z-index:2;grid-template-columns:minmax(0,38rem)}

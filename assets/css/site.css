@@ -208,3 +208,12 @@ a.cs-row:hover h3{color:var(--pc)}
   .light .nums div:nth-child(3) b,.light .outcome:nth-child(3) .outcome-num{color:oklch(from var(--n3) min(l, .6) min(c, .2) h)}
   .light .nums div:nth-child(4) b,.light .outcome:nth-child(4) .outcome-num{color:oklch(from var(--n4) min(l, .6) min(c, .2) h)}
 }
+
+/* the story, on its own page: one reading column, lined up with the case study's */
+.story-page{padding:0 var(--gut) clamp(5rem,12vh,8rem)}
+.story-page .story-text{border-top:1px solid var(--line);padding:clamp(3.5rem,9vh,6rem) 0 0 calc(15rem + clamp(2rem,6vw,6rem))}
+.story-page .story-text p{max-width:44rem}
+.story-page .story-text .story-end{max-width:40rem}
+@media (max-width:900px){.story-page .story-text{padding-left:0}}
+/* with the story gone from the home page, a rule between the hero and the work */
+.hero + .band{border-top:1px solid var(--line)}

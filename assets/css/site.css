@@ -181,3 +181,30 @@ a.cs-row:hover h3{color:var(--pc)}
 .outcome-label{margin-top:.8rem;font-size:14.5px;color:var(--mute);line-height:1.45}
 @media (max-width:900px){.cs-sec{grid-template-columns:1fr}.cs-label{margin:0}.outcomes{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.weight-table td:first-child{white-space:normal;padding-right:1rem}}
+
+/* the logos of where I've worked, under the heading: drawn in the ink colour, so they suit either theme */
+.logos{list-style:none;margin:0;padding:0 0 clamp(2rem,5vh,3rem);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:1.5rem}
+.logos a{display:flex;align-items:center;height:64px;width:max-content;border-radius:6px}
+.logos img{display:block;width:auto;opacity:.82;transition:opacity .3s}
+.logos a:hover img,.logos a:focus-visible img{opacity:1}
+.logos a:focus-visible{outline:2px solid var(--c1);outline-offset:6px}
+.light .logos img{filter:brightness(0)}
+.lg-ccp{height:54px}.lg-epic{height:56px}.lg-quixel{height:30px}.lg-motive{height:27px}
+@media (max-width:700px){
+  .logos{gap:1rem}
+  .logos a{height:44px}
+  .lg-ccp{height:33px}.lg-epic{height:36px}.lg-quixel{height:19px}.lg-motive{height:16px}
+}
+
+/* On Paper, any slide colour used for text is deepened to the same hue at a readable depth, so yellows, greens and blues work on the light page too */
+@supports (color: oklch(from red l c h)) {
+  .light .k,.light .tx{color:oklch(from var(--kc) min(l, .56) min(c, .2) h)}
+  .light .sub-head h3 span,.light .card h3 span{color:oklch(from var(--ptc,var(--pc)) min(l, .58) min(c, .2) h)}
+  .light .cs-row .co,.light .wr-row .co,.light .cs-label,.light .cs-hero .top-line b{color:oklch(from var(--pc) min(l, .5) min(c, .19) h)}
+  .light a.cs-row:hover h3,.light a.wr-row:hover h3,.light .go-link:hover,.light .coll-list button.on i{color:oklch(from var(--pc) min(l, .52) min(c, .19) h)}
+  .light .story-body strong{color:oklch(from var(--c1) min(l, .52) min(c, .19) h)}
+  .light .nums div:nth-child(1) b,.light .outcome:nth-child(1) .outcome-num{color:oklch(from var(--n1) min(l, .6) min(c, .2) h)}
+  .light .nums div:nth-child(2) b,.light .outcome:nth-child(2) .outcome-num{color:oklch(from var(--n2) min(l, .6) min(c, .2) h)}
+  .light .nums div:nth-child(3) b,.light .outcome:nth-child(3) .outcome-num{color:oklch(from var(--n3) min(l, .6) min(c, .2) h)}
+  .light .nums div:nth-child(4) b,.light .outcome:nth-child(4) .outcome-num{color:oklch(from var(--n4) min(l, .6) min(c, .2) h)}
+}

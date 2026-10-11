@@ -12,8 +12,8 @@ document.documentElement.classList.add('js');
     tide: { name:'Tide', bg:'#03080A', bg2:'#111A1E', ink:'#EEF7F8', mute:'#93A4AB', c:[p.teal, p.blue, p.lime, p.indigo], w:[p.green, p.lime, p.teal, p.blue, p.indigo, p.purple], o:COOL, pool:[p.blue, p.teal, p.green, p.lime, p.indigo, p.purple] },
     blocks: { name:'Blocks', bg:'#000000', bg2:'#202124', ink:'#FFFFFF', mute:'#AAAAAE', c:[p.lime, p.pink, p.yellow, p.blue], w:[p.green, p.lime, p.orange, p.blue, p.pink, p.indigo], o:ALL, pool:ALL,
       chips:true, n:['#000000', '#000000', '#000000', '#000000'], hero:{ bg:p.indigo, ink:'#000000', mute:'rgba(0,0,0,.72)' }, num:{ bg:p.yellow, ink:'#000000' }, ct:{ bg:p.pink, ink:'#000000', mute:'rgba(0,0,0,.66)' } },
-    // Paper: the slide palette too, keeping the colours that read as text on a light page (yellow, lime, teal, green, blue and orange don't)
-    paper: { name:'Paper', bg:'#F3F3F3', bg2:'#E4E4E6', ink:'#0A0A0A', mute:'#5E5E63', line:'rgba(0,0,0,.13)', shadow:'rgba(0,0,0,.28)', c:[p.indigo, p.vermilion, p.purple, p.red], w:[p.indigo, p.red, p.purple, p.clay, p.vermilion, p.pink], o:ALL, pool:[p.indigo, p.vermilion, p.purple, p.red, p.pink, p.clay], light:true }
+    // Paper: the whole slide palette. Where a colour is used for text, the CSS deepens it (site.css), so yellows and greens still read on a light page
+    paper: { name:'Paper', bg:'#F3F3F3', bg2:'#E4E4E6', ink:'#0A0A0A', mute:'#5E5E63', line:'rgba(0,0,0,.13)', shadow:'rgba(0,0,0,.28)', c:[p.indigo, p.green, p.vermilion, p.yellow], w:[p.indigo, p.green, p.yellow, p.blue, p.vermilion, p.purple], o:ALL, pool:ALL, light:true }
   };
   // the site offers two themes and a shuffle; the other presets stay defined for the older concept pages
   const ORDER = ['paper', 'spectrum'];
@@ -65,8 +65,8 @@ document.documentElement.classList.add('js');
     const pool = (state.pool || ALL).filter(x => x.toLowerCase() !== state.v.bg.toLowerCase());
     const pick = pool.slice().sort(() => Math.random() - .5);
     for (let i = 1; i <= 4; i++) setAccent(i, pick[(i - 1) % pick.length]);
-    // section colours: any of the twelve on a dark page; on Paper only the ones that read as text
-    const w = (state.light ? pool : ALL).slice().sort(() => Math.random() - .5);
+    // section colours: any of the twelve
+    const w = ALL.slice().sort(() => Math.random() - .5);
     for (let i = 1; i <= 6; i++) state.v['w' + i] = w[i - 1];
     state.key = null; paint();
   }

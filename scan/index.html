@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scan to asset · Haseeb Naveed</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<link rel="preload" href="/fonts/intertight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter Tight';src:url(/fonts/intertight-latin.woff2) format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Inter';src:url(/fonts/inter-latin.woff2) format('woff2');font-weight:100 900;font-display:swap}
+:root{
+  --bg:#000000; --bg2:#202124; --ink:#FFFFFF; --mute:#AAAAAE; --line:rgba(255,255,255,.14);
+  --pc:#46C862;
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --disp:'Inter Tight','Inter',system-ui,sans-serif;
+  --gut:clamp(1rem,4vw,3.5rem);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.intro,.outro{min-height:70vh;min-height:70svh;padding:clamp(2.5rem,9vh,6.5rem) var(--gut);display:flex;flex-direction:column;justify-content:flex-end}
+.intro h1{font:400 clamp(2.7rem,6.4vw,6.4rem)/.98 var(--disp);letter-spacing:-.04em;margin:0}
+.intro h1 span{color:var(--pc)}
+.intro p,.outro p{color:var(--mute);margin:1.4rem 0 0;max-width:34rem;font-size:clamp(1.05rem,1.25vw,1.2rem)}
+.outro{justify-content:center}
+.outro p{margin:0}
+.outro a{color:var(--ink)}
+.s-load{position:absolute;inset:0;z-index:3;display:grid;place-items:center;font-size:14px;color:var(--mute);transition:opacity .6s;pointer-events:none}
+.s-load.done{opacity:0}
+.scan-track{height:430vh;position:relative}
+.scan-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(ellipse 60% 55% at 62% 52%,var(--bg2),var(--bg) 100%)}
+.scan-stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.steps{position:absolute;left:var(--gut);top:50%;translate:0 -50%;z-index:2;list-style:none;margin:0;padding:0;width:min(20rem,30vw);display:flex;flex-direction:column;gap:1.3rem}
+.steps li{display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:0 .4rem;opacity:.32;transition:opacity .5s var(--ease)}
+.steps li.on{opacity:1}
+.steps li i{grid-row:span 2;font:400 15px/1.5 var(--font);font-style:normal;color:var(--mute);font-variant-numeric:tabular-nums}
+.steps li.on i{color:var(--pc)}
+.steps b{font:400 clamp(1.5rem,2.3vw,2.2rem)/1.15 var(--disp);letter-spacing:-.03em}
+.steps span{color:var(--mute);font-size:15px;max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .6s var(--ease),margin .6s var(--ease)}
+.steps li.on span{max-height:6em;opacity:1;margin-top:.35rem}
+.scan-bar{position:absolute;left:var(--gut);right:var(--gut);bottom:1.6rem;height:2px;background:var(--line);z-index:2}
+.scan-bar i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--p,0) * 100%);background:var(--pc)}
+.scan-hint{position:absolute;right:var(--gut);bottom:2.6rem;z-index:2;margin:0;font-size:13.5px;color:var(--mute);transition:opacity .4s}
+@media (max-width:1000px){
+  .steps{width:auto;right:var(--gut);top:auto;bottom:4.2rem;translate:none;gap:.5rem}
+  .steps li:not(.on){display:none}
+  .scan-stage{background:radial-gradient(ellipse 80% 50% at 50% 38%,var(--bg2),var(--bg) 100%)}
+}
+@media (max-width:640px){body{font-size:16px}}
+</style>
+<script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js","three/addons/":"/vendor/three/addons/"}}</script>
+</head>
+<body>
+<section class="intro">
+  <h1>Scan to <span>asset</span>.</h1>
+  <p>Scrolling plays the rock's whole life: photographed from every side, turned into a point cloud, meshed, then textured.</p>
+</section>
+<div class="scan-track" id="scanTrack">
+  <div class="scan-stage">
+    <canvas aria-label="The rock going from photos to point cloud to mesh to textured asset as you scroll"></canvas>
+    <ol class="steps" id="scanSteps">
+      <li class="on"><i>1</i><b>Capture</b><span>Photos of the rock from every side, in flat, even light.</span></li>
+      <li><i>2</i><b>Point cloud</b><span>Matching the same details across photos puts each point in 3D.</span></li>
+      <li><i>3</i><b>Mesh</b><span>The points are joined into a surface: 143,388 triangles for this one.</span></li>
+      <li><i>4</i><b>Textures</b><span>Colour, normal and roughness maps, baked from the photos.</span></li>
+    </ol>
+    <p class="scan-hint" id="scanHint">Keep scrolling</p>
+    <div class="scan-bar" aria-hidden="true"><i></i></div>
+    <div class="s-load" id="scanLoad">Loading the scan</div>
+  </div>
+</div>
+<section class="outro">
+  <p>Made by <a href="/">Haseeb Naveed</a>.</p>
+</section>
+<script>window.gfx = { v: { w1: '#46C862' } };</script>
+<script type="module">
+import scan from './fx/scan.js';
+scan(document.getElementById('scanTrack'));
+</script>
+</body>
+</html>
